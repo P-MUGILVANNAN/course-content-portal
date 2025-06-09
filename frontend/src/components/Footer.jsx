@@ -55,7 +55,7 @@ function Footer() {
             <ul className="list-unstyled">
               <li className="mb-2">
                 <i className="bi bi-envelope me-2 text-primary"></i>
-                fiitformacion@gmail.com
+                fiit.iyyappanthangal@gmail.com
               </li>
               <li className="mb-2">
                 <i className="bi bi-telephone me-2 text-primary"></i>

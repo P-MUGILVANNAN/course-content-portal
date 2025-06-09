@@ -17,6 +17,11 @@ import NodeJsNotes from './pages/courses/NodeJsNotes';
 import PythonNotes from './pages/courses/PythonNotes';
 import JavaNotes from './pages/courses/JavaNotes';
 import ExpressNotes from './pages/courses/ExpressJsNotes';
+import MySqlNotes from './pages/courses/MySqlNotes';
+import MongoDBNotes from './pages/courses/MongoDBNotes';
+import SqlNotes from './pages/courses/SqlNotes';
+import CNotes from './pages/courses/CNotes';
+import CppNotes from './pages/courses/CppNotes';
 
 function Layout() {
   return (
@@ -39,6 +44,11 @@ function Layout() {
           <Route path='/python-course' element={<PythonNotes />} />
           <Route path='/java-course' element={<JavaNotes />} />
           <Route path='/express-course' element={<ExpressNotes />} />
+          <Route path='/db-mysql' element={<MySqlNotes />} />
+          <Route path='/db-mongodb' element={<MongoDBNotes />} />
+          <Route path='/sql-course' element={<SqlNotes />} />
+          <Route path='/c-course' element={<CNotes />} />
+          <Route path='/cpp-course' element={<CppNotes />} />
         </Routes>
       </div>
 

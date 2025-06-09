@@ -34,6 +34,12 @@ function AllCourses() {
             templateLink: "/trainer/react-course"
         },
         {
+            title: "Angular",
+            description: "Build modern web applications",
+            icon: "box-seam",
+            templateLink: "/trainer/angular-course"
+        },
+        {
             title: "Node.js",
             description: "Server-side JavaScript development",
             icon: "node-plus",
