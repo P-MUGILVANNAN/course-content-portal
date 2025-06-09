@@ -13,7 +13,7 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/users/login', { email, password });
+      const response = await axios.post('https://course-content-portal.onrender.com/api/users/login', { email, password });
       const { token } = response.data;
       localStorage.setItem('token', token);
       console.log('Login successful. Navigating to /...');

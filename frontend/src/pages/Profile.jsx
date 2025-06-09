@@ -20,7 +20,7 @@ function Profile() {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/users/profile', {
+        const response = await fetch('https://course-content-portal.onrender.com/api/users/profile', {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}` // Assuming you use JWT
           }
@@ -103,7 +103,7 @@ function Profile() {
         formData.append('profileImage', document.querySelector('input[type="file"]').files[0]);
       }
 
-      const response = await fetch('http://localhost:5000/api/users/profile', {
+      const response = await fetch('https://course-content-portal.onrender.com/api/users/profile', {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`

@@ -14,7 +14,7 @@ export default function Signup() {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/users/signup', {
+      const response = await axios.post('https://course-content-portal.onrender.com/api/users/signup', {
         name, email, password
       });
       const { token } = response.data;
