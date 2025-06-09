@@ -85,7 +85,7 @@ function Navbar({ user }) {
 
               <ul className="dropdown-menu dropdown-menu-lg-end bg-dark border border-warning shadow-lg">
                 <li>
-                  <Link className="dropdown-item text-light hover-bg-gold" to="/profile">
+                  <Link className="dropdown-item text-light hover-bg-gold" to="/trainer/profile">
                     <i className="bi bi-person-fill me-2 text-warning"></i>My Profile
                   </Link>
                 </li>
