@@ -9,7 +9,7 @@ import Navbar from './components/Navbar';
 import Profile from './pages/Profile';
 import AllCourses from './pages/AllCourses';
 import Html from './pages/courses/Html';
-import CssNotes from './pages/courses/CSSNotes';
+import CssNotes from './pages/courses/CssNotes';
 import JavascriptNotes from './pages/courses/JavascriptNotes';
 import BootstrapNotes from './pages/courses/BootstrapNotes';
 import ReactNotes from './pages/courses/ReactNotes';
