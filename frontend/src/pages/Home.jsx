@@ -24,7 +24,7 @@ function Home() {
     {
       title: "React JS",
       description: "Build modern web applications",
-      icon: "react",
+      icon: "filetype-jsx",
       templateLink: "/trainer/react-course"
     },
     {

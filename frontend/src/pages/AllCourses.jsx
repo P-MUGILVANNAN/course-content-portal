@@ -24,13 +24,13 @@ function AllCourses() {
         {
             title: "Bootstrap",
             description: "Add responsive across all design",
-            icon: "filetype-bootstrap",
+            icon: "bootstrap",
             templateLink: "/trainer/bs-course"
         },
         {
             title: "React JS",
             description: "Build modern web applications",
-            icon: "react",
+            icon: "filetype-jsx",
             templateLink: "/trainer/react-course"
         },
         {
@@ -62,13 +62,13 @@ function AllCourses() {
         {
             title: "JSP",
             description: "Java Server Pages development",
-            icon: "filetype-jsp",
+            icon: "file-earmark-code",
             templateLink: "/trainer/jsp-course"
         },
         {
             title: "Spring Boot",
             description: "Enterprise Java applications",
-            icon: "springboot",
+            icon: "flower1",
             templateLink: "/trainer/springboot-course"
         },
         
@@ -82,7 +82,7 @@ function AllCourses() {
         {
             title: "Django",
             description: "Python web framework",
-            icon: "filetype-django",
+            icon: "terminal-fill",
             templateLink: "/trainer/django-course"
         },
         
@@ -90,19 +90,19 @@ function AllCourses() {
         {
             title: "C Programming",
             description: "Learn foundational C programming",
-            icon: "filetype-c",
+            icon: "filetype-cs",
             templateLink: "/trainer/c-course"
         },
         {
             title: "C++ Programming",
             description: "Object-oriented C++ development",
-            icon: "filetype-cpp",
+            icon: "filetype-cs",
             templateLink: "/trainer/cpp-course"
         },
         {
             title: "C# Programming",
             description: ".NET development with C#",
-            icon: "filetype-cs",
+            icon: "hash",
             templateLink: "/trainer/csharp-course"
         },
         
@@ -116,7 +116,7 @@ function AllCourses() {
         {
             title: "Laravel",
             description: "PHP web framework",
-            icon: "laravel",
+            icon: "layers",
             templateLink: "/trainer/laravel-course"
         },
         
