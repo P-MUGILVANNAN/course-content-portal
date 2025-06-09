@@ -8,7 +8,7 @@ import Logout from './pages/Logout';
 import Navbar from './components/Navbar';
 import Profile from './pages/Profile';
 import AllCourses from './pages/AllCourses';
-import Html from './pages/courses/Html';
+import Html from './pages/courses/html/Html';
 import CssNotes from './pages/courses/CssNotes';
 import JavascriptNotes from './pages/courses/JavascriptNotes';
 import BootstrapNotes from './pages/courses/BootstrapNotes';
