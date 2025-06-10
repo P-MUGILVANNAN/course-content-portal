@@ -23,6 +23,9 @@ import SqlNotes from './pages/courses/SqlNotes';
 import CNotes from './pages/courses/CNotes';
 import CppNotes from './pages/courses/CppNotes';
 import AngularNotes from './pages/courses/AngularNotes';
+import ServletNotes from './pages/courses/ServletNotes';
+import DjangoNotes from './pages/courses/DjangoNotes';
+import JspNotes from './pages/courses/JspNotes';
 
 function Layout() {
   return (
@@ -51,6 +54,9 @@ function Layout() {
           <Route path='/c-course' element={<CNotes />} />
           <Route path='/cpp-course' element={<CppNotes />} />
           <Route path='/angular-course' element={<AngularNotes />} />
+          <Route path='/servlets-course' element={<ServletNotes />} />
+          <Route path='/django-course' element={<DjangoNotes />} />
+          <Route path='/jsp-course' element={<JspNotes />} />
         </Routes>
       </div>
 
