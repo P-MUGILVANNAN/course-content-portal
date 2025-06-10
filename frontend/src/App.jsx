@@ -22,6 +22,7 @@ import MongoDBNotes from './pages/courses/MongoDBNotes';
 import SqlNotes from './pages/courses/SqlNotes';
 import CNotes from './pages/courses/CNotes';
 import CppNotes from './pages/courses/CppNotes';
+import AngularNotes from './pages/courses/AngularNotes';
 
 function Layout() {
   return (
@@ -49,6 +50,7 @@ function Layout() {
           <Route path='/sql-course' element={<SqlNotes />} />
           <Route path='/c-course' element={<CNotes />} />
           <Route path='/cpp-course' element={<CppNotes />} />
+          <Route path='/angular-course' element={<AngularNotes />} />
         </Routes>
       </div>
 

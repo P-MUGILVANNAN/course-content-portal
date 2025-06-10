@@ -105,27 +105,6 @@ function AllCourses() {
             icon: "filetype-cs",
             templateLink: "/trainer/cpp-course"
         },
-        {
-            title: "C# Programming",
-            description: ".NET development with C#",
-            icon: "hash",
-            templateLink: "/trainer/csharp-course"
-        },
-        
-        // PHP Ecosystem
-        {
-            title: "PHP Programming",
-            description: "Server-side web development",
-            icon: "filetype-php",
-            templateLink: "/trainer/php-course"
-        },
-        {
-            title: "Laravel",
-            description: "PHP web framework",
-            icon: "layers",
-            templateLink: "/trainer/laravel-course"
-        },
-        
         // Databases
         {
             title: "SQL Fundamentals",
