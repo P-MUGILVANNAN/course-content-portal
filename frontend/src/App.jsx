@@ -26,6 +26,7 @@ import AngularNotes from './pages/courses/AngularNotes';
 import ServletNotes from './pages/courses/ServletNotes';
 import DjangoNotes from './pages/courses/DjangoNotes';
 import JspNotes from './pages/courses/JspNotes';
+import SpringBootNotes from './pages/courses/SpringBootNotes';
 
 function Layout() {
   return (
@@ -57,6 +58,7 @@ function Layout() {
           <Route path='/servlets-course' element={<ServletNotes />} />
           <Route path='/django-course' element={<DjangoNotes />} />
           <Route path='/jsp-course' element={<JspNotes />} />
+          <Route path='/springboot-course' element={<SpringBootNotes />} />
         </Routes>
       </div>
 
