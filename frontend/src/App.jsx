@@ -27,6 +27,20 @@ import ServletNotes from './pages/courses/ServletNotes';
 import DjangoNotes from './pages/courses/DjangoNotes';
 import JspNotes from './pages/courses/JspNotes';
 import SpringBootNotes from './pages/courses/SpringBootNotes';
+import LaravelNotes from './pages/courses/LaravelNotes';
+import PhpNotes from './pages/courses/PhpNotes';
+import TypeScriptNotes from './pages/courses/TypeScriptNotes';
+import NumpyNotes from './pages/courses/NumpyNotes';
+import ScipyNotes from './pages/courses/ScipyNotes';
+import PandasNotes from './pages/courses/PandasNotes';
+import MatplotlibNotes from './pages/courses/MatplotlibNotes';
+import SeabornNotes from './pages/courses/SeabornNotes';
+import AiNotes from './pages/courses/AiNotes';
+import MachineLearningNotes from './pages/courses/MachineLearningNotes';
+import GitNotes from './pages/courses/GitNotes';
+import CsharpNotes from './pages/courses/CsharpNotes';
+import FlutterNotes from './pages/courses/FlutterNotes';
+import ReactNativeNotes from './pages/courses/ReactNativeNotes';
 
 function Layout() {
   return (
@@ -59,6 +73,20 @@ function Layout() {
           <Route path='/django-course' element={<DjangoNotes />} />
           <Route path='/jsp-course' element={<JspNotes />} />
           <Route path='/springboot-course' element={<SpringBootNotes />} />
+          <Route path='/laravel-course' element={<LaravelNotes />} />
+          <Route path='/php-course' element={<PhpNotes />} />
+          <Route path='/ts-course' element={<TypeScriptNotes />} />
+          <Route path='/numpy-course' element={<NumpyNotes />} />
+          <Route path='/scipy-course' element={<ScipyNotes />} />
+          <Route path='/pandas-course' element={<PandasNotes />} />
+          <Route path='/matplot-course' element={<MatplotlibNotes />} />
+          <Route path='/seaborn-course' element={<SeabornNotes />} />
+          <Route path='/ai-course' element={<AiNotes />} />
+          <Route path='/ml-course' element={<MachineLearningNotes />} />
+          <Route path='/github-course' element={<GitNotes />} />
+          <Route path='/csharp-course' element={<CsharpNotes />} />
+          <Route path='/flutter-course' element={<FlutterNotes />} />
+          <Route path='/reactnative-course' element={<ReactNativeNotes />} />
         </Routes>
       </div>
 

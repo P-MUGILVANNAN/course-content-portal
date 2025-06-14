@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function AllCourses() {
     const courses = [
@@ -7,49 +7,64 @@ function AllCourses() {
             title: "HTML Fundamentals",
             description: "Master the building blocks of web development",
             icon: "filetype-html",
-            templateLink: "/trainer/html-course"
+            templateLink: "/trainer/html-course",
+            category: "Web Development"
         },
         {
             title: "CSS Styling",
             description: "Learn to style beautiful websites",
             icon: "filetype-css",
-            templateLink: "/trainer/css-course"
+            templateLink: "/trainer/css-course",
+            category: "Web Development"
         },
         {
             title: "JavaScript Programming",
             description: "Add interactivity to your websites",
             icon: "filetype-js",
-            templateLink: "/trainer/js-course"
+            templateLink: "/trainer/js-course",
+            category: "Web Development"
+        },
+        {
+            title: "TypeScript Programming",
+            description: "Superset of JS",
+            icon: "filetype-tsx",
+            templateLink: "/trainer/ts-course",
+            category: "Web Development"
         },
         {
             title: "Bootstrap",
             description: "Add responsive across all design",
             icon: "bootstrap",
-            templateLink: "/trainer/bs-course"
+            templateLink: "/trainer/bs-course",
+            category: "Web Development"
         },
         {
             title: "React JS",
             description: "Build modern web applications",
             icon: "filetype-jsx",
-            templateLink: "/trainer/react-course"
+            templateLink: "/trainer/react-course",
+            category: "Web Development"
         },
         {
             title: "Angular",
             description: "Build modern web applications",
             icon: "box-seam",
-            templateLink: "/trainer/angular-course"
+            templateLink: "/trainer/angular-course",
+            category: "Web Development"
         },
         {
             title: "Node.js",
             description: "Server-side JavaScript development",
             icon: "node-plus",
-            templateLink: "/trainer/node-course"
+            templateLink: "/trainer/node-course",
+            category: "Web Development"
         },
         {
             title: "Express.js",
             description: "Build robust backend services",
             icon: "server",
-            templateLink: "/trainer/express-course"
+            templateLink: "/trainer/express-course",
+            category: "Web Development"
         },
         
         // Java Ecosystem
@@ -57,25 +72,29 @@ function AllCourses() {
             title: "Core Java",
             description: "Master Java programming fundamentals",
             icon: "filetype-java",
-            templateLink: "/trainer/java-course"
+            templateLink: "/trainer/java-course",
+            category: "Java"
         },
         {
             title: "Java Servlets",
             description: "Web development with Java Servlets",
             icon: "file-earmark-code",
-            templateLink: "/trainer/servlets-course"
+            templateLink: "/trainer/servlets-course",
+            category: "Java"
         },
         {
             title: "JSP",
             description: "Java Server Pages development",
             icon: "file-earmark-code",
-            templateLink: "/trainer/jsp-course"
+            templateLink: "/trainer/jsp-course",
+            category: "Java"
         },
         {
             title: "Spring Boot",
             description: "Enterprise Java applications",
             icon: "flower1",
-            templateLink: "/trainer/springboot-course"
+            templateLink: "/trainer/springboot-course",
+            category: "Java"
         },
         
         // Python Ecosystem
@@ -83,13 +102,65 @@ function AllCourses() {
             title: "Core Python",
             description: "Python programming fundamentals",
             icon: "filetype-py",
-            templateLink: "/trainer/python-course"
+            templateLink: "/trainer/python-course",
+            category: "Python"
         },
         {
             title: "Django",
             description: "Python web framework",
             icon: "terminal-fill",
-            templateLink: "/trainer/django-course"
+            templateLink: "/trainer/django-course",
+            category: "Python"
+        },
+        {
+            title: "Numpy",
+            description: "Python module",
+            icon: "calculator",
+            templateLink: "/trainer/numpy-course",
+            category: "Python"
+        },
+        {
+            title: "Scipy",
+            description: "Python module",
+            icon: "gear",
+            templateLink: "/trainer/scipy-course",
+            category: "Python"
+        },
+        {
+            title: "Pandas",
+            description: "Python module",
+            icon: "table",
+            templateLink: "/trainer/pandas-course",
+            category: "Python"
+        },
+        {
+            title: "MatPlotLib",
+            description: "Python module",
+            icon: "pie-chart",
+            templateLink: "/trainer/matplot-course",
+            category: "Python"
+        },
+        {
+            title: "Seaborn",
+            description: "Python module",
+            icon: "bar-chart",
+            templateLink: "/trainer/seaborn-course",
+            category: "Python"
+        },
+        // AI Fundamentals
+        {
+            title: "Artificial Intelligence",
+            description: "AI",
+            icon: "cpu",
+            templateLink: "/trainer/ai-course",
+            category: "AI/ML"
+        },
+        {
+            title: "Machine Learning",
+            description: "Dive into machine learning",
+            icon: "diagram-3",
+            templateLink: "/trainer/ml-course",
+            category: "AI/ML"
         },
         
         // C Family
@@ -97,34 +168,115 @@ function AllCourses() {
             title: "C Programming",
             description: "Learn foundational C programming",
             icon: "filetype-cs",
-            templateLink: "/trainer/c-course"
+            templateLink: "/trainer/c-course",
+            category: "C Family"
         },
         {
             title: "C++ Programming",
             description: "Object-oriented C++ development",
             icon: "filetype-cs",
-            templateLink: "/trainer/cpp-course"
+            templateLink: "/trainer/cpp-course",
+            category: "C Family"
+        },
+        {
+            title: "C# Programming",
+            description: "Object-oriented C## development",
+            icon: "filetype-cs",
+            templateLink: "/trainer/csharp-course",
+            category: "C Family"
+        },
+        // PHP Ecosystem
+        {
+            title: "PHP",
+            description: "Object-oriented PHP development",
+            icon: "filetype-php",
+            templateLink: "/trainer/php-course",
+            category: "PHP"
+        },
+        {
+            title: "Laravel",
+            description: "PHP Web Framework",
+            icon: "box-seam",
+            templateLink: "/trainer/laravel-course",
+            category: "PHP"
         },
         // Databases
         {
             title: "SQL Fundamentals",
             description: "Database querying with SQL",
             icon: "filetype-sql",
-            templateLink: "/trainer/sql-course"
+            templateLink: "/trainer/sql-course",
+            category: "Databases"
         },
         {
             title: "MongoDB",
             description: "NoSQL database development",
             icon: "database",
-            templateLink: "/trainer/db-mongodb"
+            templateLink: "/trainer/db-mongodb",
+            category: "Databases"
         },
         {
             title: "MySQL",
             description: "Relational database management",
             icon: "database",
-            templateLink: "/trainer/db-mysql"
+            templateLink: "/trainer/db-mysql",
+            category: "Databases"
+        },
+        // Mobile App Development
+        {
+            title: "Flutter",
+            description: "Mobile App Developing using Flutter",
+            icon: "layers",
+            templateLink: "/trainer/flutter-course",
+            category: "Mobile App"
+        },
+        {
+            title: "React-Native",
+            description: "Mobile App Developing using React-native",
+            icon: "filetype-jsx",
+            templateLink: "/trainer/reactnative-course",
+            category: "Mobile App"
+        },
+        
+        // Github
+        {
+            title: "Git & GitHub",
+            description: "Version control system",
+            icon: "github",
+            templateLink: "/trainer/github-course",
+            category: "Tools"
         }
     ];
+
+    // State for pagination and filtering
+    const [currentPage, setCurrentPage] = useState(1);
+    const [selectedCategory, setSelectedCategory] = useState("All");
+    const coursesPerPage = 7;
+
+    // Filter courses by category
+    const filteredCourses = selectedCategory === "All" 
+        ? courses 
+        : courses.filter(course => course.category === selectedCategory);
+
+    // Get current courses
+    const indexOfLastCourse = currentPage * coursesPerPage;
+    const indexOfFirstCourse = indexOfLastCourse - coursesPerPage;
+    const currentCourses = filteredCourses.slice(indexOfFirstCourse, indexOfLastCourse);
+
+    // Change page
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+    // Calculate total pages
+    const totalPages = Math.ceil(filteredCourses.length / coursesPerPage);
+
+    // Generate page numbers
+    const pageNumbers = [];
+    for (let i = 1; i <= totalPages; i++) {
+        pageNumbers.push(i);
+    }
+
+    // Categories for filter buttons
+    const categories = ["All", "Web Development", "Java", "Python", "C Family", "PHP", "Databases", "AI/ML", "Mobile App", "Tools"];
 
     return (
         <div className="all-courses-page">
@@ -143,19 +295,24 @@ function AllCourses() {
                     <div className="row mb-4">
                         <div className="col-12">
                             <div className="d-flex flex-wrap justify-content-center gap-2">
-                                <button className="btn btn-sm btn-outline-primary">All</button>
-                                <button className="btn btn-sm btn-outline-primary">Web Development</button>
-                                <button className="btn btn-sm btn-outline-primary">Java</button>
-                                <button className="btn btn-sm btn-outline-primary">Python</button>
-                                <button className="btn btn-sm btn-outline-primary">C Family</button>
-                                <button className="btn btn-sm btn-outline-primary">PHP</button>
-                                <button className="btn btn-sm btn-outline-primary">Databases</button>
+                                {categories.map((category, index) => (
+                                    <button 
+                                        key={index}
+                                        className={`btn btn-sm ${selectedCategory === category ? 'btn-primary' : 'btn-outline-primary'}`}
+                                        onClick={() => {
+                                            setSelectedCategory(category);
+                                            setCurrentPage(1); // Reset to first page when changing category
+                                        }}
+                                    >
+                                        {category}
+                                    </button>
+                                ))}
                             </div>
                         </div>
                     </div>
                     
                     <div className="row g-4">
-                        {courses.map((course, index) => (
+                        {currentCourses.map((course, index) => (
                             <div key={index} className="col-md-6 col-lg-4">
                                 <div className="card h-100 border-0 shadow-sm hover-effect">
                                     <div className="card-body p-4 text-center">
@@ -180,21 +337,42 @@ function AllCourses() {
                     </div>
                     
                     {/* Pagination */}
-                    <div className="d-flex justify-content-center mt-5">
-                        <nav aria-label="Course pagination">
-                            <ul className="pagination">
-                                <li className="page-item disabled">
-                                    <a className="page-link" href="#" tabIndex="-1">Previous</a>
-                                </li>
-                                <li className="page-item active"><a className="page-link" href="#">1</a></li>
-                                <li className="page-item"><a className="page-link" href="#">2</a></li>
-                                <li className="page-item"><a className="page-link" href="#">3</a></li>
-                                <li className="page-item">
-                                    <a className="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+                    {filteredCourses.length > coursesPerPage && (
+                        <div className="d-flex justify-content-center mt-5">
+                            <nav aria-label="Course pagination">
+                                <ul className="pagination">
+                                    <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+                                        <button 
+                                            className="page-link" 
+                                            onClick={() => paginate(currentPage - 1)}
+                                            disabled={currentPage === 1}
+                                        >
+                                            Previous
+                                        </button>
+                                    </li>
+                                    {pageNumbers.map(number => (
+                                        <li key={number} className={`page-item ${currentPage === number ? 'active' : ''}`}>
+                                            <button 
+                                                className="page-link" 
+                                                onClick={() => paginate(number)}
+                                            >
+                                                {number}
+                                            </button>
+                                        </li>
+                                    ))}
+                                    <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
+                                        <button 
+                                            className="page-link" 
+                                            onClick={() => paginate(currentPage + 1)}
+                                            disabled={currentPage === totalPages}
+                                        >
+                                            Next
+                                        </button>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    )}
                 </div>
             </section>
             
