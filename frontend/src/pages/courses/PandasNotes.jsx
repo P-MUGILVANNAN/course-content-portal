@@ -1008,7 +1008,7 @@ df['Total'] = df.apply(total, axis=1)`}</code></pre>
 
       <footer className="bg-dark text-white py-4">
         <div className="container text-center">
-          <p>Pandas Notes &copy; 2025 | Designed for Data Analysis</p>
+          <p>Pandas Notes &copy; 2025 | Designed by Mugilvannan P</p>
         </div>
       </footer>
     </div>

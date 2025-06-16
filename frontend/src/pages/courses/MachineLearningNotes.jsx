@@ -1090,7 +1090,7 @@ plt.show()`}</code></pre>
 
       <footer className="bg-dark text-white py-4">
         <div className="container text-center">
-          <p>Machine Learning Notes &copy; 2025 | Designed with React</p>
+          <p>Machine Learning Notes &copy; 2025 | Designed by Mugilvannan P</p>
         </div>
       </footer>
     </div>

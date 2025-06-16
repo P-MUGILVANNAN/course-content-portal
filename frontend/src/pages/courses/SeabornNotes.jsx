@@ -723,7 +723,7 @@ plt.show()`}</code></pre>
 
       <footer className="bg-dark text-white py-4">
         <div className="container text-center">
-          <p>Seaborn Notes &copy; 2025 | Designed with Seaborn and React</p>
+          <p>Seaborn Notes &copy; 2025 | Designed by Mugilvannan P</p>
         </div>
       </footer>
     </div>

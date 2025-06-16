@@ -641,7 +641,7 @@ plt.show()`}</code></pre>
 
       <footer className="bg-dark text-white py-4">
         <div className="container text-center">
-          <p>Matplotlib Notes &copy; 2025 | Designed for Data Visualization</p>
+          <p>Matplotlib Notes &copy; 2025 | Designed by Mugilvannan P</p>
         </div>
       </footer>
     </div>

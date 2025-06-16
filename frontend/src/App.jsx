@@ -43,6 +43,9 @@ import FlutterNotes from './pages/courses/FlutterNotes';
 import ReactNativeNotes from './pages/courses/ReactNativeNotes';
 import JqueryNotes from './pages/courses/JqueryNotes';
 import VueJsNotes from './pages/courses/VueJsNotes';
+import MsSqlNotes from './pages/courses/MsSqlNotes';
+import SqliteNotes from './pages/courses/SqliteNotes';
+import PostgreSqlNotes from './pages/courses/PostgreSqlNotes';
 
 function Layout() {
   return (
@@ -66,6 +69,9 @@ function Layout() {
           <Route path='/java-course' element={<JavaNotes />} />
           <Route path='/express-course' element={<ExpressNotes />} />
           <Route path='/db-mysql' element={<MySqlNotes />} />
+          <Route path='/db-mssql' element={<MsSqlNotes />} />
+          <Route path='/db-sqlite' element={<SqliteNotes />} />
+          <Route path='/db-postgresql' element={<PostgreSqlNotes />} />
           <Route path='/db-mongodb' element={<MongoDBNotes />} />
           <Route path='/sql-course' element={<SqlNotes />} />
           <Route path='/c-course' element={<CNotes />} />

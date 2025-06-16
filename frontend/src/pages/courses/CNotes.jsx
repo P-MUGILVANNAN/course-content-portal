@@ -1542,7 +1542,7 @@ int main() {
 
       <footer className="bg-dark text-white py-4">
         <div className="container text-center">
-          <p>C Programming Notes &copy; 2025 | Designed by Your Name</p>
+          <p>C Programming Notes &copy; 2025 | Designed by Mugilvannan P</p>
         </div>
       </footer>
     </div>

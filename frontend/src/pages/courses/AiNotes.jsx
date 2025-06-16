@@ -1383,7 +1383,7 @@ BOT: Bye! Take care.`}</code></pre>
 
       <footer className="bg-dark text-white py-4">
         <div className="container text-center">
-          <p>Artificial Intelligence Notes &copy; 2025 | Designed with React</p>
+          <p>Artificial Intelligence Notes &copy; 2025 | Designed by Mugilvannan P</p>
         </div>
       </footer>
     </div>

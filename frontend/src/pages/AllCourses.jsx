@@ -236,6 +236,27 @@ function AllCourses() {
             templateLink: "/trainer/db-mysql",
             category: "Databases"
         },
+        {
+            title: "MSSQL",
+            description: "Relational database management",
+            icon: "database",
+            templateLink: "/trainer/db-mssql",
+            category: "Databases"
+        },
+        {
+            title: "SQLite",
+            description: "Relational database management",
+            icon: "database",
+            templateLink: "/trainer/db-sqlite",
+            category: "Databases"
+        },
+        {
+            title: "POSTGRESQL",
+            description: "Relational database management",
+            icon: "database",
+            templateLink: "/trainer/db-postgresql",
+            category: "Databases"
+        },
         // Mobile App Development
         {
             title: "Flutter",
