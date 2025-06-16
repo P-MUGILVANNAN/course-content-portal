@@ -32,6 +32,13 @@ function AllCourses() {
             category: "Web Development"
         },
         {
+            title: "JQuery",
+            description: "Superset of JS",
+            icon: "filetype-js",
+            templateLink: "/trainer/jq-course",
+            category: "Web Development"
+        },
+        {
             title: "Bootstrap",
             description: "Add responsive across all design",
             icon: "bootstrap",
@@ -50,6 +57,13 @@ function AllCourses() {
             description: "Build modern web applications",
             icon: "box-seam",
             templateLink: "/trainer/angular-course",
+            category: "Web Development"
+        },
+        {
+            title: "Vue Js",
+            description: "Build modern web applications",
+            icon: "filetype-js",
+            templateLink: "/trainer/vue-course",
             category: "Web Development"
         },
         {

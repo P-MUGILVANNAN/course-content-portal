@@ -41,6 +41,8 @@ import GitNotes from './pages/courses/GitNotes';
 import CsharpNotes from './pages/courses/CsharpNotes';
 import FlutterNotes from './pages/courses/FlutterNotes';
 import ReactNativeNotes from './pages/courses/ReactNativeNotes';
+import JqueryNotes from './pages/courses/JqueryNotes';
+import VueJsNotes from './pages/courses/VueJsNotes';
 
 function Layout() {
   return (
@@ -87,6 +89,8 @@ function Layout() {
           <Route path='/csharp-course' element={<CsharpNotes />} />
           <Route path='/flutter-course' element={<FlutterNotes />} />
           <Route path='/reactnative-course' element={<ReactNativeNotes />} />
+          <Route path='/jq-course' element={<JqueryNotes />} />
+          <Route path='/vue-course' element={<VueJsNotes />} />
         </Routes>
       </div>
 
