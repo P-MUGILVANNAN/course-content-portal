@@ -46,6 +46,8 @@ import VueJsNotes from './pages/courses/VueJsNotes';
 import MsSqlNotes from './pages/courses/MsSqlNotes';
 import SqliteNotes from './pages/courses/SqliteNotes';
 import PostgreSqlNotes from './pages/courses/PostgreSqlNotes';
+import TailwindCssNotes from './pages/courses/TailwindCssNotes';
+import FlaskNotes from './pages/courses/FlaskNotes';
 
 function Layout() {
   return (
@@ -63,6 +65,7 @@ function Layout() {
           <Route path='/css-course' element={<CssNotes />} />
           <Route path='/js-course' element={<JavascriptNotes />} />
           <Route path='/bs-course' element={<BootstrapNotes />} />
+          <Route path='/tailwind-course' element={<TailwindCssNotes />} />
           <Route path='/react-course' element={<ReactNotes />} />
           <Route path='/node-course' element={<NodeJsNotes />} />
           <Route path='/python-course' element={<PythonNotes />} />
@@ -79,6 +82,7 @@ function Layout() {
           <Route path='/angular-course' element={<AngularNotes />} />
           <Route path='/servlets-course' element={<ServletNotes />} />
           <Route path='/django-course' element={<DjangoNotes />} />
+          <Route path='/flask-course' element={<FlaskNotes />} />
           <Route path='/jsp-course' element={<JspNotes />} />
           <Route path='/springboot-course' element={<SpringBootNotes />} />
           <Route path='/laravel-course' element={<LaravelNotes />} />

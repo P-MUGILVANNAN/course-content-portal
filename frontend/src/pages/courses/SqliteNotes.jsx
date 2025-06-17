@@ -60,7 +60,7 @@ function SqliteNotes() {
         `}
       </style>
 
-      <header className="bg-secondary text-white py-4">
+      <header className="bg-success text-white py-4">
         <div className="container">
           <h1 className="display-4 fw-bold"><i className="bi bi-database"></i> SQLITE NOTES</h1>
           <p className="lead">Your Comprehensive Guide to SQLite Database</p>

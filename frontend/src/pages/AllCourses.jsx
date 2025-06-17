@@ -46,6 +46,13 @@ function AllCourses() {
             category: "Web Development"
         },
         {
+            title: "Tailwind CSS",
+            description: "Add responsive across all design",
+            icon: "code-slash",
+            templateLink: "/trainer/tailwind-course",
+            category: "Web Development"
+        },
+        {
             title: "React JS",
             description: "Build modern web applications",
             icon: "filetype-jsx",
@@ -124,6 +131,13 @@ function AllCourses() {
             description: "Python web framework",
             icon: "terminal-fill",
             templateLink: "/trainer/django-course",
+            category: "Python"
+        },
+        {
+            title: "Flask",
+            description: "Python web framework",
+            icon: "terminal",
+            templateLink: "/trainer/flask-course",
             category: "Python"
         },
         {
