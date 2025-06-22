@@ -50,7 +50,7 @@ function Home() {
             <div className="col-lg-6">
               <h1 className="display-5 fw-bold mb-3">
                 <i className="bi bi-journal-code me-2"></i>
-                Learn by Doing
+                FIIT - Course Content Portal
               </h1>
               <p className="lead mb-4">
                 Access practical course templates and build real projects.

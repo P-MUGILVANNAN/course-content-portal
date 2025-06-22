@@ -249,9 +249,6 @@ function Profile() {
                   <div className="mb-3">
                     <p className="mb-0"><i className="bi bi-telephone me-2"></i> {trainerData.phone}</p>
                   </div>
-                  <div className="mb-3">
-                    <p className="mb-0"><i className="bi bi-calendar me-2"></i> Member since {new Date(trainerData.createdAt).toLocaleDateString()}</p>
-                  </div>
                 </>
               )}
             </div>
@@ -259,7 +256,7 @@ function Profile() {
         </div>
 
         <div className="col-lg-8">
-          <div className="card mb-4">
+          <div className="card mb-4 z-n1">
             <div className="card-body">
               <div className="d-flex justify-content-between align-items-center mb-3">
                 <h5 className="card-title mb-0">About Me</h5>
@@ -355,8 +352,8 @@ function Profile() {
               <div className="row text-center">
                 <div className="col-md-4 mb-3">
                   <div className="p-3 bg-light rounded">
-                    <h3 className="text-primary">120+</h3>
-                    <p className="mb-0">Clients Trained</p>
+                    <h3 className="text-primary">300+</h3>
+                    <p className="mb-0">Students Trained</p>
                   </div>
                 </div>
                 <div className="col-md-4 mb-3">

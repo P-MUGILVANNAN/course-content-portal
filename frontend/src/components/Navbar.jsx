@@ -1,7 +1,33 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function Navbar({ user }) {
   const navigate = useNavigate();
+  const [profileImage, setProfileImage] = useState('https://cdn-icons-png.flaticon.com/512/3135/3135715.png'); // Default image
+
+  useEffect(() => {
+    const fetchProfilePic = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        if (!token) return;
+        
+        const response = await axios.get('https://course-content-portal.onrender.com/api/users/profile', {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+        
+        if (response.data.trainer?.profileImage) {
+          setProfileImage(response.data.trainer.profileImage);
+        }
+      } catch (error) {
+        console.error('Error fetching profile picture:', error);
+      }
+    };
+
+    fetchProfilePic();
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -9,13 +35,10 @@ function Navbar({ user }) {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-black py-2 border-bottom border-warning">
+    <nav className="navbar navbar-expand-lg navbar-dark py-2 border-bottom">
       <div className="container-fluid">
         <Link className="navbar-brand d-flex align-items-center" to="/trainer">
-          <span className="fs-4 fw-bold text-warning">
-            <i className="bi bi-journal-code me-2"></i>
-            Course Content Portal
-          </span>
+          <img src="https://fiit.co.in/wp-content/uploads/2024/10/fiit-logo.png" className='img-fluid' style={{width:'220px'}} alt="" />
         </Link>
 
         {/* Mobile Toggle */}
@@ -40,10 +63,10 @@ function Navbar({ user }) {
                 className="nav-link d-flex align-items-center py-2 px-3 rounded hover-bg-gold"
                 to="/trainer/profile"
               >
-                <i className="bi bi-person-fill me-2 text-warning"></i>
-                <span className="position-relative">
+                <i className="bi bi-person-fill me-2 fs-5 text-primary"></i>
+                <span className="position-relative fs-5 text-primary">
                   Profile
-                  <span className="position-absolute bottom-0 start-0 w-100 bg-warning" style={{ height: '2px', transform: 'scaleX(0)', transition: 'transform 0.3s ease' }}></span>
+                  <span className="position-absolute bottom-0 start-0 w-100 bg-primary" style={{ height: '2px', transform: 'scaleX(0)', transition: 'transform 0.3s ease' }}></span>
                 </span>
               </Link>
             </li>
@@ -54,17 +77,17 @@ function Navbar({ user }) {
                 className="nav-link d-flex align-items-center py-2 px-3 rounded hover-bg-gold"
                 to="/trainer/all-courses"
               >
-                <i className="bi bi-speedometer2 me-2 text-warning"></i>
-                <span className="position-relative">
+                <i className="bi bi-speedometer2 fs-5 me-2 text-primary"></i>
+                <span className="position-relative fs-5 text-primary">
                   All Courses
-                  <span className="position-absolute bottom-0 start-0 w-100 bg-warning" style={{ height: '2px', transform: 'scaleX(0)', transition: 'transform 0.3s ease' }}></span>
+                  <span className="position-absolute bottom-0 start-0 w-100 bg-primary" style={{ height: '2px', transform: 'scaleX(0)', transition: 'transform 0.3s ease' }}></span>
                 </span>
               </Link>
             </li>
           </ul>
 
           {/* User Dropdown */}
-          <div className="d-flex align-items-center">
+          <div className="d-flex align-items-center z-1">
             <div className="dropdown">
               <button
                 className="btn btn-transparent dropdown-toggle d-flex align-items-center"
@@ -73,11 +96,16 @@ function Navbar({ user }) {
               >
                 <div className="position-relative">
                   <img
-                    src={user?.profilePic || 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png'}
+                    src={profileImage}
                     alt="Profile"
-                    className="rounded-circle border border-warning"
+                    className="rounded-circle border border-success"
                     width="40"
                     height="40"
+                    style={{ objectFit: 'cover' }}
+                    onError={(e) => {
+                      e.target.onerror = null; 
+                      e.target.src = 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png';
+                    }}
                   />
                   <span className="position-absolute bottom-0 end-0 p-1 bg-success border border-warning rounded-circle"></span>
                 </div>
@@ -112,17 +140,20 @@ export default Navbar;
 // Add this to your CSS file or style component
 const styles = `
   .hover-bg-gold:hover {
-    background-color: rgba(255, 193, 7, 0.1);
+    background-color: rgba(7, 164, 255, 0.1);
   }
   .nav-link:hover span span {
     transform: scaleX(1) !important;
   }
   .dropdown-item:hover {
     background-color: rgba(255, 193, 7, 0.1) !important;
-    color: #ffc107 !important;
+    color:rgb(1, 72, 239) !important;
   }
   .navbar-brand:hover {
     opacity: 0.9;
+  }
+  .navbar {
+    backdrop-filter: blur(5px);
   }
 `;
 
