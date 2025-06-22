@@ -54,6 +54,12 @@ function JavascriptNotes() {
           .operator-table th {
             background-color: #e9ecef;
           }
+          .note {
+            background-color: #fff3cd;
+            padding: 10px;
+            border-left: 4px solid #ffc107;
+            margin: 10px 0;
+          }
         `}
       </style>
 
@@ -77,12 +83,16 @@ function JavascriptNotes() {
               <a className="nav-link" href="#operators"><i className="bi bi-calculator"></i> Operators</a>
               <a className="nav-link" href="#conditionals"><i className="bi bi-diagram-2"></i> Conditionals</a>
               <a className="nav-link" href="#loops"><i className="bi bi-arrow-repeat"></i> Loops</a>
-              <a className="nav-link" href="#dialogue-boxes"><i className="bi bi-arrow-repeat"></i> Dialogue Boxes</a>
+              <a className="nav-link" href="#dialogue-boxes"><i className="bi bi-chat"></i> Dialogue Boxes</a>
               <a className="nav-link" href="#functions"><i className="bi bi-gear"></i> Functions</a>
               <a className="nav-link" href="#objects"><i className="bi bi-collection"></i> Objects</a>
               <a className="nav-link" href="#arrays"><i className="bi bi-grid-3x3"></i> Arrays</a>
               <a className="nav-link" href="#strings"><i className="bi bi-type"></i> Strings</a>
               <a className="nav-link" href="#classes"><i className="bi bi-layers"></i> Classes</a>
+              <a className="nav-link" href="#callbacks"><i className="bi bi-arrow-return-right"></i> Callbacks</a>
+              <a className="nav-link" href="#promises"><i className="bi bi-hourglass-split"></i> Promises</a>
+              <a className="nav-link" href="#asyncawait"><i className="bi bi-hourglass-top"></i> Async/Await</a>
+              <a className="nav-link" href="#es6"><i className="bi bi-stars"></i> ES6+ Features</a>
               <a className="nav-link" href="#dom"><i className="bi bi-file-earmark-code"></i> DOM</a>
               <a className="nav-link" href="#bom"><i className="bi bi-window"></i> BOM</a>
             </nav>
@@ -92,13 +102,25 @@ function JavascriptNotes() {
             <section id="introduction" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-info-circle"></i> Introduction to JavaScript</h2>
               <ul className="mb-3">
-                <li>Used to convert a static webpage to dynamic webpage</li>
-                <li>It is a scripting language</li>
-                <li>It is loosely coupled language</li>
-                <li>Invented by Brendon Eich in 1995</li>
+                <li>JavaScript is a high-level, interpreted programming language</li>
+                <li>Used to convert static webpages to dynamic and interactive web applications</li>
+                <li>It is a scripting language that runs on the client side (browser)</li>
+                <li>Loosely typed language (variables don't need type declarations)</li>
+                <li>Invented by Brendan Eich in 1995 while working at Netscape</li>
                 <li>Initial name was LiveScript; renamed to JavaScript due to Java's popularity</li>
-                <li>Latest version is ECMAScript 7 (ES7)</li>
+                <li>Standardized as ECMAScript (ES) - Latest version is ECMAScript 2022 (ES13)</li>
+                <li>Can be used on both client-side and server-side (Node.js)</li>
               </ul>
+
+              <div className="note">
+                <h4><i className="bi bi-lightbulb"></i> Key Characteristics:</h4>
+                <ul>
+                  <li><strong>Dynamic typing</strong> - Variables can hold values of any type</li>
+                  <li><strong>Prototype-based</strong> - Uses prototypes instead of classes for inheritance</li>
+                  <li><strong>First-class functions</strong> - Functions can be assigned to variables, passed as arguments, etc.</li>
+                  <li><strong>Single-threaded</strong> - Uses event loop and asynchronous callbacks</li>
+                </ul>
+              </div>
             </section>
 
             <section id="inclusion" className="mb-5">
@@ -638,9 +660,9 @@ for(let i = 1; i <= 5; i++) {
               <p>Dialogue boxes are used to get input from the user.</p>
               <h4 className="mb-3">Types of dialogue boxes:</h4>
               <ol>
-                  <li>Alert box</li>
-                  <li>Confirm box</li>
-                  <li>Prompt box</li>
+                <li>Alert box</li>
+                <li>Confirm box</li>
+                <li>Prompt box</li>
               </ol>
               <div className="property-card">
                 <h3 className="h4"><i className="bi bi-1-circle"></i> Alert Box</h3>
@@ -963,6 +985,310 @@ class Student extends Person {
 let student = new Student("John", 20);
 student.greet(); // "Hello John"
 student.study(); // "John is studying"`}</code></pre>
+              </div>
+            </section>
+
+            <section id="callbacks" className="mb-5">
+              <h2 className="h2 mb-3"><i className="bi bi-arrow-return-right"></i> Callbacks in JavaScript</h2>
+              <p>Callbacks are functions passed as arguments to other functions and executed later.</p>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-1-circle"></i> Understanding Callbacks</h3>
+                <p>JavaScript is single-threaded, so callbacks are used to handle asynchronous operations.</p>
+                <pre className="mb-3"><code>{`// Simple callback example
+function greet(name, callback) {
+  console.log('Hello ' + name);
+  callback();
+}
+
+function sayGoodbye() {
+  console.log('Goodbye!');
+}
+
+greet('John', sayGoodbye);
+// Output:
+// Hello John
+// Goodbye!`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-2-circle"></i> Callback Hell (Pyramid of Doom)</h3>
+                <p>Nested callbacks can become hard to read and maintain.</p>
+                <pre className="mb-3"><code>{`// Example of callback hell
+getData(function(a) {
+  getMoreData(a, function(b) {
+    getMoreData(b, function(c) {
+      getMoreData(c, function(d) {
+        console.log('Final data:', d);
+      });
+    });
+  });
+});`}</code></pre>
+                <p>Solutions to callback hell:</p>
+                <ul>
+                  <li>Modularization (break into smaller functions)</li>
+                  <li>Use Promises</li>
+                  <li>Use async/await</li>
+                </ul>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-3-circle"></i> Error-First Callbacks</h3>
+                <p>Node.js convention where the first parameter is reserved for an error object.</p>
+                <pre className="mb-3"><code>{`function asyncOperation(param, callback) {
+  // Simulate async operation
+  setTimeout(() => {
+    if (param) {
+      callback(null, 'Success: ' + param);
+    } else {
+      callback(new Error('Parameter is required'));
+    }
+  }, 1000);
+}
+
+// Usage
+asyncOperation('data', (err, result) => {
+  if (err) {
+    console.error(err.message);
+    return;
+  }
+  console.log(result);
+});`}</code></pre>
+              </div>
+            </section>
+
+            <section id="promises" className="mb-5">
+              <h2 className="h2 mb-3"><i className="bi bi-hourglass-split"></i> Promises in JavaScript</h2>
+              <p>A Promise is an object representing the eventual completion or failure of an asynchronous operation.</p>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-1-circle"></i> Promise Basics</h3>
+                <p>Promises have three states: pending, fulfilled, or rejected.</p>
+                <pre className="mb-3"><code>{`// Creating a promise
+const myPromise = new Promise((resolve, reject) => {
+  // Async operation
+  const success = true; // Simulate success/failure
+  
+  if (success) {
+    resolve('Operation succeeded');
+  } else {
+    reject('Operation failed');
+  }
+});
+
+// Using a promise
+myPromise
+  .then(result => {
+    console.log(result); // "Operation succeeded"
+  })
+  .catch(error => {
+    console.error(error); // "Operation failed"
+  });`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-2-circle"></i> Promise Chaining</h3>
+                <p>Multiple asynchronous operations can be chained together.</p>
+                <pre className="mb-3"><code>{`function fetchData() {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(1), 1000);
+  });
+}
+
+fetchData()
+  .then(result => {
+    console.log(result); // 1
+    return result * 2;
+  })
+  .then(result => {
+    console.log(result); // 2
+    return result * 3;
+  })
+  .then(result => {
+    console.log(result); // 6
+  });`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-3-circle"></i> Promise Methods</h3>
+                <table className="operator-table">
+                  <thead>
+                    <tr>
+                      <th>Method</th>
+                      <th>Description</th>
+                      <th>Example</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>Promise.all()</code></td>
+                      <td>Waits for all promises to resolve or any to reject</td>
+                      <td><code>{`Promise.all([p1, p2]).then(values => ...)`}</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>Promise.race()</code></td>
+                      <td>Waits for the first promise to settle</td>
+                      <td><code>{`Promise.race([p1, p2]).then(value => ...)`}</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>Promise.allSettled()</code></td>
+                      <td>Waits for all promises to settle (ES2020)</td>
+                      <td><code>{`Promise.allSettled([p1, p2]).then(results => ...)`}</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>Promise.any()</code></td>
+                      <td>Waits for first promise to fulfill (ES2021)</td>
+                      <td><code>{`Promise.any([p1, p2]).then(value => ...)`}</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section id="asyncawait" className="mb-5">
+              <h2 className="h2 mb-3"><i className="bi bi-hourglass-top"></i> Async/Await</h2>
+              <p>Async/await is syntactic sugar built on top of promises that makes asynchronous code look synchronous.</p>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-1-circle"></i> Basic Usage</h3>
+                <pre className="mb-3"><code>{`// async function always returns a promise
+async function fetchData() {
+  return 'Data fetched';
+}
+
+// await can only be used inside async functions
+async function displayData() {
+  const data = await fetchData();
+  console.log(data); // "Data fetched"
+}
+
+displayData();`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-2-circle"></i> Error Handling</h3>
+                <pre className="mb-3"><code>{`async function fetchWithError() {
+  try {
+    const response = await fetch('https://api.example.com/data');
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+// Alternative with .catch()
+fetchWithError().catch(error => console.error(error));`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-3-circle"></i> Parallel Execution</h3>
+                <pre className="mb-3"><code>{`async function parallel() {
+  // Start all promises in parallel
+  const [user, posts] = await Promise.all([
+    fetch('/user'),
+    fetch('/posts')
+  ]);
+  
+  const userData = await user.json();
+  const postsData = await posts.json();
+  
+  return { user: userData, posts: postsData };
+}`}</code></pre>
+              </div>
+            </section>
+
+            <section id="es6" className="mb-5">
+              <h2 className="h2 mb-3"><i className="bi bi-stars"></i> ES6+ Features</h2>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-1-circle"></i> Let and Const</h3>
+                <pre className="mb-3"><code>{`// Block-scoped variables
+let count = 10;
+if (true) {
+  let count = 20; // Different variable
+  console.log(count); // 20
+}
+console.log(count); // 10
+
+// Constants
+const PI = 3.14;
+// PI = 3.1415; // Error: Assignment to constant`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-2-circle"></i> Template Literals</h3>
+                <pre className="mb-3"><code>{`const name = 'John';
+const age = 30;
+
+// Multi-line strings and interpolation
+const message = \`Hello \${name},
+You are \${age} years old.\`;
+
+console.log(message);`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-3-circle"></i> Destructuring</h3>
+                <pre className="mb-3"><code>{`// Array destructuring
+const [first, second] = [1, 2, 3];
+console.log(first); // 1
+
+// Object destructuring
+const person = { name: 'John', age: 30 };
+const { name, age } = person;
+console.log(name); // 'John'
+
+// Function parameter destructuring
+function greet({ name, age }) {
+  return \`Hello \${name}, you're \${age}\`;
+}`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-4-circle"></i> Spread/Rest Operator</h3>
+                <pre className="mb-3"><code>{`// Spread operator (arrays)
+const arr1 = [1, 2];
+const arr2 = [...arr1, 3, 4]; // [1, 2, 3, 4]
+
+// Spread operator (objects)
+const obj1 = { a: 1, b: 2 };
+const obj2 = { ...obj1, c: 3 }; // { a:1, b:2, c:3 }
+
+// Rest parameters
+function sum(...numbers) {
+  return numbers.reduce((a, b) => a + b);
+}
+sum(1, 2, 3); // 6`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-5-circle"></i> Modules</h3>
+                <pre className="mb-3"><code>{`// Exporting (math.js)
+export const PI = 3.14;
+export function sum(a, b) { return a + b; }
+
+// Importing (app.js)
+import { PI, sum } from './math.js';
+console.log(sum(PI, 10)); // 13.14
+
+// Default export/import
+// math.js
+export default function multiply(a, b) { return a * b; }
+
+// app.js
+import multiply from './math.js';`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-6-circle"></i> Other ES6+ Features</h3>
+                <ul>
+                  <li><strong>Optional Chaining (ES2020)</strong>: <code>user?.address?.street</code></li>
+                  <li><strong>Nullish Coalescing (ES2020)</strong>: <code>const value = input ?? 'default'</code></li>
+                  <li><strong>BigInt</strong>: <code>const bigNum = 9007199254740991n</code></li>
+                  <li><strong>Dynamic Imports</strong>: <code>const module = await import('./module.js')</code></li>
+                  <li><strong>Class Fields</strong>: Public/private fields and methods in classes</li>
+                </ul>
               </div>
             </section>
 
