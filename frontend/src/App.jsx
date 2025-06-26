@@ -52,7 +52,7 @@ import AllSyllabuses from './pages/AllSyllabuses';
 import HtmlSyllabus from './pages/syllabuses/HtmlSyllabus';
 import CssSyllabus from './pages/syllabuses/CssSyllabus';
 import JavascriptSyllabus from './pages/syllabuses/JavascriptSyllabus';
-import TypeScriptSyllabus from './pages/syllabuses/TypescriptSyllabus';
+import TypeScriptSyllabus from './pages/syllabuses/TypeScriptSyllabus';
 import JquerySyllabus from './pages/syllabuses/JquerySyllabus';
 import BootstrapSyllabus from './pages/syllabuses/BootstrapSyllabus';
 import TailwindSyllabus from './pages/syllabuses/TailwindSyllabus';
