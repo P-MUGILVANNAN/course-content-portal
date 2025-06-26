@@ -63,8 +63,8 @@ function Navbar({ user }) {
                 className="nav-link d-flex align-items-center py-2 px-3 rounded hover-bg-gold"
                 to="/trainer/profile"
               >
-                <i className="bi bi-person-fill me-2 fs-5 text-primary"></i>
-                <span className="position-relative fs-5 text-primary">
+                <i className="bi bi-person-fill me-2 text-primary"></i>
+                <span className="position-relative text-primary">
                   Profile
                   <span className="position-absolute bottom-0 start-0 w-100 bg-primary" style={{ height: '2px', transform: 'scaleX(0)', transition: 'transform 0.3s ease' }}></span>
                 </span>
@@ -77,9 +77,22 @@ function Navbar({ user }) {
                 className="nav-link d-flex align-items-center py-2 px-3 rounded hover-bg-gold"
                 to="/trainer/all-courses"
               >
-                <i className="bi bi-speedometer2 fs-5 me-2 text-primary"></i>
-                <span className="position-relative fs-5 text-primary">
+                <i className="bi bi-speedometer2 me-2 text-primary"></i>
+                <span className="position-relative text-primary">
                   All Courses
+                  <span className="position-absolute bottom-0 start-0 w-100 bg-primary" style={{ height: '2px', transform: 'scaleX(0)', transition: 'transform 0.3s ease' }}></span>
+                </span>
+              </Link>
+            </li>
+            {/* Course Syllabus */}
+            <li className="nav-item mx-1">
+              <Link
+                className="nav-link d-flex align-items-center py-2 px-3 rounded hover-bg-gold"
+                to="/trainer/all-syllabuses"
+              >
+                <i className="bi bi-file-earmark-text me-2 text-primary"></i>
+                <span className="position-relative text-primary">
+                  All Syllabuses
                   <span className="position-absolute bottom-0 start-0 w-100 bg-primary" style={{ height: '2px', transform: 'scaleX(0)', transition: 'transform 0.3s ease' }}></span>
                 </span>
               </Link>

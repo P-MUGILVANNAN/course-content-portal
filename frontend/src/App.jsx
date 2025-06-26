@@ -48,6 +48,47 @@ import SqliteNotes from './pages/courses/SqliteNotes';
 import PostgreSqlNotes from './pages/courses/PostgreSqlNotes';
 import TailwindCssNotes from './pages/courses/TailwindCssNotes';
 import FlaskNotes from './pages/courses/FlaskNotes';
+import AllSyllabuses from './pages/AllSyllabuses';
+import HtmlSyllabus from './pages/syllabuses/HtmlSyllabus';
+import CssSyllabus from './pages/syllabuses/CssSyllabus';
+import JavascriptSyllabus from './pages/syllabuses/JavascriptSyllabus';
+import TypeScriptSyllabus from './pages/syllabuses/TypescriptSyllabus';
+import JquerySyllabus from './pages/syllabuses/JquerySyllabus';
+import BootstrapSyllabus from './pages/syllabuses/BootstrapSyllabus';
+import TailwindSyllabus from './pages/syllabuses/TailwindSyllabus';
+import ReactSyllabus from './pages/syllabuses/ReactSyllabus';
+import AngularSyllabus from './pages/syllabuses/AngularSyllabus';
+import VueSyllabus from './pages/syllabuses/VueSyllabus';
+import NodeJsSyllabus from './pages/syllabuses/NodeJsSyllabus';
+import ExpressJsSyllabus from './pages/syllabuses/ExpressJsSyllabus';
+import JavaSyllabus from './pages/syllabuses/JavaSyllabus';
+import ServletSyllabus from './pages/syllabuses/ServletSyllabus';
+import JspSyllabus from './pages/syllabuses/JspSyllabus';
+import SpringbootSyllabus from './pages/syllabuses/SpringbootSyllabus';
+import PythonSyllabus from './pages/syllabuses/PythonSyllabus';
+import DjangoSyllabus from './pages/syllabuses/DjangoSyllabus';
+import FlaskSyllabus from './pages/syllabuses/FlaskSyllabus';
+import NumpySyllabus from './pages/syllabuses/NumpySyllabus';
+import ScipySyllabus from './pages/syllabuses/ScipySyllabus';
+import PandasSyllabus from './pages/syllabuses/PandasSyllabus';
+import MatplotlibSyllabus from './pages/syllabuses/MatplotlibSyllabus';
+import SeabornSyllabus from './pages/syllabuses/SeabornSyllabus';
+import CSyllabus from './pages/syllabuses/CSyllabus';
+import CppSyllabus from './pages/syllabuses/CppSyllabus';
+import CsharpSyllabus from './pages/syllabuses/CsharpSyllabus';
+import PhpSyllabus from './pages/syllabuses/PhpSyllabus';
+import LaravelSyllabus from './pages/syllabuses/LaravelSyllabus';
+import AiSyllabus from './pages/syllabuses/AiSyllabus';
+import MachineLearningSyllabus from './pages/syllabuses/MachineLearningSyllabus';
+import SqlSyllabus from './pages/syllabuses/SqlSyllabus';
+import SqliteSyllabus from './pages/syllabuses/SqliteSyllabus';
+import MongoDBSyllabus from './pages/syllabuses/MongoDBSyllabus';
+import MySqlSyllabus from './pages/syllabuses/MySqlSyllabus';
+import MsSqlSyllabus from './pages/syllabuses/MsSqlSyllabus';
+import PostgreSqlSyllabus from './pages/syllabuses/PostgreSqlSyllabus';
+import FlutterSyllabus from './pages/syllabuses/FlutterSyllabus';
+import ReactNativeSyllabus from './pages/syllabuses/ReactNativeSyllabus';
+import GitSyllabus from './pages/syllabuses/GitSyllabus';
 
 function Layout() {
   return (
@@ -101,6 +142,48 @@ function Layout() {
           <Route path='/reactnative-course' element={<ReactNativeNotes />} />
           <Route path='/jq-course' element={<JqueryNotes />} />
           <Route path='/vue-course' element={<VueJsNotes />} />
+          <Route path='/all-syllabuses' element={<AllSyllabuses />} />
+          <Route path='/html-syllabus' element={<HtmlSyllabus />} />
+          <Route path='/css-syllabus' element={<CssSyllabus />} />
+          <Route path='/js-syllabus' element={<JavascriptSyllabus />} />
+          <Route path='/ts-syllabus' element={<TypeScriptSyllabus />} />
+          <Route path='/jq-syllabus' element={<JquerySyllabus />} />
+          <Route path='/bs-syllabus' element={<BootstrapSyllabus />} />
+          <Route path='/tailwind-syllabus' element={<TailwindSyllabus />} />
+          <Route path='/react-syllabus' element={<ReactSyllabus />} />
+          <Route path='/angular-syllabus' element={<AngularSyllabus />} />
+          <Route path='/vue-syllabus' element={<VueSyllabus />} />
+          <Route path='/node-syllabus' element={<NodeJsSyllabus />} />
+          <Route path='/express-syllabus' element={<ExpressJsSyllabus />} />
+          <Route path='/java-syllabus' element={<JavaSyllabus />} />
+          <Route path='/servlets-syllabus' element={<ServletSyllabus />} />
+          <Route path='/jsp-syllabus' element={<JspSyllabus />} />
+          <Route path='/springboot-syllabus' element={<SpringbootSyllabus />} />
+          <Route path='/python-syllabus' element={<PythonSyllabus />} />
+          <Route path='/django-syllabus' element={<DjangoSyllabus />} />
+          <Route path='/flask-syllabus' element={<FlaskSyllabus />} />
+          <Route path='/numpy-syllabus' element={<NumpySyllabus />} />
+          <Route path='/scipy-syllabus' element={<ScipySyllabus />} />
+          <Route path='/pandas-syllabus' element={<PandasSyllabus />} />
+          <Route path='/matplot-syllabus' element={<MatplotlibSyllabus />} />
+          <Route path='/seaborn-syllabus' element={<SeabornSyllabus />} />
+          <Route path='/c-syllabus' element={<CSyllabus />} />
+          <Route path='/cpp-syllabus' element={<CppSyllabus />} />
+          <Route path='/csharp-syllabus' element={<CsharpSyllabus />} />
+          <Route path='/php-syllabus' element={<PhpSyllabus />} />
+          <Route path='/laravel-syllabus' element={<LaravelSyllabus />} />
+          <Route path='/ai-syllabus' element={<AiSyllabus />} />
+          <Route path='/ml-syllabus' element={<MachineLearningSyllabus />} />
+          <Route path='/sql-syllabus' element={<SqlSyllabus />} />
+          <Route path='/db-sqlite-syllabus' element={<SqliteSyllabus />} />
+          <Route path='/db-mongodb-syllabus' element={<MongoDBSyllabus />} />
+          <Route path='/db-mysql-syllabus' element={<MySqlSyllabus />} />
+          <Route path='/db-mssql-syllabus' element={<MsSqlSyllabus />} />
+          <Route path='/db-postgresql-syllabus' element={<PostgreSqlSyllabus />} />
+          <Route path='/flutter-syllabus' element={<FlutterSyllabus />} />
+          <Route path='/reactnative-syllabus' element={<ReactNativeSyllabus />} />
+          <Route path='/github-syllabus' element={<GitSyllabus />} />
+
         </Routes>
       </div>
 

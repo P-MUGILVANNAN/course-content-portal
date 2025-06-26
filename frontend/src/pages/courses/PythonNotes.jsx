@@ -1005,7 +1005,7 @@ Output: (10,20,30,40)
                 <div className="property-card">
                   <ul>
                     <li>It is used to store multiple items in a single variable as key-value pairs..</li>
-                    <li>Dictionaries are created using square brackets { }.</li>
+                    <li>Dictionaries are created using curly brackets { }.</li>
                     <li>It is one of the built-in datatypes (list, tuple, dictionary, set).</li>
                     <li>It is an mutable datatype (changeable).</li>
                     <li>It is order and does not allows duplicate values.</li>
@@ -1124,7 +1124,7 @@ Output: dict_keys(['name','age'])`}</code></pre>
                 <div className="property-card">
                   <ul>
                     <li>It is used to store multiple items in a single variable.</li>
-                    <li>Dictionaries are created using square brackets { }.</li>
+                    <li>Set are created using curly brackets { }.</li>
                     <li>It is one of the built-in datatypes (list, tuple, dictionary, set).</li>
                     <li>It is an mutable datatype (changeable).</li>
                     <li>It is unorder and does not allows duplicate values.</li>
