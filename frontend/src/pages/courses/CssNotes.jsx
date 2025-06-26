@@ -717,24 +717,9 @@ h2 ~ p {
                 </div>
                 <div className="col-md-6">
                   <div className="property-card">
-                    <h4 className="h5"><i className="bi bi-layers"></i> Multiple Backgrounds</h4>
-                    <p><strong>Definition:</strong> Apply multiple background images to an element</p>
-                    <pre><code>{`.multi-bg {
-  background: 
-    url("top-layer.png") center no-repeat,
-    url("bottom-layer.png") left top repeat,
-    linear-gradient(to bottom, #fff, #eee);
-}`}</code></pre>
-                    <p>The first image in the list is the top layer, subsequent images appear behind</p>
-                  </div>
-                </div>
-                <div className="col-md-6">
-                  <div className="property-card">
-                    <h4 className="h5"><i className="bi bi-clipboard"></i> Background Clip &amp; Origin</h4>
+                    <h4 className="h5"><i className="bi bi-clipboard"></i> Background Clip</h4>
                     <p><strong>background-clip:</strong> Determines the background painting area</p>
                     <p><strong>Values:</strong> <code>border-box, padding-box, content-box, text</code></p>
-                    <p><strong>background-origin:</strong> Determines positioning area</p>
-                    <p><strong>Values:</strong> <code>border-box, padding-box, content-box</code></p>
                     <pre><code>{`.text-bg {
   background-clip: text;
   -webkit-background-clip: text;
@@ -848,14 +833,7 @@ h2 ~ p {
                     <pre><code>{`.shadow {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
-
-.inset-shadow {
-  box-shadow: inset 0 0 10px #000;
-}
-
-.multiple {
-  box-shadow: 0 0 10px red, 0 0 20px blue;
-}`}</code></pre>
+`}</code></pre>
                     <div className="example-box">
                       <div style={{ boxShadow: '5px 5px 10px rgba(0,0,0,0.3)', padding: '10px', display: 'inline-block' }}>Box with shadow</div>
                     </div>
@@ -973,20 +951,6 @@ body {
 }`}</code></pre>
                   </div>
                 </div>
-                <div className="col-md-6">
-                  <div className="property-card">
-                    <h4 className="h5"><i className="bi bi-fonts"></i> @font-face Rule</h4>
-                    <p><strong>Definition:</strong> Allows custom fonts to be loaded</p>
-                    <pre><code>{`@font-face {
-  font-family: 'MyCustomFont';
-  src: url('myfont.woff2') format('woff2'),
-       url('myfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}`}</code></pre>
-                  </div>
-                </div>
               </div>
             </section>
 
@@ -1064,31 +1028,6 @@ body {
                 </div>
                 <div className="col-md-6">
                   <div className="property-card">
-                    <h4 className="h5"><i className="bi bi-box-seam"></i> Box Sizing</h4>
-                    <p><strong>Definition:</strong> Changes how width and height are calculated</p>
-                    <p><strong>Values:</strong> <code>content-box</code> (default), <code>border-box</code></p>
-                    <pre><code>{`/* Traditional box model */
-.traditional {
-  box-sizing: content-box;
-  width: 300px;
-  padding: 20px;
-  border: 5px solid black;
-  /* Total width = 300 + 40 + 10 = 350px */
-}
-
-/* Border box model */
-.modern {
-  box-sizing: border-box;
-  width: 300px;
-  padding: 20px;
-  border: 5px solid black;
-  /* Total width = 300px (content shrinks) */
-}`}</code></pre>
-                    <p><strong>Best Practice:</strong> Many developers use <code>box-sizing: border-box</code> globally for more predictable sizing</p>
-                  </div>
-                </div>
-                <div className="col-md-6">
-                  <div className="property-card">
                     <h4 className="h5"><i className="bi bi-border-all"></i> Outline</h4>
                     <p><strong>Definition:</strong> Draws a line outside the border (doesn't affect layout)</p>
                     <p><strong>Values:</strong> Similar to border but with no directional properties</p>
@@ -1153,15 +1092,6 @@ body {
               </div>
 
               <div className="property-card">
-                <h4 className="h5"><i className="bi bi-text-center"></i> Caption Side</h4>
-                <p><strong>Definition:</strong> Positions the table caption</p>
-                <p><strong>Values:</strong> <code>top, bottom</code></p>
-                <pre><code>{`caption {
-  caption-side: bottom;
-}`}</code></pre>
-              </div>
-
-              <div className="property-card">
                 <h4 className="h5"><i className="bi bi-border"></i> Empty Cells</h4>
                 <p><strong>Definition:</strong> Controls whether borders and backgrounds are shown on empty cells</p>
                 <p><strong>Values:</strong> <code>show, hide</code></p>
@@ -1199,14 +1129,14 @@ tr:hover {
   background-color: #f1f1f1;
 }
 
-caption {
+h1 {
   font-weight: bold;
   margin-bottom: 10px;
 }`}</code></pre>
 
               <pre className="mb-3"><code>{`<!-- Example HTML table -->
 <table>
-  <caption>Monthly Sales Report</caption>
+  <h1>Monthly Sales Report</h1>
   <thead>
     <tr>
       <th>Month</th>
@@ -1464,53 +1394,6 @@ list-style-image: url('https://www.w3schools.com/cssref/sqpurple.gif');`}</code>
                 </div>
               </div>
 
-              <div className="property-card">
-                <h3 className="h4">Flex Item Properties</h3>
-                <div className="row">
-                  <div className="col-md-6">
-                    <h5><i className="bi bi-123"></i> Order</h5>
-                    <p><code>order: integer;</code> (default 0)</p>
-                    <pre><code>{`.item {
-  order: 1; /* Display after items with lower order */
-}`}</code></pre>
-                  </div>
-                  <div className="col-md-6">
-                    <h5><i className="bi bi-arrow-left-right"></i> Flex Grow</h5>
-                    <p><code>flex-grow: number;</code> (default 0)</p>
-                    <pre><code>{`.item {
-  flex-grow: 1; /* Take up available space */
-}`}</code></pre>
-                  </div>
-                  <div className="col-md-6">
-                    <h5><i className="bi bi-arrow-left-right"></i> Flex Shrink</h5>
-                    <p><code>flex-shrink: number;</code> (default 1)</p>
-                    <pre><code>{`.item {
-  flex-shrink: 0; /* Don't shrink below base size */
-}`}</code></pre>
-                  </div>
-                  <div className="col-md-6">
-                    <h5><i className="bi bi-rulers"></i> Flex Basis</h5>
-                    <p><code>flex-basis: length | auto;</code> (default auto)</p>
-                    <pre><code>{`.item {
-  flex-basis: 200px; /* Initial size before growing/shrinking */
-}`}</code></pre>
-                  </div>
-                  <div className="col-md-6">
-                    <h5><i className="bi bi-file-earmark-code"></i> Flex Shorthand</h5>
-                    <p><code>flex: grow shrink basis;</code></p>
-                    <pre><code>{`.item {
-  flex: 1 0 auto; /* Common pattern */
-}`}</code></pre>
-                  </div>
-                  <div className="col-md-6">
-                    <h5><i className="bi bi-align-top"></i> Align Self</h5>
-                    <p><code>align-self: auto, flex-start, flex-end, center, baseline, stretch;</code></p>
-                    <pre><code>{`.item {
-  align-self: flex-end;
-}`}</code></pre>
-                  </div>
-                </div>
-              </div>
 
               <div className="property-card">
                 <h3 className="h4">Practical Flexbox Examples</h3>
@@ -1528,10 +1411,6 @@ list-style-image: url('https://www.w3schools.com/cssref/sqpurple.gif');`}</code>
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-}
-
-.card {
-  flex: 1 1 300px; /* Grow, shrink, basis */
 }
 
 /* Centering content */
@@ -1607,96 +1486,15 @@ list-style-image: url('https://www.w3schools.com/cssref/sqpurple.gif');`}</code>
   column-gap: 20px;
 }`}</code></pre>
                   </div>
-                  <div className="col-md-6">
-                    <h5><i className="bi bi-arrow-repeat"></i> Auto Flow</h5>
-                    <p><code>grid-auto-flow: row, column, dense;</code></p>
-                    <pre><code>{`.container {
-  grid-auto-flow: row dense;
-}`}</code></pre>
-                  </div>
-                </div>
-              </div>
-
-              <div className="property-card">
-                <h3 className="h4">Grid Item Properties</h3>
-                <div className="row">
-                  <div className="col-md-6">
-                    <h5><i className="bi bi-border"></i> Grid Column/Row</h5>
-                    <p><code>grid-column: start / end;</code></p>
-                    <p><code>grid-row: start / end;</code></p>
-                    <pre><code>{`.item {
-  grid-column: 1 / 3;
-  grid-row: 1;
-}`}</code></pre>
-                  </div>
-                  <div className="col-md-6">
-                    <h5><i className="bi bi-grid-fill"></i> Grid Area</h5>
-                    <p><code>grid-area: name | row-start / column-start / row-end / column-end;</code></p>
-                    <pre><code>{`.item {
-  grid-area: header;
-  /* or */
-  grid-area: 1 / 1 / 3 / 3;
-}`}</code></pre>
-                  </div>
-                  <div className="col-md-6">
-                    <h5><i className="bi bi-justify"></i> Justify/Align Self</h5>
-                    <p><code>justify-self: start, end, center, stretch;</code></p>
-                    <p><code>align-self: start, end, center, stretch;</code></p>
-                    <pre><code>{`.item {
-  justify-self: end;
-  align-self: center;
-}`}</code></pre>
-                  </div>
-                  <div className="col-md-6">
-                    <h5><i className="bi bi-layers"></i> Z-Index</h5>
-                    <p><code>z-index: integer;</code></p>
-                    <pre><code>{`.overlapping-item {
-  z-index: 1;
-}`}</code></pre>
-                  </div>
                 </div>
               </div>
 
               <div className="property-card">
                 <h3 className="h4">Practical Grid Examples</h3>
-                <pre><code>{`/* Holy Grail Layout */
-.container {
-  display: grid;
-  grid-template:
-    "header header header" 80px
-    "nav content aside" 1fr
-    "footer footer footer" 60px
-    / 200px 1fr 200px;
-  min-height: 100vh;
-}
-
-header { grid-area: header; }
-nav { grid-area: nav; }
-main { grid-area: content; }
-aside { grid-area: aside; }
-footer { grid-area: footer; }
-
-/* Responsive Image Gallery */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
-}
-
-/* Form Layout */
-.form-grid {
-  display: grid;
-  grid-template-columns: [labels] auto [controls] 1fr;
-  gap: 0.5rem;
-}
-
-.form-grid > label {
-  grid-column: labels;
-}
-
-.form-grid > input,
-.form-grid > select {
-  grid-column: controls;
+                <pre><code>{`.container{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    gap: 30px;
 }`}</code></pre>
               </div>
 

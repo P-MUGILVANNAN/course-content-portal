@@ -149,7 +149,7 @@ function ServletNotes() {
                   <li>If the user wants to read the web pages as per input then the servlet container is used in java.</li>
                   <li>The servlet container is the part of web server which can be run in a separate process.</li>
                 </ul>
-                
+
                 <h4 className="h5 mt-4">Servlet Container States:</h4>
                 <ol>
                   <li>
@@ -185,7 +185,7 @@ function ServletNotes() {
                   <li>The jakarta.servlet package contains many interfaces and classes that are used by the servlet or web container. These are not specific to any protocol.</li>
                   <li>The jakarta.servlet.http package contains interfaces and classes that are responsible for http requests only.</li>
                 </ul>
-                
+
                 <div className="row mt-3">
                   <div className="col-md-6">
                     <div className="property-card">
@@ -227,7 +227,7 @@ function ServletNotes() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="row mt-3">
                   <div className="col-md-6">
                     <div className="property-card">
@@ -270,7 +270,7 @@ function ServletNotes() {
                   <li>Servlet interface defines methods that all servlets must implement.</li>
                   <li>Servlet interface needs to be implemented for creating any servlet (either directly or indirectly).</li>
                 </ul>
-                
+
                 <h4 className="h5 mt-4">Servlet Interface Methods:</h4>
                 <table className="method-table">
                   <thead>
@@ -302,7 +302,7 @@ function ServletNotes() {
                     </tr>
                   </tbody>
                 </table>
-                
+
                 <h4 className="h5 mt-4">Servlet Example by implementing Servlet interface:</h4>
                 <pre>{`package sample;
 
@@ -367,7 +367,7 @@ public class Life extends HttpServlet {
                   <li>GenericServlet class can handle any type of request so it is protocol-independent.</li>
                   <li>You may create a generic servlet by inheriting the GenericServlet class and providing the implementation of the service method.</li>
                 </ul>
-                
+
                 <h4 className="h5 mt-4">Methods of GenericServlet class:</h4>
                 <ol>
                   <li><code>public void init(ServletConfig config)</code> - Used to initialize the servlet.</li>
@@ -383,7 +383,7 @@ public class Life extends HttpServlet {
                   <li><code>public void log(String msg)</code> - Writes the given message in the servlet log file.</li>
                   <li><code>public void log(String msg,Throwable t)</code> - Writes the explanatory message in the servlet log file and a stack trace.</li>
                 </ol>
-                
+
                 <h4 className="h5 mt-4">Servlet Example by inheriting the GenericServlet class:</h4>
                 <pre>{`import java.io.*;
 import jakarta.servlet.*;
@@ -409,7 +409,7 @@ public class First extends GenericServlet {
                   <li>The HttpServlet class extends the GenericServlet class and implements Serializable interface.</li>
                   <li>It provides http specific methods such as doGet, doPost, doHead, doTrace etc.</li>
                 </ul>
-                
+
                 <h4 className="h5 mt-4">Methods of HttpServlet class:</h4>
                 <ol>
                   <li><code>public void service(ServletRequest req, ServletResponse res)</code> - Dispatches the request to the protected service method by converting the request and response object into http type.</li>
@@ -423,7 +423,7 @@ public class First extends GenericServlet {
                   <li><code>protected void doDelete(HttpServletRequest req, HttpServletResponse res)</code> - Handles the DELETE request. It is invoked by the web container.</li>
                   <li><code>protected long getLastModified(HttpServletRequest req)</code> - Returns the time when HttpServletRequest was last modified since midnight January 1, 1970 GMT.</li>
                 </ol>
-                
+
                 <h4 className="h5 mt-4">doGet vs. doPost:</h4>
                 <table className="method-table">
                   <thead>
@@ -455,7 +455,7 @@ public class First extends GenericServlet {
                     </tr>
                   </tbody>
                 </table>
-                
+
                 <h4 className="h5 mt-4">Example:</h4>
                 <pre>{`import java.io.*;
 import jakarta.servlet.*;
@@ -491,7 +491,7 @@ public class HelloWorld extends HttpServlet {
               <h2 className="h2 mb-3"><i className="bi bi-arrow-down-circle"></i> ServletRequest Interface</h2>
               <div className="property-card">
                 <p>An object of ServletRequest is used to provide the client request information to a servlet such as content type, content length, parameter names and values, header informations, attributes etc.</p>
-                
+
                 <h4 className="h5 mt-4">Methods of ServletRequest Interface:</h4>
                 <table className="method-table">
                   <thead>
@@ -539,7 +539,7 @@ public class HelloWorld extends HttpServlet {
                     </tr>
                   </tbody>
                 </table>
-                
+
                 <h4 className="h5 mt-4">Example:</h4>
                 <p><strong>index.html</strong></p>
                 <pre>{`<form action="welcome" method="get">
@@ -570,7 +570,7 @@ public class DemoServ extends HttpServlet {
               <h2 className="h2 mb-3"><i className="bi bi-arrow-up-circle"></i> ServletResponse Interface</h2>
               <div className="property-card">
                 <p>An object of ServletResponse is used to send data to the client. It provides response-specific methods to set content type, buffer size, character encoding etc.</p>
-                
+
                 <h4 className="h5 mt-4">Key Methods:</h4>
                 <ul>
                   <li><code>void setContentType(String type)</code> - Sets the content type of the response being sent to the client.</li>
@@ -592,14 +592,14 @@ public class DemoServ extends HttpServlet {
                   <li>RequestDispatcher Interface</li>
                   <li>sendRedirect Method</li>
                 </ol>
-                
+
                 <h4 className="h5 mt-4">1) RequestDispatcher Interface:</h4>
                 <ul>
                   <li>The RequestDispatcher interface provides the facility of dispatching the request to another resource it may be html, servlet or jsp.</li>
                   <li>This interface can also be used to include the content of another resource.</li>
                   <li>It is one of the way of servlet collaboration.</li>
                 </ul>
-                
+
                 <h5 className="h6 mt-3">Methods:</h5>
                 <ol>
                   <li>
@@ -611,7 +611,7 @@ public class DemoServ extends HttpServlet {
                     <p>Includes the content of a resource (servlet, JSP page, or HTML file) in the response.</p>
                   </li>
                 </ol>
-                
+
                 <h5 className="h6 mt-3">Example:</h5>
                 <p><strong>index.html</strong></p>
                 <pre>{`<html>
@@ -672,7 +672,7 @@ public class WelcomeServlet extends HttpServlet {
                   <li>It accepts relative as well as absolute URL.</li>
                   <li>It works at client side because it uses the url bar of the browser to make another request. So, it can work inside and outside the server.</li>
                 </ul>
-                
+
                 <h5 className="h6 mt-3">Difference between forward() and sendRedirect() method:</h5>
                 <table className="method-table">
                   <thead>
@@ -700,7 +700,7 @@ public class WelcomeServlet extends HttpServlet {
                     </tr>
                   </tbody>
                 </table>
-                
+
                 <h5 className="h6 mt-3">Example:</h5>
                 <pre>{`import java.io.*;
 import jakarta.servlet.*;
@@ -728,7 +728,7 @@ public class DemoServlet extends HttpServlet {
                   <li>If the configuration information is modified from the web.xml file, we don't need to change the servlet.</li>
                   <li>So it is easier to manage the web application if any specific content is modified from time to time.</li>
                 </ul>
-                
+
                 <h4 className="h5 mt-4">Methods of ServletConfig interface:</h4>
                 <ol>
                   <li><code>public String getInitParameter(String name)</code> - Returns the parameter value for the specified parameter name.</li>
@@ -736,7 +736,7 @@ public class DemoServlet extends HttpServlet {
                   <li><code>public String getServletName()</code> - Returns the name of the servlet.</li>
                   <li><code>public ServletContext getServletContext()</code> - Returns an object of ServletContext.</li>
                 </ol>
-                
+
                 <h4 className="h5 mt-4">Syntax in web.xml:</h4>
                 <pre>{`<web-app>
     <servlet>
@@ -748,7 +748,7 @@ public class DemoServlet extends HttpServlet {
         ...
     </servlet>
 </web-app>`}</pre>
-                
+
                 <h4 className="h5 mt-4">Example:</h4>
                 <pre>{`import java.io.*;
 import jakarta.servlet.*;
@@ -794,14 +794,14 @@ public class S2 extends HttpServlet {
                   <li>There is only one ServletContext object per web application.</li>
                   <li>If any information is shared to many servlet, it is better to provide it from the web.xml file using the &lt;context-param&gt; element.</li>
                 </ul>
-                
+
                 <h4 className="h5 mt-4">Advantage of ServletContext:</h4>
                 <ul>
                   <li><strong>Easy to maintain</strong> if any information is shared to all the servlet, it is better to make it available for all the servlet.</li>
                   <li>We provide this information from the web.xml file, so if the information is changed, we don't need to modify the servlet.</li>
                   <li>Thus it removes maintenance problem.</li>
                 </ul>
-                
+
                 <h4 className="h5 mt-4">Methods of ServletContext interface:</h4>
                 <ol>
                   <li><code>public String getInitParameter(String name)</code> - Returns the parameter value for the specified parameter name.</li>
@@ -811,7 +811,7 @@ public class S2 extends HttpServlet {
                   <li><code>public Enumeration getInitParameterNames()</code> - Returns the names of the context's initialization parameters as an Enumeration of String objects.</li>
                   <li><code>public void removeAttribute(String name)</code> - Removes the attribute with the given name from the servlet context.</li>
                 </ol>
-                
+
                 <h4 className="h5 mt-4">Syntax in web.xml:</h4>
                 <pre>{`<web-app>
     ...
@@ -821,7 +821,7 @@ public class S2 extends HttpServlet {
     </context-param>
     ...
 </web-app>`}</pre>
-                
+
                 <h4 className="h5 mt-4">Example:</h4>
                 <pre>{`import java.io.*;
 import jakarta.servlet.*;
@@ -870,7 +870,7 @@ public class DemoServlet extends HttpServlet {
                   <li>Each time user requests to the server, server treats the request as the new request. So we need to maintain the state of an user to recognize to particular user.</li>
                   <li>HTTP is stateless that means each request is considered as the new request.</li>
                 </ul>
-                
+
                 <h4 className="h5 mt-4">Session Tracking Techniques:</h4>
                 <ol>
                   <li>Cookies</li>
@@ -878,7 +878,7 @@ public class DemoServlet extends HttpServlet {
                   <li>URL Rewriting</li>
                   <li>HttpSession</li>
                 </ol>
-                
+
                 <h5 className="h6 mt-3">1. Cookies:</h5>
                 <ul>
                   <li>A <strong>cookie</strong> is a small piece of information that is persisted between the multiple client requests.</li>
@@ -888,7 +888,7 @@ public class DemoServlet extends HttpServlet {
                   <li>So cookie is stored in the cache of the browser.</li>
                   <li>After that if request is sent by the user, cookie is added with request by default. Thus, we recognize the user as the old user.</li>
                 </ul>
-                
+
                 <h6 className="h6 mt-2">Types of Cookie:</h6>
                 <ol>
                   <li>
@@ -906,19 +906,19 @@ public class DemoServlet extends HttpServlet {
                     </ul>
                   </li>
                 </ol>
-                
+
                 <h6 className="h6 mt-2">Advantage of Cookies:</h6>
                 <ul>
                   <li>Simplest technique of maintaining the state.</li>
                   <li>Cookies are maintained at client side.</li>
                 </ul>
-                
+
                 <h6 className="h6 mt-2">Disadvantage of Cookies:</h6>
                 <ul>
                   <li>It will not work if cookie is disabled from the browser.</li>
                   <li>Only textual information can be set in Cookie object.</li>
                 </ul>
-                
+
                 <h6 className="h6 mt-2">Useful Methods of Cookie class:</h6>
                 <table className="method-table">
                   <thead>
@@ -950,7 +950,7 @@ public class DemoServlet extends HttpServlet {
                     </tr>
                   </tbody>
                 </table>
-                
+
                 <h6 className="h6 mt-2">Example:</h6>
                 <p><strong>index.html</strong></p>
                 <pre>{`<html>
@@ -1012,22 +1012,22 @@ public class SecondServlet extends HttpServlet {
                   <li>It is widely used in comment form of a website.</li>
                   <li>In such case, we store page id or page name in the hidden field so that each page can be uniquely identified.</li>
                 </ul>
-                
+
                 <h6 className="h6 mt-2">Syntax:</h6>
                 <pre>{`<input type="hidden" name="uname" value="Sachin">`}</pre>
-                
+
                 <h6 className="h6 mt-2">Advantage of Hidden Form Field:</h6>
                 <ul>
                   <li>It will always work whether cookie is disabled or not.</li>
                 </ul>
-                
+
                 <h6 className="h6 mt-2">Disadvantage of Hidden Form Field:</h6>
                 <ul>
                   <li>It is maintained at server side.</li>
                   <li>Extra form submission is required on each pages.</li>
                   <li>Only textual information can be used.</li>
                 </ul>
-                
+
                 <h6 className="h6 mt-2">Example:</h6>
                 <p><strong>index.html</strong></p>
                 <pre>{`<html>
@@ -1088,19 +1088,19 @@ public class SecondServlet extends HttpServlet {
                   <li>When the user clicks the hyperlink, the parameter name/value pairs will be passed to the server.</li>
                   <li>From a Servlet, we can use getParameter() method to obtain a parameter value.</li>
                 </ul>
-                
+
                 <h6 className="h6 mt-2">Advantage of URL Rewriting:</h6>
                 <ol>
                   <li>It will always work whether cookie is disabled or not (browser independent).</li>
                   <li>Extra form submission is not required on each pages.</li>
                 </ol>
-                
+
                 <h6 className="h6 mt-2">Disadvantage of URL Rewriting:</h6>
                 <ol>
                   <li>It will work only with links.</li>
                   <li>It can send Only textual information.</li>
                 </ol>
-                
+
                 <h6 className="h6 mt-2">Example:</h6>
                 <p><strong>index.html</strong></p>
                 <pre>{`<html>
@@ -1154,13 +1154,13 @@ public class SecondServlet extends HttpServlet {
                 <ul>
                   <li>In such case, container creates a session id for each user. The container uses this id to identify the particular user.</li>
                 </ul>
-                
+
                 <h6 className="h6 mt-2">Difference between getSession(true) and getSession(false):</h6>
                 <ul>
                   <li><code>request.getSession(true)</code> will return current session. If current session does not exist, then it will create a new session.</li>
                   <li><code>getSession(false)</code> will return current session if current session exists, then it will not create a new session.</li>
                 </ul>
-                
+
                 <h6 className="h6 mt-2">Example:</h6>
                 <p><strong>index.html</strong></p>
                 <pre>{`<html>
@@ -1217,8 +1217,8 @@ public class SecondServlet extends HttpServlet {
               <h2 className="h2 mb-3"><i className="bi bi-database"></i> Servlet JDBC CRUD</h2>
               <div className="property-card">
                 <p>JDBC – Java Database Connectivity<br />
-                CRUD – Create Read Update Delete</p>
-                
+                  CRUD – Create Read Update Delete</p>
+
                 <h4 className="h5 mt-4">Example Files:</h4>
                 <ol>
                   <li>Home.jsp</li>
@@ -1234,7 +1234,7 @@ public class SecondServlet extends HttpServlet {
                   <li>SelectDetails.java</li>
                   <li>UpdateDetails.java</li>
                 </ol>
-                
+
                 <h5 className="h6 mt-3">Home.jsp:</h5>
                 <pre>{`<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -1266,6 +1266,198 @@ public class SecondServlet extends HttpServlet {
 </table>
 </body>
 </html>`}</pre>
+
+                <h5 className="ht mt-3">Insert.jsp</h5>
+                <pre>{`<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Insert Details</title>
+</head>
+<body>
+    <h2>Fill in the details</h2>
+    <form action="InsertDetails" method="post">
+      <table>
+        <tr>
+          <td>ID:</td>
+          <td><input type="text" name="id" maxlength="6" size="7" /></td>
+        </tr>
+        <tr>
+          <td>Name:</td>
+            <td><input type="text" name="name" maxlength="30" size="25" /></td>
+        </tr>
+        <tr>
+          <td>Email Id:</td>
+          <td><input type="text" name="email" maxlength="40" size="35" /></td>
+        </tr>
+        <tr>
+          <td>Phone Number:</td>
+          <td><input type="text" name="phnum" maxlength="10" size="11" /></td>
+        </tr>
+      </table><br /> 
+      <input type="submit" value="Insert Data" />
+    </form>
+    <br />
+    <input type="button" value="Return to Home" onclick="window.location.href='home.jsp'" />
+</body>
+</html>`}</pre>
+
+                <h5 className="h6 mt-3">Delete.jsp</h5>
+                <pre>{`<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Delete Details</title>
+</head>
+<body>
+    <form action="DeleteDetails" method="post">
+      <table>
+        <tr>
+          <td>Enter ID:</td>
+          <td><input type="text" name="id" maxlength="6" size="7" /></td>
+        </tr>
+      </table>
+      <br /> 
+      <input type="submit" value="Delete Data" />
+    </form>
+    <br />
+    <input type="button" value="Return to Home" onclick="window.location.href='Home.jsp'" />
+</body>
+</html>`}</pre>
+
+                <h5 className="h6 mt-3">Success.jsp</h5>
+                <pre>{`<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Success Page</title>
+</head>
+<body>
+    <form action="Home.jsp">
+    <h3><%=request.getParameter("msg")%> Successful</h3>
+    <br /> 
+    <input type="submit" value="Return to Home page" />
+  </form>
+</body>
+</html>`}</pre>
+
+                <h5 className="h6 mt-3">Select.jsp</h5>
+                <pre>{`<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Select Details</title>
+</head>
+<body>
+    <form action="SelectDetails" method="get">
+      <table>
+        <tr>
+          <td>Enter ID:</td>
+          <td><input type="text" name="id" maxlength="6" size="7" /></td>
+        </tr>
+      </table>
+      <br /> 
+      <input type="submit" value="View Data" />
+    </form>
+    <br />
+    <input type="button" value="Return to Home" onclick="window.location.href='Home.jsp'" />
+</body>
+</html>`}</pre>
+
+                <h5 className="h6 mt-3">Result.jsp</h5>
+                <pre>{`<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Student Details</title>
+</head>
+<body>
+    <h2>Details</h2>
+    <form>
+      <input type="hidden" name="stid" value="<%=request.getParameter("id")%>">
+      <table>
+        <tr>
+          <td>ID:</td>
+          <td><%=request.getParameter("id")%></td>
+        </tr>
+        <tr>
+          <td>Name:</td>
+          <td><%=request.getParameter("name")%></td>
+        </tr>
+        <tr>
+          <td>Email Id:</td>
+          <td><%=request.getParameter("email")%></td>
+        </tr>
+        <tr>
+          <td>Phone Number:</td>
+          <td><%=request.getParameter("phone")%></td>
+        </tr>
+      </table>
+    </form>
+    <br />
+    <input type="button" value="Update data" onclick="update()" />
+    <br />
+    <input type="button" value="Return to Home" onclick="window.location.href='Home.jsp'" />
+</body>
+<script language="javascript" type="text/javascript">
+function update() {
+    var sid = document.forms[0].elements['stid'].value;
+    window.location.href = "Update.jsp?id=" + sid;
+}
+</script>
+</html>`}</pre>
+
+                <h5 className="h6 mt-3">Update.jsp</h5>
+                <pre>{`<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Student Details</title>
+</head>
+<body>
+    <h2>Fill in your details</h2>
+    <form action="./UpdateDetails" method="post">
+      <table>
+        <tr>
+          <td>ID:</td>
+          <td><input type="text" name="id" value="<%=request.getParameter("id")%>" readonly="readonly"></td>
+        </tr>
+        <tr>
+          <td>Name:</td>
+          <td><input type="text" name="name" maxlength="30" size="25" /></td>
+        </tr>
+        <tr>
+          <td>Email Id:</td>
+          <td><input type="text" name="email" maxlength="40" size="35" /></td>
+        </tr>
+        <tr>
+          <td>Phone Number:</td>
+          <td><input type="text" name="phnum" maxlength="10" size="11" /></td>
+        </tr>
+      </table>
+      <br /> 
+      <input type="submit" value="Update Data" />
+    </form>
+    <br />
+    <input type="button" value="Return to Home" onclick="window.location.href='Home.jsp'" />
+</body>
+</html>`}</pre>
+
+                <h5 className="h6 mt-3">DbUtil.java:</h5>
+                <pre>{`package demo;
+
+public class DbUtil {
+    public static String url = "jdbc:mysql://localhost:3306/database_name";
+    public static String user = "root";
+    public static String password = "password";
+    public static String driver = "com.mysql.cj.jdbc.Driver";
+}`}</pre>
 
                 <h5 className="h6 mt-3">InsertDetails.java:</h5>
                 <pre>{`import java.io.IOException;
@@ -1465,7 +1657,7 @@ public class UpdateDetails extends HttpServlet {
               <h2 className="h2 mb-3"><i className="bi bi-upload"></i> Uploading File in Servlet</h2>
               <div className="property-card">
                 <p>For uploading a file to the server, method must be post and enctype must be multipart/form-data in html file.</p>
-                
+
                 <h4 className="h5 mt-4">Example:</h4>
                 <p><strong>index.html</strong></p>
                 <pre>{`<html>
@@ -1507,10 +1699,10 @@ public class UploadServlet extends HttpServlet {
                   <li>SecondServlet.java</li>
                   <li>web.xml</li>
                 </ol>
-                
+
                 <p>First create the database table:</p>
                 <pre>{`create table userreg(name varchar(40), pass varchar(40));`}</pre>
-                
+
                 <h4 className="h5 mt-4">index.html</h4>
                 <pre>{`<form action="FirstServlet" method="post">
     Name:<input type="text" name="username"/><br/><br/>
