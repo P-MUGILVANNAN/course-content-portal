@@ -1,4 +1,16 @@
 import React from 'react';
+import lineplot from '../../assets/simple line plot.png';
+import customlineplot from '../../assets/customized line plot.png';
+import barplot from '../../assets/bar chart.png';
+import piechart from '../../assets/pie chart.png';
+import histogram from '../../assets/histogram.png';
+import scatterplot from '../../assets/scatter plot.png';
+import multipleplots from '../../assets/mutiple plots.png';
+import subplot from '../../assets/subplots.png';
+import resizableplot from '../../assets/resizable plot.png';
+import salesovertime from '../../assets/sales over time.png';
+import linestylecolor from '../../assets/line style color.png';
+import dateplot from '../../assets/date based line plot.png';
 
 function MatplotlibNotes() {
   return (
@@ -168,6 +180,9 @@ plt.ylabel("Y-Axis")    # Label for Y
 plt.title("Simple Line Plot") # Title
 plt.show()    # Display the plot`}</code></pre>
                 <p><strong>Output:</strong> A straight line graph connecting the points (1,2), (2,4), ..., (5,10)</p>
+                <div className="img">
+                  <img src={lineplot} alt="Simple Line Plot" className='img-fluid' />
+                </div>
               </div>
               
               <div className="property-card">
@@ -191,6 +206,9 @@ plt.show()`}</code></pre>
                   <li><code>marker</code>: Marker style at data points ('o' for circles)</li>
                   <li><code>markersize</code>: Size of markers (8)</li>
                 </ul>
+                <div className="img">
+                  <img src={customlineplot} alt="Simple Line Plot" className='img-fluid' />
+                </div>
               </div>
             </section>
 
@@ -225,6 +243,9 @@ plt.show()`}</code></pre>
                   <li><code>color='skyblue'</code> gives soft blue color to bars</li>
                   <li><code>grid(axis='y')</code> adds lines only on Y-axis</li>
                 </ul>
+                <div className="img">
+                  <img src={barplot} alt="Bar Plot" className='img-fluid' />
+                </div>
               </div>
             </section>
 
@@ -259,6 +280,9 @@ plt.show()`}</code></pre>
                   <li><code>shadow=True</code>: Adds shadow for 3D effect</li>
                   <li><code>axis('equal')</code>: Ensures pie is a perfect circle</li>
                 </ul>
+                <div className="img">
+                  <img src={piechart} alt="Pie Chart" className='img-fluid' />
+                </div>
               </div>
             </section>
 
@@ -294,6 +318,9 @@ plt.show()`}</code></pre>
                   <li><code>edgecolor='black'</code>: Border color of bars</li>
                   <li><code>grid(axis='y')</code>: Adds horizontal grid lines</li>
                 </ul>
+                <div className="img">
+                  <img src={histogram} alt="Histogram" className='img-fluid' />
+                </div>
               </div>
             </section>
 
@@ -335,6 +362,9 @@ plt.show()`}</code></pre>
                   <li>If dots trend upward → positive correlation</li>
                   <li>Great for identifying trends, clusters, or outliers</li>
                 </ul>
+                <div className="img">
+                  <img src={scatterplot} alt="Scatter Plot" className='img-fluid' />
+                </div>
               </div>
             </section>
 
@@ -372,6 +402,9 @@ plt.show()`}</code></pre>
                   <li><code>legend()</code>: Displays labels in a box inside the plot</li>
                   <li>Position legend with <code>loc</code> parameter: <code>plt.legend(loc='upper left')</code></li>
                 </ul>
+                <div className="img">
+                  <img src={multipleplots} alt="Multiple Plot" className='img-fluid' />
+                </div>
               </div>
             </section>
 
@@ -414,6 +447,9 @@ plt.show()`}</code></pre>
                   <li><code>suptitle()</code>: Title for the entire figure</li>
                   <li><code>tight_layout()</code>: Adjusts spacing automatically</li>
                 </ul>
+                <div className="img">
+                  <img src={subplot} alt="Sub Plot" className='img-fluid' />
+                </div>
               </div>
             </section>
 
@@ -443,6 +479,9 @@ plt.show()`}</code></pre>
                   <li><code>figsize=(8, 4)</code>: 8 inches wide and 4 inches tall</li>
                   <li><code>savefig()</code>: Saves plot as image (PNG, JPG, PDF, SVG)</li>
                 </ul>
+                <div className="img">
+                  <img src={resizableplot} alt="Resizable Plot" className='img-fluid' />
+                </div>
               </div>
               
               <div className="property-card">
@@ -469,6 +508,9 @@ plt.show()`}</code></pre>
                   <li><code>xlabel()</code>/<code>ylabel()</code>: Describes each axis</li>
                   <li><code>grid(True)</code>: Adds customizable gridlines</li>
                 </ul>
+                <div className="img">
+                  <img src={salesovertime} alt="Sales Over Time" className='img-fluid' />
+                </div>
               </div>
               
               <div className="property-card">
@@ -521,6 +563,9 @@ plt.show()`}</code></pre>
                     </tr>
                   </tbody>
                 </table>
+                <div className="img">
+                  <img src={linestylecolor} alt="Line Style Color" className='img-fluid' />
+                </div>
               </div>
             </section>
 
@@ -633,6 +678,9 @@ plt.show()`}</code></pre>
                   <li><code>xticks(rotation=45)</code>: Makes dates readable</li>
                   <li>Perfect for time series visualization</li>
                 </ul>
+                <div className="img">
+                  <img src={dateplot} alt="Date Based Line Plot" className='img-fluid' />
+                </div>
               </div>
             </section>
           </main>
