@@ -2,286 +2,367 @@ import React from 'react';
 
 function JavascriptSyllabus() {
   return (
-    <div className="bg-light">
-      <style>
-        {`
-          .syllabus-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-          }
-          .syllabus-header {
-            background-color: #6c757d;
-            color: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-          }
-          .topic-list {
-            list-style-type: none;
-            padding: 0;
-          }
-          .topic-item {
-            background-color: white;
-            margin-bottom: 10px;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-          }
-          .topic-item i {
-            margin-right: 10px;
-          }
-        `}
-      </style>
-      <div className="syllabus-container">
-        <header className="syllabus-header">
-          <h1 className="display-4 fw-bold"><i className="bi bi-filetype-js"></i> JavaScript Syllabus</h1>
-          <p className="lead">Comprehensive Coverage of JavaScript Programming</p>
-        </header>
-        
-        <div className="topic-list">
-          <div className="topic-item">
-            <h2><i className="bi bi-info-circle"></i> Introduction to JavaScript</h2>
-            <ul>
-              <li>What is JavaScript?</li>
-              <li>JavaScript vs ECMAScript</li>
-              <li>Client-side vs Server-side JavaScript</li>
-              <li>JavaScript engines (V8, SpiderMonkey, etc.)</li>
-            </ul>
+    <div className="container py-5">
+      <header className="bg-primary text-white p-4 rounded-3 mb-4 shadow">
+        <div className="d-flex align-items-center mb-3">
+          <i className="bi bi-filetype-js fs-1 me-3"></i>
+          <div>
+            <h1 className="display-4 fw-bold mb-0">JavaScript Syllabus</h1>
+            <p className="lead mb-0">Comprehensive Coverage of JavaScript Programming</p>
           </div>
-
-          <div className="topic-item">
-            <h2><i className="bi bi-code-square"></i> JavaScript Basics</h2>
-            <ul>
-              <li>Including JavaScript in HTML</li>
-              <li>JavaScript syntax and statements</li>
-              <li>Comments in JavaScript</li>
-              <li>Basic output methods</li>
-            </ul>
+        </div>
+      </header>
+      
+      <div className="row g-4">
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-info-circle text-primary me-2"></i>Introduction to JavaScript</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">What is JavaScript?</li>
+                <li className="list-group-item">JavaScript vs ECMAScript</li>
+                <li className="list-group-item">Client-side vs Server-side</li>
+                <li className="list-group-item">JavaScript engines</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-list-check"></i> Data Types and Variables</h2>
-            <ul>
-              <li>Primitive data types (number, string, boolean, etc.)</li>
-              <li>Reference data types (objects, arrays)</li>
-              <li>Variables (var, let, const)</li>
-              <li>Type conversion and coercion</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-code-square text-primary me-2"></i>JavaScript Basics</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Including JavaScript in HTML</li>
+                <li className="list-group-item">JavaScript syntax</li>
+                <li className="list-group-item">Comments</li>
+                <li className="list-group-item">Output methods</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-calculator"></i> Operators and Expressions</h2>
-            <ul>
-              <li>Arithmetic operators</li>
-              <li>Assignment operators</li>
-              <li>Comparison operators</li>
-              <li>Logical operators</li>
-              <li>Bitwise operators</li>
-              <li>Ternary operator</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-list-check text-primary me-2"></i>Data Types and Variables</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Primitive data types</li>
+                <li className="list-group-item">Reference data types</li>
+                <li className="list-group-item">Variables (var, let, const)</li>
+                <li className="list-group-item">Type conversion</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-diagram-2"></i> Control Flow</h2>
-            <ul>
-              <li>Conditional statements (if, else, switch)</li>
-              <li>Loops (for, while, do-while)</li>
-              <li>Break and continue statements</li>
-              <li>Error handling (try, catch, finally)</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-calculator text-primary me-2"></i>Operators and Expressions</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Arithmetic operators</li>
+                <li className="list-group-item">Assignment operators</li>
+                <li className="list-group-item">Comparison operators</li>
+                <li className="list-group-item">Logical operators</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-gear"></i> Functions</h2>
-            <ul>
-              <li>Function declarations and expressions</li>
-              <li>Parameters and arguments</li>
-              <li>Return values</li>
-              <li>Function scope</li>
-              <li>Arrow functions</li>
-              <li>Immediately Invoked Function Expressions (IIFE)</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-diagram-2 text-primary me-2"></i>Control Flow</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Conditional statements</li>
+                <li className="list-group-item">Loops</li>
+                <li className="list-group-item">Break and continue</li>
+                <li className="list-group-item">Error handling</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-collection"></i> Objects and Prototypes</h2>
-            <ul>
-              <li>Object literals</li>
-              <li>Properties and methods</li>
-              <li>Constructor functions</li>
-              <li>Prototypes and inheritance</li>
-              <li>this keyword</li>
-              <li>Object destructuring</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-gear text-primary me-2"></i>Functions</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Function declarations</li>
+                <li className="list-group-item">Parameters and arguments</li>
+                <li className="list-group-item">Return values</li>
+                <li className="list-group-item">Arrow functions</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-grid-3x3"></i> Arrays</h2>
-            <ul>
-              <li>Array creation and manipulation</li>
-              <li>Array methods (push, pop, slice, splice, etc.)</li>
-              <li>Iterating over arrays</li>
-              <li>Multidimensional arrays</li>
-              <li>Array destructuring</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-collection text-primary me-2"></i>Objects and Prototypes</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Object literals</li>
+                <li className="list-group-item">Properties and methods</li>
+                <li className="list-group-item">Constructor functions</li>
+                <li className="list-group-item">Prototypes</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-type"></i> Strings</h2>
-            <ul>
-              <li>String creation and manipulation</li>
-              <li>String methods (indexOf, slice, replace, etc.)</li>
-              <li>Template literals</li>
-              <li>Regular expressions</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-grid-3x3 text-primary me-2"></i>Arrays</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Array creation</li>
+                <li className="list-group-item">Array methods</li>
+                <li className="list-group-item">Iterating over arrays</li>
+                <li className="list-group-item">Array destructuring</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-layers"></i> Classes and Modules</h2>
-            <ul>
-              <li>Class syntax</li>
-              <li>Constructors</li>
-              <li>Methods and properties</li>
-              <li>Inheritance (extends)</li>
-              <li>Static methods</li>
-              <li>Modules (import/export)</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-type text-primary me-2"></i>Strings</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">String creation</li>
+                <li className="list-group-item">String methods</li>
+                <li className="list-group-item">Template literals</li>
+                <li className="list-group-item">Regular expressions</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-arrow-return-right"></i> Asynchronous JavaScript</h2>
-            <ul>
-              <li>Callbacks</li>
-              <li>Promises</li>
-              <li>Async/await</li>
-              <li>Fetch API</li>
-              <li>AJAX</li>
-              <li>Event loop</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-layers text-primary me-2"></i>Classes and Modules</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Class syntax</li>
+                <li className="list-group-item">Constructors</li>
+                <li className="list-group-item">Inheritance</li>
+                <li className="list-group-item">Modules (import/export)</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-file-earmark-code"></i> DOM Manipulation</h2>
-            <ul>
-              <li>DOM tree structure</li>
-              <li>Selecting elements</li>
-              <li>Modifying elements</li>
-              <li>Creating and removing elements</li>
-              <li>Event handling</li>
-              <li>Forms and validation</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-arrow-return-right text-primary me-2"></i>Asynchronous JavaScript</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Callbacks</li>
+                <li className="list-group-item">Promises</li>
+                <li className="list-group-item">Async/await</li>
+                <li className="list-group-item">Fetch API</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-window"></i> Browser Object Model (BOM)</h2>
-            <ul>
-              <li>Window object</li>
-              <li>Location object</li>
-              <li>History object</li>
-              <li>Navigator object</li>
-              <li>Screen object</li>
-              <li>Timing functions (setTimeout, setInterval)</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-file-earmark-code text-primary me-2"></i>DOM Manipulation</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">DOM tree structure</li>
+                <li className="list-group-item">Selecting elements</li>
+                <li className="list-group-item">Modifying elements</li>
+                <li className="list-group-item">Event handling</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-storage"></i> Storage</h2>
-            <ul>
-              <li>Cookies</li>
-              <li>LocalStorage</li>
-              <li>SessionStorage</li>
-              <li>IndexedDB</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-window text-primary me-2"></i>Browser Object Model</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Window object</li>
+                <li className="list-group-item">Location object</li>
+                <li className="list-group-item">History object</li>
+                <li className="list-group-item">Timing functions</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-puzzle"></i> Advanced Concepts</h2>
-            <ul>
-              <li>Closures</li>
-              <li>Hoisting</li>
-              <li>Currying</li>
-              <li>Memoization</li>
-              <li>Debouncing and throttling</li>
-              <li>Web Workers</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-storage text-primary me-2"></i>Storage</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Cookies</li>
+                <li className="list-group-item">LocalStorage</li>
+                <li className="list-group-item">SessionStorage</li>
+                <li className="list-group-item">IndexedDB</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-stars"></i> ES6+ Features</h2>
-            <ul>
-              <li>Let and const</li>
-              <li>Template literals</li>
-              <li>Destructuring</li>
-              <li>Spread/rest operators</li>
-              <li>Default parameters</li>
-              <li>Optional chaining</li>
-              <li>Nullish coalescing</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-puzzle text-primary me-2"></i>Advanced Concepts</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Closures</li>
+                <li className="list-group-item">Hoisting</li>
+                <li className="list-group-item">Currying</li>
+                <li className="list-group-item">Web Workers</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-tools"></i> Debugging and Tools</h2>
-            <ul>
-              <li>Browser developer tools</li>
-              <li>Console methods</li>
-              <li>Debugging techniques</li>
-              <li>Linting tools (ESLint)</li>
-              <li>Testing frameworks (Jest, Mocha)</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-stars text-primary me-2"></i>ES6+ Features</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Let and const</li>
+                <li className="list-group-item">Template literals</li>
+                <li className="list-group-item">Destructuring</li>
+                <li className="list-group-item">Optional chaining</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-shield-check"></i> Security</h2>
-            <ul>
-              <li>Cross-site scripting (XSS)</li>
-              <li>Cross-site request forgery (CSRF)</li>
-              <li>Content Security Policy (CSP)</li>
-              <li>Same-origin policy</li>
-              <li>CORS</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-tools text-primary me-2"></i>Debugging and Tools</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Developer tools</li>
+                <li className="list-group-item">Console methods</li>
+                <li className="list-group-item">Linting tools</li>
+                <li className="list-group-item">Testing frameworks</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-graph-up"></i> Performance Optimization</h2>
-            <ul>
-              <li>Minification and bundling</li>
-              <li>Lazy loading</li>
-              <li>Debouncing and throttling</li>
-              <li>Memory management</li>
-              <li>Performance profiling</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-shield-check text-primary me-2"></i>Security</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Cross-site scripting (XSS)</li>
+                <li className="list-group-item">Cross-site request forgery</li>
+                <li className="list-group-item">Content Security Policy</li>
+                <li className="list-group-item">CORS</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-server"></i> Server-side JavaScript</h2>
-            <ul>
-              <li>Introduction to Node.js</li>
-              <li>npm and package management</li>
-              <li>CommonJS modules</li>
-              <li>Basic server creation</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-graph-up text-primary me-2"></i>Performance Optimization</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Minification</li>
+                <li className="list-group-item">Lazy loading</li>
+                <li className="list-group-item">Memory management</li>
+                <li className="list-group-item">Performance profiling</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-lightning"></i> Modern JavaScript Frameworks</h2>
-            <ul>
-              <li>React.js overview</li>
-              <li>Vue.js overview</li>
-              <li>Angular overview</li>
-              <li>Choosing a framework</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-server text-primary me-2"></i>Server-side JavaScript</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Node.js introduction</li>
+                <li className="list-group-item">npm</li>
+                <li className="list-group-item">CommonJS modules</li>
+                <li className="list-group-item">Basic server creation</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-check-circle"></i> Best Practices</h2>
-            <ul>
-              <li>Coding standards</li>
-              <li>Error handling</li>
-              <li>Code organization</li>
-              <li>Documentation</li>
-              <li>Version control</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-lightning text-primary me-2"></i>Modern Frameworks</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">React.js overview</li>
+                <li className="list-group-item">Vue.js overview</li>
+                <li className="list-group-item">Angular overview</li>
+                <li className="list-group-item">Framework selection</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-check-circle text-primary me-2"></i>Best Practices</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Coding standards</li>
+                <li className="list-group-item">Error handling</li>
+                <li className="list-group-item">Code organization</li>
+                <li className="list-group-item">Documentation</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

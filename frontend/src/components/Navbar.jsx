@@ -43,7 +43,7 @@ function Navbar({ user }) {
 
         {/* Mobile Toggle */}
         <button
-          className="navbar-toggler border-warning"
+          className="navbar-toggler border-primary"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarContent"
@@ -51,7 +51,7 @@ function Navbar({ user }) {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <i className="bi bi-list text-warning"></i>
+          <i className="bi bi-list text-primary"></i>
         </button>
 
         {/* Navbar Links */}

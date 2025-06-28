@@ -2,249 +2,348 @@ import React from 'react';
 
 function MachineLearningSyllabus() {
   return (
-    <div className="bg-light">
-      <style>
-        {`
-          .syllabus-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-          }
-          .syllabus-header {
-            background-color: #6c757d;
-            color: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-          }
-          .topic-list {
-            list-style-type: none;
-            padding: 0;
-          }
-          .topic-item {
-            background-color: white;
-            margin-bottom: 10px;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-          }
-          .topic-item i {
-            margin-right: 10px;
-          }
-        `}
-      </style>
-      <div className="syllabus-container">
-        <header className="syllabus-header">
-          <h1 className="display-4 fw-bold"><i className="bi bi-robot"></i> Machine Learning Syllabus</h1>
-          <p className="lead">Comprehensive Coverage of Machine Learning Concepts and Techniques</p>
-        </header>
-        
-        <div className="topic-list">
-          <div className="topic-item">
-            <h2><i className="bi bi-info-circle"></i> Introduction to Machine Learning</h2>
-            <ul>
-              <li>What is Machine Learning?</li>
-              <li>Types of Machine Learning (Supervised, Unsupervised, Reinforcement)</li>
-              <li>Applications of Machine Learning</li>
-            </ul>
+    <div className="container py-5">
+      <header className="bg-primary text-white p-4 rounded-3 mb-4 shadow">
+        <div className="d-flex align-items-center mb-3">
+          <i className="bi bi-robot fs-1 me-3"></i>
+          <div>
+            <h1 className="display-4 fw-bold mb-0">Machine Learning Syllabus</h1>
+            <p className="lead mb-0">Comprehensive Coverage of Machine Learning Concepts and Techniques</p>
           </div>
-
-          <div className="topic-item">
-            <h2><i className="bi bi-filetype-py"></i> Python for Machine Learning</h2>
-            <ul>
-              <li>Essential Python Libraries (NumPy, Pandas, Matplotlib)</li>
-              <li>Data Handling and Visualization</li>
-              <li>Basic Statistics for ML</li>
-            </ul>
+        </div>
+      </header>
+      
+      <div className="row g-4">
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-info-circle text-primary me-2"></i>Introduction to Machine Learning</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">What is Machine Learning?</li>
+                <li className="list-group-item">Types of Machine Learning</li>
+                <li className="list-group-item">Applications of ML</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-database"></i> Data Preprocessing</h2>
-            <ul>
-              <li>Data Cleaning and Transformation</li>
-              <li>Handling Missing Values</li>
-              <li>Feature Scaling and Encoding</li>
-              <li>Train-Test Split</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-filetype-py text-primary me-2"></i>Python for ML</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Essential Python Libraries</li>
+                <li className="list-group-item">Data Handling</li>
+                <li className="list-group-item">Basic Statistics</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-bookmark-check"></i> Supervised Learning</h2>
-            <ul>
-              <li>Linear and Logistic Regression</li>
-              <li>Decision Trees and Random Forests</li>
-              <li>Support Vector Machines (SVM)</li>
-              <li>k-Nearest Neighbors (k-NN)</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-database text-primary me-2"></i>Data Preprocessing</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Data Cleaning</li>
+                <li className="list-group-item">Handling Missing Values</li>
+                <li className="list-group-item">Feature Scaling</li>
+                <li className="list-group-item">Train-Test Split</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-bookmark"></i> Unsupervised Learning</h2>
-            <ul>
-              <li>Clustering Algorithms (k-Means, Hierarchical)</li>
-              <li>Dimensionality Reduction (PCA, t-SNE)</li>
-              <li>Association Rule Learning</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-bookmark-check text-primary me-2"></i>Supervised Learning</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Linear/Logistic Regression</li>
+                <li className="list-group-item">Decision Trees</li>
+                <li className="list-group-item">Support Vector Machines</li>
+                <li className="list-group-item">k-Nearest Neighbors</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-graph-up"></i> Model Evaluation</h2>
-            <ul>
-              <li>Evaluation Metrics (Accuracy, Precision, Recall, F1)</li>
-              <li>Confusion Matrix</li>
-              <li>Cross-Validation Techniques</li>
-              <li>Bias-Variance Tradeoff</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-bookmark text-primary me-2"></i>Unsupervised Learning</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Clustering Algorithms</li>
+                <li className="list-group-item">Dimensionality Reduction</li>
+                <li className="list-group-item">Association Rule Learning</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-cloud-upload"></i> Model Deployment</h2>
-            <ul>
-              <li>Introduction to ML Deployment</li>
-              <li>Flask/FastAPI for Model Serving</li>
-              <li>Docker for Containerization</li>
-              <li>Cloud Deployment Options</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-graph-up text-primary me-2"></i>Model Evaluation</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Evaluation Metrics</li>
+                <li className="list-group-item">Confusion Matrix</li>
+                <li className="list-group-item">Cross-Validation</li>
+                <li className="list-group-item">Bias-Variance Tradeoff</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-boxes"></i> ML Libraries & Frameworks</h2>
-            <ul>
-              <li>Scikit-learn</li>
-              <li>TensorFlow and Keras</li>
-              <li>PyTorch</li>
-              <li>XGBoost and LightGBM</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-cloud-upload text-primary me-2"></i>Model Deployment</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">ML Deployment Basics</li>
+                <li className="list-group-item">Flask/FastAPI</li>
+                <li className="list-group-item">Docker</li>
+                <li className="list-group-item">Cloud Deployment</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-lightbulb"></i> ML Project Lifecycle</h2>
-            <ul>
-              <li>Problem Definition</li>
-              <li>Data Collection and Preparation</li>
-              <li>Model Building and Evaluation</li>
-              <li>Deployment and Monitoring</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-boxes text-primary me-2"></i>ML Libraries & Frameworks</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Scikit-learn</li>
+                <li className="list-group-item">TensorFlow/Keras</li>
+                <li className="list-group-item">PyTorch</li>
+                <li className="list-group-item">XGBoost/LightGBM</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-controller"></i> Reinforcement Learning</h2>
-            <ul>
-              <li>Fundamentals of RL</li>
-              <li>Markov Decision Processes</li>
-              <li>Q-Learning and Deep Q Networks</li>
-              <li>Applications of RL</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-lightbulb text-primary me-2"></i>ML Project Lifecycle</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Problem Definition</li>
+                <li className="list-group-item">Data Collection</li>
+                <li className="list-group-item">Model Building</li>
+                <li className="list-group-item">Deployment</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-people"></i> Ensemble Methods</h2>
-            <ul>
-              <li>Bagging and Boosting</li>
-              <li>Random Forests</li>
-              <li>AdaBoost and Gradient Boosting</li>
-              <li>Stacking and Voting Classifiers</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-controller text-primary me-2"></i>Reinforcement Learning</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">RL Fundamentals</li>
+                <li className="list-group-item">Markov Decision Processes</li>
+                <li className="list-group-item">Q-Learning</li>
+                <li className="list-group-item">Applications</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-text-paragraph"></i> Natural Language Processing</h2>
-            <ul>
-              <li>Text Preprocessing</li>
-              <li>Word Embeddings (Word2Vec, GloVe)</li>
-              <li>Sentiment Analysis</li>
-              <li>Text Classification</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-people text-primary me-2"></i>Ensemble Methods</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Bagging and Boosting</li>
+                <li className="list-group-item">Random Forests</li>
+                <li className="list-group-item">AdaBoost</li>
+                <li className="list-group-item">Stacking</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-image"></i> Computer Vision</h2>
-            <ul>
-              <li>Image Processing Basics</li>
-              <li>Convolutional Neural Networks (CNNs)</li>
-              <li>Object Detection</li>
-              <li>Image Classification</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-text-paragraph text-primary me-2"></i>Natural Language Processing</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Text Preprocessing</li>
+                <li className="list-group-item">Word Embeddings</li>
+                <li className="list-group-item">Sentiment Analysis</li>
+                <li className="list-group-item">Text Classification</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-graph-up-arrow"></i> Time Series Analysis</h2>
-            <ul>
-              <li>Time Series Components</li>
-              <li>ARIMA Models</li>
-              <li>LSTMs for Time Series</li>
-              <li>Forecasting Techniques</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-image text-primary me-2"></i>Computer Vision</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Image Processing</li>
+                <li className="list-group-item">CNNs</li>
+                <li className="list-group-item">Object Detection</li>
+                <li className="list-group-item">Image Classification</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-shield-lock"></i> Model Interpretability</h2>
-            <ul>
-              <li>Feature Importance</li>
-              <li>SHAP Values</li>
-              <li>LIME</li>
-              <li>Model Explainability Tools</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-graph-up-arrow text-primary me-2"></i>Time Series Analysis</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Time Series Components</li>
+                <li className="list-group-item">ARIMA Models</li>
+                <li className="list-group-item">LSTMs</li>
+                <li className="list-group-item">Forecasting</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-gear"></i> Hyperparameter Tuning</h2>
-            <ul>
-              <li>Grid Search and Random Search</li>
-              <li>Bayesian Optimization</li>
-              <li>Hyperopt</li>
-              <li>Optuna</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-shield-lock text-primary me-2"></i>Model Interpretability</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Feature Importance</li>
+                <li className="list-group-item">SHAP Values</li>
+                <li className="list-group-item">LIME</li>
+                <li className="list-group-item">Explainability Tools</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-hdd-stack"></i> Neural Networks & Deep Learning</h2>
-            <ul>
-              <li>Perceptrons and Activation Functions</li>
-              <li>Backpropagation</li>
-              <li>Deep Neural Networks</li>
-              <li>Regularization Techniques</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-gear text-primary me-2"></i>Hyperparameter Tuning</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Grid/Random Search</li>
+                <li className="list-group-item">Bayesian Optimization</li>
+                <li className="list-group-item">Hyperopt</li>
+                <li className="list-group-item">Optuna</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-clipboard-data"></i> Feature Engineering</h2>
-            <ul>
-              <li>Feature Selection Methods</li>
-              <li>Feature Extraction</li>
-              <li>Feature Creation</li>
-              <li>Handling Imbalanced Data</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-hdd-stack text-primary me-2"></i>Neural Networks</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Perceptrons</li>
+                <li className="list-group-item">Backpropagation</li>
+                <li className="list-group-item">Deep Neural Networks</li>
+                <li className="list-group-item">Regularization</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-cloud"></i> MLOps Fundamentals</h2>
-            <ul>
-              <li>ML Pipelines</li>
-              <li>Model Versioning</li>
-              <li>Continuous Integration/Deployment</li>
-              <li>Monitoring ML Models</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-clipboard-data text-primary me-2"></i>Feature Engineering</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Feature Selection</li>
+                <li className="list-group-item">Feature Extraction</li>
+                <li className="list-group-item">Feature Creation</li>
+                <li className="list-group-item">Imbalanced Data</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-cpu"></i> AI Ethics and Bias</h2>
-            <ul>
-              <li>Ethical Considerations in AI</li>
-              <li>Identifying and Mitigating Bias</li>
-              <li>Fairness in Machine Learning</li>
-              <li>Responsible AI Practices</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-cloud text-primary me-2"></i>MLOps Fundamentals</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">ML Pipelines</li>
+                <li className="list-group-item">Model Versioning</li>
+                <li className="list-group-item">CI/CD</li>
+                <li className="list-group-item">Model Monitoring</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-lightbulb"></i> Real-world ML Projects</h2>
-            <ul>
-              <li>End-to-End Project Examples</li>
-              <li>Case Studies</li>
-              <li>Best Practices</li>
-              <li>Common Pitfalls</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-cpu text-primary me-2"></i>AI Ethics and Bias</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Ethical Considerations</li>
+                <li className="list-group-item">Identifying Bias</li>
+                <li className="list-group-item">Fairness in ML</li>
+                <li className="list-group-item">Responsible AI</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-lightbulb text-primary me-2"></i>Real-world ML Projects</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Project Examples</li>
+                <li className="list-group-item">Case Studies</li>
+                <li className="list-group-item">Best Practices</li>
+                <li className="list-group-item">Common Pitfalls</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

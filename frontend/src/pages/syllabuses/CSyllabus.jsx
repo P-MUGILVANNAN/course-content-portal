@@ -2,196 +2,259 @@ import React from 'react';
 
 function CSyllabus() {
   return (
-    <div className="bg-light">
-      <style>
-        {`
-          .syllabus-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-          }
-          .syllabus-header {
-            background-color: #6c757d;
-            color: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-          }
-          .topic-list {
-            list-style-type: none;
-            padding: 0;
-          }
-          .topic-item {
-            background-color: white;
-            margin-bottom: 10px;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-          }
-          .topic-item i {
-            margin-right: 10px;
-          }
-        `}
-      </style>
-      <div className="syllabus-container">
-        <header className="syllabus-header">
-          <h1 className="display-4 fw-bold"><i className="bi bi-filetype-c"></i> C Programming Syllabus</h1>
-          <p className="lead">Comprehensive Coverage of C Programming Language</p>
-        </header>
-        
-        <div className="topic-list">
-          <div className="topic-item">
-            <h2><i className="bi bi-info-circle"></i> Introduction to C</h2>
-            <ul>
-              <li>What is C Programming?</li>
-              <li>History and Features of C</li>
-              <li>Structure of C Program</li>
-              <li>Compilation and Execution Process</li>
-            </ul>
+    <div className="container py-5">
+      <header className="bg-primary text-white p-4 rounded-3 mb-4 shadow">
+        <div className="d-flex align-items-center mb-3">
+          <i className="bi bi-filetype-c fs-1 me-3"></i>
+          <div>
+            <h1 className="display-4 fw-bold mb-0">C Programming Syllabus</h1>
+            <p className="lead mb-0">Comprehensive Coverage of C Programming Language</p>
           </div>
-
-          <div className="topic-item">
-            <h2><i className="bi bi-gear"></i> Environment Setup</h2>
-            <ul>
-              <li>Installing C Compiler (GCC)</li>
-              <li>Setting up IDE (Code::Blocks, Dev C++)</li>
-              <li>Writing First C Program</li>
-            </ul>
+        </div>
+      </header>
+      
+      <div className="row g-4">
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-info-circle text-primary me-2"></i>Introduction to C</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">What is C Programming?</li>
+                <li className="list-group-item">History and Features of C</li>
+                <li className="list-group-item">Structure of C Program</li>
+                <li className="list-group-item">Compilation and Execution Process</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-card-text"></i> Data Types</h2>
-            <ul>
-              <li>Primitive Data Types (int, float, char, etc.)</li>
-              <li>Derived Data Types (arrays, pointers, etc.)</li>
-              <li>User-defined Data Types (structures, unions, enums)</li>
-              <li>Type Modifiers and Qualifiers</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-gear text-primary me-2"></i>Environment Setup</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Installing C Compiler (GCC)</li>
+                <li className="list-group-item">Setting up IDE (Code::Blocks, Dev C++)</li>
+                <li className="list-group-item">Writing First C Program</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-tag"></i> Variables and Constants</h2>
-            <ul>
-              <li>Variable Declaration and Initialization</li>
-              <li>Scope and Lifetime of Variables</li>
-              <li>Constants and Literals</li>
-              <li>Storage Classes (auto, register, static, extern)</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-card-text text-primary me-2"></i>Data Types</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Primitive Data Types (int, float, char, etc.)</li>
+                <li className="list-group-item">Derived Data Types (arrays, pointers, etc.)</li>
+                <li className="list-group-item">User-defined Data Types (structures, unions, enums)</li>
+                <li className="list-group-item">Type Modifiers and Qualifiers</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-calculator"></i> Operators</h2>
-            <ul>
-              <li>Arithmetic Operators</li>
-              <li>Relational and Logical Operators</li>
-              <li>Bitwise Operators</li>
-              <li>Assignment Operators</li>
-              <li>Ternary Operator</li>
-              <li>Operator Precedence and Associativity</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-tag text-primary me-2"></i>Variables and Constants</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Variable Declaration and Initialization</li>
+                <li className="list-group-item">Scope and Lifetime of Variables</li>
+                <li className="list-group-item">Constants and Literals</li>
+                <li className="list-group-item">Storage Classes (auto, register, static, extern)</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-diagram-2"></i> Control Flow</h2>
-            <ul>
-              <li>Conditional Statements (if, if-else, switch)</li>
-              <li>Loops (while, do-while, for)</li>
-              <li>Break and Continue Statements</li>
-              <li>Goto Statement</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-calculator text-primary me-2"></i>Operators</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Arithmetic Operators</li>
+                <li className="list-group-item">Relational and Logical Operators</li>
+                <li className="list-group-item">Bitwise Operators</li>
+                <li className="list-group-item">Assignment Operators</li>
+                <li className="list-group-item">Ternary Operator</li>
+                <li className="list-group-item">Operator Precedence and Associativity</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-boxes"></i> Functions</h2>
-            <ul>
-              <li>Function Declaration and Definition</li>
-              <li>Function Parameters and Return Values</li>
-              <li>Function Prototypes</li>
-              <li>Recursion</li>
-              <li>Call by Value vs Call by Reference</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-diagram-2 text-primary me-2"></i>Control Flow</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Conditional Statements (if, if-else, switch)</li>
+                <li className="list-group-item">Loops (while, do-while, for)</li>
+                <li className="list-group-item">Break and Continue Statements</li>
+                <li className="list-group-item">Goto Statement</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-collection"></i> Arrays</h2>
-            <ul>
-              <li>Single and Multi-dimensional Arrays</li>
-              <li>Array Initialization and Access</li>
-              <li>Arrays as Function Parameters</li>
-              <li>Strings as Character Arrays</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-boxes text-primary me-2"></i>Functions</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Function Declaration and Definition</li>
+                <li className="list-group-item">Function Parameters and Return Values</li>
+                <li className="list-group-item">Function Prototypes</li>
+                <li className="list-group-item">Recursion</li>
+                <li className="list-group-item">Call by Value vs Call by Reference</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-textarea-t"></i> Strings</h2>
-            <ul>
-              <li>String Declaration and Initialization</li>
-              <li>String Input/Output Functions</li>
-              <li>String Manipulation Functions</li>
-              <li>String Comparison Functions</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-collection text-primary me-2"></i>Arrays</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Single and Multi-dimensional Arrays</li>
+                <li className="list-group-item">Array Initialization and Access</li>
+                <li className="list-group-item">Arrays as Function Parameters</li>
+                <li className="list-group-item">Strings as Character Arrays</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-cursor"></i> Pointers</h2>
-            <ul>
-              <li>Pointer Basics and Declaration</li>
-              <li>Pointer Arithmetic</li>
-              <li>Pointers and Arrays</li>
-              <li>Pointers to Pointers</li>
-              <li>Pointers to Functions</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-textarea-t text-primary me-2"></i>Strings</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">String Declaration and Initialization</li>
+                <li className="list-group-item">String Input/Output Functions</li>
+                <li className="list-group-item">String Manipulation Functions</li>
+                <li className="list-group-item">String Comparison Functions</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-box"></i> Structures and Unions</h2>
-            <ul>
-              <li>Structure Definition and Declaration</li>
-              <li>Accessing Structure Members</li>
-              <li>Array of Structures</li>
-              <li>Nested Structures</li>
-              <li>Unions and their Usage</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-cursor text-primary me-2"></i>Pointers</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Pointer Basics and Declaration</li>
+                <li className="list-group-item">Pointer Arithmetic</li>
+                <li className="list-group-item">Pointers and Arrays</li>
+                <li className="list-group-item">Pointers to Pointers</li>
+                <li className="list-group-item">Pointers to Functions</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-file-earmark"></i> File Handling</h2>
-            <ul>
-              <li>File Operations (Open, Read, Write, Close)</li>
-              <li>File Modes</li>
-              <li>Text vs Binary Files</li>
-              <li>File Positioning Functions</li>
-              <li>Error Handling in Files</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-box text-primary me-2"></i>Structures and Unions</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Structure Definition and Declaration</li>
+                <li className="list-group-item">Accessing Structure Members</li>
+                <li className="list-group-item">Array of Structures</li>
+                <li className="list-group-item">Nested Structures</li>
+                <li className="list-group-item">Unions and their Usage</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-memory"></i> Memory Management</h2>
-            <ul>
-              <li>Dynamic Memory Allocation (malloc, calloc, realloc, free)</li>
-              <li>Memory Leaks and Dangling Pointers</li>
-              <li>Stack vs Heap Memory</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-file-earmark text-primary me-2"></i>File Handling</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">File Operations (Open, Read, Write, Close)</li>
+                <li className="list-group-item">File Modes</li>
+                <li className="list-group-item">Text vs Binary Files</li>
+                <li className="list-group-item">File Positioning Functions</li>
+                <li className="list-group-item">Error Handling in Files</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-code-square"></i> Preprocessor Directives</h2>
-            <ul>
-              <li>#include, #define, #undef</li>
-              <li>Conditional Compilation (#ifdef, #ifndef, #endif)</li>
-              <li>Macros and Inline Functions</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-memory text-primary me-2"></i>Memory Management</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Dynamic Memory Allocation (malloc, calloc, realloc, free)</li>
+                <li className="list-group-item">Memory Leaks and Dangling Pointers</li>
+                <li className="list-group-item">Stack vs Heap Memory</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-puzzle"></i> Advanced Topics</h2>
-            <ul>
-              <li>Command Line Arguments</li>
-              <li>Variable Length Arguments</li>
-              <li>Function Pointers</li>
-              <li>Bit Fields</li>
-              <li>Error Handling</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-code-square text-primary me-2"></i>Preprocessor Directives</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">#include, #define, #undef</li>
+                <li className="list-group-item">Conditional Compilation (#ifdef, #ifndef, #endif)</li>
+                <li className="list-group-item">Macros and Inline Functions</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-puzzle text-primary me-2"></i>Advanced Topics</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Command Line Arguments</li>
+                <li className="list-group-item">Variable Length Arguments</li>
+                <li className="list-group-item">Function Pointers</li>
+                <li className="list-group-item">Bit Fields</li>
+                <li className="list-group-item">Error Handling</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

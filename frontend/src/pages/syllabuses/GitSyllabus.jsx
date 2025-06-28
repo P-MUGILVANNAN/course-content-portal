@@ -2,166 +2,217 @@ import React from 'react';
 
 function GitSyllabus() {
   return (
-    <div className="bg-light">
-      <style>
-        {`
-          .syllabus-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-          }
-          .syllabus-header {
-            background-color: #6c757d;
-            color: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-          }
-          .topic-list {
-            list-style-type: none;
-            padding: 0;
-          }
-          .topic-item {
-            background-color: white;
-            margin-bottom: 10px;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-          }
-          .topic-item i {
-            margin-right: 10px;
-          }
-        `}
-      </style>
-      <div className="syllabus-container">
-        <header className="syllabus-header">
-          <h1 className="display-4 fw-bold"><i className="bi bi-git"></i> Git & GitHub Syllabus</h1>
-          <p className="lead">Comprehensive Coverage of Version Control with Git and GitHub</p>
-        </header>
-        
-        <div className="topic-list">
-          <div className="topic-item">
-            <h2><i className="bi bi-info-circle"></i> Introduction to Version Control</h2>
-            <ul>
-              <li>What is Version Control?</li>
-              <li>Centralized vs Distributed VCS</li>
-              <li>Git vs GitHub</li>
-            </ul>
+    <div className="container py-5">
+      <header className="bg-primary text-white p-4 rounded-3 mb-4 shadow">
+        <div className="d-flex align-items-center mb-3">
+          <i className="bi bi-git fs-1 me-3"></i>
+          <div>
+            <h1 className="display-4 fw-bold mb-0">Git & GitHub Syllabus</h1>
+            <p className="lead mb-0">Comprehensive Coverage of Version Control with Git and GitHub</p>
           </div>
-
-          <div className="topic-item">
-            <h2><i className="bi bi-download"></i> Installation & Setup</h2>
-            <ul>
-              <li>Installing Git</li>
-              <li>Configuring Git</li>
-              <li>Git CLI vs GUI</li>
-            </ul>
+        </div>
+      </header>
+      
+      <div className="row g-4">
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-info-circle text-primary me-2"></i>Introduction to Version Control</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">What is Version Control?</li>
+                <li className="list-group-item">Centralized vs Distributed VCS</li>
+                <li className="list-group-item">Git vs GitHub</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-terminal"></i> Basic Git Commands</h2>
-            <ul>
-              <li>Initializing a repository</li>
-              <li>Tracking changes (add, commit)</li>
-              <li>Checking status and history</li>
-              <li>Viewing differences</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-download text-primary me-2"></i>Installation & Setup</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Installing Git</li>
+                <li className="list-group-item">Configuring Git</li>
+                <li className="list-group-item">Git CLI vs GUI</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-folder"></i> Working with Repositories</h2>
-            <ul>
-              <li>Local vs Remote repositories</li>
-              <li>Cloning repositories</li>
-              <li>Pushing and pulling changes</li>
-              <li>Working with remotes</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-terminal text-primary me-2"></i>Basic Git Commands</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Initializing a repository</li>
+                <li className="list-group-item">Tracking changes (add, commit)</li>
+                <li className="list-group-item">Checking status and history</li>
+                <li className="list-group-item">Viewing differences</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-code-square"></i> Branching</h2>
-            <ul>
-              <li>Creating and switching branches</li>
-              <li>Merging branches</li>
-              <li>Merge conflicts</li>
-              <li>Branch management</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-folder text-primary me-2"></i>Working with Repositories</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Local vs Remote repositories</li>
+                <li className="list-group-item">Cloning repositories</li>
+                <li className="list-group-item">Pushing and pulling changes</li>
+                <li className="list-group-item">Working with remotes</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-github"></i> GitHub Concepts</h2>
-            <ul>
-              <li>Repositories</li>
-              <li>Pull Requests</li>
-              <li>Forks</li>
-              <li>Issues</li>
-              <li>Stars and Watching</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-code-square text-primary me-2"></i>Branching</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Creating and switching branches</li>
+                <li className="list-group-item">Merging branches</li>
+                <li className="list-group-item">Merge conflicts</li>
+                <li className="list-group-item">Branch management</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-file-earmark-excel"></i> Git Ignore</h2>
-            <ul>
-              <li>Purpose of .gitignore</li>
-              <li>Common patterns</li>
-              <li>Global gitignore</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-github text-primary me-2"></i>GitHub Concepts</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Repositories</li>
+                <li className="list-group-item">Pull Requests</li>
+                <li className="list-group-item">Forks</li>
+                <li className="list-group-item">Issues</li>
+                <li className="list-group-item">Stars and Watching</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-tag"></i> Tags & Releases</h2>
-            <ul>
-              <li>Lightweight vs Annotated tags</li>
-              <li>Creating and managing tags</li>
-              <li>GitHub Releases</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-file-earmark-excel text-primary me-2"></i>Git Ignore</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Purpose of .gitignore</li>
+                <li className="list-group-item">Common patterns</li>
+                <li className="list-group-item">Global gitignore</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-arrow-counterclockwise"></i> Undoing Changes</h2>
-            <ul>
-              <li>Checking out files</li>
-              <li>Resetting commits</li>
-              <li>Reverting commits</li>
-              <li>Reset vs Revert</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-tag text-primary me-2"></i>Tags & Releases</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Lightweight vs Annotated tags</li>
+                <li className="list-group-item">Creating and managing tags</li>
+                <li className="list-group-item">GitHub Releases</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-stack"></i> Git Stash</h2>
-            <ul>
-              <li>Stashing changes</li>
-              <li>Applying stashed changes</li>
-              <li>Managing multiple stashes</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-arrow-counterclockwise text-primary me-2"></i>Undoing Changes</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Checking out files</li>
+                <li className="list-group-item">Resetting commits</li>
+                <li className="list-group-item">Reverting commits</li>
+                <li className="list-group-item">Reset vs Revert</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-lightning"></i> GitHub Actions</h2>
-            <ul>
-              <li>Introduction to CI/CD</li>
-              <li>Workflow files</li>
-              <li>Common actions</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-stack text-primary me-2"></i>Git Stash</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Stashing changes</li>
+                <li className="list-group-item">Applying stashed changes</li>
+                <li className="list-group-item">Managing multiple stashes</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-lightbulb"></i> Best Practices</h2>
-            <ul>
-              <li>Commit strategies</li>
-              <li>Branch naming</li>
-              <li>Code review practices</li>
-              <li>Collaborative workflows</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-lightning text-primary me-2"></i>GitHub Actions</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Introduction to CI/CD</li>
+                <li className="list-group-item">Workflow files</li>
+                <li className="list-group-item">Common actions</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-diagram-3"></i> Workflow Examples</h2>
-            <ul>
-              <li>Feature branch workflow</li>
-              <li>Gitflow workflow</li>
-              <li>Forking workflow</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-lightbulb text-primary me-2"></i>Best Practices</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Commit strategies</li>
+                <li className="list-group-item">Branch naming</li>
+                <li className="list-group-item">Code review practices</li>
+                <li className="list-group-item">Collaborative workflows</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-diagram-3 text-primary me-2"></i>Workflow Examples</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Feature branch workflow</li>
+                <li className="list-group-item">Gitflow workflow</li>
+                <li className="list-group-item">Forking workflow</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

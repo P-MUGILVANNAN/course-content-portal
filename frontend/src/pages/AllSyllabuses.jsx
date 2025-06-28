@@ -300,7 +300,7 @@ function AllSyllabuses() {
     // State for pagination and filtering
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedCategory, setSelectedCategory] = useState("All");
-    const coursesPerPage = 7;
+    const coursesPerPage = 6;
 
     // Filter syllabuses by category
     const filteredSyllabuses = selectedCategory === "All" 
@@ -328,108 +328,149 @@ function AllSyllabuses() {
     const categories = ["All", "Web Development", "Java", "Python", "C Family", "PHP", "Databases", "AI/ML", "Mobile App", "Tools"];
 
     return (
-        <div className="all-syllabuses-page">
-            {/* Syllabuses Section */}
-            <section id="syllabuses" className="py-5">
-                <div className="container">
-                    <div className="text-center mb-5">
-                        <h2 className="fw-bold">
-                            <i className="bi bi-journal-text me-2 text-primary"></i>
-                            All Available Syllabuses
-                        </h2>
-                        <p className="lead text-muted">Browse our comprehensive collection of course syllabuses</p>
-                    </div>
-                    
-                    {/* Categories Filter */}
-                    <div className="row mb-4">
-                        <div className="col-12">
-                            <div className="d-flex flex-wrap justify-content-center gap-2">
-                                {categories.map((category, index) => (
-                                    <button 
-                                        key={index}
-                                        className={`btn btn-sm ${selectedCategory === category ? 'btn-primary' : 'btn-outline-primary'}`}
-                                        onClick={() => {
-                                            setSelectedCategory(category);
-                                            setCurrentPage(1); // Reset to first page when changing category
-                                        }}
-                                    >
-                                        {category}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div className="row g-4">
-                        {currentSyllabuses.map((syllabus, index) => (
-                            <div key={index} className="col-md-6 col-lg-4">
-                                <div className="card h-100 border-0 shadow-sm hover-effect">
-                                    <div className="card-body p-4 text-center">
-                                        <div className="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" 
-                                             style={{ width: '70px', height: '70px' }}>
-                                            <i className={`bi bi-${syllabus.icon} fs-3 text-primary`}></i>
-                                        </div>
-                                        <h4 className="card-title mb-2">{syllabus.title}</h4>
-                                        <p className="text-muted mb-3">{syllabus.description}</p>
-                                        <div className="badge bg-primary bg-opacity-10 text-primary p-2 mb-3">
-                                            <i className="bi bi-files me-1"></i> Syllabus Available
-                                        </div>
-                                    </div>
-                                    <div className="card-footer bg-transparent border-0 text-center pb-3">
-                                        <a href={syllabus.templateLink} className="btn btn-outline-primary">
-                                            <i className="bi bi-arrow-right me-2"></i>View Syllabus
-                                        </a>
-                                    </div>
+        <div className="all-syllabuses-page bg-light">
+            {/* Header Section */}
+            <div className="py-5 bg-primary text-white">
+                <div className="container text-center">
+                    <h1 className="display-5 fw-bold mb-3">
+                        <i className="bi bi-journal-bookmark-fill me-2"></i>
+                        Course Syllabuses
+                    </h1>
+                    <p className="lead mb-0">Explore our comprehensive collection of course outlines and learning paths</p>
+                </div>
+            </div>
+            
+            {/* Main Content */}
+            <div className="container py-5">
+                {/* Category Filter */}
+                <div className="row mb-5">
+                    <div className="col-12">
+                        <div className="card shadow-sm">
+                            <div className="card-body p-4">
+                                <h3 className="h5 mb-4">Filter by Technology</h3>
+                                <div className="d-flex flex-wrap gap-2">
+                                    {categories.map((category, index) => (
+                                        <button 
+                                            key={index}
+                                            className={`btn btn-sm ${selectedCategory === category ? 'btn-primary' : 'btn-outline-primary'}`}
+                                            onClick={() => {
+                                                setSelectedCategory(category);
+                                                setCurrentPage(1);
+                                            }}
+                                        >
+                                            {category}
+                                        </button>
+                                    ))}
                                 </div>
                             </div>
-                        ))}
-                    </div>
-                    
-                    {/* Pagination */}
-                    {filteredSyllabuses.length > coursesPerPage && (
-                        <div className="d-flex justify-content-center mt-5">
-                            <nav aria-label="Syllabus pagination">
-                                <ul className="pagination">
-                                    <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
-                                        <button 
-                                            className="page-link" 
-                                            onClick={() => paginate(currentPage - 1)}
-                                            disabled={currentPage === 1}
-                                        >
-                                            Previous
-                                        </button>
-                                    </li>
-                                    {pageNumbers.map(number => (
-                                        <li key={number} className={`page-item ${currentPage === number ? 'active' : ''}`}>
-                                            <button 
-                                                className="page-link" 
-                                                onClick={() => paginate(number)}
-                                            >
-                                                {number}
-                                            </button>
-                                        </li>
-                                    ))}
-                                    <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
-                                        <button 
-                                            className="page-link" 
-                                            onClick={() => paginate(currentPage + 1)}
-                                            disabled={currentPage === totalPages}
-                                        >
-                                            Next
-                                        </button>
-                                    </li>
-                                </ul>
-                            </nav>
                         </div>
-                    )}
+                    </div>
                 </div>
-            </section>
+                
+                {/* Results Count */}
+                <div className="mb-4">
+                    <h3 className="h5">
+                        Showing {filteredSyllabuses.length} {filteredSyllabuses.length === 1 ? 'syllabus' : 'syllabuses'} 
+                        {selectedCategory !== "All" && ` in ${selectedCategory}`}
+                    </h3>
+                </div>
+                
+                {/* Syllabus Cards */}
+                <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    {currentSyllabuses.map((syllabus, index) => (
+                        <div key={index} className="col">
+                            <div className="card h-100 border-0 shadow-sm syllabus-card">
+                                <div className="card-body p-4">
+                                    <div className="d-flex align-items-center mb-3">
+                                        <div className="bg-primary bg-opacity-10 rounded p-2 me-3">
+                                            <i className={`bi bi-${syllabus.icon} fs-4 text-primary`}></i>
+                                        </div>
+                                        <div>
+                                            <span className="badge bg-primary bg-opacity-10 text-primary">
+                                                {syllabus.category}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <h4 className="card-title mb-3">{syllabus.title}</h4>
+                                    <p className="card-text text-muted">{syllabus.description}</p>
+                                </div>
+                                <div className="card-footer bg-transparent border-top-0 pb-3 px-4">
+                                    <a href={syllabus.templateLink} className="btn btn-primary w-100">
+                                        <i className="bi bi-eye-fill me-2"></i>View Syllabus
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                
+                {/* Pagination */}
+                {filteredSyllabuses.length > coursesPerPage && (
+                    <div className="d-flex justify-content-center mt-5">
+                        <nav aria-label="Page navigation">
+                            <ul className="pagination">
+                                <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+                                    <button 
+                                        className="page-link" 
+                                        onClick={() => paginate(currentPage - 1)}
+                                        disabled={currentPage === 1}
+                                    >
+                                        <i className="bi bi-chevron-left"></i>
+                                    </button>
+                                </li>
+                                {pageNumbers.map(number => (
+                                    <li key={number} className={`page-item ${currentPage === number ? 'active' : ''}`}>
+                                        <button 
+                                            className="page-link" 
+                                            onClick={() => paginate(number)}
+                                        >
+                                            {number}
+                                        </button>
+                                    </li>
+                                ))}
+                                <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
+                                    <button 
+                                        className="page-link" 
+                                        onClick={() => paginate(currentPage + 1)}
+                                        disabled={currentPage === totalPages}
+                                    >
+                                        <i className="bi bi-chevron-right"></i>
+                                    </button>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                )}
+            </div>
+            
+            {/* Empty State */}
+            {filteredSyllabuses.length === 0 && (
+                <div className="container py-5 text-center">
+                    <div className="card shadow-sm py-5">
+                        <div className="card-body">
+                            <i className="bi bi-journal-x display-4 text-muted mb-4"></i>
+                            <h3 className="h4 mb-3">No syllabuses found</h3>
+                            <p className="text-muted mb-4">We couldn't find any syllabuses matching your criteria.</p>
+                            <button 
+                                className="btn btn-primary"
+                                onClick={() => {
+                                    setSelectedCategory("All");
+                                    setCurrentPage(1);
+                                }}
+                            >
+                                Show All Syllabuses
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
             
             <style jsx>{`
-                .hover-effect {
-                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                .syllabus-card {
+                    transition: all 0.2s ease;
+                    border-radius: 10px;
                 }
-                .hover-effect:hover {
+                .syllabus-card:hover {
                     transform: translateY(-5px);
                     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
                 }

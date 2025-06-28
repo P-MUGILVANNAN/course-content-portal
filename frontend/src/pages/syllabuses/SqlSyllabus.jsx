@@ -2,252 +2,351 @@ import React from 'react';
 
 function SqlSyllabus() {
   return (
-    <div className="bg-light">
-      <style>
-        {`
-          .syllabus-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-          }
-          .syllabus-header {
-            background-color: #6c757d;
-            color: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-          }
-          .topic-list {
-            list-style-type: none;
-            padding: 0;
-          }
-          .topic-item {
-            background-color: white;
-            margin-bottom: 10px;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-          }
-          .topic-item i {
-            margin-right: 10px;
-          }
-        `}
-      </style>
-      <div className="syllabus-container">
-        <header className="syllabus-header">
-          <h1 className="display-4 fw-bold"><i className="bi bi-database"></i> SQL Syllabus</h1>
-          <p className="lead">Comprehensive Coverage of Structured Query Language</p>
-        </header>
-        
-        <div className="topic-list">
-          <div className="topic-item">
-            <h2><i className="bi bi-info-circle"></i> Introduction to SQL</h2>
-            <ul>
-              <li>What is SQL?</li>
-              <li>History and Standards</li>
-              <li>SQL vs NoSQL</li>
-            </ul>
+    <div className="container py-5">
+      <header className="bg-primary text-white p-4 rounded-3 mb-4 shadow">
+        <div className="d-flex align-items-center mb-3">
+          <i className="bi bi-database fs-1 me-3"></i>
+          <div>
+            <h1 className="display-4 fw-bold mb-0">SQL Syllabus</h1>
+            <p className="lead mb-0">Comprehensive Coverage of Structured Query Language</p>
           </div>
-
-          <div className="topic-item">
-            <h2><i className="bi bi-server"></i> Database Fundamentals</h2>
-            <ul>
-              <li>Relational Database Concepts</li>
-              <li>Tables, Rows, and Columns</li>
-              <li>Primary Keys and Foreign Keys</li>
-              <li>Database Normalization</li>
-            </ul>
+        </div>
+      </header>
+      
+      <div className="row g-4">
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-info-circle text-primary me-2"></i>Introduction to SQL</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">What is SQL?</li>
+                <li className="list-group-item">History and Standards</li>
+                <li className="list-group-item">SQL vs NoSQL</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-terminal"></i> SQL Command Categories</h2>
-            <ul>
-              <li>DDL (Data Definition Language)</li>
-              <li>DML (Data Manipulation Language)</li>
-              <li>DQL (Data Query Language)</li>
-              <li>DCL (Data Control Language)</li>
-              <li>TCL (Transaction Control Language)</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-server text-primary me-2"></i>Database Fundamentals</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Relational Database Concepts</li>
+                <li className="list-group-item">Tables, Rows, and Columns</li>
+                <li className="list-group-item">Primary Keys and Foreign Keys</li>
+                <li className="list-group-item">Database Normalization</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-file-earmark-code"></i> DDL Commands</h2>
-            <ul>
-              <li>CREATE DATABASE/TABLE</li>
-              <li>ALTER TABLE</li>
-              <li>DROP TABLE</li>
-              <li>TRUNCATE TABLE</li>
-              <li>Constraints (PRIMARY KEY, FOREIGN KEY, etc.)</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-terminal text-primary me-2"></i>SQL Command Categories</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">DDL (Data Definition Language)</li>
+                <li className="list-group-item">DML (Data Manipulation Language)</li>
+                <li className="list-group-item">DQL (Data Query Language)</li>
+                <li className="list-group-item">DCL (Data Control Language)</li>
+                <li className="list-group-item">TCL (Transaction Control Language)</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-pencil-square"></i> DML Commands</h2>
-            <ul>
-              <li>INSERT</li>
-              <li>UPDATE</li>
-              <li>DELETE</li>
-              <li>MERGE</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-file-earmark-code text-primary me-2"></i>DDL Commands</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">CREATE DATABASE/TABLE</li>
+                <li className="list-group-item">ALTER TABLE</li>
+                <li className="list-group-item">DROP TABLE</li>
+                <li className="list-group-item">TRUNCATE TABLE</li>
+                <li className="list-group-item">Constraints (PRIMARY KEY, FOREIGN KEY, etc.)</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-search"></i> DQL Commands</h2>
-            <ul>
-              <li>SELECT statement</li>
-              <li>WHERE clause</li>
-              <li>ORDER BY</li>
-              <li>DISTINCT</li>
-              <li>LIMIT/OFFSET</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-pencil-square text-primary me-2"></i>DML Commands</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">INSERT</li>
+                <li className="list-group-item">UPDATE</li>
+                <li className="list-group-item">DELETE</li>
+                <li className="list-group-item">MERGE</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-shield-lock"></i> DCL Commands</h2>
-            <ul>
-              <li>GRANT</li>
-              <li>REVOKE</li>
-              <li>User Privileges</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-search text-primary me-2"></i>DQL Commands</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">SELECT statement</li>
+                <li className="list-group-item">WHERE clause</li>
+                <li className="list-group-item">ORDER BY</li>
+                <li className="list-group-item">DISTINCT</li>
+                <li className="list-group-item">LIMIT/OFFSET</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-arrow-repeat"></i> TCL Commands</h2>
-            <ul>
-              <li>COMMIT</li>
-              <li>ROLLBACK</li>
-              <li>SAVEPOINT</li>
-              <li>Transaction Management</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-shield-lock text-primary me-2"></i>DCL Commands</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">GRANT</li>
+                <li className="list-group-item">REVOKE</li>
+                <li className="list-group-item">User Privileges</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-sliders"></i> SQL Constraints</h2>
-            <ul>
-              <li>NOT NULL</li>
-              <li>UNIQUE</li>
-              <li>PRIMARY KEY</li>
-              <li>FOREIGN KEY</li>
-              <li>CHECK</li>
-              <li>DEFAULT</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-arrow-repeat text-primary me-2"></i>TCL Commands</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">COMMIT</li>
+                <li className="list-group-item">ROLLBACK</li>
+                <li className="list-group-item">SAVEPOINT</li>
+                <li className="list-group-item">Transaction Management</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-arrow-left-right"></i> SQL Joins</h2>
-            <ul>
-              <li>INNER JOIN</li>
-              <li>LEFT JOIN</li>
-              <li>RIGHT JOIN</li>
-              <li>FULL JOIN</li>
-              <li>CROSS JOIN</li>
-              <li>Self Join</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-sliders text-primary me-2"></i>SQL Constraints</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">NOT NULL</li>
+                <li className="list-group-item">UNIQUE</li>
+                <li className="list-group-item">PRIMARY KEY</li>
+                <li className="list-group-item">FOREIGN KEY</li>
+                <li className="list-group-item">CHECK</li>
+                <li className="list-group-item">DEFAULT</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-calculator"></i> SQL Functions</h2>
-            <ul>
-              <li>Aggregate Functions (SUM, COUNT, AVG, etc.)</li>
-              <li>String Functions</li>
-              <li>Date/Time Functions</li>
-              <li>Mathematical Functions</li>
-              <li>Window Functions</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-arrow-left-right text-primary me-2"></i>SQL Joins</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">INNER JOIN</li>
+                <li className="list-group-item">LEFT JOIN</li>
+                <li className="list-group-item">RIGHT JOIN</li>
+                <li className="list-group-item">FULL JOIN</li>
+                <li className="list-group-item">CROSS JOIN</li>
+                <li className="list-group-item">Self Join</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-funnel"></i> Advanced Filtering</h2>
-            <ul>
-              <li>GROUP BY</li>
-              <li>HAVING</li>
-              <li>Subqueries</li>
-              <li>EXISTS/NOT EXISTS</li>
-              <li>IN/NOT IN</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-calculator text-primary me-2"></i>SQL Functions</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Aggregate Functions (SUM, COUNT, AVG, etc.)</li>
+                <li className="list-group-item">String Functions</li>
+                <li className="list-group-item">Date/Time Functions</li>
+                <li className="list-group-item">Mathematical Functions</li>
+                <li className="list-group-item">Window Functions</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-collection"></i> Set Operations</h2>
-            <ul>
-              <li>UNION/UNION ALL</li>
-              <li>INTERSECT</li>
-              <li>EXCEPT/MINUS</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-funnel text-primary me-2"></i>Advanced Filtering</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">GROUP BY</li>
+                <li className="list-group-item">HAVING</li>
+                <li className="list-group-item">Subqueries</li>
+                <li className="list-group-item">EXISTS/NOT EXISTS</li>
+                <li className="list-group-item">IN/NOT IN</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-file-earmark-plus"></i> Views and Indexes</h2>
-            <ul>
-              <li>Creating and Using Views</li>
-              <li>Index Types and Usage</li>
-              <li>Materialized Views</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-collection text-primary me-2"></i>Set Operations</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">UNION/UNION ALL</li>
+                <li className="list-group-item">INTERSECT</li>
+                <li className="list-group-item">EXCEPT/MINUS</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-file-earmark-binary"></i> Stored Procedures</h2>
-            <ul>
-              <li>Creating and Calling Procedures</li>
-              <li>Parameters (IN, OUT, INOUT)</li>
-              <li>Variables and Control Structures</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-file-earmark-plus text-primary me-2"></i>Views and Indexes</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Creating and Using Views</li>
+                <li className="list-group-item">Index Types and Usage</li>
+                <li className="list-group-item">Materialized Views</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-file-earmark-text"></i> Functions</h2>
-            <ul>
-              <li>User-Defined Functions</li>
-              <li>Scalar vs Table Functions</li>
-              <li>Built-in Functions</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-file-earmark-binary text-primary me-2"></i>Stored Procedures</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Creating and Calling Procedures</li>
+                <li className="list-group-item">Parameters (IN, OUT, INOUT)</li>
+                <li className="list-group-item">Variables and Control Structures</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-file-earmark-lock"></i> Triggers</h2>
-            <ul>
-              <li>Trigger Concepts</li>
-              <li>BEFORE/AFTER Triggers</li>
-              <li>INSTEAD OF Triggers</li>
-              <li>Trigger Use Cases</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-file-earmark-text text-primary me-2"></i>Functions</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">User-Defined Functions</li>
+                <li className="list-group-item">Scalar vs Table Functions</li>
+                <li className="list-group-item">Built-in Functions</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-people"></i> User Management</h2>
-            <ul>
-              <li>Creating Users</li>
-              <li>Roles and Privileges</li>
-              <li>Authentication Methods</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-file-earmark-lock text-primary me-2"></i>Triggers</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Trigger Concepts</li>
+                <li className="list-group-item">BEFORE/AFTER Triggers</li>
+                <li className="list-group-item">INSTEAD OF Triggers</li>
+                <li className="list-group-item">Trigger Use Cases</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-clock-history"></i> Database Maintenance</h2>
-            <ul>
-              <li>Backup and Restore</li>
-              <li>Performance Tuning</li>
-              <li>Query Optimization</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-people text-primary me-2"></i>User Management</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Creating Users</li>
+                <li className="list-group-item">Roles and Privileges</li>
+                <li className="list-group-item">Authentication Methods</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-diagram-3"></i> Advanced Topics</h2>
-            <ul>
-              <li>Recursive Queries</li>
-              <li>Common Table Expressions (CTEs)</li>
-              <li>Pivoting Data</li>
-              <li>Dynamic SQL</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-clock-history text-primary me-2"></i>Database Maintenance</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Backup and Restore</li>
+                <li className="list-group-item">Performance Tuning</li>
+                <li className="list-group-item">Query Optimization</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-database-check"></i> SQL in Applications</h2>
-            <ul>
-              <li>SQL Injection Prevention</li>
-              <li>ORM vs Raw SQL</li>
-              <li>Database Connection Pooling</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-diagram-3 text-primary me-2"></i>Advanced Topics</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Recursive Queries</li>
+                <li className="list-group-item">Common Table Expressions (CTEs)</li>
+                <li className="list-group-item">Pivoting Data</li>
+                <li className="list-group-item">Dynamic SQL</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-database-check text-primary me-2"></i>SQL in Applications</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">SQL Injection Prevention</li>
+                <li className="list-group-item">ORM vs Raw SQL</li>
+                <li className="list-group-item">Database Connection Pooling</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

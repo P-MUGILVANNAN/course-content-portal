@@ -319,21 +319,6 @@ function CssSyllabus() {
         <div className="col-md-6 col-lg-4">
           <div className="card h-100 shadow-sm">
             <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-variable text-primary me-2"></i>CSS Variables</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Custom Properties</li>
-                <li className="list-group-item">Scope and Inheritance</li>
-                <li className="list-group-item">Using Variables with JavaScript</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
               <h2 className="h5 mb-0"><i className="bi bi-universal-access text-primary me-2"></i>CSS Best Practices</h2>
             </div>
             <div className="card-body">

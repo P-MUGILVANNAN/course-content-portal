@@ -2,199 +2,274 @@ import React from 'react';
 
 function ReactSyllabus() {
   return (
-    <div className="bg-light">
-      <style>
-        {`
-          .syllabus-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-          }
-          .syllabus-header {
-            background-color: #6c757d;
-            color: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-          }
-          .topic-list {
-            list-style-type: none;
-            padding: 0;
-          }
-          .topic-item {
-            background-color: white;
-            margin-bottom: 10px;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-          }
-          .topic-item i {
-            margin-right: 10px;
-          }
-        `}
-      </style>
-      <div className="syllabus-container">
-        <header className="syllabus-header">
-          <h1 className="display-4 fw-bold"><i className="bi bi-react"></i> React Syllabus</h1>
-          <p className="lead">Comprehensive Coverage of React Library</p>
-        </header>
-        
-        <div className="topic-list">
-          <div className="topic-item">
-            <h2><i className="bi bi-info-circle"></i> Introduction to React</h2>
-            <ul>
-              <li>What is React?</li>
-              <li>React vs Angular vs Vue</li>
-              <li>Advantages and Disadvantages</li>
-            </ul>
+    <div className="container py-5">
+      <header className="bg-primary text-white p-4 rounded-3 mb-4 shadow">
+        <div className="d-flex align-items-center mb-3">
+          <i className="bi bi-react fs-1 me-3"></i>
+          <div>
+            <h1 className="display-4 fw-bold mb-0">React Syllabus</h1>
+            <p className="lead mb-0">Comprehensive Coverage of React Library</p>
           </div>
-
-          <div className="topic-item">
-            <h2><i className="bi bi-stars"></i> React Features</h2>
-            <ul>
-              <li>JSX</li>
-              <li>Components</li>
-              <li>Virtual DOM</li>
-              <li>One-way Data Binding</li>
-            </ul>
+        </div>
+      </header>
+      
+      <div className="row g-4">
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-info-circle text-primary me-2"></i>Introduction to React</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">What is React?</li>
+                <li className="list-group-item">React vs Angular vs Vue</li>
+                <li className="list-group-item">Advantages and Disadvantages</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-gear"></i> React Setup</h2>
-            <ul>
-              <li>Create React App</li>
-              <li>Vite</li>
-              <li>Directory Structure</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-stars text-primary me-2"></i>React Features</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">JSX</li>
+                <li className="list-group-item">Components</li>
+                <li className="list-group-item">Virtual DOM</li>
+                <li className="list-group-item">One-way Data Binding</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-puzzle"></i> React Components</h2>
-            <ul>
-              <li>Functional Components</li>
-              <li>Class Components</li>
-              <li>Component Lifecycle</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-gear text-primary me-2"></i>React Setup</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Create React App</li>
+                <li className="list-group-item">Vite</li>
+                <li className="list-group-item">Directory Structure</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-filetype-jsx"></i> JSX</h2>
-            <ul>
-              <li>JSX Basics</li>
-              <li>Embedding Expressions</li>
-              <li>JSX Comments</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-puzzle text-primary me-2"></i>React Components</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Functional Components</li>
+                <li className="list-group-item">Class Components</li>
+                <li className="list-group-item">Component Lifecycle</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-database"></i> State</h2>
-            <ul>
-              <li>What is State?</li>
-              <li>Class Component State</li>
-              <li>Changing State</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-filetype-jsx text-primary me-2"></i>JSX</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">JSX Basics</li>
+                <li className="list-group-item">Embedding Expressions</li>
+                <li className="list-group-item">JSX Comments</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-box-arrow-in-right"></i> Props</h2>
-            <ul>
-              <li>What are Props?</li>
-              <li>Passing Props</li>
-              <li>Default Props</li>
-              <li>Props Validation</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-database text-primary me-2"></i>State</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">What is State?</li>
+                <li className="list-group-item">Class Component State</li>
+                <li className="list-group-item">Changing State</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-activity"></i> Data Binding</h2>
-            <ul>
-              <li>One-Way Data Binding</li>
-              <li>Two-Way Data Binding</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-box-arrow-in-right text-primary me-2"></i>Props</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">What are Props?</li>
+                <li className="list-group-item">Passing Props</li>
+                <li className="list-group-item">Default Props</li>
+                <li className="list-group-item">Props Validation</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-broadcast-pin"></i> Parent-Child Communication</h2>
-            <ul>
-              <li>Props Passing</li>
-              <li>Callback Functions</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-activity text-primary me-2"></i>Data Binding</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">One-Way Data Binding</li>
+                <li className="list-group-item">Two-Way Data Binding</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-list"></i> Lists in React</h2>
-            <ul>
-              <li>Rendering Lists</li>
-              <li>Keys</li>
-              <li>List Manipulation</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-broadcast-pin text-primary me-2"></i>Parent-Child Communication</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Props Passing</li>
+                <li className="list-group-item">Callback Functions</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-arrow-repeat"></i> Component Lifecycle</h2>
-            <ul>
-              <li>Mounting Phase</li>
-              <li>Updating Phase</li>
-              <li>Unmounting Phase</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-list text-primary me-2"></i>Lists in React</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Rendering Lists</li>
+                <li className="list-group-item">Keys</li>
+                <li className="list-group-item">List Manipulation</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-hook"></i> React Hooks</h2>
-            <ul>
-              <li>useState</li>
-              <li>useEffect</li>
-              <li>useContext</li>
-              <li>Custom Hooks</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-arrow-repeat text-primary me-2"></i>Component Lifecycle</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Mounting Phase</li>
+                <li className="list-group-item">Updating Phase</li>
+                <li className="list-group-item">Unmounting Phase</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-signpost-split"></i> Routing</h2>
-            <ul>
-              <li>React Router</li>
-              <li>Basic Routing</li>
-              <li>Navigation</li>
-              <li>Nested Routes</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-hook text-primary me-2"></i>React Hooks</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">useState</li>
+                <li className="list-group-item">useEffect</li>
+                <li className="list-group-item">useContext</li>
+                <li className="list-group-item">Custom Hooks</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-input-cursor-text"></i> Forms</h2>
-            <ul>
-              <li>Controlled Components</li>
-              <li>Uncontrolled Components</li>
-              <li>Form Validation</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-signpost-split text-primary me-2"></i>Routing</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">React Router</li>
+                <li className="list-group-item">Basic Routing</li>
+                <li className="list-group-item">Navigation</li>
+                <li className="list-group-item">Nested Routes</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-brush"></i> Styling</h2>
-            <ul>
-              <li>Inline Styles</li>
-              <li>CSS Stylesheets</li>
-              <li>CSS Modules</li>
-              <li>Styled Components</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-input-cursor-text text-primary me-2"></i>Forms</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Controlled Components</li>
+                <li className="list-group-item">Uncontrolled Components</li>
+                <li className="list-group-item">Form Validation</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-cloud-arrow-down"></i> Axios</h2>
-            <ul>
-              <li>GET Requests</li>
-              <li>POST Requests</li>
-              <li>PUT/PATCH Requests</li>
-              <li>DELETE Requests</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-brush text-primary me-2"></i>Styling</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Inline Styles</li>
+                <li className="list-group-item">CSS Stylesheets</li>
+                <li className="list-group-item">CSS Modules</li>
+                <li className="list-group-item">Styled Components</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-shield-check"></i> Conditional Rendering</h2>
-            <ul>
-              <li>if-else</li>
-              <li>Ternary Operator</li>
-              <li>Logical && Operator</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-cloud-arrow-down text-primary me-2"></i>Axios</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">GET Requests</li>
+                <li className="list-group-item">POST Requests</li>
+                <li className="list-group-item">PUT/PATCH Requests</li>
+                <li className="list-group-item">DELETE Requests</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-shield-check text-primary me-2"></i>Conditional Rendering</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">if-else</li>
+                <li className="list-group-item">Ternary Operator</li>
+                <li className="list-group-item">Logical && Operator</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

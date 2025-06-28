@@ -2,253 +2,352 @@ import React from 'react';
 
 function ExpressJsSyllabus() {
   return (
-    <div className="bg-light">
-      <style>
-        {`
-          .syllabus-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-          }
-          .syllabus-header {
-            background-color: #6c757d;
-            color: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-          }
-          .topic-list {
-            list-style-type: none;
-            padding: 0;
-          }
-          .topic-item {
-            background-color: white;
-            margin-bottom: 10px;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-          }
-          .topic-item i {
-            margin-right: 10px;
-          }
-        `}
-      </style>
-      <div className="syllabus-container">
-        <header className="syllabus-header">
-          <h1 className="display-4 fw-bold"><i className="bi bi-server"></i> Express.js Syllabus</h1>
-          <p className="lead">Comprehensive Coverage of Node.js Web Framework</p>
-        </header>
-        
-        <div className="topic-list">
-          <div className="topic-item">
-            <h2><i className="bi bi-info-circle"></i> Introduction to Express.js</h2>
-            <ul>
-              <li>What is Express.js?</li>
-              <li>Core Features</li>
-              <li>Advantages and Use Cases</li>
-            </ul>
+    <div className="container py-5">
+      <header className="bg-primary text-white p-4 rounded-3 mb-4 shadow">
+        <div className="d-flex align-items-center mb-3">
+          <i className="bi bi-server fs-1 me-3"></i>
+          <div>
+            <h1 className="display-4 fw-bold mb-0">Express.js Syllabus</h1>
+            <p className="lead mb-0">Comprehensive Coverage of Node.js Web Framework</p>
           </div>
-
-          <div className="topic-item">
-            <h2><i className="bi bi-gear"></i> Setup and Installation</h2>
-            <ul>
-              <li>Environment Setup</li>
-              <li>Creating Basic Server</li>
-              <li>Package Management</li>
-            </ul>
+        </div>
+      </header>
+      
+      <div className="row g-4">
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-info-circle text-primary me-2"></i>Introduction to Express.js</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">What is Express.js?</li>
+                <li className="list-group-item">Core Features</li>
+                <li className="list-group-item">Advantages and Use Cases</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-signpost-split"></i> Routing</h2>
-            <ul>
-              <li>Basic Routing</li>
-              <li>Route Methods</li>
-              <li>Route Paths</li>
-              <li>Route Parameters</li>
-              <li>Router Module</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-gear text-primary me-2"></i>Setup and Installation</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Environment Setup</li>
+                <li className="list-group-item">Creating Basic Server</li>
+                <li className="list-group-item">Package Management</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-file-earmark-code"></i> Template Engines</h2>
-            <ul>
-              <li>Introduction to Template Engines</li>
-              <li>Pug (Jade)</li>
-              <li>EJS</li>
-              <li>Handlebars</li>
-              <li>Setting Up Views</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-signpost-split text-primary me-2"></i>Routing</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Basic Routing</li>
+                <li className="list-group-item">Route Methods</li>
+                <li className="list-group-item">Route Paths</li>
+                <li className="list-group-item">Route Parameters</li>
+                <li className="list-group-item">Router Module</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-layers"></i> Middleware</h2>
-            <ul>
-              <li>What is Middleware?</li>
-              <li>Application-level Middleware</li>
-              <li>Router-level Middleware</li>
-              <li>Error-handling Middleware</li>
-              <li>Built-in Middleware</li>
-              <li>Third-party Middleware</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-file-earmark-code text-primary me-2"></i>Template Engines</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Introduction to Template Engines</li>
+                <li className="list-group-item">Pug (Jade)</li>
+                <li className="list-group-item">EJS</li>
+                <li className="list-group-item">Handlebars</li>
+                <li className="list-group-item">Setting Up Views</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-arrow-down-circle"></i> Request Object</h2>
-            <ul>
-              <li>Request Properties</li>
-              <li>Request Methods</li>
-              <li>Handling Query Parameters</li>
-              <li>Handling Request Body</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-layers text-primary me-2"></i>Middleware</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">What is Middleware?</li>
+                <li className="list-group-item">Application-level Middleware</li>
+                <li className="list-group-item">Router-level Middleware</li>
+                <li className="list-group-item">Error-handling Middleware</li>
+                <li className="list-group-item">Built-in Middleware</li>
+                <li className="list-group-item">Third-party Middleware</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-arrow-up-circle"></i> Response Object</h2>
-            <ul>
-              <li>Response Methods</li>
-              <li>Sending Responses</li>
-              <li>Setting Headers</li>
-              <li>Status Codes</li>
-              <li>Rendering Views</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-arrow-down-circle text-primary me-2"></i>Request Object</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Request Properties</li>
+                <li className="list-group-item">Request Methods</li>
+                <li className="list-group-item">Handling Query Parameters</li>
+                <li className="list-group-item">Handling Request Body</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-cookie"></i> Cookies</h2>
-            <ul>
-              <li>Working with Cookies</li>
-              <li>cookie-parser Middleware</li>
-              <li>Setting Cookies</li>
-              <li>Reading Cookies</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-arrow-up-circle text-primary me-2"></i>Response Object</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Response Methods</li>
+                <li className="list-group-item">Sending Responses</li>
+                <li className="list-group-item">Setting Headers</li>
+                <li className="list-group-item">Status Codes</li>
+                <li className="list-group-item">Rendering Views</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-clock-history"></i> Sessions</h2>
-            <ul>
-              <li>express-session Middleware</li>
-              <li>Session Management</li>
-              <li>Session Storage</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-cookie text-primary me-2"></i>Cookies</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Working with Cookies</li>
+                <li className="list-group-item">cookie-parser Middleware</li>
+                <li className="list-group-item">Setting Cookies</li>
+                <li className="list-group-item">Reading Cookies</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-database"></i> REST API Development</h2>
-            <ul>
-              <li>REST Principles</li>
-              <li>CRUD Operations</li>
-              <li>Resource Routing</li>
-              <li>API Best Practices</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-clock-history text-primary me-2"></i>Sessions</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">express-session Middleware</li>
+                <li className="list-group-item">Session Management</li>
+                <li className="list-group-item">Session Storage</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-motherboard"></i> Database Integration</h2>
-            <ul>
-              <li>MongoDB with Mongoose</li>
-              <li>SQL Databases</li>
-              <li>ODM/ORM Concepts</li>
-              <li>Models and Schemas</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-database text-primary me-2"></i>REST API Development</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">REST Principles</li>
+                <li className="list-group-item">CRUD Operations</li>
+                <li className="list-group-item">Resource Routing</li>
+                <li className="list-group-item">API Best Practices</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-shield-lock"></i> Authentication</h2>
-            <ul>
-              <li>Basic Authentication</li>
-              <li>JWT (JSON Web Tokens)</li>
-              <li>OAuth Strategies</li>
-              <li>Passport.js</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-motherboard text-primary me-2"></i>Database Integration</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">MongoDB with Mongoose</li>
+                <li className="list-group-item">SQL Databases</li>
+                <li className="list-group-item">ODM/ORM Concepts</li>
+                <li className="list-group-item">Models and Schemas</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-upload"></i> File Uploads</h2>
-            <ul>
-              <li>Handling File Uploads</li>
-              <li>multer Middleware</li>
-              <li>File Validation</li>
-              <li>Storage Options</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-shield-lock text-primary me-2"></i>Authentication</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Basic Authentication</li>
+                <li className="list-group-item">JWT (JSON Web Tokens)</li>
+                <li className="list-group-item">OAuth Strategies</li>
+                <li className="list-group-item">Passport.js</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-globe"></i> WebSockets</h2>
-            <ul>
-              <li>Real-time Communication</li>
-              <li>Socket.io Integration</li>
-              <li>Event Handling</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-upload text-primary me-2"></i>File Uploads</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Handling File Uploads</li>
+                <li className="list-group-item">multer Middleware</li>
+                <li className="list-group-item">File Validation</li>
+                <li className="list-group-item">Storage Options</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-speedometer2"></i> Performance Optimization</h2>
-            <ul>
-              <li>Caching Strategies</li>
-              <li>Compression</li>
-              <li>Cluster Mode</li>
-              <li>Load Balancing</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-globe text-primary me-2"></i>WebSockets</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Real-time Communication</li>
+                <li className="list-group-item">Socket.io Integration</li>
+                <li className="list-group-item">Event Handling</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-bug"></i> Error Handling</h2>
-            <ul>
-              <li>Error Handling Middleware</li>
-              <li>Custom Error Classes</li>
-              <li>Logging Errors</li>
-              <li>Debugging Techniques</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-speedometer2 text-primary me-2"></i>Performance Optimization</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Caching Strategies</li>
+                <li className="list-group-item">Compression</li>
+                <li className="list-group-item">Cluster Mode</li>
+                <li className="list-group-item">Load Balancing</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-shield-check"></i> Security Best Practices</h2>
-            <ul>
-              <li>Helmet.js</li>
-              <li>CSRF Protection</li>
-              <li>XSS Prevention</li>
-              <li>Input Validation</li>
-              <li>Rate Limiting</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-bug text-primary me-2"></i>Error Handling</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Error Handling Middleware</li>
+                <li className="list-group-item">Custom Error Classes</li>
+                <li className="list-group-item">Logging Errors</li>
+                <li className="list-group-item">Debugging Techniques</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-box"></i> API Documentation</h2>
-            <ul>
-              <li>Swagger/OpenAPI</li>
-              <li>API Blueprint</li>
-              <li>Documentation Best Practices</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-shield-check text-primary me-2"></i>Security Best Practices</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Helmet.js</li>
+                <li className="list-group-item">CSRF Protection</li>
+                <li className="list-group-item">XSS Prevention</li>
+                <li className="list-group-item">Input Validation</li>
+                <li className="list-group-item">Rate Limiting</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-cloud-arrow-up"></i> Deployment</h2>
-            <ul>
-              <li>PM2 Process Manager</li>
-              <li>Dockerizing Express Apps</li>
-              <li>Cloud Deployment</li>
-              <li>Environment Configuration</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-box text-primary me-2"></i>API Documentation</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Swagger/OpenAPI</li>
+                <li className="list-group-item">API Blueprint</li>
+                <li className="list-group-item">Documentation Best Practices</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-graph-up"></i> Testing</h2>
-            <ul>
-              <li>Unit Testing</li>
-              <li>Integration Testing</li>
-              <li>Test-driven Development</li>
-              <li>Testing Tools (Jest, Mocha)</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-cloud-arrow-up text-primary me-2"></i>Deployment</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">PM2 Process Manager</li>
+                <li className="list-group-item">Dockerizing Express Apps</li>
+                <li className="list-group-item">Cloud Deployment</li>
+                <li className="list-group-item">Environment Configuration</li>
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="topic-item">
-            <h2><i className="bi bi-puzzle"></i> Advanced Topics</h2>
-            <ul>
-              <li>Custom Middleware Development</li>
-              <li>Express Generators</li>
-              <li>Microservices Architecture</li>
-              <li>Serverless Express</li>
-            </ul>
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-graph-up text-primary me-2"></i>Testing</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Unit Testing</li>
+                <li className="list-group-item">Integration Testing</li>
+                <li className="list-group-item">Test-driven Development</li>
+                <li className="list-group-item">Testing Tools (Jest, Mocha)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="col-md-6 col-lg-4">
+          <div className="card h-100 shadow-sm">
+            <div className="card-header bg-light">
+              <h2 className="h5 mb-0"><i className="bi bi-puzzle text-primary me-2"></i>Advanced Topics</h2>
+            </div>
+            <div className="card-body">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">Custom Middleware Development</li>
+                <li className="list-group-item">Express Generators</li>
+                <li className="list-group-item">Microservices Architecture</li>
+                <li className="list-group-item">Serverless Express</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
