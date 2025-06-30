@@ -240,53 +240,6 @@ function CssSyllabus() {
         <div className="col-md-6 col-lg-4">
           <div className="card h-100 shadow-sm">
             <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-bounding-box text-primary me-2"></i>Transforms</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">2D Transforms (translate, rotate, scale)</li>
-                <li className="list-group-item">3D Transforms</li>
-                <li className="list-group-item">Transform Origin</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-hourglass-split text-primary me-2"></i>Transitions</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Transition Properties</li>
-                <li className="list-group-item">Timing Functions</li>
-                <li className="list-group-item">Transition Shorthand</li>
-                <li className="list-group-item">Practical Transition Examples</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-film text-primary me-2"></i>Animations</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Keyframes</li>
-                <li className="list-group-item">Animation Properties</li>
-                <li className="list-group-item">Animation Shorthand</li>
-                <li className="list-group-item">Performance Considerations</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
               <h2 className="h5 mb-0"><i className="bi bi-display text-primary me-2"></i>Responsive Design</h2>
             </div>
             <div className="card-body">

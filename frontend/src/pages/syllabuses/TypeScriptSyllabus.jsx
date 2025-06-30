@@ -12,7 +12,7 @@ function TypeScriptSyllabus() {
           </div>
         </div>
       </header>
-      
+
       <div className="row g-4">
         <div className="col-md-6 col-lg-4">
           <div className="card h-100 shadow-sm">
@@ -218,69 +218,6 @@ function TypeScriptSyllabus() {
                 <li className="list-group-item">Property Decorators</li>
                 <li className="list-group-item">Parameter Decorators</li>
                 <li className="list-group-item">Accessor Decorators</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-filetype-js text-primary me-2"></i>Advanced Types</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Union and Intersection Types</li>
-                <li className="list-group-item">Type Aliases</li>
-                <li className="list-group-item">Literal Types</li>
-                <li className="list-group-item">Nullable Types</li>
-                <li className="list-group-item">Type Guards</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-gear text-primary me-2"></i>Generics</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Generic Functions</li>
-                <li className="list-group-item">Generic Interfaces</li>
-                <li className="list-group-item">Generic Classes</li>
-                <li className="list-group-item">Constraints</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-modem text-primary me-2"></i>Modules</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Export and Import</li>
-                <li className="list-group-item">Default vs Named Exports</li>
-                <li className="list-group-item">Module Resolution</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-file-earmark-check text-primary me-2"></i>TypeScript Configuration</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">tsconfig.json</li>
-                <li className="list-group-item">Compiler Options</li>
-                <li className="list-group-item">Type Declaration Files</li>
               </ul>
             </div>
           </div>

@@ -225,38 +225,6 @@ function JavascriptSyllabus() {
         <div className="col-md-6 col-lg-4">
           <div className="card h-100 shadow-sm">
             <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-storage text-primary me-2"></i>Storage</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Cookies</li>
-                <li className="list-group-item">LocalStorage</li>
-                <li className="list-group-item">SessionStorage</li>
-                <li className="list-group-item">IndexedDB</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-puzzle text-primary me-2"></i>Advanced Concepts</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Closures</li>
-                <li className="list-group-item">Hoisting</li>
-                <li className="list-group-item">Currying</li>
-                <li className="list-group-item">Web Workers</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
               <h2 className="h5 mb-0"><i className="bi bi-stars text-primary me-2"></i>ES6+ Features</h2>
             </div>
             <div className="card-body">
@@ -281,22 +249,6 @@ function JavascriptSyllabus() {
                 <li className="list-group-item">Console methods</li>
                 <li className="list-group-item">Linting tools</li>
                 <li className="list-group-item">Testing frameworks</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-shield-check text-primary me-2"></i>Security</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Cross-site scripting (XSS)</li>
-                <li className="list-group-item">Cross-site request forgery</li>
-                <li className="list-group-item">Content Security Policy</li>
-                <li className="list-group-item">CORS</li>
               </ul>
             </div>
           </div>

@@ -236,25 +236,6 @@ function AngularSyllabus() {
             </div>
           </div>
         </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-universal-access text-danger me-2"></i>Advanced Topics</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Change Detection</li>
-                <li className="list-group-item">ViewChild and ContentChild</li>
-                <li className="list-group-item">Dynamic Components</li>
-                <li className="list-group-item">Angular Elements</li>
-                <li className="list-group-item">Server-Side Rendering</li>
-                <li className="list-group-item">Testing</li>
-                <li className="list-group-item">Performance Optimization</li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
