@@ -89,13 +89,14 @@ import PostgreSqlSyllabus from './pages/syllabuses/PostgreSqlSyllabus';
 import FlutterSyllabus from './pages/syllabuses/FlutterSyllabus';
 import ReactNativeSyllabus from './pages/syllabuses/ReactNativeSyllabus';
 import GitSyllabus from './pages/syllabuses/GitSyllabus';
+import ScrollToTop from './components/ScrollToTop';
 
 function Layout() {
   return (
     <div className="d-flex flex-column min-vh-100">
       {/* Top: Navbar */}
       <Navbar />
-
+      <ScrollToTop />
       {/* Main content */}
       <div className="flex-grow-1">
         <Routes>
