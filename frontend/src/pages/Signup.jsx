@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import logo from '../assets/fiit-logo.png';
 
 export default function Signup() {
   const [name, setName] = useState('');
@@ -32,7 +33,7 @@ export default function Signup() {
       style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
       <div className="card p-4 shadow-lg border-0" style={{ width: '100%', maxWidth: '400px' }}>
         <div className="text-center mb-4">
-          <img src="https://fiit.co.in/wp-content/uploads/2024/10/fiit-logo.png" alt="" className="img-fluid" />
+          <img src={logo} alt="" className="img-fluid" />
           <div className="mt-2" style={{ height: '4px', width: '60px', background: 'linear-gradient(to right, #667eea, #764ba2)', margin: '0 auto', borderRadius: '2px' }}></div>
           <h3 className="text-primary fw-bold">Trainer Signup</h3>
           <div className="mt-2" style={{ height: '4px', width: '60px', background: 'linear-gradient(to right, #1a2980, #26d0ce)', margin: '0 auto', borderRadius: '2px' }}></div>

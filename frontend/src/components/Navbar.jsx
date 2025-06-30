@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import logo from '../assets/fiit-logo.png';
 
 function Navbar({ user }) {
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ function Navbar({ user }) {
     <nav className="navbar navbar-expand-lg navbar-dark py-2 border-bottom">
       <div className="container-fluid">
         <Link className="navbar-brand d-flex align-items-center" to="/trainer">
-          <img src="https://fiit.co.in/wp-content/uploads/2024/10/fiit-logo.png" className='img-fluid' style={{width:'220px'}} alt="" />
+          <img src={logo} className='img-fluid' style={{width:'220px'}} alt="" />
         </Link>
 
         {/* Mobile Toggle */}
