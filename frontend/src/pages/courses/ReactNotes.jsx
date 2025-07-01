@@ -957,14 +957,53 @@ function Example() {
               <div className="property-card">
                 <h3 className="h4"><i className="bi bi-3-circle"></i> useContext</h3>
                 <p>Allows you to access context in functional components.</p>
-                <h4 className="mb-3">Example</h4>
-                <pre><code>{`import { useContext } from 'react';
-import MyContext from './MyContext';
+                <h4 className="mb-3">Context Example</h4>
+                <pre><code>{`import React, { createContext } from 'react';
 
-function Display() {
-  const value = useContext(MyContext);
-  return <div>{value}</div>;
-}`}</code></pre>
+// Create the context
+const UserContext = createContext();
+
+// Create a provider component
+export const UserProvider = ({ children }) => {
+  const user = {
+    name: 'Mugilvannan',
+    email: 'mugil@example.com',
+  };
+
+  return (
+    <UserContext.Provider value={user}>
+      {children}
+    </UserContext.Provider>
+  );
+};
+
+// Custom hook to use user context
+export default UserContext;
+`}</code></pre>
+<h4 className="mb-3">Use in Component</h4>
+<pre><code>{`import React, { useContext } from 'react';
+import UserContext from './UserContext';
+
+const ContextEg = () => {
+  const { name, email } = useContext(UserContext);
+
+  return (
+    <div>
+      <h2>Welcome, {name}!</h2>
+      <p>Email: {email}</p>
+    </div>
+  );
+};
+
+export default ContextEg;
+`}</code></pre>
+<h4 className="mb-3">Use in App.jsx</h4>
+<pre><code>{`import { UserProvider } from './components/UserContext';
+import ContextEg from './components/ContextEg';
+
+<UserProvider>
+    <ContextEg />
+</UserProvider>`}</code></pre>
               </div>
               <div className="property-card">
                 <h3 className="h4"><i className="bi bi-4-circle"></i> Custom Hooks</h3>
