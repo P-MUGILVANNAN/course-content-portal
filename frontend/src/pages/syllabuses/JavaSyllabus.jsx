@@ -276,8 +276,6 @@ function JavaSyllabus() {
                 <li className="list-group-item">Functional Interfaces</li>
                 <li className="list-group-item">Lambda Syntax</li>
                 <li className="list-group-item">Method References</li>
-                <li className="list-group-item">Stream API</li>
-                <li className="list-group-item">forEach() Method</li>
               </ul>
             </div>
           </div>
@@ -294,57 +292,6 @@ function JavaSyllabus() {
                 <li className="list-group-item">FileReader and FileWriter</li>
                 <li className="list-group-item">BufferedReader and BufferedWriter</li>
                 <li className="list-group-item">Serialization and Deserialization</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-database text-primary me-2"></i>JDBC</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">JDBC Architecture</li>
-                <li className="list-group-item">JDBC Drivers</li>
-                <li className="list-group-item">CRUD Operations</li>
-                <li className="list-group-item">PreparedStatement</li>
-                <li className="list-group-item">Transaction Management</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-window text-primary me-2"></i>Swing</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Swing Components</li>
-                <li className="list-group-item">Layout Managers</li>
-                <li className="list-group-item">Event Handling</li>
-                <li className="list-group-item">JFrame, JPanel</li>
-                <li className="list-group-item">Buttons, TextFields, etc.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-question-circle text-primary me-2"></i>Miscellaneous</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Wrapper Classes</li>
-                <li className="list-group-item">Autoboxing and Unboxing</li>
-                <li className="list-group-item">Annotations</li>
-                <li className="list-group-item">Generics</li>
-                <li className="list-group-item">Reflection API</li>
               </ul>
             </div>
           </div>

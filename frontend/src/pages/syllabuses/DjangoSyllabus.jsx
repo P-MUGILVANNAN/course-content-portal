@@ -236,69 +236,6 @@ function DjangoSyllabus() {
             </div>
           </div>
         </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-lightning text-primary me-2"></i>Performance Optimization</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Caching</li>
-                <li className="list-group-item">Database optimization</li>
-                <li className="list-group-item">Query optimization</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-shield-check text-primary me-2"></i>Security</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Common vulnerabilities</li>
-                <li className="list-group-item">CSRF protection</li>
-                <li className="list-group-item">XSS prevention</li>
-                <li className="list-group-item">SQL injection</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-rocket text-primary me-2"></i>Deployment</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Preparing for production</li>
-                <li className="list-group-item">WSGI configuration</li>
-                <li className="list-group-item">Deployment to Heroku</li>
-                <li className="list-group-item">Deployment to AWS</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-puzzle text-primary me-2"></i>Advanced Topics</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Custom middleware</li>
-                <li className="list-group-item">Signals</li>
-                <li className="list-group-item">Custom template tags</li>
-                <li className="list-group-item">Testing</li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

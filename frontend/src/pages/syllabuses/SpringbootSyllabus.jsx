@@ -227,51 +227,6 @@ function SpringbootSyllabus() {
         <div className="col-md-6 col-lg-4">
           <div className="card h-100 shadow-sm">
             <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-graph-up text-primary me-2"></i>Actuator & Monitoring</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Spring Boot Actuator</li>
-                <li className="list-group-item">Health Indicators</li>
-                <li className="list-group-item">Custom Endpoints</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-hdd-network text-primary me-2"></i>Microservices</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Microservices Architecture</li>
-                <li className="list-group-item">Spring Cloud</li>
-                <li className="list-group-item">Service Discovery</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-lightning text-primary me-2"></i>Caching</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Spring Cache Abstraction</li>
-                <li className="list-group-item">Cache Providers</li>
-                <li className="list-group-item">Cache Annotations</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
               <h2 className="h5 mb-0"><i className="bi bi-bug text-primary me-2"></i>Exception Handling</h2>
             </div>
             <div className="card-body">
@@ -287,66 +242,6 @@ function SpringbootSyllabus() {
         <div className="col-md-6 col-lg-4">
           <div className="card h-100 shadow-sm">
             <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-file-earmark-text text-primary me-2"></i>Logging</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Logback Configuration</li>
-                <li className="list-group-item">SLF4J</li>
-                <li className="list-group-item">Log Levels</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-arrow-left-right text-primary me-2"></i>API Documentation</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Swagger/OpenAPI</li>
-                <li className="list-group-item">SpringDoc</li>
-                <li className="list-group-item">API Documentation Best Practices</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-database-check text-primary me-2"></i>Database Migration</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Flyway</li>
-                <li className="list-group-item">Liquibase</li>
-                <li className="list-group-item">Schema Versioning</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-speedometer2 text-primary me-2"></i>Performance Optimization</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Connection Pooling</li>
-                <li className="list-group-item">Lazy Loading</li>
-                <li className="list-group-item">Query Optimization</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
               <h2 className="h5 mb-0"><i className="bi bi-box-arrow-up text-primary me-2"></i>Deployment</h2>
             </div>
             <div className="card-body">
@@ -354,21 +249,6 @@ function SpringbootSyllabus() {
                 <li className="list-group-item">JAR vs WAR Packaging</li>
                 <li className="list-group-item">Docker Integration</li>
                 <li className="list-group-item">Cloud Deployment</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-clipboard2-check text-primary me-2"></i>Testing</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Unit Testing</li>
-                <li className="list-group-item">Integration Testing</li>
-                <li className="list-group-item">Mocking with Mockito</li>
               </ul>
             </div>
           </div>

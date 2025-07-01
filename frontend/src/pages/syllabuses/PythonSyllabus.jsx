@@ -244,23 +244,6 @@ function PythonSyllabus() {
         <div className="col-md-6 col-lg-4">
           <div className="card h-100 shadow-sm">
             <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-graph-up text-primary me-2"></i>Advanced Topics</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Regular Expressions</li>
-                <li className="list-group-item">Multithreading</li>
-                <li className="list-group-item">GUI Programming</li>
-                <li className="list-group-item">Networking</li>
-                <li className="list-group-item">Date and Time</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
               <h2 className="h5 mb-0"><i className="bi bi-file-bar-graph text-primary me-2"></i>Data Science Basics</h2>
             </div>
             <div className="card-body">

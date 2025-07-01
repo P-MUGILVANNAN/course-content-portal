@@ -300,7 +300,7 @@ function AllCourses() {
     // State for pagination and filtering
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedCategory, setSelectedCategory] = useState("All");
-    const coursesPerPage = 7;
+    const coursesPerPage = 6;
 
     // Filter courses by category
     const filteredCourses = selectedCategory === "All" 

@@ -227,37 +227,6 @@ function ExpressJsSyllabus() {
         <div className="col-md-6 col-lg-4">
           <div className="card h-100 shadow-sm">
             <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-globe text-primary me-2"></i>WebSockets</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Real-time Communication</li>
-                <li className="list-group-item">Socket.io Integration</li>
-                <li className="list-group-item">Event Handling</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-speedometer2 text-primary me-2"></i>Performance Optimization</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Caching Strategies</li>
-                <li className="list-group-item">Compression</li>
-                <li className="list-group-item">Cluster Mode</li>
-                <li className="list-group-item">Load Balancing</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
               <h2 className="h5 mb-0"><i className="bi bi-bug text-primary me-2"></i>Error Handling</h2>
             </div>
             <div className="card-body">
@@ -278,74 +247,8 @@ function ExpressJsSyllabus() {
             </div>
             <div className="card-body">
               <ul className="list-group list-group-flush">
-                <li className="list-group-item">Helmet.js</li>
                 <li className="list-group-item">CSRF Protection</li>
-                <li className="list-group-item">XSS Prevention</li>
                 <li className="list-group-item">Input Validation</li>
-                <li className="list-group-item">Rate Limiting</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-box text-primary me-2"></i>API Documentation</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Swagger/OpenAPI</li>
-                <li className="list-group-item">API Blueprint</li>
-                <li className="list-group-item">Documentation Best Practices</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-cloud-arrow-up text-primary me-2"></i>Deployment</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">PM2 Process Manager</li>
-                <li className="list-group-item">Dockerizing Express Apps</li>
-                <li className="list-group-item">Cloud Deployment</li>
-                <li className="list-group-item">Environment Configuration</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-graph-up text-primary me-2"></i>Testing</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Unit Testing</li>
-                <li className="list-group-item">Integration Testing</li>
-                <li className="list-group-item">Test-driven Development</li>
-                <li className="list-group-item">Testing Tools (Jest, Mocha)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-puzzle text-primary me-2"></i>Advanced Topics</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Custom Middleware Development</li>
-                <li className="list-group-item">Express Generators</li>
-                <li className="list-group-item">Microservices Architecture</li>
-                <li className="list-group-item">Serverless Express</li>
               </ul>
             </div>
           </div>

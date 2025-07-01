@@ -152,23 +152,6 @@ function JspSyllabus() {
         <div className="col-md-6 col-lg-4">
           <div className="card h-100 shadow-sm">
             <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-tags text-primary me-2"></i>JSTL (JSP Standard Tag Library)</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Core Tags</li>
-                <li className="list-group-item">Formatting Tags</li>
-                <li className="list-group-item">SQL Tags</li>
-                <li className="list-group-item">XML Tags</li>
-                <li className="list-group-item">Functions Tags</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
               <h2 className="h5 mb-0"><i className="bi bi-database text-primary me-2"></i>JSP with JDBC</h2>
             </div>
             <div className="card-body">
@@ -217,22 +200,6 @@ function JspSyllabus() {
         <div className="col-md-6 col-lg-4">
           <div className="card h-100 shadow-sm">
             <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-filter-square text-primary me-2"></i>Custom Tags</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Creating Custom Tags</li>
-                <li className="list-group-item">Tag Handler Class</li>
-                <li className="list-group-item">TLD (Tag Library Descriptor)</li>
-                <li className="list-group-item">Using Custom Tags</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
               <h2 className="h5 mb-0"><i className="bi bi-chat-square-text text-primary me-2"></i>JSP Interview Questions</h2>
             </div>
             <div className="card-body">
@@ -241,52 +208,6 @@ function JspSyllabus() {
                 <li className="list-group-item">Advanced JSP Concepts</li>
                 <li className="list-group-item">Performance Considerations</li>
                 <li className="list-group-item">Security Aspects</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-puzzle text-primary me-2"></i>JSP Integration</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">JSP with AJAX</li>
-                <li className="list-group-item">JSP with JavaScript</li>
-                <li className="list-group-item">JSP with Frameworks (Spring, Struts)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-shield-lock text-primary me-2"></i>JSP Security</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Authentication</li>
-                <li className="list-group-item">Authorization</li>
-                <li className="list-group-item">Secure Coding Practices</li>
-                <li className="list-group-item">Common Vulnerabilities</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-speedometer2 text-primary me-2"></i>JSP Performance</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Caching Strategies</li>
-                <li className="list-group-item">Optimization Techniques</li>
-                <li className="list-group-item">Load Balancing</li>
               </ul>
             </div>
           </div>
