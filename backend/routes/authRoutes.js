@@ -8,6 +8,8 @@ router.post('/signup', authController.signup);
 router.post('/login', authController.login);
 router.get('/profile', auth, authController.getProfile);
 router.put('/profile', auth, upload.single('profileImage'), authController.updateProfile);
+router.get('/trainers',authController.getAllProfiles);
+router.delete('/trainers/:id',authController.deleteTrainer);
 
 
 module.exports = router;

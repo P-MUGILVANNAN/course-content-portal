@@ -90,6 +90,7 @@ import FlutterSyllabus from './pages/syllabuses/FlutterSyllabus';
 import ReactNativeSyllabus from './pages/syllabuses/ReactNativeSyllabus';
 import GitSyllabus from './pages/syllabuses/GitSyllabus';
 import ScrollToTop from './components/ScrollToTop';
+import AllUsers from './pages/AllUsers';
 
 function Layout() {
   return (
@@ -101,6 +102,7 @@ function Layout() {
       <div className="flex-grow-1">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/users" element={<AllUsers />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/all-courses" element={<AllCourses />} />
           <Route path='/html-course' element={<Html />} />

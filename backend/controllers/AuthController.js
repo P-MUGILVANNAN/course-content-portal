@@ -155,3 +155,44 @@ exports.updateProfile = async (req, res) => {
     res.status(500).json({ message: 'Error updating profile' });
   }
 };
+
+// 4. Get All Trainers (Admin or Authenticated Access)
+exports.getAllProfiles = async (req, res) => {
+  try {
+    const trainers = await Trainer.find().select('-password');
+
+    res.status(200).json({
+      message: 'All trainers fetched successfully',
+      count: trainers.length,
+      trainers
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error fetching trainers' });
+  }
+};
+
+// 5. Delete Trainer (admin access or own account deletion)
+exports.deleteTrainer = async (req, res) => {
+  try {
+    const trainerId = req.params.id;
+
+    const deletedTrainer = await Trainer.findByIdAndDelete(trainerId);
+
+    if (!deletedTrainer) {
+      return res.status(404).json({ message: 'Trainer not found' });
+    }
+
+    res.status(200).json({
+      message: 'Trainer deleted successfully',
+      trainer: {
+        id: deletedTrainer._id,
+        name: deletedTrainer.name,
+        email: deletedTrainer.email
+      }
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error deleting trainer' });
+  }
+};
