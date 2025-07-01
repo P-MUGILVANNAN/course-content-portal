@@ -209,54 +209,6 @@ function PandasSyllabus() {
         <div className="col-md-6 col-lg-4">
           <div className="card h-100 shadow-sm">
             <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-graph-up text-primary me-2"></i>Data Visualization</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Basic Plotting with Pandas</li>
-                <li className="list-group-item">Integration with Matplotlib</li>
-                <li className="list-group-item">Common Plot Types</li>
-                <li className="list-group-item">Customizing Plots</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-cpu text-primary me-2"></i>Advanced Topics</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Multi-indexing</li>
-                <li className="list-group-item">Memory Optimization</li>
-                <li className="list-group-item">Categorical Data</li>
-                <li className="list-group-item">Text Data Operations</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-speedometer text-primary me-2"></i>Performance Optimization</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Vectorization</li>
-                <li className="list-group-item">Iteration Methods</li>
-                <li className="list-group-item">Query Optimization</li>
-                <li className="list-group-item">Parallel Processing</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
               <h2 className="h5 mb-0"><i className="bi bi-check-circle text-primary me-2"></i>Real-world Applications</h2>
             </div>
             <div className="card-body">

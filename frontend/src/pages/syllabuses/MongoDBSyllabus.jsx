@@ -172,22 +172,6 @@ function MongoDBSyllabus() {
         <div className="col-md-6 col-lg-4">
           <div className="card h-100 shadow-sm">
             <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-cloud text-success me-2"></i>Sharding</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Sharding Concepts</li>
-                <li className="list-group-item">Shard Keys</li>
-                <li className="list-group-item">Balancing</li>
-                <li className="list-group-item">Zone Sharding</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
               <h2 className="h5 mb-0"><i className="bi bi-tools text-success me-2"></i>MongoDB Tools</h2>
             </div>
             <div className="card-body">
@@ -196,36 +180,6 @@ function MongoDBSyllabus() {
                 <li className="list-group-item">MongoDB Atlas</li>
                 <li className="list-group-item">MongoDB Shell</li>
                 <li className="list-group-item">MongoDB Drivers</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-lightning text-success me-2"></i>Performance</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Monitoring</li>
-                <li className="list-group-item">Profiling</li>
-                <li className="list-group-item">Performance Tips</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-arrow-left-right text-success me-2"></i>Transactions</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">ACID Properties</li>
-                <li className="list-group-item">Multi-Document Transactions</li>
-                <li className="list-group-item">Transaction Management</li>
               </ul>
             </div>
           </div>

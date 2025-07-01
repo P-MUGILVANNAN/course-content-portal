@@ -184,21 +184,6 @@ function CppSyllabus() {
         <div className="col-md-6 col-lg-4">
           <div className="card h-100 shadow-sm">
             <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-memory text-primary me-2"></i>Dynamic Memory</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">new and delete Operators</li>
-                <li className="list-group-item">Dynamic Arrays</li>
-                <li className="list-group-item">Memory Management</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
               <h2 className="h5 mb-0"><i className="bi bi-file-earmark-binary text-primary me-2"></i>Structures and Unions</h2>
             </div>
             <div className="card-body">
@@ -245,21 +230,6 @@ function CppSyllabus() {
         <div className="col-md-6 col-lg-4">
           <div className="card h-100 shadow-sm">
             <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-puzzle text-primary me-2"></i>Templates</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Function Templates</li>
-                <li className="list-group-item">Class Templates</li>
-                <li className="list-group-item">Template Specialization</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
               <h2 className="h5 mb-0"><i className="bi bi-exclamation-triangle text-primary me-2"></i>Exception Handling</h2>
             </div>
             <div className="card-body">
@@ -272,53 +242,6 @@ function CppSyllabus() {
           </div>
         </div>
 
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-collection text-primary me-2"></i>STL (Standard Template Library)</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Containers</li>
-                <li className="list-group-item">Iterators</li>
-                <li className="list-group-item">Algorithms</li>
-                <li className="list-group-item">Functors</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-code-slash text-primary me-2"></i>Advanced Topics</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Preprocessor Directives</li>
-                <li className="list-group-item">Multithreading</li>
-                <li className="list-group-item">Smart Pointers</li>
-                <li className="list-group-item">Move Semantics</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-check-circle text-primary me-2"></i>Best Practices</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Coding Standards</li>
-                <li className="list-group-item">Memory Management</li>
-                <li className="list-group-item">Performance Considerations</li>
-                <li className="list-group-item">Debugging Techniques</li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

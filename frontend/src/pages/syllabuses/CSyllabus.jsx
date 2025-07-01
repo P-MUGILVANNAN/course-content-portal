@@ -210,53 +210,6 @@ function CSyllabus() {
             </div>
           </div>
         </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-memory text-primary me-2"></i>Memory Management</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Dynamic Memory Allocation (malloc, calloc, realloc, free)</li>
-                <li className="list-group-item">Memory Leaks and Dangling Pointers</li>
-                <li className="list-group-item">Stack vs Heap Memory</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-code-square text-primary me-2"></i>Preprocessor Directives</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">#include, #define, #undef</li>
-                <li className="list-group-item">Conditional Compilation (#ifdef, #ifndef, #endif)</li>
-                <li className="list-group-item">Macros and Inline Functions</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-puzzle text-primary me-2"></i>Advanced Topics</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Command Line Arguments</li>
-                <li className="list-group-item">Variable Length Arguments</li>
-                <li className="list-group-item">Function Pointers</li>
-                <li className="list-group-item">Bit Fields</li>
-                <li className="list-group-item">Error Handling</li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

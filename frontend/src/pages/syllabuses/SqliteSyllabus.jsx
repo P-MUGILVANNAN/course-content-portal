@@ -210,23 +210,7 @@ function SqliteSyllabus() {
                 <li className="list-group-item">INNER JOIN</li>
                 <li className="list-group-item">LEFT JOIN</li>
                 <li className="list-group-item">CROSS JOIN</li>
-                <li className="list-group-item">Self Joins</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-calculator text-primary me-2"></i>Built-in Functions</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Core Functions</li>
-                <li className="list-group-item">Date and Time Functions</li>
-                <li className="list-group-item">String Functions</li>
-                <li className="list-group-item">Mathematical Functions</li>
+                <li className="list-group-item">Right JOIN</li>
               </ul>
             </div>
           </div>
@@ -243,85 +227,6 @@ function SqliteSyllabus() {
                 <li className="list-group-item">Multi-row Subqueries</li>
                 <li className="list-group-item">Correlated Subqueries</li>
                 <li className="list-group-item">EXISTS Operator</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-eye text-primary me-2"></i>Views</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Creating Views</li>
-                <li className="list-group-item">Modifying Views</li>
-                <li className="list-group-item">Dropping Views</li>
-                <li className="list-group-item">View Limitations</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-arrow-repeat text-primary me-2"></i>Transactions</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">ACID Properties</li>
-                <li className="list-group-item">BEGIN TRANSACTION</li>
-                <li className="list-group-item">COMMIT and ROLLBACK</li>
-                <li className="list-group-item">Savepoints</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-gear text-primary me-2"></i>Database Administration</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Attaching Databases</li>
-                <li className="list-group-item">Exporting and Importing Data</li>
-                <li className="list-group-item">Backup and Recovery</li>
-                <li className="list-group-item">Vacuum Command</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-lock text-primary me-2"></i>Security</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">SQL Injection Prevention</li>
-                <li className="list-group-item">Database Encryption</li>
-                <li className="list-group-item">Access Control</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-lightning text-primary me-2"></i>Performance Optimization</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Indexes</li>
-                <li className="list-group-item">Query Optimization</li>
-                <li className="list-group-item">EXPLAIN QUERY PLAN</li>
-                <li className="list-group-item">Pragmas</li>
               </ul>
             </div>
           </div>

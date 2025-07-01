@@ -242,54 +242,6 @@ function CsharpSyllabus() {
             </div>
           </div>
         </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-window text-primary me-2"></i>Windows Forms</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Form Controls</li>
-                <li className="list-group-item">Event Handling</li>
-                <li className="list-group-item">Data Binding</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-globe text-primary me-2"></i>ASP.NET Core</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">MVC Pattern</li>
-                <li className="list-group-item">Razor Pages</li>
-                <li className="list-group-item">Web API</li>
-                <li className="list-group-item">Entity Framework Core</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-puzzle text-primary me-2"></i>Advanced Topics</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Attributes</li>
-                <li className="list-group-item">Reflection</li>
-                <li className="list-group-item">Dynamic Types</li>
-                <li className="list-group-item">Pattern Matching</li>
-                <li className="list-group-item">Records</li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

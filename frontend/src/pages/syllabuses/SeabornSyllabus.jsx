@@ -183,22 +183,6 @@ function SeabornSyllabus() {
             </div>
           </div>
         </div>
-
-        <div className="col-md-6 col-lg-4">
-          <div className="card h-100 shadow-sm">
-            <div className="card-header bg-light">
-              <h2 className="h5 mb-0"><i className="bi bi-gear text-primary me-2"></i>Advanced Topics</h2>
-            </div>
-            <div className="card-body">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Customizing Plot Aesthetics</li>
-                <li className="list-group-item">Working with Subplots</li>
-                <li className="list-group-item">Combining Seaborn with Matplotlib</li>
-                <li className="list-group-item">Performance Considerations</li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
