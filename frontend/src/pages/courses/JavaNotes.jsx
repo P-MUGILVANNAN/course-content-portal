@@ -1741,6 +1741,169 @@ System.out.println(ll.peek()); // First (retrieves but doesn't remove)`}</code><
                                 </ul>
 
                             </div>
+                            <div className="property-card">
+                                <h3 className="h4">HashSet</h3>
+                                <ul>
+                                    <li>In Java, a HashSet is a part of the java.util package and implements the Set interface.</li>
+                                    <li>It stores elements in a hash table and does not allow duplicate elements.</li>
+                                    <li>The important points about Java HashSet are:</li>
+                                    <ol>
+                                        <li>Does not maintain insertion order.</li>
+                                        <li>Allows null element.</li>
+                                        <li>No duplicates allowed.</li>
+                                        <li>Backed internally by a HashMap.</li>
+                                        <li>Performance is faster than ArrayList for search operations due to hashing.</li>
+                                    </ol>
+                                </ul>
+                                <pre><code>{`import java.util.HashSet;
+
+HashSet<String> hs = new HashSet<>();
+hs.add("Ravi");
+hs.add("Vijay");
+hs.add("Ajay");
+hs.add("Ravi"); // Duplicate, won't be added
+
+System.out.println(hs); // [Vijay, Ajay, Ravi] - Order may vary`}</code></pre>
+                            </div>
+                            <div className="property-card">
+                                <h3 className="mb-3">HashSet  Methods</h3>
+                                <ul>
+                                    <li>add(element) - Adds the specified element if it's not already present.</li>
+                                    <li>remove(element) - Removes the specified element.</li>
+                                    <li>contains(element) - Checks if the element exists.</li>
+                                    <li>size() - Returns the number of elements.</li>
+                                    <li>clear() - Removes all elements.</li>
+                                </ul>
+
+                            </div>
+                            <div className="property-card">
+                                <h3 className="h4">LinkedHashSet</h3>
+                                <ul>
+                                    <li>LinkedHashSet is a subclass of HashSet that maintains insertion order.</li>
+                                    <li>Key points:</li>
+                                    <ol>
+                                        <li>Maintains insertion order.</li>
+                                        <li>No duplicate values.</li>
+                                        <li>Allows null values.</li>
+                                        <li>Slower than HashSet for large data due to linked list maintenance.</li>
+                                    </ol>
+                                </ul>
+                                <pre><code>{`import java.util.LinkedHashSet;
+
+LinkedHashSet<String> lhs = new LinkedHashSet<>();
+lhs.add("Ravi");
+lhs.add("Vijay");
+lhs.add("Ajay");
+
+System.out.println(lhs); // [Ravi, Vijay, Ajay]`}</code></pre>
+                            </div>
+                            <div className="property-card">
+                                <h3 className="h4">TreeSet</h3>
+                                <ul>
+                                    <li>TreeSet implements the NavigableSet interface and is backed by a TreeMap.</li>
+                                    <li>It stores elements in sorted (ascending) order.</li>
+                                    <li>Key Points:</li>
+                                    <ol>
+                                        <li>Automatically sorts elements.</li>
+                                        <li>No duplicates allowed.</li>
+                                        <li>Does not allow null elements (throws NullPointerException).</li>
+                                        <li>Slower than HashSet for add/remove.</li>
+                                    </ol>
+                                </ul>
+                                <pre><code>{`import java.util.TreeSet;
+
+TreeSet<String> ts = new TreeSet<>();
+ts.add("Ravi");
+ts.add("Vijay");
+ts.add("Ajay");
+
+System.out.println(ts); // [Ajay, Ravi, Vijay]`}</code></pre>
+                            </div>
+                            <div className="property-card">
+                                <h3 className="mb-3">TreeSet  Methods</h3>
+                                <ul>
+                                    <li>first() - Returns the first (lowest) element.</li>
+                                    <li>last() - Returns the last (highest) element.</li>
+                                    <li>headSet(toElement) - Elements less than the given element.</li>
+                                    <li>tailSet(fromElement) - Elements greater than or equal to given element.</li>
+                                    <li>subSet(fromElement, toElement) - Elements within a range.</li>
+                                </ul>
+                            </div>
+                            <div className="property-card">
+                                <h3 className="h4">HashMap</h3>
+                                <ul>
+                                    <li>HashMap is a class that implements the Map interface and stores key-value pairs.</li>
+                                    <li>Key Points:</li>
+                                    <ol>
+                                        <li>Allows one null key and multiple null values.</li>
+                                        <li>No duplicate keys (latest value replaces old).</li>
+                                        <li>Not synchronized.</li>
+                                        <li>Order is not guaranteed.</li>
+                                    </ol>
+                                </ul>
+                                <pre><code>{`import java.util.HashMap;
+
+HashMap<Integer, String> hm = new HashMap<>();
+hm.put(1, "Ravi");
+hm.put(2, "Vijay");
+hm.put(3, "Ajay");
+
+System.out.println(hm); // {1=Ravi, 2=Vijay, 3=Ajay}
+`}</code></pre>
+                            </div>
+                            <div className="property-card">
+                                <h3 className="mb-3">HashMap  Methods</h3>
+                                <ul>
+                                    <li>put(key, value) - Adds a key-value pair.</li>
+                                    <li>get(key) - Returns value associated with key.</li>
+                                    <li>remove(key) - Removes the key-value pair.</li>
+                                    <li>containsKey(key) - Checks if a key exists.</li>
+                                    <li>containsValue(value) - Checks if a value exists.</li>
+                                    <li>keySet() - Returns all keys.</li>
+                                    <li>values() - Returns all values.</li>
+                                </ul>
+                            </div>
+                            <div className="property-card">
+                                <h3 className="h4">LinkedHashMap</h3>
+                                <ul>
+                                    <li>A subclass of HashMap that maintains insertion order of entries.</li>
+                                    <li>Key Points:</li>
+                                    <ol>
+                                        <li>Maintains insertion order.</li>
+                                        <li>Faster iteration than HashMap.</li>
+                                        <li>Allows null keys and values.</li>
+                                    </ol>
+                                </ul>
+                                <pre><code>{`import java.util.LinkedHashMap;
+
+LinkedHashMap<Integer, String> lhm = new LinkedHashMap<>();
+lhm.put(1, "Ravi");
+lhm.put(2, "Vijay");
+lhm.put(3, "Ajay");
+
+System.out.println(lhm); // {1=Ravi, 2=Vijay, 3=Ajay} `}</code></pre>
+                            </div>
+                            <div className="property-card">
+                                <h3 className="h4">TreeMap</h3>
+                                <ul>
+                                    <li>Implements the NavigableMap interface and stores key-value pairs in sorted order of keys.</li>
+                                    <li>Key Points:</li>
+                                    <ol>
+                                        <li>Automatically sorts keys in natural order.</li>
+                                        <li>Does not allow null keys.</li>
+                                        <li>Slower than HashMap.</li>
+                                    </ol>
+                                </ul>
+                                <pre><code>{`import java.util.TreeMap;
+
+TreeMap<Integer, String> tm = new TreeMap<>();
+tm.put(3, "Ajay");
+tm.put(1, "Ravi");
+tm.put(2, "Vijay");
+
+System.out.println(tm); // {1=Ravi, 2=Vijay, 3=Ajay}
+`}</code></pre>
+                            </div>
                         </section>
 
                         <section id="multithreading" className="mb-5">
