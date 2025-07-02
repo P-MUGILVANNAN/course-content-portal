@@ -106,6 +106,7 @@ function JavaNotes() {
                             <a className="nav-link" href="#collections"><i className="bi bi-collection"></i> Collections</a>
                             <a className="nav-link" href="#multithreading"><i className="bi bi-cpu"></i> Multithreading</a>
                             <a className="nav-link" href="#lambda"><i className="bi bi-arrow-right-square"></i> Lambda Expressions</a>
+                            <a className="nav-link" href="#filehandling"><i className="bi bi-collection"></i> File Handling in Java</a>
                         </nav>
                     </aside>
 
@@ -2117,6 +2118,145 @@ System.out.println(ad.add(10,20)); // 30`}</code></pre>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </section>
+
+                        <section className="mb-5" id="filehandling">
+                            <h2 className="h2 mb-3"><i className="bi bi-collection"></i> File Handling in Java</h2>
+                            <div className="property-card">
+                                <ul>
+                                    <li>In Java, file handling is done using classes from the java.io and java.nio.file packages.</li>
+                                    <li>It allows reading, writing, updating, and deleting files and directories.</li>
+                                </ul>
+                            </div>
+                            <div className="property-card">
+                                <h4 className="h4 mb-3">1. File Class</h4>
+                                <p>The File class (from java.io) is used to represent file and directory pathnames in an abstract manner.</p>
+                                <pre><code>{`import java.io.File;
+
+public class FileDemo {
+    public static void main(String[] args) {
+        File file = new File("example.txt");
+        
+        if (file.exists()) {
+            System.out.println("File name: " + file.getName());
+            System.out.println("Path: " + file.getAbsolutePath());
+            System.out.println("Writable: " + file.canWrite());
+            System.out.println("Readable: " + file.canRead());
+            System.out.println("File size in bytes: " + file.length());
+        } else {
+            System.out.println("File does not exist.");
+        }
+    }
+}
+`}</code></pre>
+                                <h5>Common File Methods:</h5>
+                                <ol>
+                                    <li>createNewFile() – Creates a new empty file.</li>
+                                    <li>mkdir() – Creates a directory.</li>
+                                    <li>exists() – Checks if the file exists.</li>
+                                    <li>getName() – Returns the file name.</li>
+                                    <li>getAbsolutePath() – Returns the full path.</li>
+                                    <li>canRead() / canWrite() – Checks readability/writability.</li>
+                                    <li>length() – Returns file size in bytes.</li>
+                                    <li>delete() – Deletes the file.</li>
+                                </ol>
+                            </div>
+                            <div className="property-card">
+                                <h4 className="h4 mb-3">2. Writing to a File</h4>
+                                <p>Use FileWriter and BufferedWriter for writing data to a file.</p>
+                                <pre><code>{`import java.io.FileWriter;
+import java.io.IOException;
+
+public class WriteFile {
+    public static void main(String[] args) {
+        try {
+            FileWriter writer = new FileWriter("output.txt");
+            writer.write("Hello, this is a sample file.");
+            writer.close();
+            System.out.println("Successfully written to file.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+`}</code></pre>
+                            </div>
+                            <div className="property-card">
+                                <h4 className="h4 mb-3">3. Reading from a File</h4>
+                                <p>Use FileReader, BufferedReader, or Scanner to read data.</p>
+                                <pre><code>{`import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class ReadFile {
+    public static void main(String[] args) {
+        try {
+            File file = new File("output.txt");
+            Scanner sc = new Scanner(file);
+            while (sc.hasNextLine()) {
+                String data = sc.nextLine();
+                System.out.println(data);
+            }
+            sc.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}
+`}</code></pre>
+                            </div>
+                            <div className="property-card">
+                                <h4 className="h4 mb-3">4. Append to a File</h4>
+                                <p>Use FileWriter in append mode (true flag).</p>
+                                <pre><code>{`import java.io.FileWriter;
+import java.io.IOException;
+
+public class AppendFile {
+    public static void main(String[] args) {
+        try {
+            FileWriter writer = new FileWriter("output.txt", true);
+            writer.write("\nAppended line.");
+            writer.close();
+            System.out.println("Appended to the file.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+`}</code></pre>
+                            </div>
+                            <div className="property-card">
+                                <h4 className="h4 mb-3">5. Deleting a File</h4>
+                                <pre><code>{`import java.io.File;
+
+public class DeleteFile {
+    public static void main(String[] args) {
+        File file = new File("output.txt");
+        if (file.delete()) {
+            System.out.println("Deleted file: " + file.getName());
+        } else {
+            System.out.println("Failed to delete the file.");
+        }
+    }
+}
+`}</code></pre>
+                            </div>
+                            <div className="property-card">
+                                <h4 className="h4 mb-3">6. Create a Directory</h4>
+                                <pre><code>{`import java.io.File;
+
+public class CreateDirectory {
+    public static void main(String[] args) {
+        File dir = new File("MyDirectory");
+        if (dir.mkdir()) {
+            System.out.println("Directory created.");
+        } else {
+            System.out.println("Directory creation failed.");
+        }
+    }
+}
+`}</code></pre>
                             </div>
                         </section>
                     </main>
