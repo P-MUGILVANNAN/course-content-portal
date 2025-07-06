@@ -161,7 +161,7 @@ const styles = `
   }
   .dropdown-item:hover {
     background-color: rgba(255, 193, 7, 0.1) !important;
-    color:rgb(1, 72, 239) !important;
+    color:rgb(254, 155, 6) !important;
   }
   .navbar-brand:hover {
     opacity: 0.9;

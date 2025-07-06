@@ -91,6 +91,7 @@ import ReactNativeSyllabus from './pages/syllabuses/ReactNativeSyllabus';
 import GitSyllabus from './pages/syllabuses/GitSyllabus';
 import ScrollToTop from './components/ScrollToTop';
 import AllUsers from './pages/AllUsers';
+import AspNetCoreNotes from './pages/courses/AspNetCoreNotes';
 
 function Layout() {
   return (
@@ -145,6 +146,7 @@ function Layout() {
           <Route path='/reactnative-course' element={<ReactNativeNotes />} />
           <Route path='/jq-course' element={<JqueryNotes />} />
           <Route path='/vue-course' element={<VueJsNotes />} />
+          <Route path='/aspnet-course' element={<AspNetCoreNotes />} />
           <Route path='/all-syllabuses' element={<AllSyllabuses />} />
           <Route path='/html-syllabus' element={<HtmlSyllabus />} />
           <Route path='/css-syllabus' element={<CssSyllabus />} />

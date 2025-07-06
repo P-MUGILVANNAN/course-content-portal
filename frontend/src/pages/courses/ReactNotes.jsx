@@ -87,38 +87,43 @@ function ReactNotes() {
               <a className="nav-link" href="#styling"><i className="bi bi-brush"></i> Styling</a>
               <a className="nav-link" href="#axios"><i className="bi bi-cloud-arrow-down"></i> Axios</a>
               <a className="nav-link" href="#conditional"><i class="bi bi-shield-check"></i> Conditional Rendering</a>
+              <a className="nav-link" href="#redux"><i class="bi bi-diagram-3"></i> Redux</a>
             </nav>
           </aside>
 
           <main className="col-lg-9">
             <section className="mb-5" id="client-side">
               <h2><i class="bi bi-pc-display"></i> What is meant by client-side frameworks?</h2>
-              <ul>
-                <li>There are two sides of web development – the server side and the client side. A server-side frameworks typically uses a programming language with a compiler and run on a web server, such as Node.js, PHP, Python, Java and ASP.Net.</li>
-                <li>The client-side frameworks are usually a JavaScript library and runs in a web browser, such as React, Angular and Vue.</li>
-              </ul>
+              <div className="property-card">
+                <ul>
+                  <li>There are two sides of web development – the server side and the client side. A server-side frameworks typically uses a programming language with a compiler and run on a web server, such as Node.js, PHP, Python, Java and ASP.Net.</li>
+                  <li>The client-side frameworks are usually a JavaScript library and runs in a web browser, such as React, Angular and Vue.</li>
+                </ul>
+              </div>
               <h3 className="mb-3">Different client-side frameworks:</h3>
-              <h4><i className="bi bi-1-circle"></i> Angular</h4>
-              <ul>
-                <li>Originally developed and referred to as AngularJs, Angular is an open source, front-end, JavaScript framework that can be used with any platform.</li>
-                <li>It was designed and developed by Google to create a dynamic and interesting web applications.</li>
-              </ul>
-              <h4><i className="bi bi-2-circle"></i> React</h4>
-              <ul>
-                <li>Originally developed and maintained by Facebook.</li>
-                <li>React is an open source, declarative, front-end, JavaScript library to help developers building user interfaces for single page or mobile apps.</li>
-                <li>React is simple to use, scalable and fast.</li>
-              </ul>
-              <h4><i className="bi bi-3-circle"></i> Bootstrap</h4>
-              <ul>
-                <li>An HTML, CSS, JavaScript framework tool that helps developers to build responsive and native mobile websites.</li>
-                <li>Created by twitter.</li>
-              </ul>
-              <h4><i className="bi bi-4-circle"></i> Vue</h4>
-              <ul>
-                <li>A progressive framework that developers can use to build user interfaces.</li>
-                <li>The core library is focused on the view layer only.</li>
-              </ul>
+              <div className="property-card">
+                <h4><i className="bi bi-1-circle"></i> Angular</h4>
+                <ul>
+                  <li>Originally developed and referred to as AngularJs, Angular is an open source, front-end, JavaScript framework that can be used with any platform.</li>
+                  <li>It was designed and developed by Google to create a dynamic and interesting web applications.</li>
+                </ul>
+                <h4><i className="bi bi-2-circle"></i> React</h4>
+                <ul>
+                  <li>Originally developed and maintained by Facebook.</li>
+                  <li>React is an open source, declarative, front-end, JavaScript library to help developers building user interfaces for single page or mobile apps.</li>
+                  <li>React is simple to use, scalable and fast.</li>
+                </ul>
+                <h4><i className="bi bi-3-circle"></i> Bootstrap</h4>
+                <ul>
+                  <li>An HTML, CSS, JavaScript framework tool that helps developers to build responsive and native mobile websites.</li>
+                  <li>Created by twitter.</li>
+                </ul>
+                <h4><i className="bi bi-4-circle"></i> Vue</h4>
+                <ul>
+                  <li>A progressive framework that developers can use to build user interfaces.</li>
+                  <li>The core library is focused on the view layer only.</li>
+                </ul>
+              </div>
             </section>
             <section id="introduction" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-info-circle"></i> What is React?</h2>
@@ -980,8 +985,8 @@ export const UserProvider = ({ children }) => {
 // Custom hook to use user context
 export default UserContext;
 `}</code></pre>
-<h4 className="mb-3">Use in Component</h4>
-<pre><code>{`import React, { useContext } from 'react';
+                <h4 className="mb-3">Use in Component</h4>
+                <pre><code>{`import React, { useContext } from 'react';
 import UserContext from './UserContext';
 
 const ContextEg = () => {
@@ -997,8 +1002,8 @@ const ContextEg = () => {
 
 export default ContextEg;
 `}</code></pre>
-<h4 className="mb-3">Use in App.jsx</h4>
-<pre><code>{`import { UserProvider } from './components/UserContext';
+                <h4 className="mb-3">Use in App.jsx</h4>
+                <pre><code>{`import { UserProvider } from './components/UserContext';
 import ContextEg from './components/ContextEg';
 
 <UserProvider>
@@ -1500,13 +1505,134 @@ export default class AxiosDeleteEg extends Component {
 }`}</code></pre>
               </div>
             </section>
+
+            <section className="mb-5" id="redux">
+              <h2 className="mb-3">
+                <i className="bi bi-diagram-3"></i> Redux in React (Step-by-Step)
+              </h2>
+              <p>
+                Redux is a predictable state container used for managing application-level state. It helps maintain consistent
+                behavior, especially in complex applications. Redux works on three principles: <strong>Single source of truth</strong>,
+                <strong>State is read-only</strong>, and <strong>Changes are made with pure functions</strong>.
+              </p>
+
+              {/* Step 1 - Install Redux */}
+              <div className="property-card">
+                <h4 className="mb-3"><i className="bi bi-1-circle"></i> Step 1: Install Redux & React-Redux</h4>
+                <p>Install both redux and react-redux libraries:</p>
+                <pre><code>{`npm install redux react-redux`}</code></pre>
+              </div>
+
+              {/* Step 2 - Create Actions */}
+              <div className="property-card">
+                <h4 className="mb-3"><i className="bi bi-2-circle"></i> Step 2: Create Actions</h4>
+                <p>Actions describe what should happen. Example: increment and decrement actions.</p>
+                <pre><code>{`// actions.js
+export const increment = () => ({ type: 'INCREMENT' });
+export const decrement = () => ({ type: 'DECREMENT' });`}</code></pre>
+              </div>
+
+              {/* Step 3 - Create Reducer */}
+              <div className="property-card">
+                <h4 className="mb-3"><i className="bi bi-3-circle"></i> Step 3: Create Reducer</h4>
+                <p>Reducer handles the actions and updates the state.</p>
+                <pre><code>{`// reducer.js
+const initialState = { count: 0 };
+
+const counterReducer = (state = initialState, action) => {
+  switch(action.type) {
+    case 'INCREMENT':
+      return { count: state.count + 1 };
+    case 'DECREMENT':
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+};
+
+export default counterReducer;`}</code></pre>
+              </div>
+
+              {/* Step 4 - Create Store */}
+              <div className="property-card">
+                <h4 className="mb-3"><i className="bi bi-4-circle"></i> Step 4: Create Redux Store</h4>
+                <p>Store is the single source of truth that holds the global state.</p>
+                <pre><code>{`// store.js
+import { createStore } from 'redux';
+import counterReducer from './reducer';
+
+const store = createStore(counterReducer);
+export default store;`}</code></pre>
+              </div>
+
+              {/* Step 5 - Wrap App with Provider */}
+              <div className="property-card">
+                <h4 className="mb-3"><i className="bi bi-5-circle"></i> Step 5: Provide Store to App</h4>
+                <p>Use <code>Provider</code> from <code>react-redux</code> to give access to the Redux store throughout the React app.</p>
+                <pre><code>{`// index.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import App from './App';
+import store from './store';
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);`}</code></pre>
+              </div>
+
+              {/* Step 6 - Use Redux in Component */}
+              <div className="property-card">
+                <h4 className="mb-3"><i className="bi bi-6-circle"></i> Step 6: Use useSelector and useDispatch</h4>
+                <p>Access state with <code>useSelector</code> and update it with <code>useDispatch</code>.</p>
+                <pre><code>{`// App.js
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { increment, decrement } from './actions';
+
+function App() {
+  const count = useSelector(state => state.count);
+  const dispatch = useDispatch();
+
+  return (
+    <div>
+      <h2>Counter: {count}</h2>
+      <button onClick={() => dispatch(increment())}>➕</button>
+      <button onClick={() => dispatch(decrement())}>➖</button>
+    </div>
+  );
+}
+
+export default App;`}</code></pre>
+              </div>
+
+              {/* Step 7 - Final Structure */}
+              <div className="property-card">
+                <h4 className="mb-3"><i className="bi bi-7-circle"></i> Step 7: Final Project Structure</h4>
+                <p>Organize files like this for a clean structure:</p>
+                <pre><code>{`
+/src
+├── actions.js
+├── reducer.js
+├── store.js
+├── App.js
+└── index.js
+`}</code></pre>
+              </div>
+            </section>
+
+
+
           </main>
         </div>
       </div>
 
       <footer className="bg-dark text-white py-4">
         <div className="container text-center">
-          <p>React Notes &copy; 2025 | Based on original React documentation</p>
+          <p>React Notes &copy; 2025 | Created by Mugilvannan P.</p>
         </div>
       </footer>
     </div>

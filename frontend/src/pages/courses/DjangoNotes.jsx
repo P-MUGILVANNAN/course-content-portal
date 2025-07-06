@@ -75,6 +75,7 @@ function DjangoNotes() {
               <a className="nav-link" href="#crud"><i className="bi bi-arrow-repeat"></i> CRUD Operations</a>
               <a className="nav-link" href="#file-upload"><i className="bi bi-upload"></i> File Upload</a>
               <a className="nav-link" href="#cookies-sessions"><i className="bi bi-cookie"></i> Cookies & Sessions</a>
+              <a className="nav-link" href="#authentication"><i className="bi bi-shield-lock"></i> Authentication & Authorization</a>
             </nav>
           </aside>
 
@@ -106,38 +107,38 @@ function DjangoNotes() {
 
             <section id="setup" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-gear"></i> Setup & Installation</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">Step 1: Check Python and pip versions</h3>
                 <pre className="mb-3"><code>py --version
-pip --version</code></pre>
+                  pip --version</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">Step 2: Create Virtual Environment</h3>
                 <pre className="mb-3"><code>py -m venv env-name</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">Step 3: Activate Virtual Environment</h3>
                 <p>On Windows:</p>
                 <pre className="mb-3"><code>cd env-name
-cd Scripts
-.\activate</code></pre>
+                  cd Scripts
+                  .\activate</code></pre>
                 <p>On Mac/Linux:</p>
                 <pre className="mb-3"><code>source env-name/bin/activate</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">Step 4: Install Django</h3>
                 <pre className="mb-3"><code>py -m pip install django</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">Step 5: Verify Django Installation</h3>
                 <pre className="mb-3"><code>django-admin --version</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">Creating a Django Project</h3>
                 <pre className="mb-3"><code>django-admin startproject projectname</code></pre>
@@ -148,7 +149,7 @@ cd Scripts
 
             <section id="project-structure" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-folder"></i> Django Project Structure</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">Key Files and Directories</h3>
                 <ul>
@@ -160,13 +161,13 @@ cd Scripts
                   <li><strong>wsgi.py:</strong> Entry-point for WSGI-compatible web servers to serve your project</li>
                 </ul>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">Running the Development Server</h3>
                 <pre className="mb-3"><code>python manage.py runserver</code></pre>
                 <p>Access the server at: <code>http://127.0.0.1:8000</code></p>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">Creating a Django App</h3>
                 <p>Difference between project and app:</p>
@@ -197,7 +198,7 @@ cd Scripts
                 <li>In Python django based application where required service to end user is defined in views.py file.</li>
                 <li>For every action we will create views. 2 types of views are available</li>
               </ul>
-              
+
               <div className="property-card">
                 <h3 className="h4">Creating Views</h3>
                 <p>Two types of views:</p>
@@ -213,7 +214,7 @@ def welcome(request):
     s = '<h1>Hello, Welcome to Django</h1>'
     return HttpResponse(s)`}</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">URL Configuration (urls.py)</h3>
                 <pre className="mb-3"><code>{`from django.contrib import admin
@@ -225,15 +226,15 @@ urlpatterns = [
     path('hello/', views.welcome),
 ]`}</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">Using Templates</h3>
                 <ul>
-                    <li>It is not recommended to write an Html code inside Python Scripts (views.py file).</li>
-                    <li>It reduces the readability because python code mixed with Html code.</li>
-                    <li>No separation of roles python developer has to concentrate on both python code and html code.</li>
-                    <li>It doesn't promote reusability of code. So, we can overcome these problems by separating html code into the separate html file.</li>
-                    <li>This html file is nothing but template from the python file (views.py file).We can use these templates based on our requirement. So, we have to write templates at project level at only once and we can use this in multiple applications.</li>
+                  <li>It is not recommended to write an Html code inside Python Scripts (views.py file).</li>
+                  <li>It reduces the readability because python code mixed with Html code.</li>
+                  <li>No separation of roles python developer has to concentrate on both python code and html code.</li>
+                  <li>It doesn't promote reusability of code. So, we can overcome these problems by separating html code into the separate html file.</li>
+                  <li>This html file is nothing but template from the python file (views.py file).We can use these templates based on our requirement. So, we have to write templates at project level at only once and we can use this in multiple applications.</li>
                 </ul>
                 <p>Create a templates folder in your project directory and add HTML files</p>
                 <p>Example (index.html):</p>
@@ -259,7 +260,7 @@ TEMPLATES = [
 def home(request):
     return render(request, "index.html")`}</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">Passing Data to Templates</h3>
                 <p>views.py:</p>
@@ -283,7 +284,7 @@ def home(request):
 
             <section id="static-files" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-file-earmark"></i> Static Files (CSS, JS, Images)</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">Static Files Setup</h3>
                 <p>Create static folder structure:</p>
@@ -297,7 +298,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]`}</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">Using Static Files in Templates</h3>
                 <p>Load static at top of template:</p>
@@ -313,7 +314,7 @@ STATICFILES_DIRS = [
 
             <section id="forms" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-input-cursor-text"></i> Forms in Django</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">GET Method Example</h3>
                 <p>index.html:</p>
@@ -331,7 +332,7 @@ STATICFILES_DIRS = [
     else:
         return render(request, "output.html")`}</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">POST Method Example</h3>
                 <p>index.html:</p>
@@ -354,34 +355,34 @@ STATICFILES_DIRS = [
 
             <section id="admin-panel" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-person-badge"></i> Django Admin Panel</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">Creating a Superuser</h3>
                 <pre className="mb-3"><code>python manage.py createsuperuser</code></pre>
                 <p>Follow prompts to enter username, email, and password</p>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">Accessing Admin Panel</h3>
                 <p>Run server and visit:</p>
                 <pre className="mb-3"><code>http://127.0.0.1:8000/admin</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">Complete Admin Panel Project</h3>
                 <p><strong>1. Create Project:</strong></p>
                 <pre className="mb-3"><code>django-admin startproject adminpanel_project
-cd adminpanel_project</code></pre>
-                
+                  cd adminpanel_project</code></pre>
+
                 <p><strong>2. Create App:</strong></p>
                 <pre className="mb-3"><code>django-admin startapp adminpanel_app</code></pre>
-                
+
                 <p><strong>3. Add to INSTALLED_APPS (settings.py):</strong></p>
                 <pre className="mb-3"><code>{`INSTALLED_APPS = [
     ...
     'adminpanel_app',
 ]`}</code></pre>
-                
+
                 <p><strong>4. Configure Templates (settings.py):</strong></p>
                 <pre className="mb-3"><code>{`import os
 TEMPLATES = [
@@ -389,13 +390,13 @@ TEMPLATES = [
         'DIRS': [os.path.join(BASE_DIR, "templates")],
     }
 ]`}</code></pre>
-                
+
                 <p><strong>5. Configure Static Files (settings.py):</strong></p>
                 <pre className="mb-3"><code>{`STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]`}</code></pre>
-                
+
                 <p><strong>6. Create Templates Structure:</strong></p>
                 <pre className="mb-3"><code>{`templates/
 |---header.html
@@ -542,7 +543,7 @@ STATICFILES_DIRS = [
     </div>
 </div>
 {% endblock %}`}</code></pre>
-                
+
                 <p><strong>7. Create Forms (forms.py):</strong></p>
                 <pre className="mb-3"><code>{`from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -551,7 +552,7 @@ class RegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']`}</code></pre>
-                
+
                 <p><strong>8. Create Views (views.py):</strong></p>
                 <pre className="mb-3"><code>{`from django.shortcuts import render, redirect
 from .forms import RegisterForm
@@ -585,7 +586,7 @@ def register_page(request):
 @login_required
 def profile_page(request):
     return render(request, 'profile.html')`}</code></pre>
-                
+
                 <p><strong>9. Configure URLs (urls.py):</strong></p>
                 <pre className="mb-3"><code>{`from django.contrib import admin
 from django.urls import path
@@ -600,14 +601,14 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
     path('profile/', views.profile_page, name='profile'),
 ]`}</code></pre>
-                
+
                 <p><strong>10. Create Login Redirect (settings.py):</strong></p>
                 <pre className="mb-3"><code>{`LOGIN_REDIRECT_URL = 'home'`}</code></pre>
-                
+
                 <p><strong>11. Install Required Packages:</strong></p>
                 <pre className="mb-3"><code>pip install django-crispy-forms
-pip install crispy-bootstrap5</code></pre>
-                
+                  pip install crispy-bootstrap5</code></pre>
+
                 <p><strong>12. Add to settings.py:</strong></p>
                 <pre className="mb-3"><code>{`INSTALLED_APPS = [
     'crispy_forms',
@@ -632,7 +633,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'`}</code></pre>
                 <li>To represent a table in django also called as Models.</li>
                 <li>When we create a class in models that user fields present in that class to create table columns automatically.</li>
               </ul>
-              
+
               <div className="property-card">
                 <h3 className="h4">Creating Models</h3>
                 <p>models.py:</p>
@@ -644,7 +645,7 @@ class Student(models.Model):
     classname = models.IntegerField()
     contact = models.CharField(max_length=100)`}</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">Field Types</h3>
                 <ul>
@@ -661,31 +662,31 @@ class Student(models.Model):
                   <li><code>TimeField</code>: Time</li>
                 </ul>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">Migrations</h3>
                 <pre className="mb-3"><code>python manage.py makemigrations
-python manage.py migrate</code></pre>
+                  python manage.py migrate</code></pre>
                 <p>To see SQL:</p>
                 <pre className="mb-3"><code>python manage.py sqlmigrate appname 0001</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h2 className="mb-3">Django ORM</h2>
                 <ul>
-                    <li>One of the most powerful features of Django is its Object-Relational Mapper (ORM), which enables you to interact with your database, like you would with SQL.</li>
-                    <li>In fact, Django's ORM is just a pythonical way to create SQL to query and manipulate your database and get results in a pythonic fashion.</li>
+                  <li>One of the most powerful features of Django is its Object-Relational Mapper (ORM), which enables you to interact with your database, like you would with SQL.</li>
+                  <li>In fact, Django's ORM is just a pythonical way to create SQL to query and manipulate your database and get results in a pythonic fashion.</li>
                 </ul>
                 <h3 className="h4">Django ORM Examples</h3>
                 <p><strong>Retrieve all records:</strong></p>
                 <pre className="mb-3"><code>{`from .models import Student
 s = Student.objects.all()
 print(s)`}</code></pre>
-                
+
                 <p><strong>Get single record:</strong></p>
                 <pre className="mb-3"><code>{`s = Student.objects.get(id=3)
 print(s)`}</code></pre>
-                
+
                 <p><strong>Filter records:</strong></p>
                 <pre className="mb-3"><code>{`# Greater than
 s = Student.objects.filter(id__gt=3)
@@ -698,7 +699,7 @@ s = Student.objects.filter(id__gt=2) & Student.objects.filter(classname__gt=6)
 
 # OR condition
 s = Student.objects.filter(id__gt=2) | Student.objects.filter(classname__gt=6)`}</code></pre>
-                
+
                 <p><strong>Insert records:</strong></p>
                 <pre className="mb-3"><code>{`# Single record
 s = Student(name="sam", fathername="arun", classname=9, contact="8976567890")
@@ -709,7 +710,7 @@ Student.objects.bulk_create([
     Student(name="divya", fathername="vijay", classname=8, contact="9876509876"),
     Student(name="ajay", fathername="sam", classname=7, contact="8765789080")
 ])`}</code></pre>
-                
+
                 <p><strong>Delete records:</strong></p>
                 <pre className="mb-3"><code>{`# Single record
 s = Student.objects.get(id=1)
@@ -718,13 +719,13 @@ s.delete()
 # Multiple records
 s = Student.objects.filter(id__in=[1,3,5])
 s.delete()`}</code></pre>
-                
+
                 <p><strong>Update records:</strong></p>
                 <pre className="mb-3"><code>{`s = Student.objects.get(id=1)
 s.classname = 6
 s.contact = '8562314567'
 s.save()`}</code></pre>
-                
+
                 <p><strong>Aggregate functions:</strong></p>
                 <pre className="mb-3"><code>{`from django.db.models import Avg, Sum, Min, Max, Count
 
@@ -747,12 +748,12 @@ s = Student.objects.all().aggregate(Max('id'))`}</code></pre>
 
             <section id="mysql" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-server"></i> MySQL Connectivity</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">Install MySQL Client</h3>
                 <pre className="mb-3"><code>pip install mysqlclient</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">Configure Database (settings.py)</h3>
                 <pre className="mb-3"><code>{`DATABASES = {
@@ -770,18 +771,18 @@ s = Student.objects.all().aggregate(Max('id'))`}</code></pre>
 
             <section id="crud" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-arrow-repeat"></i> CRUD Operations</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">1. Create Project</h3>
                 <pre className="mb-3"><code>django-admin startproject crud_project
-cd crud_project</code></pre>
+                  cd crud_project</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">2. Create App</h3>
                 <pre className="mb-3"><code>django-admin startapp crud_app</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">3. Configure settings.py</h3>
                 <pre className="mb-3"><code>{`INSTALLED_APPS = [
@@ -804,7 +805,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]`}</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">4. Create Model (models.py)</h3>
                 <pre className="mb-3"><code>{`from django.db import models
@@ -820,9 +821,9 @@ class RegisterForm(models.Model):
         db_table = "Register"`}</code></pre>
                 <p>Run migrations:</p>
                 <pre className="mb-3"><code>python manage.py makemigrations
-python manage.py migrate</code></pre>
+                  python manage.py migrate</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">5. Create Form (forms.py)</h3>
                 <pre className="mb-3"><code>{`from django import forms
@@ -833,7 +834,7 @@ class MyRegisterForm(forms.ModelForm):
         model = RegisterForm
         fields = ['name', 'age', 'address', 'phone', 'email']`}</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">6. Create Views (views.py)</h3>
                 <pre className="mb-3"><code>{`from django.shortcuts import render, redirect
@@ -883,7 +884,7 @@ def delete(request, id):
     messages.error(request, "Deleted successfully")
     return redirect("Home")`}</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">7. Configure URLs (urls.py)</h3>
                 <pre className="mb-3"><code>{`from django.contrib import admin
@@ -898,7 +899,7 @@ urlpatterns = [
     path("delete/<int:id>", views.delete, name="Delete"),
 ]`}</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">8. Create Templates</h3>
                 <p><strong>index.html:</strong></p>
@@ -926,14 +927,14 @@ urlpatterns = [
         })
     })
 </script>`}</code></pre>
-                
+
                 <p><strong>header.html:</strong></p>
                 <pre className="mb-3"><code>{`{% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>`}</code></pre>
-                
+
                 <p><strong>home.html:</strong></p>
                 <pre className="mb-3"><code>{`{% extends 'index.html' %}
 {% block content %}
@@ -1007,7 +1008,7 @@ urlpatterns = [
     })
 </script>
 {% endblock %}`}</code></pre>
-                
+
                 <p><strong>register.html:</strong></p>
                 <pre className="mb-3"><code>{`{% extends 'index.html' %}
 {% block content %}
@@ -1023,7 +1024,7 @@ urlpatterns = [
     </div>
 </div>
 {% endblock %}`}</code></pre>
-                
+
                 <p><strong>update.html:</strong></p>
                 <pre className="mb-3"><code>{`{% extends 'index.html' %}
 {% block content %}
@@ -1064,18 +1065,18 @@ urlpatterns = [
 
             <section id="file-upload" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-upload"></i> File Upload</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">1. Create Project</h3>
                 <pre className="mb-3"><code>django-admin startproject file_project
-cd file_project</code></pre>
+                  cd file_project</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">2. Create App</h3>
                 <pre className="mb-3"><code>django-admin startapp image_app</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">3. Configure settings.py</h3>
                 <pre className="mb-3"><code>{`INSTALLED_APPS = [
@@ -1085,7 +1086,7 @@ cd file_project</code></pre>
 MEDIA_URL = "/upload/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')`}</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">4. Create Model (models.py)</h3>
                 <pre className="mb-3"><code>{`from django.db import models
@@ -1094,7 +1095,7 @@ class MyFileUpload(models.Model):
     file_name = models.CharField(max_length=255)
     my_file = models.FileField()`}</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">5. Create Form (forms.py)</h3>
                 <pre className="mb-3"><code>{`from django import forms
@@ -1109,7 +1110,7 @@ class MyFileForm(forms.ModelForm):
             'my_file': forms.ClearableFileInput(attrs={'class': 'form-control-file'}),
         }`}</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">6. Create Views (views.py)</h3>
                 <pre className="mb-3"><code>{`from django.shortcuts import render, redirect
@@ -1145,7 +1146,7 @@ def deletefile(request, id):
     messages.success(request, 'File deleted successfully')
     return redirect("Home")`}</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">7. Configure URLs (urls.py)</h3>
                 <pre className="mb-3"><code>{`from django.contrib import admin
@@ -1163,7 +1164,7 @@ urlpatterns = [
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)`}</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">8. Create Templates</h3>
                 <p><strong>index.html:</strong></p>
@@ -1180,7 +1181,7 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)`}</
     {% endblock %}
 </body>
 </html>`}</code></pre>
-                
+
                 <p><strong>header.html:</strong></p>
                 <pre className="mb-3"><code>{`{% load static %}
 <link rel="stylesheet" href="{% static 'css/hell.css' %}">
@@ -1188,7 +1189,7 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)`}</
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>`}</code></pre>
-                
+
                 <p><strong>home.html:</strong></p>
                 <pre className="mb-3"><code>{`{% extends 'index.html' %}
 {% block content %}
@@ -1268,7 +1269,7 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)`}</
 
             <section id="cookies-sessions" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-cookie"></i> Cookies & Sessions</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">Django Cookies</h3>
                 <p>Cookies are small pieces of information stored in the client browser</p>
@@ -1280,12 +1281,12 @@ def setcookie(request):
     response = HttpResponse("Cookie Set")
     response.set_cookie('working', 'MNC')
     return response`}</code></pre>
-                
+
                 <p><strong>Getting a Cookie:</strong></p>
                 <pre className="mb-3"><code>{`def getcookie(request):
     data = request.COOKIES['working']
     return HttpResponse("Working at: " + data)`}</code></pre>
-                
+
                 <p><strong>URL Configuration:</strong></p>
                 <pre className="mb-3"><code>{`from django.contrib import admin
 from django.urls import path
@@ -1297,7 +1298,7 @@ urlpatterns = [
     path('getcookie/', views.getcookie),
 ]`}</code></pre>
               </div>
-              
+
               <div className="property-card">
                 <h3 className="h4">Django Sessions</h3>
                 <p>Sessions store information on the server side</p>
@@ -1310,19 +1311,19 @@ urlpatterns = [
 INSTALLED_APPS = [
     'django.contrib.sessions',
 ]`}</code></pre>
-                
+
                 <p><strong>Setting Session Data:</strong></p>
                 <pre className="mb-3"><code>{`def setsession(request):
     request.session["sname"] = 'abc'
     request.session["semail"] = 'abc@gmail.com'
     return HttpResponse("session is set")`}</code></pre>
-                
+
                 <p><strong>Getting Session Data:</strong></p>
                 <pre className="mb-3"><code>{`def getsession(request):
     studentname = request.session["sname"]
     studentemail = request.session["semail"]
     return HttpResponse(studentname + " " + studentemail)`}</code></pre>
-                
+
                 <p><strong>URL Configuration:</strong></p>
                 <pre className="mb-3"><code>{`from django.contrib import admin
 from django.urls import path
@@ -1335,13 +1336,95 @@ urlpatterns = [
 ]`}</code></pre>
               </div>
             </section>
+
+            <section id="authentication" className="mb-5">
+              <h2 className="h2 mb-3"><i className="bi bi-shield-lock"></i> Authentication & Authorization</h2>
+
+              <div className="property-card">
+                <h3 className="h4">Django's Built-in Authentication</h3>
+                <p>Django provides a robust authentication system out of the box:</p>
+                <ul>
+                  <li>User objects (username, password, email, first_name, last_name)</li>
+                  <li>Permissions (view, add, change, delete)</li>
+                  <li>Groups for grouping users</li>
+                  <li>Password hashing and validation</li>
+                </ul>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4">User Registration Example</h3>
+                <p><strong>forms.py:</strong></p>
+                <pre className="mb-3"><code>{`from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
+class RegisterForm(UserCreationForm):
+    email = forms.EmailField()
+    
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']`}</code></pre>
+
+                <p><strong>views.py:</strong></p>
+                <pre className="mb-3"><code>{`from django.shortcuts import render, redirect
+from .forms import RegisterForm
+from django.contrib import messages
+
+def register(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Account created for {username}!')
+            return redirect('login')
+    else:
+        form = RegisterForm()
+    return render(request, 'users/register.html', {'form': form})`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4">Login/Logout Views</h3>
+                <p><strong>views.py:</strong></p>
+                <pre className="mb-3"><code>{`from django.contrib.auth import login, logout
+from django.contrib.auth.forms import AuthenticationForm
+from django.shortcuts import render, redirect
+
+def user_login(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'users/login.html', {'form': form})
+
+def user_logout(request):
+    logout(request)
+    return redirect('home')`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4">Authorization with Decorators</h3>
+                <pre className="mb-3"><code>{`from django.contrib.auth.decorators import login_required, permission_required
+
+@login_required
+def profile(request):
+    return render(request, 'users/profile.html')
+
+@permission_required('app.add_model', raise_exception=True)
+def restricted_view(request):
+    return render(request, 'restricted.html')`}</code></pre>
+              </div>
+            </section>
           </main>
         </div>
       </div>
 
       <footer className="bg-dark text-white py-4">
         <div className="container text-center">
-          <p>Django Notes &copy; 2025 | Comprehensive Guide to Django Web Framework</p>
+          <p>Django Notes &copy; 2025 | Created by Mugilvannan P.</p>
         </div>
       </footer>
     </div>

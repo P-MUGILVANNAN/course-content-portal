@@ -83,7 +83,12 @@ function CppNotes() {
               <a className="nav-link" href="#strings"><i className="bi bi-textarea-t"></i> Strings</a>
               <a className="nav-link" href="#oops"><i className="bi bi-boxes"></i> OOP Concepts</a>
               <a className="nav-link" href="#pointers"><i className="bi bi-cursor"></i> Pointers</a>
+              <a className="nav-link" href="#structures"><i className="bi bi-file-earmark-binary"></i> Structures</a>
+              <a className="nav-link" href="#enums"><i className="bi bi-list-check"></i> Enumerations</a>
+              <a className="nav-link" href="#exception-handling"><i className="bi bi-exclamation-triangle"></i> Exception Handling</a>
               <a className="nav-link" href="#files"><i className="bi bi-file-earmark"></i> File Handling</a>
+              <a className="nav-link" href="#multithreading"><i className="bi bi-shuffle"></i> Multithreading</a>
+              <a className="nav-link" href="#stl"><i className="bi bi-collection"></i> STL (Standard Template Library)</a>
             </nav>
           </aside>
 
@@ -1108,9 +1113,22 @@ int main() {
               </div>
 
               <div className="property-card mt-4">
-                <h3 className="h4">Class and Object</h3>
-                <p><strong>Class:</strong> Blueprint for creating objects (defines properties and behaviors)</p>
-                <p><strong>Object:</strong> Instance of a class (real-world entity with state and behavior)</p>
+                <h3 className="h4">Class</h3>
+                <p>Class is the blueprint/template used for creating an objects. It consists of properties and methods.</p>
+                <pre><code>{`Syntax:
+class ClassName
+{
+    access modifier:
+       properties;
+       functions(){
+          //statements;
+       }
+};`}</code></pre>
+                <h3 className="h4">Object</h3>
+                <p>It is a real world entity which consists of state and behaviour. State represents characteristics of an object and behaviour represents functionality of an objects. It is an instance of the class.</p>
+                <pre><code>{`Syntax:
+ClassName objName;`}</code></pre>
+                <h5 className="h5">Example using class and objects:</h5>
                 <pre><code>{`#include <iostream>
 #include <string>
 using namespace std;
@@ -1144,8 +1162,13 @@ int main() {
 
               <div className="property-card mt-4">
                 <h3 className="h4">Constructors</h3>
-                <p>Special methods called automatically when an object is created</p>
-                <h4 className="h5 mt-3">Default Constructor</h4>
+                <p>It is a special type of function which will be called automatically whenever an object is created. It does not have an explicit return type.</p>
+                <h5 className="h5">Types of Constructors:</h5>
+                <ol>
+                  <li>Default Constructor/Non Parameterized Constructor</li>
+                  <li>Parameterized Constructor</li>
+                </ol>
+                <h4 className="h5 mt-3">1. Default Constructor</h4>
                 <pre><code>{`#include <iostream>
 using namespace std;
 
@@ -1164,7 +1187,7 @@ int main() {
     return 0;
 }`}</code></pre>
 
-                <h4 className="h5 mt-3">Parameterized Constructor</h4>
+                <h4 className="h5 mt-3">2. Parameterized Constructor</h4>
                 <pre><code>{`#include <iostream>
 using namespace std;
 
@@ -1183,11 +1206,13 @@ int main() {
               </div>
 
               <div className="property-card mt-4">
-                <h3 className="h4">Inheritance</h3>
-                <p>Mechanism where a new class acquires properties and behaviors from an existing class</p>
-                <p><strong>Parent Class:</strong> Base class (superclass)</p>
-                <p><strong>Child Class:</strong> Derived class (subclass)</p>
-                
+                <h3 className="h3">Inheritance</h3>
+                <p>All the properties and methods will be acquired from parent class to child class is called inheritance.</p>
+                <h4>Parent Class</h4>
+                <p>The class which gives properties and methods are called parent class / base class and superclass.</p>
+                <h4>Child Class</h4>
+                <p>The class which acquires properties and methods from parent class is called child class / sub class / derived class and extended class.</p>
+
                 <h4 className="h5 mt-3">Types of Inheritance</h4>
                 <ol>
                   <li>Single level inheritance - one parent one child</li>
@@ -1204,21 +1229,20 @@ using namespace std;
 class Parent {
     public:
         void abc() {
-            cout << "Parent Method";
+            cout << "Parent Method"<<endl;
         }
 };
 
 class Child : public Parent {
     public:
         void def() {
-            cout << "Child Method";
+            cout << "Child Method"<<endl;
         }
 };
 
 int main() {
     Child obj;
     obj.abc(); // Inherited from Parent
-    cout << "\n";
     obj.def(); // Child's own method
     return 0;
 }`}</code></pre>
@@ -1230,30 +1254,28 @@ using namespace std;
 class Grandpa {
     public:
         void xyz() {
-            cout << "Grandpa Method";
+            cout << "Grandpa Method"<<endl;
         }
 };
 
 class Parent : public Grandpa {
     public:
         void abc() {
-            cout << "Parent Method";
+            cout << "Parent Method"<<endl;
         }
 };
 
 class Child : public Parent {
     public:
         void def() {
-            cout << "Child Method";
+            cout << "Child Method"<<endl;
         }
 };
 
 int main() {
     Child obj;
     obj.xyz(); // From Grandpa
-    cout << "\n";
     obj.abc(); // From Parent
-    cout << "\n";
     obj.def(); // Child's own method
     return 0;
 }`}</code></pre>
@@ -1265,31 +1287,102 @@ using namespace std;
 class Father {
     public:
         void xyz() {
-            cout << "Father Method";
+            cout << "Father Method"<<endl;
         }
 };
 
 class Mother {
     public:
         void abc() {
-            cout << "Mother Method";
+            cout << "Mother Method"<<endl;
         }
 };
 
 class Child : public Father, public Mother {
     public:
         void def() {
-            cout << "Child Method";
+            cout << "Child Method"<<endl;
         }
 };
 
 int main() {
     Child obj;
     obj.xyz(); // From Father
-    cout << "\n";
     obj.abc(); // From Mother
-    cout << "\n";
     obj.def(); // Child's own method
+    return 0;
+}`}</code></pre>
+                <h4 className="h5 mt-3">Heirarchical Inheritance</h4>
+                <pre><code>{`#include <iostream>
+using namespace std;
+
+class Parent {
+    public:
+        void xyz() {
+            cout << "Parent Method"<<endl;
+        }
+};
+
+class Child1:public Parent {
+    public:
+        void abc() {
+            cout << "Child1 Method"<<endl;
+        }
+};
+
+class Child2 : public Parent {
+    public:
+        void def() {
+            cout << "Child2 Method"<<endl;
+        }
+};
+
+int main() {
+    Child1 obj1;
+    Child2 obj2;
+    obj1.xyz(); // From Parent
+    obj1.abc(); // Child1's own method
+    obj2.xyz(); // From Parent
+    obj2.def(); // Child2's own method
+    return 0;
+}`}</code></pre>
+                <h4 className="h5 mt-3">Hybrid Inheritance</h4>
+                <pre><code>{`#include <iostream>
+using namespace std;
+
+class Z {
+    public:
+        void xyz() {
+            cout << "Z Method"<<endl;
+        }
+};
+
+class A : public Z {
+    public:
+        void abc() {
+            cout << "A Method"<<endl;
+        }
+};
+
+class B : public Z {
+    public:
+        void def() {
+            cout << "B Method"<<endl;
+        }
+};
+
+class C : public A, public B {
+    public:
+        void lmn() {
+            cout << "C Method"<<endl;
+        }
+};
+
+int main() {
+    C obj;
+    obj.abc(); // From A
+    obj.def(); // From B
+    obj.lmn(); // C's own method
     return 0;
 }`}</code></pre>
               </div>
@@ -1297,10 +1390,11 @@ int main() {
               <div className="property-card mt-4">
                 <h3 className="h4">Polymorphism</h3>
                 <p>"Poly" means many, "morph" means forms - ability to take many forms</p>
+                <p>By using polymorphism we can execute different functionalities with same function name.</p>
                 <h4 className="h5 mt-3">Types of Polymorphism</h4>
                 <ol>
-                  <li>Compile-time polymorphism (method overloading)</li>
-                  <li>Run-time polymorphism (method overriding)</li>
+                  <li><strong>Compile-time polymorphism (method overloading)</strong> - It will be achieved by method overloading(Same function name, different parameters and present in same class).</li>
+                  <li><strong>Run-time polymorphism (method overriding)</strong> - It will be achieved by method overriding(Same function name, same parameters but present in different class).</li>
                 </ol>
 
                 <h4 className="h5 mt-3">Method Overloading</h4>
@@ -1505,6 +1599,116 @@ int main() {
               </div>
             </section>
 
+            <section id="exception-handling" className="mb-5">
+              <h2 className="h2 mb-3">
+                <i className="bi bi-exclamation-triangle"></i> Exception Handling in C++
+              </h2>
+
+              {/* What is Exception Handling? */}
+              <div className="property-card">
+                <h3 className="h4">What is Exception Handling?</h3>
+                <ul>
+                  <li>Mechanism to handle runtime errors gracefully without crashing the program.</li>
+                  <li>Uses <code>try</code>, <code>throw</code>, and <code>catch</code> blocks.</li>
+                  <li>Helps write robust and fault-tolerant code.</li>
+                </ul>
+              </div>
+
+              {/* Basic Syntax */}
+              <div className="property-card mt-4">
+                <h3 className="h4">1. Basic Syntax</h3>
+                <pre><code>{`try {
+  // Code that may throw an exception
+  throw exception_type;
+} catch (exception_type e) {
+  // Handle exception
+}`}</code></pre>
+              </div>
+
+              {/* Example: Division by Zero */}
+              <div className="property-card mt-4">
+                <h3 className="h4">2. Example: Division by Zero</h3>
+                <pre><code>{`#include <iostream>
+using namespace std;
+
+int main() {
+  int a = 10, b = 0;
+  try {
+    if (b == 0)
+      throw "Division by zero error!";
+    cout << a / b;
+  } catch (const char* msg) {
+    cout << "Exception caught: " << msg;
+  }
+  return 0;
+}`}</code></pre>
+                <p><strong>Output:</strong> <code>Exception caught: Division by zero error!</code></p>
+              </div>
+
+              {/* Using std::exception */}
+              <div className="property-card mt-4">
+                <h3 className="h4">3. Using std::exception</h3>
+                <pre><code>{`#include <iostream>
+#include <stdexcept>
+using namespace std;
+
+int main() {
+  try {
+    throw runtime_error("Runtime error occurred!");
+  } catch (const exception& e) {
+    cout << "Caught exception: " << e.what();
+  }
+  return 0;
+}`}</code></pre>
+              </div>
+
+              {/* Multiple Catch Blocks */}
+              <div className="property-card mt-4">
+                <h3 className="h4">4. Multiple Catch Blocks</h3>
+                <pre><code>{`try {
+  throw 3.14;
+} catch (int e) {
+  cout << "Integer exception";
+} catch (double e) {
+  cout << "Double exception";
+}`}</code></pre>
+              </div>
+
+              {/* Catch-All Block */}
+              <div className="property-card mt-4">
+                <h3 className="h4">5. Catch-All Block</h3>
+                <p>Used to catch any type of exception:</p>
+                <pre><code>{`try {
+  throw "Error!";
+} catch (...) {
+  cout << "Caught some exception";
+}`}</code></pre>
+              </div>
+
+              {/* Custom Exception */}
+              <div className="property-card mt-4">
+                <h3 className="h4">6. Custom Exception</h3>
+                <pre><code>{`#include <iostream>
+#include <exception>
+using namespace std;
+
+class MyException : public exception {
+public:
+  const char* what() const noexcept override {
+    return "Custom Exception Occurred";
+  }
+};
+
+int main() {
+  try {
+    throw MyException();
+  } catch (const MyException& e) {
+    cout << e.what();
+  }
+}`}</code></pre>
+              </div>
+            </section>
+
             <section id="files" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-file-earmark"></i> File Handling in C++</h2>
               <div className="property-card">
@@ -1556,13 +1760,1427 @@ int main() {
 }`}</code></pre>
               </div>
             </section>
+
+            <section id="multithreading" className="mb-5">
+              <h2 className="h2 mb-3">
+                <i className="bi bi-shuffle"></i> Multithreading in C++
+              </h2>
+
+              {/* What is Multithreading */}
+              <div className="property-card">
+                <h3 className="h4">What is Multithreading?</h3>
+                <ul>
+                  <li>Multithreading allows concurrent execution of two or more parts of a program.</li>
+                  <li>Introduced in C++11 via the &lt;thread&gt; library.</li>
+                  <li>Each part of such a program is called a thread.</li>
+                </ul>
+              </div>
+
+              {/* Creating a Thread */}
+              <div className="property-card mt-4">
+                <h3 className="h4">1. Creating a Thread</h3>
+                <p><strong>Syntax:</strong></p>
+                <pre><code>{`#include <thread>
+std::thread t(function_name, arguments);`}</code></pre>
+
+                <h4 className="h5 mt-3">Example:</h4>
+                <pre><code>{`#include <iostream>
+#include <thread>
+using namespace std;
+
+void display() {
+    cout << "Hello from thread!" << endl;
+}
+
+int main() {
+    thread t1(display);
+    t1.join();
+    return 0;
+}`}</code></pre>
+                <p><strong>Output:</strong> <code>Hello from thread!</code></p>
+              </div>
+
+              {/* Join vs Detach */}
+              <div className="property-card mt-4">
+                <h3 className="h4">2. Join vs Detach</h3>
+                <ul>
+                  <li><code>join()</code>: Main thread waits for thread to complete.</li>
+                  <li><code>detach()</code>: Thread runs independently in the background.</li>
+                </ul>
+                <pre><code>{`t1.join();   // blocking
+t2.detach(); // non-blocking`}</code></pre>
+              </div>
+
+              {/* Passing Arguments */}
+              <div className="property-card mt-4">
+                <h3 className="h4">3. Passing Arguments to Thread</h3>
+
+                <h4 className="h5 mt-3">By Value:</h4>
+                <pre><code>{`void print(int x) {
+    cout << x;
+}
+
+int main() {
+    thread t(print, 100);
+    t.join();
+}`}</code></pre>
+
+                <h4 className="h5 mt-3">By Reference (using std::ref):</h4>
+                <pre><code>{`void add(int &x) {
+    x += 10;
+}
+
+int main() {
+    int val = 5;
+    thread t(add, ref(val));
+    t.join();
+    cout << val;
+}`}</code></pre>
+              </div>
+
+              {/* Lambda Thread */}
+              <div className="property-card mt-4">
+                <h3 className="h4">4. Lambda Thread</h3>
+                <pre><code>{`int main() {
+    thread t([](){
+        cout << "Lambda thread" << endl;
+    });
+    t.join();
+}`}</code></pre>
+              </div>
+
+              {/* Mutex */}
+              <div className="property-card mt-4">
+                <h3 className="h4">5. Mutex</h3>
+                <p><strong>Definition:</strong> Used to prevent race conditions by locking shared resources.</p>
+                <pre><code>{`#include <mutex>
+mutex m;
+
+void critical_section() {
+    m.lock();
+    // do work
+    m.unlock();
+}`}</code></pre>
+
+                <h4 className="h5 mt-3">With lock_guard:</h4>
+                <pre><code>{`void safe_print(int id) {
+    lock_guard<mutex> lg(m);
+    cout << "Thread " << id << endl;
+}`}</code></pre>
+              </div>
+
+              {/* Condition Variable */}
+              <div className="property-card mt-4">
+                <h3 className="h4">6. Condition Variable</h3>
+                <p>Used for thread synchronization.</p>
+                <pre><code>{`#include <condition_variable>
+mutex mtx;
+condition_variable cv;
+bool ready = false;
+
+void run() {
+    unique_lock<mutex> lck(mtx);
+    cv.wait(lck, [] { return ready; });
+    cout << "Thread resumed\n";
+}
+
+int main() {
+    thread t(run);
+    this_thread::sleep_for(chrono::seconds(1));
+    {
+        lock_guard<mutex> lck(mtx);
+        ready = true;
+    }
+    cv.notify_one();
+    t.join();
+}`}</code></pre>
+              </div>
+
+              {/* Hardware Concurrency */}
+              <div className="property-card mt-4">
+                <h3 className="h4">7. Hardware Concurrency</h3>
+                <p>Gives number of threads supported by system:</p>
+                <pre><code>{`unsigned int n = thread::hardware_concurrency();
+cout << "Cores: " << n;`}</code></pre>
+              </div>
+            </section>
+
+            <section id="stl" className="mb-5">
+              <h2 className="h2 mb-3"><i className="bi bi-collection"></i> STL (Standard Template Library)</h2>
+
+              <div className="property-card">
+                <h3 className="h4">What is STL?</h3>
+                <ul>
+                  <li>A powerful set of C++ template classes to provide general-purpose classes and functions</li>
+                  <li>Implements many popular and commonly used algorithms and data structures</li>
+                  <li>Four components: Containers, Algorithms, Iterators, and Functions</li>
+                </ul>
+              </div>
+
+              {/* Vector */}
+              <div className="property-card mt-4">
+                <h3 className="h4">1. Vector</h3>
+                <p><strong>Definition:</strong> A dynamic array that can resize itself automatically when elements are inserted or deleted.</p>
+
+                <h4 className="h5 mt-3">Syntax:</h4>
+                <pre><code>{`#include <vector>
+vector<int> v;`}</code></pre>
+
+                <h4 className="h5 mt-3">Methods:</h4>
+                <table className="comparison-table">
+                  <thead>
+                    <tr>
+                      <th>Method</th>
+                      <th>Description</th>
+                      <th>Example</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>push_back()</code></td>
+                      <td>Add element at end</td>
+                      <td><code>v.push_back(5);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>pop_back()</code></td>
+                      <td>Remove last element</td>
+                      <td><code>v.pop_back();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>size()</code></td>
+                      <td>Return size</td>
+                      <td><code>v.size();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>empty()</code></td>
+                      <td>Check if empty</td>
+                      <td><code>v.empty();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>clear()</code></td>
+                      <td>Remove all elements</td>
+                      <td><code>v.clear();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>at()</code></td>
+                      <td>Access element with bounds checking</td>
+                      <td><code>v.at(2);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>front()</code></td>
+                      <td>First element</td>
+                      <td><code>v.front();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>back()</code></td>
+                      <td>Last element</td>
+                      <td><code>v.back();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>insert()</code></td>
+                      <td>Insert at position</td>
+                      <td><code>v.insert(v.begin()+1, 10);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>erase()</code></td>
+                      <td>Remove element(s)</td>
+                      <td><code>v.erase(v.begin());</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h4 className="h5 mt-3">Example:</h4>
+                <pre><code>{`#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v = {1, 2, 3};
+    v.push_back(4);
+    v.insert(v.begin()+1, 5);
+    v.pop_back();
+    
+    cout << "Size: " << v.size() << endl;
+    cout << "Elements: ";
+    for (int i : v) cout << i << " ";
+    
+    return 0;
+}`}</code></pre>
+                <p><strong>Output:</strong> <code>Size: 4\nElements: 1 5 2 3</code></p>
+              </div>
+
+              {/* Pair */}
+              <div className="property-card mt-4">
+                <h3 className="h4">2. Pair</h3>
+                <p><strong>Definition:</strong> A container that stores two data elements or objects.</p>
+
+                <h4 className="h5 mt-3">Syntax:</h4>
+                <pre><code>{`#include <utility>
+pair<int, string> p;`}</code></pre>
+
+                <h4 className="h5 mt-3">Methods:</h4>
+                <table className="comparison-table">
+                  <thead>
+                    <tr>
+                      <th>Method</th>
+                      <th>Description</th>
+                      <th>Example</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>make_pair()</code></td>
+                      <td>Create pair</td>
+                      <td><code>auto p = make_pair(1, "one");</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>first</code></td>
+                      <td>Access first element</td>
+                      <td><code>p.first;</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>second</code></td>
+                      <td>Access second element</td>
+                      <td><code>p.second;</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>tie()</code></td>
+                      <td>Unpack pair</td>
+                      <td><code>tie(x, y) = p;</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h4 className="h5 mt-3">Example:</h4>
+                <pre><code>{`#include <iostream>
+#include <utility>
+using namespace std;
+
+int main() {
+    pair<int, string> p = {1, "Mugil"};
+    auto p2 = make_pair(2, "Two");
+    
+    cout << p.first << " " << p.second << endl;
+    cout << p2.first << " " << p2.second << endl;
+    
+    int x; string y;
+    tie(x, y) = p;
+    cout << "Unpacked: " << x << " " << y;
+    
+    return 0;
+}`}</code></pre>
+                <p><strong>Output:</strong> <code>1 Mugil\n2 Two\nUnpacked: 1 Mugil</code></p>
+              </div>
+
+              {/* Set */}
+              <div className="property-card mt-4">
+                <h3 className="h4">3. Set</h3>
+                <p><strong>Definition:</strong> A container that stores unique elements in sorted order.</p>
+
+                <h4 className="h5 mt-3">Syntax:</h4>
+                <pre><code>{`#include <set>
+set<int> s;`}</code></pre>
+
+                <h4 className="h5 mt-3">Methods:</h4>
+                <table className="comparison-table">
+                  <thead>
+                    <tr>
+                      <th>Method</th>
+                      <th>Description</th>
+                      <th>Example</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>insert()</code></td>
+                      <td>Add element</td>
+                      <td><code>s.insert(5);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>erase()</code></td>
+                      <td>Remove element</td>
+                      <td><code>s.erase(5);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>find()</code></td>
+                      <td>Find element</td>
+                      <td><code>s.find(5);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>count()</code></td>
+                      <td>Check existence</td>
+                      <td><code>s.count(5);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>size()</code></td>
+                      <td>Return size</td>
+                      <td><code>s.size();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>empty()</code></td>
+                      <td>Check if empty</td>
+                      <td><code>s.empty();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>clear()</code></td>
+                      <td>Remove all elements</td>
+                      <td><code>s.clear();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>lower_bound()</code></td>
+                      <td>First element ≥ value</td>
+                      <td><code>s.lower_bound(3);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>upper_bound()</code></td>
+                      <td>{`First element > value`}</td>
+                      <td><code>s.upper_bound(3);</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h4 className="h5 mt-3">Example:</h4>
+                <pre><code>{`#include <iostream>
+#include <set>
+using namespace std;
+
+int main() {
+    set<int> s = {5, 2, 3, 2};
+    s.insert(4);
+    s.erase(2);
+    
+    cout << "Size: " << s.size() << endl;
+    cout << "Elements: ";
+    for (int i : s) cout << i << " ";
+    
+    if (s.find(3) != s.end())
+        cout << "\n3 found in set";
+    
+    return 0;
+}`}</code></pre>
+                <p><strong>Output:</strong> <code>Size: 3\nElements: 3 4 5\n3 found in set</code></p>
+              </div>
+
+              {/* Map */}
+              <div className="property-card mt-4">
+                <h3 className="h4">4. Map</h3>
+                <p><strong>Definition:</strong> Stores elements as key-value pairs. Keys are unique and sorted.</p>
+
+                <h4 className="h5 mt-3">Syntax:</h4>
+                <pre><code>{`#include <map>
+map<int, string> m;`}</code></pre>
+
+                <h4 className="h5 mt-3">Methods:</h4>
+                <table className="comparison-table">
+                  <thead>
+                    <tr>
+                      <th>Method</th>
+                      <th>Description</th>
+                      <th>Example</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>insert()</code></td>
+                      <td>Add key-value pair</td>
+                      <td><code>{`m.insert({1, "one"});`}</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>erase()</code></td>
+                      <td>Remove by key</td>
+                      <td><code>m.erase(1);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>find()</code></td>
+                      <td>Find by key</td>
+                      <td><code>m.find(1);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>count()</code></td>
+                      <td>Check key existence</td>
+                      <td><code>m.count(1);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>size()</code></td>
+                      <td>Return size</td>
+                      <td><code>m.size();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>empty()</code></td>
+                      <td>Check if empty</td>
+                      <td><code>m.empty();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>clear()</code></td>
+                      <td>Remove all elements</td>
+                      <td><code>m.clear();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>operator[]</code></td>
+                      <td>Access or add element</td>
+                      <td><code>m[1] = "one";</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>lower_bound()</code></td>
+                      <td>First key ≥ value</td>
+                      <td><code>m.lower_bound(3);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>upper_bound()</code></td>
+                      <td>{`First key > value`}</td>
+                      <td><code>m.upper_bound(3);</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h4 className="h5 mt-3">Example:</h4>
+                <pre><code>{`#include <iostream>
+#include <map>
+using namespace std;
+
+int main() {
+    map<int, string> m;
+    m[1] = "One";
+    m[2] = "Two";
+    m.insert({3, "Three"});
+    
+    cout << "Size: " << m.size() << endl;
+    for (auto p : m)
+        cout << p.first << " -> " << p.second << endl;
+    
+    if (m.find(2) != m.end())
+        cout << "Key 2 found";
+    
+    m.erase(1);
+    return 0;
+}`}</code></pre>
+                <p><strong>Output:</strong> <code>{`Size: 3\n1 -> One\n2 -> Two\n3 -> Three\nKey 2 found`}</code></p>
+              </div>
+
+              {/* Unordered Map/Set */}
+              <div className="property-card mt-4">
+                <h3 className="h4">5. Unordered Map / Set</h3>
+                <p><strong>Definition:</strong> Same as map/set but no sorting, faster average access (hash table based).</p>
+
+                <h4 className="h5 mt-3">Syntax:</h4>
+                <pre><code>{`#include <unordered_map>
+#include <unordered_set>
+unordered_set<int> us;
+unordered_map<string, int> um;`}</code></pre>
+
+                <h4 className="h5 mt-3">Methods:</h4>
+                <p>Similar to map/set but without ordered operations like <code>lower_bound()</code></p>
+                <table className="comparison-table">
+                  <thead>
+                    <tr>
+                      <th>Method</th>
+                      <th>Description</th>
+                      <th>Example</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>insert()</code></td>
+                      <td>Add element</td>
+                      <td><code>us.insert(5);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>erase()</code></td>
+                      <td>Remove element</td>
+                      <td><code>us.erase(5);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>find()</code></td>
+                      <td>Find element</td>
+                      <td><code>us.find(5);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>count()</code></td>
+                      <td>Check existence</td>
+                      <td><code>us.count(5);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>size()</code></td>
+                      <td>Return size</td>
+                      <td><code>us.size();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>empty()</code></td>
+                      <td>Check if empty</td>
+                      <td><code>us.empty();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>clear()</code></td>
+                      <td>Remove all elements</td>
+                      <td><code>us.clear();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>operator[]</code> (map only)</td>
+                      <td>Access or add element</td>
+                      <td><code>um["key"] = 5;</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h4 className="h5 mt-3">Example:</h4>
+                <pre><code>{`#include <iostream>
+#include <unordered_set>
+#include <unordered_map>
+using namespace std;
+
+int main() {
+    unordered_set<int> us = {3, 1, 7, 1};
+    us.insert(5);
+    us.erase(1);
+    
+    cout << "Elements: ";
+    for (int i : us) cout << i << " ";
+    
+    unordered_map<string, int> um;
+    um["a"] = 10;
+    um["b"] = 20;
+    
+    cout << "\nMap values: " << um["a"] << " " << um["b"];
+    return 0;
+}`}</code></pre>
+                <p><strong>Output:</strong> <code>Elements: 7 3 5\nMap values: 10 20</code></p>
+              </div>
+
+              {/* Stack */}
+              <div className="property-card mt-4">
+                <h3 className="h4">6. Stack</h3>
+                <p><strong>Definition:</strong> LIFO (Last In First Out) data structure.</p>
+
+                <h4 className="h5 mt-3">Syntax:</h4>
+                <pre><code>{`#include <stack>
+stack<int> st;`}</code></pre>
+
+                <h4 className="h5 mt-3">Methods:</h4>
+                <table className="comparison-table">
+                  <thead>
+                    <tr>
+                      <th>Method</th>
+                      <th>Description</th>
+                      <th>Example</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>push()</code></td>
+                      <td>Add element</td>
+                      <td><code>st.push(5);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>pop()</code></td>
+                      <td>Remove top element</td>
+                      <td><code>st.pop();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>top()</code></td>
+                      <td>Access top element</td>
+                      <td><code>st.top();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>size()</code></td>
+                      <td>Return size</td>
+                      <td><code>st.size();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>empty()</code></td>
+                      <td>Check if empty</td>
+                      <td><code>st.empty();</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h4 className="h5 mt-3">Example:</h4>
+                <pre><code>{`#include <iostream>
+#include <stack>
+using namespace std;
+
+int main() {
+    stack<int> st;
+    st.push(1); st.push(2); st.push(3);
+    
+    cout << "Top: " << st.top() << endl;
+    cout << "Size: " << st.size() << endl;
+    
+    cout << "Elements: ";
+    while (!st.empty()) {
+        cout << st.top() << " ";
+        st.pop();
+    }
+    
+    return 0;
+}`}</code></pre>
+                <p><strong>Output:</strong> <code>Top: 3\nSize: 3\nElements: 3 2 1</code></p>
+              </div>
+
+              {/* Queue */}
+              <div className="property-card mt-4">
+                <h3 className="h4">7. Queue</h3>
+                <p><strong>Definition:</strong> FIFO (First In First Out) data structure.</p>
+
+                <h4 className="h5 mt-3">Syntax:</h4>
+                <pre><code>{`#include <queue>
+queue<int> q;`}</code></pre>
+
+                <h4 className="h5 mt-3">Methods:</h4>
+                <table className="comparison-table">
+                  <thead>
+                    <tr>
+                      <th>Method</th>
+                      <th>Description</th>
+                      <th>Example</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>push()</code></td>
+                      <td>Add element</td>
+                      <td><code>q.push(5);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>pop()</code></td>
+                      <td>Remove front element</td>
+                      <td><code>q.pop();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>front()</code></td>
+                      <td>Access front element</td>
+                      <td><code>q.front();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>back()</code></td>
+                      <td>Access back element</td>
+                      <td><code>q.back();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>size()</code></td>
+                      <td>Return size</td>
+                      <td><code>q.size();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>empty()</code></td>
+                      <td>Check if empty</td>
+                      <td><code>q.empty();</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h4 className="h5 mt-3">Example:</h4>
+                <pre><code>{`#include <iostream>
+#include <queue>
+using namespace std;
+
+int main() {
+    queue<int> q;
+    q.push(10); q.push(20); q.push(30);
+    
+    cout << "Front: " << q.front() << endl;
+    cout << "Back: " << q.back() << endl;
+    cout << "Size: " << q.size() << endl;
+    
+    cout << "Elements: ";
+    while (!q.empty()) {
+        cout << q.front() << " ";
+        q.pop();
+    }
+    
+    return 0;
+}`}</code></pre>
+                <p><strong>Output:</strong> <code>Front: 10\nBack: 30\nSize: 3\nElements: 10 20 30</code></p>
+              </div>
+
+              {/* Priority Queue */}
+              <div className="property-card mt-4">
+                <h3 className="h4">8. Priority Queue</h3>
+                <p><strong>Definition:</strong> A max heap by default (highest element on top).</p>
+
+                <h4 className="h5 mt-3">Syntax:</h4>
+                <pre><code>{`#include <queue>
+priority_queue<int> pq;  // max heap
+priority_queue<int, vector<int>, greater<int>> minpq;  // min heap`}</code></pre>
+
+                <h4 className="h5 mt-3">Methods:</h4>
+                <table className="comparison-table">
+                  <thead>
+                    <tr>
+                      <th>Method</th>
+                      <th>Description</th>
+                      <th>Example</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>push()</code></td>
+                      <td>Add element</td>
+                      <td><code>pq.push(5);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>pop()</code></td>
+                      <td>Remove top element</td>
+                      <td><code>pq.pop();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>top()</code></td>
+                      <td>Access top element</td>
+                      <td><code>pq.top();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>size()</code></td>
+                      <td>Return size</td>
+                      <td><code>pq.size();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>empty()</code></td>
+                      <td>Check if empty</td>
+                      <td><code>pq.empty();</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h4 className="h5 mt-3">Example:</h4>
+                <pre><code>{`#include <iostream>
+#include <queue>
+using namespace std;
+
+int main() {
+    // Max heap
+    priority_queue<int> pq;
+    pq.push(3); pq.push(5); pq.push(1);
+    
+    cout << "Max heap top: " << pq.top() << endl;
+    
+    // Min heap
+    priority_queue<int, vector<int>, greater<int>> minpq;
+    minpq.push(3); minpq.push(5); minpq.push(1);
+    
+    cout << "Min heap top: " << minpq.top() << endl;
+    
+    return 0;
+}`}</code></pre>
+                <p><strong>Output:</strong> <code>Max heap top: 5\nMin heap top: 1</code></p>
+              </div>
+
+              {/* Deque */}
+              <div className="property-card mt-4">
+                <h3 className="h4">9. Deque</h3>
+                <p><strong>Definition:</strong> Double Ended Queue - insertion/deletion from both ends.</p>
+
+                <h4 className="h5 mt-3">Syntax:</h4>
+                <pre><code>{`#include <deque>
+deque<int> dq;`}</code></pre>
+
+                <h4 className="h5 mt-3">Methods:</h4>
+                <table className="comparison-table">
+                  <thead>
+                    <tr>
+                      <th>Method</th>
+                      <th>Description</th>
+                      <th>Example</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>push_back()</code></td>
+                      <td>Add element at end</td>
+                      <td><code>dq.push_back(5);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>push_front()</code></td>
+                      <td>Add element at front</td>
+                      <td><code>dq.push_front(1);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>pop_back()</code></td>
+                      <td>Remove last element</td>
+                      <td><code>dq.pop_back();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>pop_front()</code></td>
+                      <td>Remove first element</td>
+                      <td><code>dq.pop_front();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>front()</code></td>
+                      <td>Access first element</td>
+                      <td><code>dq.front();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>back()</code></td>
+                      <td>Access last element</td>
+                      <td><code>dq.back();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>size()</code></td>
+                      <td>Return size</td>
+                      <td><code>dq.size();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>empty()</code></td>
+                      <td>Check if empty</td>
+                      <td><code>dq.empty();</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>clear()</code></td>
+                      <td>Remove all elements</td>
+                      <td><code>dq.clear();</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h4 className="h5 mt-3">Example:</h4>
+                <pre><code>{`#include <iostream>
+#include <deque>
+using namespace std;
+
+int main() {
+    deque<int> dq;
+    dq.push_back(1);
+    dq.push_front(2);
+    dq.push_back(3);
+    
+    cout << "Front: " << dq.front() << endl;
+    cout << "Back: " << dq.back() << endl;
+    
+    dq.pop_front();
+    cout << "After pop_front: " << dq.front();
+    
+    return 0;
+}`}</code></pre>
+                <p><strong>Output:</strong> <code>Front: 2\nBack: 3\nAfter pop_front: 1</code></p>
+              </div>
+
+              {/* Algorithms Header */}
+              <div className="property-card mt-4">
+                <h3 className="h4">10. Algorithms Header (&lt;algorithm&gt;)</h3>
+                <p>Common STL functions:</p>
+
+                <h4 className="h5 mt-3">Methods:</h4>
+                <table className="comparison-table">
+                  <thead>
+                    <tr>
+                      <th>Function</th>
+                      <th>Description</th>
+                      <th>Example</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>sort()</code></td>
+                      <td>Sort elements in a range</td>
+                      <td><code>sort(v.begin(), v.end());</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>reverse()</code></td>
+                      <td>Reverse range</td>
+                      <td><code>reverse(v.begin(), v.end());</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>count()</code></td>
+                      <td>Count occurrences</td>
+                      <td><code>count(v.begin(), v.end(), 5);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>find()</code></td>
+                      <td>Find element</td>
+                      <td><code>find(v.begin(), v.end(), 5);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>binary_search()</code></td>
+                      <td>Check if element exists (sorted)</td>
+                      <td><code>binary_search(v.begin(), v.end(), 5);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>lower_bound()</code></td>
+                      <td>First pos ≥ element (sorted)</td>
+                      <td><code>lower_bound(v.begin(), v.end(), 5);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>upper_bound()</code></td>
+                      <td>{`First pos > element (sorted)`}</td>
+                      <td><code>upper_bound(v.begin(), v.end(), 5);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>max_element()</code></td>
+                      <td>Find max in range</td>
+                      <td><code>*max_element(v.begin(), v.end());</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>min_element()</code></td>
+                      <td>Find min in range</td>
+                      <td><code>*min_element(v.begin(), v.end());</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>accumulate()</code></td>
+                      <td>Sum range values (&lt;numeric&gt;)</td>
+                      <td><code>accumulate(v.begin(), v.end(), 0);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>fill()</code></td>
+                      <td>Fill range with value</td>
+                      <td><code>fill(v.begin(), v.end(), 0);</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>copy()</code></td>
+                      <td>Copy range</td>
+                      <td><code>copy(src.begin(), src.end(), dest.begin());</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>unique()</code></td>
+                      <td>Remove consecutive duplicates</td>
+                      <td><code>unique(v.begin(), v.end());</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h4 className="h5 mt-3">Example:</h4>
+                <pre><code>{`#include <algorithm>
+#include <vector>
+#include <iostream>
+#include <numeric>
+using namespace std;
+
+int main() {
+    vector<int> v = {4, 2, 1, 3, 2, 5};
+    
+    sort(v.begin(), v.end());
+    reverse(v.begin(), v.end());
+    
+    cout << "Sorted reversed: ";
+    for (int i : v) cout << i << " ";
+    
+    cout << "\nCount of 2: " << count(v.begin(), v.end(), 2);
+    cout << "\nMax: " << *max_element(v.begin(), v.end());
+    cout << "\nSum: " << accumulate(v.begin(), v.end(), 0);
+    
+    return 0;
+}`}</code></pre>
+                <p><strong>Output:</strong> <code>Sorted reversed: 5 4 3 2 2 1\nCount of 2: 2\nMax: 5\nSum: 17</code></p>
+              </div>
+
+              {/* Iterators */}
+              <div className="property-card mt-4">
+                <h3 className="h4">11. Iterators</h3>
+                <p><strong>Definition:</strong> An iterator is like a pointer used to access elements in STL containers.</p>
+
+                <h4 className="h5 mt-3">Types:</h4>
+                <table className="comparison-table">
+                  <thead>
+                    <tr>
+                      <th>Iterator</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>begin()</code></td>
+                      <td>Iterator to first element</td>
+                    </tr>
+                    <tr>
+                      <td><code>end()</code></td>
+                      <td>Iterator to position after last element</td>
+                    </tr>
+                    <tr>
+                      <td><code>rbegin()</code></td>
+                      <td>Reverse iterator to last element</td>
+                    </tr>
+                    <tr>
+                      <td><code>rend()</code></td>
+                      <td>Reverse iterator to position before first</td>
+                    </tr>
+                    <tr>
+                      <td><code>cbegin()</code>, <code>cend()</code></td>
+                      <td>Const iterators</td>
+                    </tr>
+                    <tr>
+                      <td><code>crbegin()</code>, <code>crend()</code></td>
+                      <td>Const reverse iterators</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h4 className="h5 mt-3">Example:</h4>
+                <pre><code>{`#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v = {10, 20, 30};
+    
+    // Forward iteration
+    cout << "Forward: ";
+    for (vector<int>::iterator it = v.begin(); it != v.end(); ++it)
+        cout << *it << " ";
+    
+    // Reverse iteration
+    cout << "\nReverse: ";
+    for (vector<int>::reverse_iterator it = v.rbegin(); it != v.rend(); ++it)
+        cout << *it << " ";
+    
+    // Auto keyword
+    cout << "\nAuto: ";
+    for (auto it = v.begin(); it != v.end(); ++it)
+        cout << *it << " ";
+    
+    return 0;
+}`}</code></pre>
+                <p><strong>Output:</strong> <code>Forward: 10 20 30\nReverse: 30 20 10\nAuto: 10 20 30</code></p>
+              </div>
+
+              {/* Lambda Functions */}
+              <div className="property-card mt-4">
+                <h3 className="h4">12. Lambda Functions</h3>
+                <p><strong>Definition:</strong> Anonymous functions used as arguments to STL algorithms.</p>
+
+                <h4 className="h5 mt-3">Syntax:</h4>
+                <pre><code>{`[capture](parameters) -> return_type { body }`}</code></pre>
+
+                <h4 className="h5 mt-3">Capture Options:</h4>
+                <table className="comparison-table">
+                  <thead>
+                    <tr>
+                      <th>Capture</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>[]</code></td>
+                      <td>Capture nothing</td>
+                    </tr>
+                    <tr>
+                      <td><code>[&]</code></td>
+                      <td>Capture all by reference</td>
+                    </tr>
+                    <tr>
+                      <td><code>[=]</code></td>
+                      <td>Capture all by value</td>
+                    </tr>
+                    <tr>
+                      <td><code>[var]</code></td>
+                      <td>Capture var by value</td>
+                    </tr>
+                    <tr>
+                      <td><code>[&var]</code></td>
+                      <td>Capture var by reference</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h4 className="h5 mt-3">Example:</h4>
+                <pre><code>{`#include <algorithm>
+#include <vector>
+#include <iostream>
+using namespace std;
+
+int main() {
+    vector<int> v = {1, 2, 3, 4, 5};
+    int threshold = 3;
+    
+    // Count elements greater than threshold
+    int count = count_if(v.begin(), v.end(), [threshold](int x) {
+        return x > threshold;
+    });
+    cout << "Count: " << count << endl;
+    
+    // Sort in descending order
+    sort(v.begin(), v.end(), [](int a, int b) {
+        return a > b;
+    });
+    
+    cout << "Sorted: ";
+    for (int i : v) cout << i << " ";
+    
+    // Modify elements with capture by reference
+    int sum = 0;
+    for_each(v.begin(), v.end(), [&sum](int x) {
+        sum += x;
+    });
+    cout << "\nSum: " << sum;
+    
+    return 0;
+}`}</code></pre>
+                <p><strong>Output:</strong> <code>Count: 2\nSorted: 5 4 3 2 1\nSum: 15</code></p>
+              </div>
+
+              {/* Custom Sorting */}
+              <div className="property-card mt-4">
+                <h3 className="h4">13. Custom Sorting with Comparator</h3>
+
+                <h4 className="h5 mt-3">Example:</h4>
+                <pre><code>{`#include <algorithm>
+#include <vector>
+#include <iostream>
+using namespace std;
+
+// Custom comparator function
+bool customCompare(int a, int b) {
+    return a > b;  // descending order
+}
+
+// Custom comparator for pairs
+bool pairCompare(const pair<int, int>& a, const pair<int, int>& b) {
+    if (a.first == b.first)
+        return a.second < b.second;
+    return a.first > b.first;
+}
+
+int main() {
+    vector<int> v = {5, 2, 9, 1};
+    sort(v.begin(), v.end(), customCompare);
+    
+    cout << "Descending: ";
+    for (int i : v) cout << i << " ";
+    
+    vector<pair<int, int>> pairs = {{1, 2}, {3, 1}, {1, 1}, {3, 2}};
+    sort(pairs.begin(), pairs.end(), pairCompare);
+    
+    cout << "\nPairs sorted: ";
+    for (auto p : pairs)
+        cout << "(" << p.first << "," << p.second << ") ";
+    
+    // Using lambda for custom sort
+    sort(v.begin(), v.end(), [](int a, int b) {
+        return abs(a) < abs(b);  // sort by absolute value
+    });
+    
+    return 0;
+}`}</code></pre>
+                <p><strong>Output:</strong> <code>Descending: 9 5 2 1\nPairs sorted: (3,1) (3,2) (1,1) (1,2)</code></p>
+              </div>
+
+              {/* STL Container Summary */}
+              <div className="property-card mt-4">
+                <h3 className="h4">14. STL Container Summary</h3>
+                <table className="comparison-table">
+                  <thead>
+                    <tr>
+                      <th>Container</th>
+                      <th>Ordered</th>
+                      <th>Allows Duplicate</th>
+                      <th>Access Time</th>
+                      <th>Use Case</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>vector</td>
+                      <td>Yes</td>
+                      <td>Yes</td>
+                      <td>O(1) random access</td>
+                      <td>Dynamic array, frequent access</td>
+                    </tr>
+                    <tr>
+                      <td>deque</td>
+                      <td>Yes</td>
+                      <td>Yes</td>
+                      <td>O(1) random access</td>
+                      <td>Frequent insert/delete at both ends</td>
+                    </tr>
+                    <tr>
+                      <td>list</td>
+                      <td>Yes</td>
+                      <td>Yes</td>
+                      <td>O(n) access</td>
+                      <td>Frequent insert/delete anywhere</td>
+                    </tr>
+                    <tr>
+                      <td>set</td>
+                      <td>Yes</td>
+                      <td>No</td>
+                      <td>O(log n)</td>
+                      <td>Unique sorted elements</td>
+                    </tr>
+                    <tr>
+                      <td>multiset</td>
+                      <td>Yes</td>
+                      <td>Yes</td>
+                      <td>O(log n)</td>
+                      <td>Sorted elements with duplicates</td>
+                    </tr>
+                    <tr>
+                      <td>unordered_set</td>
+                      <td>No</td>
+                      <td>No</td>
+                      <td>O(1) average</td>
+                      <td>Fast access, unique items</td>
+                    </tr>
+                    <tr>
+                      <td>map</td>
+                      <td>Yes</td>
+                      <td>No (key)</td>
+                      <td>O(log n)</td>
+                      <td>Key-value pairs, sorted by key</td>
+                    </tr>
+                    <tr>
+                      <td>multimap</td>
+                      <td>Yes</td>
+                      <td>Yes (key)</td>
+                      <td>O(log n)</td>
+                      <td>Key-value with duplicate keys</td>
+                    </tr>
+                    <tr>
+                      <td>unordered_map</td>
+                      <td>No</td>
+                      <td>No (key)</td>
+                      <td>O(1) average</td>
+                      <td>Fast key-value lookup</td>
+                    </tr>
+                    <tr>
+                      <td>stack</td>
+                      <td>N/A</td>
+                      <td>N/A</td>
+                      <td>O(1) top access</td>
+                      <td>LIFO access</td>
+                    </tr>
+                    <tr>
+                      <td>queue</td>
+                      <td>N/A</td>
+                      <td>N/A</td>
+                      <td>O(1) front/back</td>
+                      <td>FIFO access</td>
+                    </tr>
+                    <tr>
+                      <td>priority_queue</td>
+                      <td>N/A</td>
+                      <td>N/A</td>
+                      <td>O(1) top access</td>
+                      <td>Max/Min element on top</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Common STL Algorithms */}
+              <div className="property-card mt-4">
+                <h3 className="h4">15. Common STL Algorithms</h3>
+                <table className="comparison-table">
+                  <thead>
+                    <tr>
+                      <th>Algorithm</th>
+                      <th>Description</th>
+                      <th>Complexity</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>sort()</code></td>
+                      <td>Sort elements</td>
+                      <td>O(n log n)</td>
+                    </tr>
+                    <tr>
+                      <td><code>stable_sort()</code></td>
+                      <td>Sort with stable ordering</td>
+                      <td>O(n log n)</td>
+                    </tr>
+                    <tr>
+                      <td><code>partial_sort()</code></td>
+                      <td>Partially sort range</td>
+                      <td>O(n log k)</td>
+                    </tr>
+                    <tr>
+                      <td><code>nth_element()</code></td>
+                      <td>Put nth element in sorted position</td>
+                      <td>O(n)</td>
+                    </tr>
+                    <tr>
+                      <td><code>binary_search()</code></td>
+                      <td>Check if element exists</td>
+                      <td>O(log n)</td>
+                    </tr>
+                    <tr>
+                      <td><code>lower_bound()</code></td>
+                      <td>First element ≥ value</td>
+                      <td>O(log n)</td>
+                    </tr>
+                    <tr>
+                      <td><code>upper_bound()</code></td>
+                      <td>{`First element > value`}</td>
+                      <td>O(log n)</td>
+                    </tr>
+                    <tr>
+                      <td><code>merge()</code></td>
+                      <td>Merge two sorted ranges</td>
+                      <td>O(n)</td>
+                    </tr>
+                    <tr>
+                      <td><code>inplace_merge()</code></td>
+                      <td>Merge consecutive sorted ranges</td>
+                      <td>O(n log n)</td>
+                    </tr>
+                    <tr>
+                      <td><code>includes()</code></td>
+                      <td>Check if sorted range includes another</td>
+                      <td>O(n)</td>
+                    </tr>
+                    <tr>
+                      <td><code>set_union()</code></td>
+                      <td>Union of two sorted ranges</td>
+                      <td>O(n)</td>
+                    </tr>
+                    <tr>
+                      <td><code>set_intersection()</code></td>
+                      <td>Intersection of two sorted ranges</td>
+                      <td>O(n)</td>
+                    </tr>
+                    <tr>
+                      <td><code>set_difference()</code></td>
+                      <td>Difference of two sorted ranges</td>
+                      <td>O(n)</td>
+                    </tr>
+                    <tr>
+                      <td><code>set_symmetric_difference()</code></td>
+                      <td>Symmetric difference</td>
+                      <td>O(n)</td>
+                    </tr>
+                    <tr>
+                      <td><code>min(), max()</code></td>
+                      <td>Find min/max of two values</td>
+                      <td>O(1)</td>
+                    </tr>
+                    <tr>
+                      <td><code>minmax()</code></td>
+                      <td>Find both min and max</td>
+                      <td>O(1)</td>
+                    </tr>
+                    <tr>
+                      <td><code>min_element()</code></td>
+                      <td>Find smallest element in range</td>
+                      <td>O(n)</td>
+                    </tr>
+                    <tr>
+                      <td><code>max_element()</code></td>
+                      <td>Find largest element in range</td>
+                      <td>O(n)</td>
+                    </tr>
+                    <tr>
+                      <td><code>lexicographical_compare()</code></td>
+                      <td>Lexicographical comparison</td>
+                      <td>O(n)</td>
+                    </tr>
+                    <tr>
+                      <td><code>next_permutation()</code></td>
+                      <td>Transform to next permutation</td>
+                      <td>O(n)</td>
+                    </tr>
+                    <tr>
+                      <td><code>prev_permutation()</code></td>
+                      <td>Transform to previous permutation</td>
+                      <td>O(n)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
           </main>
         </div>
       </div>
 
       <footer className="bg-dark text-white py-4">
         <div className="container text-center">
-          <p>C++ Notes &copy; 2025 | Comprehensive C++ Programming Guide</p>
+          <p>C++ Notes &copy; 2025 | Created by Mugilvannan P.</p>
         </div>
       </footer>
     </div>
