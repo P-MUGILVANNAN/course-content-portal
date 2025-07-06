@@ -82,6 +82,9 @@ function ExpressNotes() {
                             <a className="nav-link" href="#sessions"><i className="bi bi-clock-history"></i> Sessions</a>
                             <a className="nav-link" href="#rest"><i className="bi bi-database"></i> REST API</a>
                             <a className="nav-link" href="#mongoose"><i className="bi bi-motherboard"></i> Mongoose</a>
+                            <a className="nav-link" href="#authentication"><i className="bi bi-shield-lock"></i> Authentication</a>
+                            <a className="nav-link" href="#mvc"><i className="bi bi-diagram-3"></i> MVC Structure</a>
+                            <a className="nav-link" href="#projects"><i className="bi bi-lightbulb"></i> Project Ideas</a>
                         </nav>
                     </aside>
 
@@ -351,7 +354,7 @@ app.listen(5000,() => {
                                     <li>HandleBars can be used to render web pages to the client side from data on the server-side.</li>
                                     <li>Command to install hbs module</li>
                                 </ul>
-                                
+
                                 <p>Install Handlebars:</p>
                                 <pre><code>npm install hbs</code></pre>
                                 <p><strong>demo.ejs:</strong></p>
@@ -1066,6 +1069,430 @@ app.use('/foo', foo);`}</code></pre>
 app.get('/', function (req, res) {
     res.json({ foo: app.get('foo') }); // false
 });`}</code></pre>
+                            </div>
+                        </section>
+
+                        <section id="authentication" className="mb-5">
+                            <h2 className="h2 mb-3"><i className="bi bi-shield-lock"></i> Authentication with JWT and Bcrypt</h2>
+
+                            <div className="property-card">
+                                <h3 className="h4">Authentication Flow</h3>
+                                <ol>
+                                    <li>User registers with email/password (password is hashed with bcrypt)</li>
+                                    <li>User logs in with credentials</li>
+                                    <li>Server verifies credentials and issues JWT token</li>
+                                    <li>Client stores token and sends with subsequent requests</li>
+                                    <li>Server verifies token for protected routes</li>
+                                </ol>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">1. Install Required Packages</h3>
+                                <pre><code>npm install jsonwebtoken bcryptjs</code></pre>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">2. User Model (models/User.js)</h3>
+                                <pre><code>{`const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+
+const UserSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: [true, 'Please add a name']
+    },
+    email: {
+        type: String,
+        required: [true, 'Please add an email'],
+        unique: true,
+        match: [
+            /^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$/,
+            'Please add a valid email'
+        ]
+    },
+    password: {
+        type: String,
+        required: [true, 'Please add a password'],
+        minlength: 6,
+        select: false
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
+    }
+});
+
+// Encrypt password using bcrypt
+UserSchema.pre('save', async function(next) {
+    if (!this.isModified('password')) {
+        next();
+    }
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+});
+
+// Sign JWT and return
+UserSchema.methods.getSignedJwtToken = function() {
+    return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_EXPIRE
+    });
+};
+
+// Match user entered password to hashed password in database
+UserSchema.methods.matchPassword = async function(enteredPassword) {
+    return await bcrypt.compare(enteredPassword, this.password);
+};
+
+module.exports = mongoose.model('User', UserSchema);`}</code></pre>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">3. Auth Controller (controllers/auth.js)</h3>
+                                <pre><code>{`const User = require('../models/User');
+const ErrorResponse = require('../utils/errorResponse');
+const asyncHandler = require('../middleware/async');
+
+// @desc    Register user
+// @route   POST /api/v1/auth/register
+// @access  Public
+exports.register = asyncHandler(async (req, res, next) => {
+    const { name, email, password } = req.body;
+
+    // Create user
+    const user = await User.create({
+        name,
+        email,
+        password
+    });
+
+    sendTokenResponse(user, 200, res);
+});
+
+// @desc    Login user
+// @route   POST /api/v1/auth/login
+// @access  Public
+exports.login = asyncHandler(async (req, res, next) => {
+    const { email, password } = req.body;
+
+    // Validate email & password
+    if (!email || !password) {
+        return next(new ErrorResponse('Please provide an email and password', 400));
+    }
+
+    // Check for user
+    const user = await User.findOne({ email }).select('+password');
+
+    if (!user) {
+        return next(new ErrorResponse('Invalid credentials', 401));
+    }
+
+    // Check if password matches
+    const isMatch = await user.matchPassword(password);
+
+    if (!isMatch) {
+        return next(new ErrorResponse('Invalid credentials', 401));
+    }
+
+    sendTokenResponse(user, 200, res);
+});
+
+// Get token from model, create cookie and send response
+const sendTokenResponse = (user, statusCode, res) => {
+    // Create token
+    const token = user.getSignedJwtToken();
+
+    const options = {
+        expires: new Date(
+            Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
+        ),
+        httpOnly: true
+    };
+
+    if (process.env.NODE_ENV === 'production') {
+        options.secure = true;
+    }
+
+    res
+        .status(statusCode)
+        .cookie('token', token, options)
+        .json({
+            success: true,
+            token
+        });
+};`}</code></pre>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">4. Auth Routes (routes/auth.js)</h3>
+                                <pre><code>{`const express = require('express');
+const {
+    register,
+    login
+} = require('../controllers/auth');
+
+const router = express.Router();
+
+router.post('/register', register);
+router.post('/login', login);
+
+module.exports = router;`}</code></pre>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">5. Protect Middleware (middleware/auth.js)</h3>
+                                <pre><code>{`const jwt = require('jsonwebtoken');
+const ErrorResponse = require('../utils/errorResponse');
+const User = require('../models/User');
+
+exports.protect = async (req, res, next) => {
+    let token;
+
+    if (
+        req.headers.authorization &&
+        req.headers.authorization.startsWith('Bearer')
+    ) {
+        token = req.headers.authorization.split(' ')[1];
+    } else if (req.cookies.token) {
+        token = req.cookies.token;
+    }
+
+    // Make sure token exists
+    if (!token) {
+        return next(new ErrorResponse('Not authorized to access this route', 401));
+    }
+
+    try {
+        // Verify token
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+        req.user = await User.findById(decoded.id);
+
+        next();
+    } catch (err) {
+        return next(new ErrorResponse('Not authorized to access this route', 401));
+    }
+};`}</code></pre>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">6. Server Configuration (server.js)</h3>
+                                <pre><code>{`const express = require('express');
+const dotenv = require('dotenv');
+const cookieParser = require('cookie-parser');
+const connectDB = require('./config/db');
+const auth = require('./routes/auth');
+
+// Load env vars
+dotenv.config({ path: './config/config.env' });
+
+// Connect to database
+connectDB();
+
+const app = express();
+
+// Body parser
+app.use(express.json());
+
+// Cookie parser
+app.use(cookieParser());
+
+// Mount routers
+app.use('/api/v1/auth', auth);
+
+const PORT = process.env.PORT || 5000;
+
+const server = app.listen(
+    PORT,
+    console.log('Server running in', process.env.NODE_ENV, 'mode on port', PORT)
+);
+
+// Handle unhandled promise rejections
+process.on('unhandledRejection', (err, promise) => {
+    console.log('Error:', err.message);
+    // Close server & exit process
+    server.close(() => process.exit(1));
+});`}</code></pre>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">7. Environment Variables (config.env)</h3>
+                                <pre><code>{`NODE_ENV=development
+PORT=5000
+MONGO_URI=mongodb+srv://yourdbconnectionstring
+JWT_SECRET=yourjwtsecret
+JWT_EXPIRE=30d
+JWT_COOKIE_EXPIRE=30`}</code></pre>
+                            </div>
+                        </section>
+
+                        <section id="mvc" className="mb-5">
+                            <h2 className="h2 mb-3"><i className="bi bi-diagram-3"></i> MVC Structure in Express</h2>
+
+                            <div className="property-card">
+                                <h3 className="h4">MVC Project Structure</h3>
+                                <pre><code>{`project-root/
+├── config/
+│   ├── config.env
+│   └── db.js
+├── controllers/
+│   ├── auth.js
+│   └── users.js
+├── middleware/
+│   ├── auth.js
+│   └── error.js
+├── models/
+│   └── User.js
+├── routes/
+│   ├── auth.js
+│   └── users.js
+├── utils/
+│   └── errorResponse.js
+└── server.js`}</code></pre>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">1. Models (Data Layer)</h3>
+                                <ul>
+                                    <li>Define database schemas and models</li>
+                                    <li>Handle data validation</li>
+                                    <li>Interact directly with the database</li>
+                                    <li>Example: <code>models/User.js</code> (shown in Authentication section)</li>
+                                </ul>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">2. Controllers (Business Logic)</h3>
+                                <ul>
+                                    <li>Handle application logic</li>
+                                    <li>Process requests and return responses</li>
+                                    <li>Interact with models</li>
+                                    <li>Example: <code>controllers/auth.js</code> (shown in Authentication section)</li>
+                                </ul>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">3. Routes (URL Endpoints)</h3>
+                                <ul>
+                                    <li>Define API endpoints</li>
+                                    <li>Map URLs to controller methods</li>
+                                    <li>Apply middleware</li>
+                                    <li>Example: <code>routes/auth.js</code> (shown in Authentication section)</li>
+                                </ul>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">4. Middleware (Request Processing)</h3>
+                                <ul>
+                                    <li>Process requests before they reach controllers</li>
+                                    <li>Authentication, logging, error handling</li>
+                                    <li>Example: <code>middleware/auth.js</code> (shown in Authentication section)</li>
+                                </ul>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">5. Configuration (App Setup)</h3>
+                                <ul>
+                                    <li>Database connection</li>
+                                    <li>Environment variables</li>
+                                    <li>Server setup</li>
+                                    <li>Example: <code>config/db.js</code></li>
+                                </ul>
+                                <pre><code>{`const mongoose = require('mongoose');
+
+const connectDB = async () => {
+    try {
+        const conn = await mongoose.connect(process.env.MONGO_URI, {
+            useNewUrlParser: true,
+            useCreateIndex: true,
+            useFindAndModify: false,
+            useUnifiedTopology: true
+        });
+
+        console.log('MongoDB Connected:', conn.connection.host);
+    } catch (err) {
+        console.error(err.message);
+        process.exit(1);
+    }
+};
+
+module.exports = connectDB;`}</code></pre>
+                            </div>
+                        </section>
+
+                        <section id="projects" className="mb-5">
+                            <h2 className="h2 mb-3"><i className="bi bi-lightbulb"></i> Express Project Ideas</h2>
+
+                            <div className="property-card">
+                                <h3 className="h4">Beginner Projects</h3>
+                                <ul>
+                                    <li><strong>Todo List API</strong> - CRUD operations for tasks with JWT auth</li>
+                                    <li><strong>Blog API</strong> - Users can create, read, update, delete blog posts</li>
+                                    <li><strong>Weather App</strong> - Integrate with weather API to fetch data</li>
+                                    <li><strong>Book Store API</strong> - Manage inventory with user roles</li>
+                                    <li><strong>Contact Form Backend</strong> - Save form submissions to database</li>
+                                </ul>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">Intermediate Projects</h3>
+                                <ul>
+                                    <li><strong>E-commerce API</strong> - Products, cart, checkout with Stripe integration</li>
+                                    <li><strong>Social Media API</strong> - Posts, comments, likes, follows</li>
+                                    <li><strong>Job Board API</strong> - Post jobs, apply, user profiles</li>
+                                    <li><strong>Chat Application</strong> - Real-time messaging with Socket.io</li>
+                                    <li><strong>File Upload Service</strong> - Upload/download files with S3 storage</li>
+                                </ul>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">Advanced Projects</h3>
+                                <ul>
+                                    <li><strong>Microservices Architecture</strong> - Split app into separate services</li>
+                                    <li><strong>Video Streaming API</strong> - Upload, process, and stream videos</li>
+                                    <li><strong>Multi-tenant SaaS</strong> - Support multiple organizations</li>
+                                    <li><strong>Real-time Analytics</strong> - Track and visualize user activity</li>
+                                    <li><strong>Payment Gateway</strong> - Custom payment processing system</li>
+                                </ul>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">Full Project Example: Blog API</h3>
+                                <p><strong>Features:</strong></p>
+                                <ul>
+                                    <li>User authentication (register/login)</li>
+                                    <li>CRUD operations for blog posts</li>
+                                    <li>Comments on posts</li>
+                                    <li>Categories and tags</li>
+                                    <li>File upload for post images</li>
+                                    <li>Pagination and filtering</li>
+                                </ul>
+                                <p><strong>Folder Structure:</strong></p>
+                                <pre><code>{`blog-api/
+├── config/
+│   ├── config.env
+│   └── db.js
+├── controllers/
+│   ├── auth.js
+│   ├── posts.js
+│   └── comments.js
+├── middleware/
+│   ├── auth.js
+│   ├── error.js
+│   └── logger.js
+├── models/
+│   ├── User.js
+│   ├── Post.js
+│   └── Comment.js
+├── routes/
+│   ├── auth.js
+│   ├── posts.js
+│   └── comments.js
+├── uploads/
+├── utils/
+│   ├── errorResponse.js
+│   └── fileUpload.js
+└── server.js`}</code></pre>
                             </div>
                         </section>
                     </main>
