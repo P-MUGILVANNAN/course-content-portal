@@ -1678,59 +1678,6 @@ list-style-image: url('https://www.w3schools.com/cssref/sqpurple.gif');`}</code>
               </div>
 
               <div className="property-card">
-                <h3 className="h4">Common Media Query Examples</h3>
-                <pre><code>{`/* Target devices with width between 600px and 900px */
-@media (min-width: 600px) and (max-width: 900px) {
-  .column {
-    width: 50%;
-  }
-}
-
-/* Target landscape orientation */
-@media (orientation: landscape) {
-  .header {
-    height: 50vh;
-  }
-}
-
-/* Target high-resolution (retina) displays */
-@media (-webkit-min-device-pixel-ratio: 2),
-       (min-resolution: 192dpi) {
-  .logo {
-    background-image: url('logo@2x.png');
-  }
-}
-
-/* Print styles */
-@media print {
-  .no-print {
-    display: none;
-  }
-  
-  body {
-    font-size: 12pt;
-    color: black;
-  }
-}
-
-/* Dark mode preference */
-@media (prefers-color-scheme: dark) {
-  body {
-    background: #121212;
-    color: white;
-  }
-}
-
-/* Reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
-}`}</code></pre>
-              </div>
-
-              <div className="property-card">
                 <h3 className="h4">Viewport Meta Tag</h3>
                 <p>For proper responsive behavior on mobile devices, include this in your HTML <code>&lt;head&gt;</code>:</p>
                 <pre><code>{`<meta name="viewport" content="width=device-width, initial-scale=1.0">`}</code></pre>
