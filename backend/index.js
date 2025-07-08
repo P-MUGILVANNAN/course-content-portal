@@ -5,7 +5,9 @@ const cors = require('cors');
 const authRoutes = require('./routes/authRoutes');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: "https://course-content-portal-6pbs.vercel.app"
+}));
 app.use(express.json());
 dotenv.config();
 
