@@ -105,11 +105,7 @@ function Html() {
               <a className="nav-link" href="#multimedia"><i className="bi bi-play-circle"></i> Multimedia</a>
               <a className="nav-link" href="#meta-tags"><i className="bi bi-tags-fill"></i> Meta Tags</a>
               <a className="nav-link" href="#comments"><i className="bi bi-chat-left-text"></i> Comments</a>
-              <a className="nav-link" href="#svg"><i className="bi bi-vector-pen"></i> SVG</a>
-              <a className="nav-link" href="#canvas"><i className="bi bi-bounding-box"></i> Canvas</a>
-              <a className="nav-link" href="#accessibility"><i className="bi bi-universal-access"></i> Accessibility</a>
               <a className="nav-link" href="#seo"><i className="bi bi-search"></i> SEO Basics</a>
-              <a className="nav-link" href="#validation"><i className="bi bi-check-circle-fill"></i> HTML Validation</a>
             </nav>
           </aside>
           <main className="col-lg-9">
@@ -2251,113 +2247,6 @@ function hello() {
               </ul>
             </section>
 
-            <section id="svg" className="mb-5">
-              <h2 className="h2 mb-3"><i className="bi bi-vector-pen"></i> SVG in HTML</h2>
-              <p className="mb-3">SVG (Scalable Vector Graphics) can be embedded directly in HTML.</p>
-
-              <div className="example-box">
-                <div className="example-title">Inline SVG Example:</div>
-                <pre><code>{`<svg width="100" height="100">
-    <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
-</svg>`}</code></pre>
-                <svg width="100" height="100">
-                  <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
-                </svg>
-              </div>
-
-              <h3 className="h4 mb-2"><i className="bi bi-image"></i> SVG vs Canvas</h3>
-              <p>Key differences between SVG and Canvas:</p>
-
-              <div className="example-box">
-                <div className="example-title">SVG Features:</div>
-                <ul>
-                  <li>Vector-based (scalable)</li>
-                  <li>DOM accessible</li>
-                  <li>Better for interactive graphics</li>
-                  <li>Slower with complex visuals</li>
-                </ul>
-              </div>
-            </section>
-
-            <section id="canvas" className="mb-5">
-              <h2 className="h2 mb-3"><i className="bi bi-bounding-box"></i> Canvas Element</h2>
-              <p className="mb-3">The <code>&lt;canvas&gt;</code> tag draws graphics via JavaScript.</p>
-
-              <div className="example-box">
-                <div className="example-title">Basic Canvas:</div>
-                <pre><code>{`<canvas id="myCanvas" width="200" height="100" style="border:1px solid #000;">
-    Your browser does not support canvas.
-</canvas>
-
-<script>
-    const canvas = document.getElementById("myCanvas");
-    const ctx = canvas.getContext("2d");
-    ctx.fillStyle = "red";
-    ctx.fillRect(10, 10, 150, 80);
-</script>`}</code></pre>
-                <canvas id="myCanvas" width="200" height="100" style={{ border: '1px solid #000' }}>
-                  Your browser does not support canvas.
-                </canvas>
-                <script>
-                  {`
-                    const canvas = document.getElementById("myCanvas");
-                    if (canvas.getContext) {
-                      const ctx = canvas.getContext("2d");
-                      ctx.fillStyle = "red";
-                      ctx.fillRect(10, 10, 150, 80);
-                    }
-                  `}
-                </script>
-              </div>
-
-              <h3 className="h4 mb-2"><i className="bi bi-image"></i> Canvas vs SVG</h3>
-              <p>Key differences between Canvas and SVG:</p>
-
-              <div className="example-box">
-                <div className="example-title">Canvas Features:</div>
-                <ul>
-                  <li>Pixel-based (raster)</li>
-                  <li>No DOM (faster for complex graphics)</li>
-                  <li>Better for games/image processing</li>
-                  <li>Not scalable (fixed resolution)</li>
-                </ul>
-              </div>
-            </section>
-
-            <section id="accessibility" className="mb-5">
-              <h2 className="h2 mb-3"><i className="bi bi-universal-access"></i> HTML Accessibility</h2>
-              <p className="mb-3">Accessible HTML ensures content is available to all users, including those with disabilities.</p>
-
-              <div className="example-box">
-                <div className="example-title">Accessibility Best Practices:</div>
-                <ul>
-                  <li>Use semantic HTML elements</li>
-                  <li>Provide text alternatives for images (<code>alt</code> attribute)</li>
-                  <li>Ensure sufficient color contrast</li>
-                  <li>Use proper heading structure</li>
-                  <li>Make interactive elements keyboard-navigable</li>
-                  <li>Provide labels for form controls</li>
-                  <li>Use ARIA attributes when needed</li>
-                </ul>
-              </div>
-
-              <h3 className="h4 mb-2"><i className="bi bi-tag"></i> ARIA Attributes</h3>
-              <p>Accessible Rich Internet Applications (ARIA) attributes enhance accessibility.</p>
-
-              <div className="example-box">
-                <div className="example-title">Common ARIA Attributes:</div>
-                <pre><code>{`<!-- Landmark roles -->
-<div role="navigation">...</div>
-
-<!-- Button with description -->
-<button aria-label="Close" aria-describedby="closeDesc">X</button>
-<p id="closeDesc">Closes the current window</p>
-
-<!-- Live region for dynamic content -->
-<div aria-live="polite">Loading...</div>`}</code></pre>
-              </div>
-            </section>
-
             <section id="seo" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-search"></i> HTML for SEO</h2>
               <p className="mb-3">Proper HTML structure helps search engines understand your content.</p>
@@ -2376,63 +2265,6 @@ function hello() {
                   <li>Optimize page speed</li>
                 </ul>
               </div>
-
-              <h3 className="h4 mb-2"><i className="bi bi-diagram-3"></i> Structured Data</h3>
-              <p>Schema.org markup helps search engines display rich results.</p>
-
-              <div className="example-box">
-                <div className="example-title">JSON-LD Example:</div>
-                <pre><code>{`<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Example Company",
-  "url": "https://example.com",
-  "logo": "https://example.com/logo.png"
-}
-</script>`}</code></pre>
-              </div>
-            </section>
-
-            <section id="validation" className="mb-5">
-              <h2 className="h2 mb-3"><i className="bi bi-check-circle-fill"></i> HTML Validation</h2>
-              <p className="mb-3">Valid HTML follows the official standards and works across browsers.</p>
-
-              <div className="example-box">
-                <div className="example-title">Validation Tools:</div>
-                <ul>
-                  <li><a href="https://validator.w3.org/" target="_blank">W3C Markup Validation Service</a></li>
-                  <li>Browser developer tools</li>
-                  <li>IDE/editor plugins</li>
-                  <li>Continuous integration tools</li>
-                </ul>
-              </div>
-
-              <h3 className="h4 mb-2"><i className="bi bi-exclamation-triangle"></i> Common Validation Errors</h3>
-              <ul>
-                <li>Missing or incorrect DOCTYPE</li>
-                <li>Unclosed tags</li>
-                <li>Missing alt attributes on images</li>
-                <li>Improper nesting of elements</li>
-                <li>Deprecated elements or attributes</li>
-                <li>Duplicate IDs</li>
-              </ul>
-
-              <div className="example-box">
-                <div className="example-title">Valid HTML5 Document:</div>
-                <pre><code>{`<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valid HTML5 Document</title>
-</head>
-<body>
-    <h1>Hello World</h1>
-    <p>This is a valid HTML5 document.</p>
-</body>
-</html>`}</code></pre>
-              </div>
             </section>
           </main>
         </div>
@@ -2440,7 +2272,6 @@ function hello() {
       <footer className="bg-dark text-white py-4">
         <div className="container text-center">
           <p>HTML Notes &copy; 2025 | Designed by Mugilvannan P</p>
-          <p>Last updated: {new Date().toLocaleDateString()}</p>
         </div>
       </footer>
     </div>
