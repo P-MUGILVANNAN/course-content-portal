@@ -83,6 +83,9 @@ function SpringBootNotes() {
               <a className="nav-link" href="#rest"><i className="bi bi-globe"></i> REST API</a>
               <a className="nav-link" href="#jpa"><i className="bi bi-database"></i> Spring Data JPA</a>
               <a className="nav-link" href="#crud"><i className="bi bi-list-check"></i> CRUD Operations</a>
+              <a className="nav-link" href="#mvc"><i className="bi bi-layers"></i> MVC Architecture</a>
+              <a className="nav-link" href="#authentication"><i className="bi bi-shield-lock"></i> Authentication</a>
+              <a className="nav-link" href="#security"><i className="bi bi-shield-check"></i> Spring Security</a>
             </nav>
           </aside>
 
@@ -124,7 +127,7 @@ function SpringBootNotes() {
                   <li>✓ Avoids XML Configuration</li>
                 </ul>
               </div>
-              
+
               <div className="property-card mt-4">
                 <h3 className="h4"><i className="bi bi-list-check"></i> Prerequisite of Spring Boot</h3>
                 <p>To create a Spring Boot application, following are the prerequisites:</p>
@@ -168,7 +171,7 @@ function SpringBootNotes() {
                 <h3 className="h4">Step 1: Create a Spring Boot Project</h3>
                 <p>Use Spring Initializr (https://start.spring.io/) or Spring STS IDE to create a new Spring Boot project.</p>
               </div>
-              
+
               <div className="property-card mt-3">
                 <h3 className="h4">Step 2: Main Application Class</h3>
                 <pre><code>{`import org.springframework.boot.SpringApplication;
@@ -201,7 +204,7 @@ public class MyApplication {
                   <li><strong>Database Layer</strong> - Performs CRUD operations</li>
                 </ol>
               </div>
-              
+
               <div className="property-card mt-4">
                 <h3 className="h4">Spring Boot Flow Architecture</h3>
                 <ul>
@@ -252,7 +255,7 @@ public class MyApplication {
                   </tbody>
                 </table>
               </div>
-              
+
               <div className="property-card mt-4">
                 <h3 className="h4">Spring Boot vs. Spring MVC</h3>
                 <table className="comparison-table">
@@ -294,7 +297,7 @@ public class MyApplication {
                   <li>Creating and injecting the dependencies at runtime automatically</li>
                 </ul>
               </div>
-              
+
               <div className="property-card mt-3">
                 <h3 className="h4">What is Dependency Injection?</h3>
                 <p><strong>Dependency Injection (DI)</strong> is a design pattern used to implement IoC.</p>
@@ -303,13 +306,13 @@ public class MyApplication {
                   <li>Objects are given (injected) their dependencies by the Spring container</li>
                   <li>It promotes <strong>loose coupling</strong> between components</li>
                 </ul>
-                
+
                 <h4 className="h5 mt-3">Types of DI in Spring:</h4>
                 <ol>
                   <li><strong>Constructor Injection</strong> - Dependencies are provided via the constructor</li>
                   <li><strong>Setter Injection</strong> - Dependencies are provided via setter methods</li>
                 </ol>
-                
+
                 <h4 className="h5 mt-3">Benefits of DI:</h4>
                 <ul>
                   <li>Promotes loose coupling</li>
@@ -349,7 +352,7 @@ public class MyApplication {
             ├── Pizza.java
             ├── PizzaShop.java
             └── PizzaController.java`}</code></pre>
-                
+
                 <h3 className="h4 mt-3">Pizza.java – A Simple Bean</h3>
                 <pre><code>{`package com.example.spring_exercise;
 
@@ -368,7 +371,7 @@ public class Pizza {
         return price;
     }
 }`}</code></pre>
-                
+
                 <h3 className="h4 mt-3">PizzaShop.java – Using Constructor Injection</h3>
                 <pre><code>{`package com.example.spring_exercise;
 
@@ -389,7 +392,7 @@ public class PizzaShop {
         return "Your " + pizza.getName() + " pizza will be delivered shortly. Price: $" + pizza.getPrice();
     }
 }`}</code></pre>
-                
+
                 <h3 className="h4 mt-3">PizzaController.java – REST API Layer</h3>
                 <pre><code>{`package com.example.spring_exercise;
 
@@ -411,7 +414,7 @@ public class PizzaController {
         return pizzaShop.deliverPizza();
     }
 }`}</code></pre>
-                
+
                 <h3 className="h4 mt-3">Output Example</h3>
                 <p>When you access: <code>http://localhost:8080/order</code></p>
                 <p>You'll get a response like:</p>
@@ -447,7 +450,7 @@ public class PizzaController {
                   <li>Supports internationalization</li>
                 </ul>
               </div>
-              
+
               <div className="property-card mt-3">
                 <h3 className="h4">Thymeleaf Example</h3>
                 <h4 className="h5 mt-2">Step 1: Create Project with Dependencies</h4>
@@ -456,7 +459,7 @@ public class PizzaController {
                   <li>Spring Web</li>
                   <li>Thymeleaf</li>
                 </ul>
-                
+
                 <h4 className="h5 mt-2">Step 2: Model Class (User.java)</h4>
                 <pre><code>{`public class User {
     String name;
@@ -468,7 +471,7 @@ public class PizzaController {
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
 }`}</code></pre>
-                
+
                 <h4 className="h5 mt-2">Step 3: Controller (DemoController.java)</h4>
                 <pre><code>{`package com.example;
 
@@ -493,7 +496,7 @@ public class DemoController {
         return modelAndView;
     }
 }`}</code></pre>
-                
+
                 <h4 className="h5 mt-2">Step 4: Thymeleaf Templates</h4>
                 <p><strong>index.html</strong> (in src/main/resources/templates):</p>
                 <pre><code>{`<html lang="en">
@@ -519,7 +522,7 @@ public class DemoController {
     </form>
 </body>
 </html>`}</code></pre>
-                
+
                 <p><strong>user-data.html</strong> (in src/main/resources/templates):</p>
                 <pre><code>{`<html xmlns:th="https://thymeleaf.org">
 <table>
@@ -533,7 +536,7 @@ public class DemoController {
     </tr>
 </table>
 </html>`}</code></pre>
-                
+
                 <h4 className="h5 mt-2">Step 5: application.properties</h4>
                 <pre><code>{`spring.thymeleaf.cache=false
 spring.thymeleaf.suffix: .html`}</code></pre>
@@ -545,7 +548,7 @@ spring.thymeleaf.suffix: .html`}</code></pre>
               <div className="property-card">
                 <h3 className="h4">Hibernate Validator</h3>
                 <p>Hibernate Validator is the reference implementation of <strong>Bean Validation</strong>. It helps enforce constraints on model properties using annotations.</p>
-                
+
                 <h4 className="h5 mt-3">Common Validation Annotations:</h4>
                 <table className="comparison-table">
                   <thead>
@@ -590,7 +593,7 @@ spring.thymeleaf.suffix: .html`}</code></pre>
                   </tbody>
                 </table>
               </div>
-              
+
               <div className="property-card mt-3">
                 <h3 className="h4">Example: Employee Validation</h3>
                 <h4 className="h5 mt-2">Project Structure:</h4>
@@ -603,7 +606,7 @@ spring.thymeleaf.suffix: .html`}</code></pre>
     │   │   ├── EmployeeController.java
     │   │   └── CustomExceptionHandler.java
     └── resources/`}</code></pre>
-                
+
                 <h4 className="h5 mt-2">Employee.java (Model with Validation)</h4>
                 <pre><code>{`package com.example.validation;
 
@@ -628,7 +631,7 @@ public class Employee {
 
     // Getters and Setters
 }`}</code></pre>
-                
+
                 <h4 className="h5 mt-2">EmployeeController.java</h4>
                 <pre><code>{`package com.example.validation;
 
@@ -644,7 +647,7 @@ public class EmployeeController {
         return new ResponseEntity(employee, HttpStatus.CREATED);
     }
 }`}</code></pre>
-                
+
                 <h4 className="h5 mt-2">CustomExceptionHandler.java</h4>
                 <pre><code>{`package com.example.validation;
 
@@ -678,7 +681,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(body, headers, status);
     }
 }`}</code></pre>
-                
+
                 <h4 className="h5 mt-2">Example API Responses</h4>
                 <p><strong>Valid Request:</strong></p>
                 <pre><code>{`POST /employees
@@ -697,7 +700,7 @@ Response (201 Created):
     "email": "robert@example.com",
     "qualification": "MCA"
 }`}</code></pre>
-                
+
                 <p><strong>Invalid Request:</strong></p>
                 <pre><code>{`{
     "timestamp": "2025-06-10T12:00:00.000+00:00",
@@ -716,7 +719,7 @@ Response (201 Created):
                 <h3 className="h4">What is REST?</h3>
                 <p><strong>REST</strong> stands for <strong>Representational State Transfer</strong>. It is an architectural style used for designing web services that are simple, scalable, and stateless.</p>
                 <p>REST uses standard HTTP methods to perform operations on resources, which are typically represented as JSON or XML over the web.</p>
-                
+
                 <h4 className="h5 mt-3">Key Concepts of REST</h4>
                 <table className="comparison-table">
                   <thead>
@@ -748,7 +751,7 @@ Response (201 Created):
                     </tr>
                   </tbody>
                 </table>
-                
+
                 <h4 className="h5 mt-3">Common REST Methods (HTTP Verbs)</h4>
                 <table className="comparison-table">
                   <thead>
@@ -786,7 +789,7 @@ Response (201 Created):
                     </tr>
                   </tbody>
                 </table>
-                
+
                 <h4 className="h5 mt-3">Example REST Endpoints</h4>
                 <table className="comparison-table">
                   <thead>
@@ -831,10 +834,10 @@ Response (201 Created):
               <h2 className="h2 mb-3"><i className="bi bi-database"></i> Spring Data JPA</h2>
               <div className="property-card">
                 <p><strong>Spring Data JPA</strong> makes it easy to implement JPA-based repositories. It significantly reduces boilerplate code by allowing developers to focus on entity design and repository interfaces.</p>
-                
+
                 <h3 className="h4">What is JPA?</h3>
                 <p><strong>Java Persistence API (JPA)</strong> is a specification for object-relational mapping in Java. Spring Boot uses <strong>Hibernate</strong> as the default implementation of JPA.</p>
-                
+
                 <h4 className="h5 mt-3">Key JPA Annotations</h4>
                 <table className="comparison-table">
                   <thead>
@@ -871,7 +874,7 @@ Response (201 Created):
                   </tbody>
                 </table>
               </div>
-              
+
               <div className="property-card mt-3">
                 <h3 className="h4">Example: Student Entity with Repository</h3>
                 <h4 className="h5 mt-2">Student.java (Entity)</h4>
@@ -914,7 +917,7 @@ public class Student {
 
     // Constructors, Getters, and Setters
 }`}</code></pre>
-                
+
                 <h4 className="h5 mt-2">StudentRepository.java</h4>
                 <pre><code>{`package com.example.spring_jpa.repository;
 
@@ -923,7 +926,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface StudentRepository extends JpaRepository<Student, Long> {
 }`}</code></pre>
-                
+
                 <h4 className="h5 mt-2">application.yml (Database Config)</h4>
                 <pre><code>{`spring:
   datasource:
@@ -938,7 +941,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     show-sql: true
 application:
   name: spring-jpa`}</code></pre>
-                
+
                 <h4 className="h5 mt-2">Advantages of Spring Data JPA</h4>
                 <ul>
                   <li>Reduces boilerplate code for CRUD operations</li>
@@ -960,7 +963,7 @@ application:
                   <li><strong>Update</strong> – modify existing records</li>
                   <li><strong>Delete</strong> – remove records</li>
                 </ul>
-                
+
                 <h4 className="h5 mt-3">CRUD & RESTful Mapping</h4>
                 <table className="comparison-table">
                   <thead>
@@ -999,7 +1002,7 @@ application:
                   </tbody>
                 </table>
               </div>
-              
+
               <div className="property-card mt-3">
                 <h3 className="h4">Example: Book CRUD Operations</h3>
                 <h4 className="h5 mt-2">Project Structure</h4>
@@ -1018,7 +1021,7 @@ application:
     │   │   └── SpringBootCrudApplication.java
     └── resources/
         └── application.properties`}</code></pre>
-                
+
                 <h4 className="h5 mt-2">Books.java (Model)</h4>
                 <pre><code>{`package com.example.crud.model;
 
@@ -1042,7 +1045,7 @@ public class Books {
 
     // Getters and Setters
 }`}</code></pre>
-                
+
                 <h4 className="h5 mt-2">BooksRepository.java</h4>
                 <pre><code>{`package com.example.crud.repository;
 
@@ -1051,7 +1054,7 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface BooksRepository extends CrudRepository<Books, Integer> {
 }`}</code></pre>
-                
+
                 <h4 className="h5 mt-2">BooksService.java</h4>
                 <pre><code>{`package com.example.crud.service;
 
@@ -1085,7 +1088,7 @@ public class BooksService {
         booksRepository.deleteById(id);
     }
 }`}</code></pre>
-                
+
                 <h4 className="h5 mt-2">BooksController.java</h4>
                 <pre><code>{`package com.example.crud.controller;
 
@@ -1127,7 +1130,7 @@ public class BooksController {
         booksService.delete(bookid);
     }
 }`}</code></pre>
-                
+
                 <h4 className="h5 mt-2">application.properties</h4>
                 <pre><code>{`spring.datasource.url=jdbc:h2:mem:booksdb
 spring.datasource.driverClassName=org.h2.Driver
@@ -1136,7 +1139,7 @@ spring.datasource.password=
 spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 spring.h2.console.enabled=true
 spring.h2.console.path=/h2-console`}</code></pre>
-                
+
                 <h4 className="h5 mt-2">Sample API Requests</h4>
                 <p><strong>POST /books</strong></p>
                 <pre><code>{`{
@@ -1145,7 +1148,7 @@ spring.h2.console.path=/h2-console`}</code></pre>
     "author": "Craig Walls",
     "price": 799
 }`}</code></pre>
-                
+
                 <p><strong>PUT /books</strong></p>
                 <pre><code>{`{
     "bookid": 1001,
@@ -1155,13 +1158,890 @@ spring.h2.console.path=/h2-console`}</code></pre>
 }`}</code></pre>
               </div>
             </section>
+
+            <section id="mvc" className="mb-5">
+              <h2 className="h2 mb-3"><i className="bi bi-layers"></i> MVC Architecture in Spring Boot</h2>
+              <div className="property-card">
+                <h3 className="h4">What is MVC?</h3>
+                <p><strong>MVC (Model-View-Controller)</strong> is a design pattern that separates an application into three main logical components:</p>
+
+                <div className="row mt-3">
+                  <div className="col-md-4">
+                    <div className="card h-100">
+                      <div className="card-body">
+                        <h5 className="card-title"><i className="bi bi-box"></i> Model</h5>
+                        <ul>
+                          <li>Represents the data and business logic</li>
+                          <li>Contains the state of the application</li>
+                          <li>Notifies view of changes</li>
+                          <li>Typically uses POJOs/Entities</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-4">
+                    <div className="card h-100">
+                      <div className="card-body">
+                        <h5 className="card-title"><i className="bi bi-eye"></i> View</h5>
+                        <ul>
+                          <li>Presents the data to the user</li>
+                          <li>Renders the model data</li>
+                          <li>Generates HTML output</li>
+                          <li>Uses templates (Thymeleaf, JSP)</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-4">
+                    <div className="card h-100">
+                      <div className="card-body">
+                        <h5 className="card-title"><i className="bi bi-controller"></i> Controller</h5>
+                        <ul>
+                          <li>Handles user requests</li>
+                          <li>Processes input (forms, URL params)</li>
+                          <li>Updates the model</li>
+                          <li>Returns the appropriate view</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <h4 className="h5 mt-4">Spring MVC Flow</h4>
+                <ol>
+                  <li>Client sends HTTP request to the server</li>
+                  <li>DispatcherServlet receives the request</li>
+                  <li>HandlerMapping finds the appropriate controller</li>
+                  <li>Controller processes the request and returns ModelAndView</li>
+                  <li>ViewResolver resolves the view name to a specific view</li>
+                  <li>View renders the response and sends it back to the client</li>
+                </ol>
+              </div>
+
+              <div className="property-card mt-4">
+                <h3 className="h4">Complete MVC Example</h3>
+                <h4 className="h5 mt-2">Project Structure</h4>
+                <pre><code>{`src/
+└── main/
+    ├── java/
+    │   └── com/example/mvc/
+    │       ├── config/
+    │       │   └── MvcConfig.java
+    │       ├── controller/
+    │       │   └── ProductController.java
+    │       ├── model/
+    │       │   └── Product.java
+    │       ├── repository/
+    │       │   └── ProductRepository.java
+    │       ├── service/
+    │       │   └── ProductService.java
+    │       └── MvcApplication.java
+    └── resources/
+        ├── static/
+        ├── templates/
+        │   └── products/
+        │       ├── list.html
+        │       ├── form.html
+        │       └── view.html
+        └── application.properties`}</code></pre>
+
+                <h4 className="h5 mt-2">Product.java (Model)</h4>
+                <pre><code>{`package com.example.mvc.model;
+
+import jakarta.persistence.*;
+
+@Entity
+public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @Column(nullable = false)
+    private String name;
+    
+    @Column(nullable = false)
+    private Double price;
+    
+    @Column(length = 2000)
+    private String description;
+    
+    // Constructors, getters and setters
+}`}</code></pre>
+
+                <h4 className="h5 mt-2">ProductController.java</h4>
+                <pre><code>{`package com.example.mvc.controller;
+
+import com.example.mvc.model.Product;
+import com.example.mvc.service.ProductService;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+@Controller
+@RequestMapping("/products")
+public class ProductController {
+    private final ProductService productService;
+
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
+
+    @GetMapping
+    public String listProducts(Model model) {
+        model.addAttribute("products", productService.findAll());
+        return "products/list";
+    }
+
+    @GetMapping("/create")
+    public String showCreateForm(Model model) {
+        model.addAttribute("product", new Product());
+        return "products/form";
+    }
+
+    @PostMapping
+    public String createProduct(@ModelAttribute Product product) {
+        productService.save(product);
+        return "redirect:/products";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String showEditForm(@PathVariable Long id, Model model) {
+        model.addAttribute("product", productService.findById(id));
+        return "products/form";
+    }
+
+    @GetMapping("/{id}")
+    public String viewProduct(@PathVariable Long id, Model model) {
+        model.addAttribute("product", productService.findById(id));
+        return "products/view";
+    }
+
+    @PostMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable Long id) {
+        productService.deleteById(id);
+        return "redirect:/products";
+    }
+}`}</code></pre>
+
+                <h4 className="h5 mt-2">list.html (Thymeleaf Template)</h4>
+                <pre><code>{`<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Product List</title>
+</head>
+<body>
+    <h1>Products</h1>
+    <a th:href="@{/products/create}">Add New Product</a>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="product : \${products}">
+                <td th:text="\${product.id}"></td>
+                <td th:text="\${product.name}"></td>
+                <td th:text="\${'$' + #numbers.formatDecimal(product.price, 1, 2)}"></td>
+                <td>
+                    <a th:href="@{/products/{id}(id=\${product.id})}">View</a> |
+                    <a th:href="@{/products/edit/{id}(id=\${product.id})}">Edit</a> |
+                    <form th:action="@{/products/delete/{id}(id=\${product.id})}" 
+                          method="post" style="display: inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>`}</code></pre>
+
+                <h4 className="h5 mt-2">Key Annotations in Spring MVC</h4>
+                <table className="comparison-table">
+                  <thead>
+                    <tr>
+                      <th>Annotation</th>
+                      <th>Purpose</th>
+                      <th>Example</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>@Controller</code></td>
+                      <td>Marks class as MVC controller</td>
+                      <td><code>{`@Controller public class MyController {... }`}</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>@RequestMapping</code></td>
+                      <td>Maps web requests to handler methods</td>
+                      <td><code>{`@RequestMapping("/products")`}</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>@GetMapping</code></td>
+                      <td>Handles HTTP GET requests</td>
+                      <td><code>{`@GetMapping("/{id}")`}</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>@PostMapping</code></td>
+                      <td>Handles HTTP POST requests</td>
+                      <td><code>@PostMapping</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>@ModelAttribute</code></td>
+                      <td>Binds method parameter or return value to named model attribute</td>
+                      <td><code>@ModelAttribute Product product</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>@PathVariable</code></td>
+                      <td>Extracts URI template variables</td>
+                      <td><code>@PathVariable Long id</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>@RequestParam</code></td>
+                      <td>Extracts query parameters</td>
+                      <td><code>@RequestParam String name</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>@ResponseBody</code></td>
+                      <td>Indicates return value should be bound to web response body</td>
+                      <td><code>{`@ResponseBody String hello() {... }`}</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section id="authentication" className="mb-5">
+              <h2 className="h2 mb-3"><i className="bi bi-shield-lock"></i> Authentication in Spring Boot</h2>
+              <div className="property-card">
+                <h3 className="h4">What is Authentication?</h3>
+                <p><strong>Authentication</strong> is the process of verifying who a user is, while <strong>authorization</strong> is the process of verifying what they have access to.</p>
+
+                <h4 className="h5 mt-3">Common Authentication Methods</h4>
+                <div className="row">
+                  <div className="col-md-6">
+                    <div className="card mb-3">
+                      <div className="card-body">
+                        <h5 className="card-title">Basic Authentication</h5>
+                        <ul>
+                          <li>Simple username/password mechanism</li>
+                          <li>Credentials sent in Authorization header</li>
+                          <li>Base64 encoded (not encrypted)</li>
+                          <li>Should always use HTTPS</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="card mb-3">
+                      <div className="card-body">
+                        <h5 className="card-title">Form-Based Authentication</h5>
+                        <ul>
+                          <li>Traditional HTML form login</li>
+                          <li>Session maintained via cookies</li>
+                          <li>Common for web applications</li>
+                          <li>CSRF protection needed</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="card mb-3">
+                      <div className="card-body">
+                        <h5 className="card-title">JWT (JSON Web Tokens)</h5>
+                        <ul>
+                          <li>Stateless token-based authentication</li>
+                          <li>Contains claims about the user</li>
+                          <li>Signed for integrity verification</li>
+                          <li>Common for APIs and SPAs</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="card mb-3">
+                      <div className="card-body">
+                        <h5 className="card-title">OAuth2</h5>
+                        <ul>
+                          <li>Delegated authorization framework</li>
+                          <li>Common for social logins</li>
+                          <li>Uses access tokens</li>
+                          <li>Multiple grant types available</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="property-card mt-4">
+                <h3 className="h4">Spring Security Authentication Flow</h3>
+                <ol>
+                  <li>User submits credentials (form, basic auth header, etc.)</li>
+                  <li>AuthenticationFilter processes the request</li>
+                  <li>AuthenticationManager delegates to AuthenticationProvider</li>
+                  <li>UserDetailsService loads user details from storage</li>
+                  <li>PasswordEncoder verifies credentials</li>
+                  <li>If successful, SecurityContextHolder stores authentication</li>
+                  <li>Session is established (for stateful auth)</li>
+                  <li>Access control rules are applied to subsequent requests</li>
+                </ol>
+              </div>
+
+              <div className="property-card mt-4">
+                <h3 className="h4">Basic Authentication Example</h3>
+                <h4 className="h5 mt-2">Step 1: Add Dependencies</h4>
+                <pre><code>{`<!-- pom.xml -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+</dependency>`}</code></pre>
+
+                <h4 className="h5 mt-2">Step 2: Security Configuration</h4>
+                <pre><code>{`package com.example.auth.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+    
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/public/**").permitAll()
+                .anyRequest().authenticated()
+            )
+            .httpBasic(basic -> basic.realmName("My App"));
+            
+        return http.build();
+    }
+    
+    @Bean
+    public UserDetailsService userDetailsService() {
+        UserDetails user = User.builder()
+            .username("user")
+            .password(passwordEncoder().encode("password"))
+            .roles("USER")
+            .build();
+            
+        UserDetails admin = User.builder()
+            .username("admin")
+            .password(passwordEncoder().encode("admin"))
+            .roles("ADMIN")
+            .build();
+            
+        return new InMemoryUserDetailsManager(user, admin);
+    }
+    
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+}`}</code></pre>
+
+                <h4 className="h5 mt-2">Step 3: Testing with Curl</h4>
+                <pre><code>{`# Successful request
+curl -u user:password http://localhost:8080/api/secure
+
+# Unauthorized request
+curl -v http://localhost:8080/api/secure`}</code></pre>
+              </div>
+
+              <div className="property-card mt-4">
+                <h3 className="h4">Form-Based Authentication Example</h3>
+                <h4 className="h5 mt-2">Security Configuration</h4>
+                <pre><code>{`@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+    
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/", "/home", "/register").permitAll()
+                .requestMatchers("/admin/**").hasRole("ADMIN")
+                .anyRequest().authenticated()
+            )
+            .formLogin(form -> form
+                .loginPage("/login")
+                .defaultSuccessUrl("/dashboard")
+                .permitAll()
+            )
+            .logout(logout -> logout
+                .logoutSuccessUrl("/login?logout")
+                .permitAll()
+            )
+            .csrf(csrf -> csrf.disable()); // Only disable for demos!
+            
+        return http.build();
+    }
+    
+    // Other beans remain the same
+}`}</code></pre>
+
+                <h4 className="h5 mt-2">Login Form (login.html)</h4>
+                <pre><code>{`<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <div th:if="\${param.error}">
+        Invalid username or password
+    </div>
+    <div th:if="\${param.logout}">
+        You have been logged out
+    </div>
+    
+    <form th:action="@{/login}" method="post">
+        <div>
+            <label>Username: </label>
+            <input type="text" name="username"/>
+        </div>
+        <div>
+            <label>Password: </label>
+            <input type="password" name="password"/>
+        </div>
+        <div>
+            <button type="submit">Sign In</button>
+        </div>
+    </form>
+</body>
+</html>`}</code></pre>
+              </div>
+            </section>
+
+            <section id="security" className="mb-5">
+              <h2 className="h2 mb-3"><i className="bi bi-shield-check"></i> Spring Security</h2>
+              <div className="property-card">
+                <h3 className="h4">What is Spring Security?</h3>
+                <p>Spring Security is a powerful and highly customizable authentication and access-control framework for Spring applications. It provides comprehensive security services for Java EE-based enterprise software applications.</p>
+
+                <h4 className="h5 mt-3">Key Features</h4>
+                <div className="row">
+                  <div className="col-md-6">
+                    <ul>
+                      <li><strong>Authentication</strong> - Who are you?</li>
+                      <li><strong>Authorization</strong> - What are you allowed to do?</li>
+                      <li><strong>Protection against attacks</strong> - CSRF, session fixation, clickjacking, etc.</li>
+                    </ul>
+                  </div>
+                  <div className="col-md-6">
+                    <ul>
+                      <li><strong>Servlet API integration</strong></li>
+                      <li><strong>Optional integration with Spring Web MVC</strong></li>
+                      <li><strong>Support for OAuth2, SAML, LDAP, and more</strong></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="property-card mt-4">
+                <h3 className="h4">Database Authentication Example</h3>
+                <h4 className="h5 mt-2">Step 1: Entity Classes</h4>
+                <pre><code>{`@Entity
+public class User {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @Column(nullable = false, unique = true)
+    private String username;
+    
+    @Column(nullable = false)
+    private String password;
+    
+    @Column(nullable = false)
+    private boolean enabled;
+    
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+        name = "user_role",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
+    
+    // Constructors, getters, setters
+}
+
+@Entity
+public class Role {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @Column(nullable = false, unique = true)
+    private String name;
+    
+    // Constructors, getters, setters
+}`}</code></pre>
+
+                <h4 className="h5 mt-2">Step 2: UserDetailsService Implementation</h4>
+                <pre><code>{`@Service
+public class CustomUserDetailsService implements UserDetailsService {
+    
+    @Autowired
+    private UserRepository userRepository;
+
+    @Override
+    public UserDetails loadUserByUsername(String username) 
+        throws UsernameNotFoundException {
+        
+        User user = userRepository.findByUsername(username)
+            .orElseThrow(() -> new UsernameNotFoundException(
+                "User not found with username: " + username));
+        
+        return org.springframework.security.core.userdetails.User
+            .withUsername(user.getUsername())
+            .password(user.getPassword())
+            .disabled(!user.isEnabled())
+            .authorities(user.getRoles().stream()
+                .map(role -> new SimpleGrantedAuthority(role.getName()))
+                .collect(Collectors.toList()))
+            .build();
+    }
+}`}</code></pre>
+
+                <h4 className="h5 mt-2">Step 3: Security Configuration</h4>
+                <pre><code>{`@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+    
+    @Autowired
+    private CustomUserDetailsService userDetailsService;
+    
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/register", "/css/**").permitAll()
+                .requestMatchers("/admin/**").hasRole("ADMIN")
+                .anyRequest().authenticated()
+            )
+            .formLogin(form -> form
+                .loginPage("/login")
+                .defaultSuccessUrl("/dashboard")
+                .permitAll()
+            )
+            .logout(logout -> logout
+                .logoutSuccessUrl("/login?logout")
+                .permitAll()
+            )
+            .rememberMe(remember -> remember
+                .key("uniqueAndSecret")
+                .tokenValiditySeconds(86400) // 1 day
+                .userDetailsService(userDetailsService)
+            )
+            .exceptionHandling(ex -> ex
+                .accessDeniedPage("/access-denied")
+            );
+            
+        return http.build();
+    }
+    
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+    
+    @Bean
+    public AuthenticationManager authenticationManager(
+        AuthenticationConfiguration authConfig) throws Exception {
+        return authConfig.getAuthenticationManager();
+    }
+}`}</code></pre>
+
+                <h4 className="h5 mt-2">Step 4: Registration Controller</h4>
+                <pre><code>{`@Controller
+@RequestMapping("/register")
+public class RegistrationController {
+    
+    @Autowired
+    private UserRepository userRepository;
+    
+    @Autowired
+    private RoleRepository roleRepository;
+    
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    
+    @GetMapping
+    public String showRegistrationForm(Model model) {
+        model.addAttribute("user", new UserDto());
+        return "register";
+    }
+    
+    @PostMapping
+    public String registerUser(@ModelAttribute("user") UserDto userDto) {
+        User user = new User();
+        user.setUsername(userDto.getUsername());
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        user.setEnabled(true);
+        
+        Role userRole = roleRepository.findByName("ROLE_USER")
+            .orElseThrow(() -> new RuntimeException("Error: Role not found."));
+        user.getRoles().add(userRole);
+        
+        userRepository.save(user);
+        
+        return "redirect:/login?registered";
+    }
+}`}</code></pre>
+              </div>
+
+              <div className="property-card mt-4">
+                <h3 className="h4">JWT Authentication Example</h3>
+                <h4 className="h5 mt-2">Step 1: Add JWT Dependencies</h4>
+                <pre><code>{`<!-- pom.xml -->
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-api</artifactId>
+    <version>0.11.5</version>
+</dependency>
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-impl</artifactId>
+    <version>0.11.5</version>
+    <scope>runtime</scope>
+</dependency>
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-jackson</artifactId>
+    <version>0.11.5</version>
+    <scope>runtime</scope>
+</dependency>`}</code></pre>
+
+                <h4 className="h5 mt-2">Step 2: JWT Utility Class</h4>
+                <pre><code>{`@Component
+public class JwtTokenProvider {
+    
+    @Value("\${app.jwt.secret}")
+    private String jwtSecret;
+    
+    @Value("\${app.jwt.expiration}")
+    private int jwtExpirationInMs;
+    
+    public String generateToken(Authentication authentication) {
+        UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
+        
+        Date now = new Date();
+        Date expiryDate = new Date(now.getTime() + jwtExpirationInMs);
+        
+        return Jwts.builder()
+            .setSubject(Long.toString(userPrincipal.getId()))
+            .setIssuedAt(new Date())
+            .setExpiration(expiryDate)
+            .signWith(SignatureAlgorithm.HS512, jwtSecret)
+            .compact();
+    }
+    
+    public Long getUserIdFromJWT(String token) {
+        Claims claims = Jwts.parser()
+            .setSigningKey(jwtSecret)
+            .parseClaimsJws(token)
+            .getBody();
+            
+        return Long.parseLong(claims.getSubject());
+    }
+    
+    public boolean validateToken(String authToken) {
+        try {
+            Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(authToken);
+            return true;
+        } catch (SignatureException ex) {
+            logger.error("Invalid JWT signature");
+        } catch (MalformedJwtException ex) {
+            logger.error("Invalid JWT token");
+        } catch (ExpiredJwtException ex) {
+            logger.error("Expired JWT token");
+        } catch (UnsupportedJwtException ex) {
+            logger.error("Unsupported JWT token");
+        } catch (IllegalArgumentException ex) {
+            logger.error("JWT claims string is empty");
+        }
+        return false;
+    }
+}`}</code></pre>
+
+                <h4 className="h5 mt-2">Step 3: JWT Authentication Filter</h4>
+                <pre><code>{`public class JwtAuthenticationFilter extends OncePerRequestFilter {
+    
+    @Autowired
+    private JwtTokenProvider tokenProvider;
+    
+    @Autowired
+    private CustomUserDetailsService customUserDetailsService;
+    
+    @Override
+    protected void doFilterInternal(HttpServletRequest request, 
+            HttpServletResponse response, FilterChain filterChain)
+            throws ServletException, IOException {
+        
+        try {
+            String jwt = getJwtFromRequest(request);
+            
+            if (StringUtils.hasText(jwt) && tokenProvider.validateToken(jwt)) {
+                Long userId = tokenProvider.getUserIdFromJWT(jwt);
+                
+                UserDetails userDetails = customUserDetailsService.loadUserById(userId);
+                UsernamePasswordAuthenticationToken authentication = 
+                    new UsernamePasswordAuthenticationToken(
+                        userDetails, null, userDetails.getAuthorities());
+                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+            }
+        } catch (Exception ex) {
+            logger.error("Could not set user authentication in security context", ex);
+        }
+        
+        filterChain.doFilter(request, response);
+    }
+    
+    private String getJwtFromRequest(HttpServletRequest request) {
+        String bearerToken = request.getHeader("Authorization");
+        if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
+            return bearerToken.substring(7);
+        }
+        return null;
+    }
+}`}</code></pre>
+
+                <h4 className="h5 mt-2">Step 4: Security Configuration for JWT</h4>
+                <pre><code>{`@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+    
+    @Autowired
+    private JwtAuthenticationEntryPoint unauthorizedHandler;
+    
+    @Bean
+    public JwtAuthenticationFilter jwtAuthenticationFilter() {
+        return new JwtAuthenticationFilter();
+    }
+    
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .cors().and()
+            .csrf().disable()
+            .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+            .authorizeRequests()
+                .antMatchers("/",
+                    "/favicon.ico",
+                    "/**/*.png",
+                    "/**/*.gif",
+                    "/**/*.svg",
+                    "/**/*.jpg",
+                    "/**/*.html",
+                    "/**/*.css",
+                    "/**/*.js").permitAll()
+                .antMatchers("/api/auth/**").permitAll()
+                .antMatchers("/api/user/checkUsernameAvailability", 
+                    "/api/user/checkEmailAvailability").permitAll()
+                .anyRequest().authenticated();
+        
+        // Add our custom JWT security filter
+        http.addFilterBefore(jwtAuthenticationFilter(), 
+            UsernamePasswordAuthenticationFilter.class);
+        
+        return http.build();
+    }
+}`}</code></pre>
+
+                <h4 className="h5 mt-2">Step 5: Auth Controller</h4>
+                <pre><code>{`@RestController
+@RequestMapping("/api/auth")
+public class AuthController {
+    
+    @Autowired
+    private AuthenticationManager authenticationManager;
+    
+    @Autowired
+    private UserRepository userRepository;
+    
+    @Autowired
+    private RoleRepository roleRepository;
+    
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    
+    @Autowired
+    private JwtTokenProvider tokenProvider;
+    
+    @PostMapping("/signin")
+    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+        
+        Authentication authentication = authenticationManager.authenticate(
+            new UsernamePasswordAuthenticationToken(
+                loginRequest.getUsernameOrEmail(),
+                loginRequest.getPassword()
+            )
+        );
+        
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        
+        String jwt = tokenProvider.generateToken(authentication);
+        return ResponseEntity.ok(new JwtAuthenticationResponse(jwt));
+    }
+    
+    @PostMapping("/signup")
+    public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
+        if(userRepository.existsByUsername(signUpRequest.getUsername())) {
+            return new ResponseEntity(new ApiResponse(false, "Username is already taken!"),
+                HttpStatus.BAD_REQUEST);
+        }
+        
+        if(userRepository.existsByEmail(signUpRequest.getEmail())) {
+            return new ResponseEntity(new ApiResponse(false, "Email Address already in use!"),
+                HttpStatus.BAD_REQUEST);
+        }
+        
+        // Creating user's account
+        User user = new User(signUpRequest.getName(), signUpRequest.getUsername(),
+            signUpRequest.getEmail(), signUpRequest.getPassword());
+        
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        
+        Role userRole = roleRepository.findByName(RoleName.ROLE_USER)
+            .orElseThrow(() -> new AppException("User Role not set."));
+        
+        user.setRoles(Collections.singleton(userRole));
+        
+        User result = userRepository.save(user);
+        
+        URI location = ServletUriComponentsBuilder
+            .fromCurrentContextPath().path("/users/{username}")
+            .buildAndExpand(result.getUsername()).toUri();
+        
+        return ResponseEntity.created(location).body(new ApiResponse(true, "User registered successfully"));
+    }
+}`}</code></pre>
+              </div>
+            </section>
           </main>
         </div>
       </div>
 
       <footer className="bg-dark text-white py-4">
         <div className="container text-center">
-          <p>Spring Boot Notes &copy; 2025 | Comprehensive Guide to Spring Boot Framework</p>
+          <p>Spring Boot Notes &copy; 2025 | Developed by Mugilvannan P.</p>
         </div>
       </footer>
     </div>
