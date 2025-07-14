@@ -84,7 +84,9 @@ function ExpressNotes() {
                             <a className="nav-link" href="#mongoose"><i className="bi bi-motherboard"></i> Mongoose</a>
                             <a className="nav-link" href="#authentication"><i className="bi bi-shield-lock"></i> Authentication</a>
                             <a className="nav-link" href="#mvc"><i className="bi bi-diagram-3"></i> MVC Structure</a>
+                            <a className="nav-link" href="#file-uploads"><i className="bi bi-file-earmark-arrow-up"></i> File Uploads</a>
                             <a className="nav-link" href="#projects"><i className="bi bi-lightbulb"></i> Project Ideas</a>
+                            <a className="nav-link" href="#deployment"><i className="bi bi-cloud-upload"></i> Deployement</a>
                         </nav>
                     </aside>
 
@@ -1420,6 +1422,261 @@ module.exports = connectDB;`}</code></pre>
                             </div>
                         </section>
 
+                        <section id="file-uploads" className="mb-5">
+                            <h2 className="h2 mb-3"><i className="bi bi-file-earmark-arrow-up"></i> File Uploads in Express</h2>
+
+                            <div className="property-card">
+                                <h3 className="h4">Basic File Upload Setup</h3>
+                                <p>To handle file uploads in Express, you'll need the <code>multer</code> middleware package.</p>
+
+                                <p>Install multer:</p>
+                                <pre><code>npm install multer</code></pre>
+
+                                <p>Basic example:</p>
+                                <pre><code>{`const express = require('express');
+const multer = require('multer');
+const path = require('path');
+
+const app = express();
+
+// Set up storage configuration
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/') // Uploads will be saved in 'uploads' folder
+    },
+    filename: function (req, file, cb) {
+        // Create unique filename with original extension
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+    }
+});
+
+// Initialize multer with storage configuration
+const upload = multer({ storage: storage });
+
+// Serve static files from uploads directory
+app.use('/uploads', express.static('uploads'));
+
+// Handle single file upload
+app.post('/upload', upload.single('file'), (req, res) => {
+    if (!req.file) {
+        return res.status(400).send('No file uploaded.');
+    }
+    
+    res.json({
+        message: 'File uploaded successfully',
+        filePath: "/ uploads / \${req.file.filename}"
+    });
+});
+
+app.listen(3000, () => console.log('Server started on port 3000'));`}</code></pre>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">HTML Form Example</h3>
+                                <p>Here's a simple HTML form to test the upload endpoint:</p>
+                                <pre><code>{`<!DOCTYPE html>
+<html>
+<head>
+    <title>File Upload</title>
+</head>
+<body>
+    <h1>Upload a File</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>`}</code></pre>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">Handling Multiple Files</h3>
+                                <p>Multer can handle multiple files at once:</p>
+                                <pre><code>{`// Handle multiple files (up to 5)
+app.post('/upload-multiple', upload.array('files', 5), (req, res) => {
+    if (!req.files || req.files.length === 0) {
+        return res.status(400).send('No files uploaded.');
+    }
+    
+    const filePaths = req.files.map(file => "/ uploads / \${file.filename}");
+
+                                    res.json({
+                                        message: 'Files uploaded successfully',
+                                    filePaths: filePaths
+    });
+});`}</code></pre>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">File Validation</h3>
+                                <p>You can validate files by type, size, etc.:</p>
+                                <pre><code>{`const fileFilter = (req, file, cb) => {
+    // Accept images only
+    const filetypes = /jpeg|jpg|png|gif/;
+    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+    const mimetype = filetypes.test(file.mimetype);
+    
+    if (mimetype && extname) {
+        return cb(null, true);
+    } else {
+        cb('Error: Images Only!');
+    }
+};
+
+const upload = multer({
+    storage: storage,
+    fileFilter: fileFilter,
+    limits: {
+        fileSize: 1024 * 1024 * 5 // 5MB limit
+    }
+});`}</code></pre>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">Cloud Storage Upload (AWS S3 Example)</h3>
+                                <p>For production, you'll want to use cloud storage. Here's an example with AWS S3:</p>
+
+                                <p>Install required packages:</p>
+                                <pre><code>npm install aws-sdk multer-s3</code></pre>
+
+                                <p>S3 configuration:</p>
+                                <pre><code>{`const AWS = require('aws-sdk');
+const multerS3 = require('multer-s3');
+
+// Configure AWS
+AWS.config.update({
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    region: process.env.AWS_REGION
+});
+
+const s3 = new AWS.S3();
+
+// Set up S3 storage
+const s3Storage = multerS3({
+    s3: s3,
+    bucket: process.env.AWS_BUCKET_NAME,
+    acl: 'public-read',
+    metadata: function (req, file, cb) {
+        cb(null, { fieldName: file.fieldname });
+    },
+    key: function (req, file, cb) {
+        const fileName = Date.now().toString() + '-' + file.originalname;
+        cb(null, fileName);
+    }
+});
+
+const upload = multer({ storage: s3Storage });
+
+app.post('/upload-s3', upload.single('file'), (req, res) => {
+    res.json({
+        message: 'File uploaded to S3 successfully',
+        fileUrl: req.file.location
+    });
+});`}</code></pre>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">File Upload Best Practices</h3>
+                                <ul>
+                                    <li><strong>Validate file types:</strong> Only accept file types you expect to receive</li>
+                                    <li><strong>Limit file size:</strong> Prevent denial of service attacks with size limits</li>
+                                    <li><strong>Sanitize filenames:</strong> Remove special characters that could cause issues</li>
+                                    <li><strong>Use cloud storage:</strong> For production, use S3, Google Cloud Storage, etc.</li>
+                                    <li><strong>Virus scan:</strong> Consider scanning uploaded files for malware</li>
+                                    <li><strong>Secure uploads:</strong> Don't make upload directories executable</li>
+                                    <li><strong>Use CDN:</strong> Serve uploaded files through a CDN for better performance</li>
+                                </ul>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">Complete File Upload Controller Example</h3>
+                                <p>Here's a more complete example with error handling:</p>
+                                <pre><code>{`const fs = require('fs');
+const path = require('path');
+const multer = require('multer');
+
+// Ensure upload directory exists
+const uploadDir = 'uploads';
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir);
+}
+
+// Configure storage
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, uploadDir);
+    },
+    filename: (req, file, cb) => {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        const ext = path.extname(file.originalname);
+        cb(null, file.fieldname + '-' + uniqueSuffix + ext);
+    }
+});
+
+// File filter
+const fileFilter = (req, file, cb) => {
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+    if (allowedTypes.includes(file.mimetype)) {
+        cb(null, true);
+    } else {
+        cb(new Error('Invalid file type. Only JPEG, PNG and GIF are allowed.'));
+    }
+};
+
+// Initialize upload
+const upload = multer({
+    storage: storage,
+    fileFilter: fileFilter,
+    limits: {
+        fileSize: 5 * 1024 * 1024 // 5MB
+    }
+}).single('file');
+
+// Upload controller
+exports.uploadFile = (req, res) => {
+    upload(req, res, (err) => {
+        if (err) {
+            if (err.code === 'LIMIT_FILE_SIZE') {
+                return res.status(400).json({ 
+                    success: false,
+                    message: 'File size too large. Max 5MB allowed.'
+                });
+            }
+            if (err.message) {
+                return res.status(400).json({ 
+                    success: false,
+                    message: err.message
+                });
+            }
+            return res.status(400).json({ 
+                success: false,
+                message: 'File upload failed.'
+            });
+        }
+        
+        if (!req.file) {
+            return res.status(400).json({ 
+                success: false,
+                message: 'No file selected.'
+            });
+        }
+        
+        res.status(200).json({
+            success: true,
+            message: 'File uploaded successfully',
+            file: {
+                name: req.file.filename,
+                path: "/ uploads / \${req.file.filename}",
+                                    size: req.file.size,
+                                    mimetype: req.file.mimetype
+            }
+        });
+    });
+};`}</code></pre>
+                            </div>
+                        </section>
+
                         <section id="projects" className="mb-5">
                             <h2 className="h2 mb-3"><i className="bi bi-lightbulb"></i> Express Project Ideas</h2>
 
@@ -1495,6 +1752,48 @@ module.exports = connectDB;`}</code></pre>
 └── server.js`}</code></pre>
                             </div>
                         </section>
+
+                        <section id="deployment" className="mb-5">
+                            <h2 className="h2 mb-3"><i className="bi bi-cloud-upload"></i> Express Deployment on Render</h2>
+
+                            <div className="property-card">
+                                <h3 className="h4">Steps to Deploy on Render</h3>
+                                <ul>
+                                    <li><strong>1. Create a Render Account</strong> - Sign up at <a href="https://render.com" target="_blank">render.com</a></li>
+                                    <li><strong>2. Push Project to GitHub</strong> - Make sure your Express project is on GitHub</li>
+                                    <li><strong>3. Create a New Web Service</strong> - Select "Web Service" from the Render dashboard</li>
+                                    <li><strong>4. Connect GitHub Repo</strong> - Choose your Express app repository</li>
+                                    <li><strong>5. Set Environment</strong>:
+                                        <ul>
+                                            <li><code>Build Command</code>: <code>npm install</code></li>
+                                            <li><code>Start Command</code>: <code>node server.js</code> or <code>npm start</code></li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>6. Add Environment Variables</strong> - Add your variables like <code>MONGO_URI</code>, <code>JWT_SECRET</code>, etc.</li>
+                                    <li><strong>7. Deploy</strong> - Click “Create Web Service” to deploy your app</li>
+                                </ul>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">Example: Environment Variables</h3>
+                                <pre><code>{`PORT=5000
+MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/dbname
+JWT_SECRET=your_jwt_secret
+CLOUDINARY_URL=your_cloudinary_url (if using image upload)
+NODE_ENV=production`}</code></pre>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">Tips</h3>
+                                <ul>
+                                    <li>Make sure <code>server.js</code> listens to <code>process.env.PORT</code></li>
+                                    <li>Allow CORS if frontend is hosted separately</li>
+                                    <li>Use <code>dotenv</code> for managing env variables locally</li>
+                                    <li>Ensure the root folder contains <code>package.json</code></li>
+                                </ul>
+                            </div>
+                        </section>
+
                     </main>
                 </div>
             </div>
