@@ -1,4 +1,9 @@
 import React from 'react';
+import single from '../../assets/Single-Inheritance.jpg';
+import multilevel from '../../assets/Multilevel-Inheritance.jpg';
+import hierarchical from '../../assets/Hierarchical-Inheritance-in-Java.jpg';
+import multiple from '../../assets/multiple_inheritance.png';
+import hybrid from '../../assets/Hybrid-Inheritance.jpg';
 
 function CppNotes() {
   return (
@@ -1223,6 +1228,7 @@ int main() {
                 </ol>
 
                 <h4 className="h5 mt-3">Single Level Inheritance</h4>
+                <img src={single} alt="" className="img-fluid" /><br /><br />
                 <pre><code>{`#include <iostream>
 using namespace std;
 
@@ -1248,6 +1254,7 @@ int main() {
 }`}</code></pre>
 
                 <h4 className="h5 mt-3">Multi-Level Inheritance</h4>
+                <img src={multilevel} alt="" className="img-fluid" /><br /><br />
                 <pre><code>{`#include <iostream>
 using namespace std;
 
@@ -1281,6 +1288,7 @@ int main() {
 }`}</code></pre>
 
                 <h4 className="h5 mt-3">Multiple Inheritance</h4>
+                <img src={multiple} alt="" className="img-fluid" /><br /><br />
                 <pre><code>{`#include <iostream>
 using namespace std;
 
@@ -1313,6 +1321,7 @@ int main() {
     return 0;
 }`}</code></pre>
                 <h4 className="h5 mt-3">Heirarchical Inheritance</h4>
+                <img src={hierarchical} alt="" className="img-fluid" /><br /><br />
                 <pre><code>{`#include <iostream>
 using namespace std;
 
@@ -1347,6 +1356,7 @@ int main() {
     return 0;
 }`}</code></pre>
                 <h4 className="h5 mt-3">Hybrid Inheritance</h4>
+                <img src={hybrid} alt="" className="img-fluid" /><br /><br />
                 <pre><code>{`#include <iostream>
 using namespace std;
 

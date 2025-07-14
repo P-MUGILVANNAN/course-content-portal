@@ -1,4 +1,9 @@
 import React from 'react';
+import single from '../../assets/Single-Inheritance.jpg';
+import multilevel from '../../assets/Multilevel-Inheritance.jpg';
+import hierarchical from '../../assets/Hierarchical-Inheritance-in-Java.jpg';
+import multiple from '../../assets/multiple_inheritance.png';
+import hybrid from '../../assets/Hybrid-Inheritance.jpg';
 
 function PhpNotes() {
   return (
@@ -1675,6 +1680,7 @@ $obj = new Goodbye(); // Destructor will run automatically at the end`}</code></
                 <p><strong>Types of Inheritance in PHP:</strong></p>
                 <p>Note: PHP does not support multiple inheritance directly through classes, but it can be achieved via traits.</p>
                 <p><strong>1. Single Inheritance:</strong> One child inherits from one parent.</p>
+                <img src={single} alt="" className="img-fluid" /><br /><br />
                 <pre><code>{`class Animal {
   public function sound() {
     echo "Animal Sound";
@@ -1691,6 +1697,7 @@ $d = new Dog();
 $d->sound(); // Output: Animal Sound
 $d->bark();  // Output: Dog Barks`}</code></pre>
                 <p><strong>2. Multilevel Inheritance:</strong> A class inherits from a class that inherited from another class.</p>
+                <img src={multilevel} alt="" className="img-fluid" /><br /><br />
                 <pre><code>{`class GrandParent {
   public function sayHello() {
     echo "Hello from GrandParent";
@@ -1704,6 +1711,7 @@ class ChildClass extends ParentClass {}
 $obj = new ChildClass();
 $obj->sayHello(); // Output: Hello from GrandParent`}</code></pre>
                 <p><strong>3. Hierarchical Inheritance:</strong> Multiple classes inherit from the same parent class.</p>
+                <img src={hierarchical} alt="" className="img-fluid" /><br /><br />
                 <pre><code>{`class Vehicle {
   public function run() {
     echo "Running...";
@@ -1718,6 +1726,7 @@ $b = new Bike();
 $c->run(); // Running...
 $b->run(); // Running...`}</code></pre>
                 <p><strong>4. Multiple Inheritance (Using Traits):</strong> PHP does not support direct multiple inheritance via classes, but traits provide this functionality.</p>
+                <img src={multiple} alt="" className="img-fluid" /><br /><br />
                 <pre><code>{`trait Trait1 {
   public function message1() {
     echo "Message from Trait1";
@@ -1738,6 +1747,7 @@ $t = new Test();
 $t->message1(); // Trait1
 $t->message2(); // Trait2`}</code></pre>
                 <p><strong>5. Hybrid Inheritance:</strong> A combination of two or more types of inheritance (handled via traits + multilevel or hierarchical).</p>
+                <img src={hybrid} alt="" className="img-fluid" /><br /><br />
                 <pre><code>{`trait Logger {
   public function log() {
     echo "Logging...";

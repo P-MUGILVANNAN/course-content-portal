@@ -1,4 +1,11 @@
 import React from 'react';
+import exceptions from '../../assets/exceptions in java.webp';
+import collections from '../../assets/collections.jpg';
+import single from '../../assets/Single-Inheritance.jpg';
+import multilevel from '../../assets/Multilevel-Inheritance.jpg';
+import hierarchical from '../../assets/Hierarchical-Inheritance-in-Java.jpg';
+import multiple from '../../assets/multiple_inheritance.png';
+import hybrid from '../../assets/Hybrid-Inheritance.jpg';
 
 function JavaNotes() {
     return (
@@ -101,7 +108,11 @@ function JavaNotes() {
                             <a className="nav-link" href="#inheritance"><i className="bi bi-diagram-3"></i> Inheritance</a>
                             <a className="nav-link" href="#polymorphism"><i className="bi bi-arrow-left-right"></i> Polymorphism</a>
                             <a className="nav-link" href="#abstraction"><i className="bi bi-eye-slash"></i> Abstraction</a>
+                            <a className="nav-link" href="#abstraction"><i className="bi bi-buildings"></i> Constructor</a>
+                            <a className="nav-link" href="#abstraction"><i className="bi bi-key"></i> Super and This Keyword</a>
+                            <a className="nav-link" href="#abstraction"><i className="bi bi-copy me-2"></i>Interfaces</a>
                             <a className="nav-link" href="#encapsulation"><i className="bi bi-capsule"></i> Encapsulation</a>
+                            <a className="nav-link" href="#encapsulation">OOPS Program</a>
                             <a className="nav-link" href="#exception"><i className="bi bi-exclamation-triangle"></i> Exception Handling</a>
                             <a className="nav-link" href="#collections"><i className="bi bi-collection"></i> Collections</a>
                             <a className="nav-link" href="#multithreading"><i className="bi bi-cpu"></i> Multithreading</a>
@@ -1050,6 +1061,7 @@ valueOf() -> used to convert the character array into string.`}</code></pre>
 
                             <div className="property-card">
                                 <h3 className="h4"><i className="bi bi-1-circle me-2"></i>Single Level Inheritance</h3>
+                                <img src={single} className='img-fluid' alt="" /><br /><br />
                                 <pre><code>{`class Parent {
     void abc() {
         System.out.println("Parent Method");
@@ -1075,6 +1087,7 @@ class SingleLevel{
 
                             <div className="property-card">
                                 <h3 className="h4"><i className="bi bi-2-circle me-2"></i>Multi Level Inheritance</h3>
+                                <img src={multilevel} alt="" className="img-fluid" /><br /><br />
                                 <pre><code>{`class Grandpa {
     void xyz() { System.out.println("Grandpa Method"); }
 }
@@ -1101,6 +1114,7 @@ class MultiLevel{
 
                             <div className="property-card">
                                 <h3 className="h4"><i className="bi bi-3-circle me-2"></i>Hierarchical Inheritance</h3>
+                                <img src={hierarchical} alt="" style={{width:'75%',height:'400px'}} className="img-fluid" /><br /><br />
                                 <pre><code>{`class Parent {
     void xyz() { System.out.println("Parent Method"); }
 }
@@ -1403,6 +1417,7 @@ interface A
                             </div>
                             <div className="property-card">
                                 <h3 className="h4">Multiple Inheritance with Interfaces</h3>
+                                <img src={multiple} alt="" className="img-fluid" /><br /><br />
                                 <pre><code>{`interface Father {
     void xyz();
 }
@@ -1434,6 +1449,7 @@ class Multiple{
 
                             <div className="property-card">
                                 <h3 className="h4">Hybrid Inheritance with Interfaces</h3>
+                                <img src={hybrid} alt="" className="img-fluid" /><br /><br />
                                 <pre><code>{`interface Z {
     void xyz();
 }
@@ -1557,6 +1573,7 @@ class Main
                                     <li>The valid statements will not be executed if exception occurs.</li>
                                 </ul>
                                 <p><strong>Types:</strong></p>
+                                <img src={exceptions} alt="" className="img-fluid w-100" />
                                 <ul>
                                     <li><strong>Checked:</strong> Compile-time exceptions (IOException, SQLException)</li>
                                     <li><strong>Unchecked:</strong> Runtime exceptions (NullPointerException, ArrayIndexOutOfBoundsException)</li>
@@ -1656,6 +1673,7 @@ void myMethod() throws IOException {
                                     <li>All the operations that you perform on a data such as searching, sorting, insertion, manipulation, deletion etc. can be performed by Java Collections.</li>
                                     <li>Java Collection framework provides many interfaces (Set, List, Queue, Deque etc.) and classes (ArrayList, Vector, LinkedList, PriorityQueue, HashSet, LinkedHashSet, TreeSet etc).</li>
                                 </ul>
+                                <img src={collections} className='img-fluid w-100' alt="" />
 
                             </div>
 

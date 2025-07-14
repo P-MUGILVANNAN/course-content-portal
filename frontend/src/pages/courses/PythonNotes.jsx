@@ -1,4 +1,9 @@
 import React from 'react';
+import single from '../../assets/Single-Inheritance.jpg';
+import multilevel from '../../assets/Multilevel-Inheritance.jpg';
+import hierarchical from '../../assets/Hierarchical-Inheritance-in-Java.jpg';
+import multiple from '../../assets/multiple_inheritance.png';
+import hybrid from '../../assets/Hybrid-Inheritance.jpg';
 
 function PythonNotes() {
   return (
@@ -1464,6 +1469,7 @@ obj = Student("Rutu")  # Parameterized constructor and Rutu`}</code></pre>
                   <li>Hybrid inheritance - Multiple type of inheritance</li>
                 </ol>
                 <h4 className='mb-3'><i className="bi bi-1-circle"></i> Single Level Inheritance</h4>
+                <img src={single} alt="" className="img-fluid" /><br /><br />
                 <pre><code>{`# Single level inheritance
 class Parent:
     def abc(self):
@@ -1477,6 +1483,7 @@ obj = Child()
 obj.abc()  # Parent property
 obj.lmn()  # Child property`}</code></pre>
                 <h4 className='mb-3'><i className="bi bi-2-circle"></i> Multi Level Inheritance</h4>
+                <img src={multilevel} alt="" className="img-fluid" /><br /><br />
                 <pre><code>{`# Multi-level inheritance
 class Grandpa:
     def xyz(self):
@@ -1495,6 +1502,7 @@ obj.xyz()  # Grandpa property
 obj.abc()  # Parent property
 obj.lmn()  # Child property`}</code></pre>
                 <h4 className='mb-3'><i className="bi bi-3-circle"></i> Multiple Inheritance</h4>
+                <img src={multiple} alt="" className="img-fluid" /><br /><br />
                 <pre><code>{`# Multiple inheritance
 class Father:
     def xyz(self):
@@ -1513,6 +1521,7 @@ obj.xyz()  # Father property
 obj.abc()  # Mother property
 obj.lmn()  # Child property`}</code></pre>
                 <h4 className='mb-3'><i className="bi bi-4-circle"></i> Hierarchical Inheritance</h4>
+                <img src={hierarchical} alt="" className="img-fluid" /><br /><br />
                 <pre><code>{`# Hierarchical inheritance
 class Parent:
     def xyz(self):
@@ -1533,6 +1542,7 @@ obj1.abc()  # Child1 property
 obj2.xyz()  # Parent property
 obj2.lmn()  # Child2 property`}</code></pre>
                 <h4 className='mb-3'><i className="bi bi-5-circle"></i> Hybrid Inheritance</h4>
+                <img src={hybrid} alt="" className="img-fluid" /><br /><br />
                 <pre><code>{`# Hybrid inheritance
 
 class CEO: 
