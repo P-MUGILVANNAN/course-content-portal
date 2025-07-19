@@ -85,6 +85,7 @@ function ExpressNotes() {
                             <a className="nav-link" href="#authentication"><i className="bi bi-shield-lock"></i> Authentication</a>
                             <a className="nav-link" href="#mvc"><i className="bi bi-diagram-3"></i> MVC Structure</a>
                             <a className="nav-link" href="#file-uploads"><i className="bi bi-file-earmark-arrow-up"></i> File Uploads</a>
+                            <a className="nav-link" href="#crud"><i className="bi bi-database"></i> CRUD App</a>
                             <a className="nav-link" href="#projects"><i className="bi bi-lightbulb"></i> Project Ideas</a>
                             <a className="nav-link" href="#deployment"><i className="bi bi-cloud-upload"></i> Deployement</a>
                         </nav>
@@ -1075,165 +1076,101 @@ app.get('/', function (req, res) {
                         </section>
 
                         <section id="authentication" className="mb-5">
-                            <h2 className="h2 mb-3"><i className="bi bi-shield-lock"></i> Authentication with JWT and Bcrypt</h2>
+                            <h2 className="h2 mb-3"><i className="bi bi-shield-lock"></i> Simple Authentication with JWT & Bcrypt</h2>
 
                             <div className="property-card">
-                                <h3 className="h4">Authentication Flow</h3>
+                                <h3 className="h4">Authentication Flow (Simplified)</h3>
                                 <ol>
-                                    <li>User registers with email/password (password is hashed with bcrypt)</li>
-                                    <li>User logs in with credentials</li>
-                                    <li>Server verifies credentials and issues JWT token</li>
-                                    <li>Client stores token and sends with subsequent requests</li>
-                                    <li>Server verifies token for protected routes</li>
+                                    <li>User registers with name, email, password</li>
+                                    <li>Password is hashed using bcrypt</li>
+                                    <li>User logs in using email & password</li>
+                                    <li>JWT token is issued on login and sent in response</li>
                                 </ol>
                             </div>
 
                             <div className="property-card mt-4">
-                                <h3 className="h4">1. Install Required Packages</h3>
-                                <pre><code>npm install jsonwebtoken bcryptjs</code></pre>
+                                <h3 className="h4">1. Install Packages</h3>
+                                <pre><code>npm install express mongoose bcryptjs jsonwebtoken dotenv</code></pre>
                             </div>
 
                             <div className="property-card mt-4">
                                 <h3 className="h4">2. User Model (models/User.js)</h3>
                                 <pre><code>{`const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 
-const UserSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: [true, 'Please add a name']
-    },
-    email: {
-        type: String,
-        required: [true, 'Please add an email'],
-        unique: true,
-        match: [
-            /^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$/,
-            'Please add a valid email'
-        ]
-    },
-    password: {
-        type: String,
-        required: [true, 'Please add a password'],
-        minlength: 6,
-        select: false
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now
-    }
+const userSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true }
 });
 
-// Encrypt password using bcrypt
-UserSchema.pre('save', async function(next) {
-    if (!this.isModified('password')) {
-        next();
-    }
-    const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password, salt);
-});
-
-// Sign JWT and return
-UserSchema.methods.getSignedJwtToken = function() {
-    return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_EXPIRE
-    });
-};
-
-// Match user entered password to hashed password in database
-UserSchema.methods.matchPassword = async function(enteredPassword) {
-    return await bcrypt.compare(enteredPassword, this.password);
-};
-
-module.exports = mongoose.model('User', UserSchema);`}</code></pre>
+module.exports = mongoose.model('User', userSchema);`}</code></pre>
                             </div>
 
                             <div className="property-card mt-4">
-                                <h3 className="h4">3. Auth Controller (controllers/auth.js)</h3>
+                                <h3 className="h4">3. Auth Controller (controllers/authController.js)</h3>
                                 <pre><code>{`const User = require('../models/User');
-const ErrorResponse = require('../utils/errorResponse');
-const asyncHandler = require('../middleware/async');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
-// @desc    Register user
-// @route   POST /api/v1/auth/register
-// @access  Public
-exports.register = asyncHandler(async (req, res, next) => {
-    const { name, email, password } = req.body;
+exports.register = async (req, res) => {
+  const { name, email, password } = req.body;
+  if (!name || !email || !password) {
+    return res.status(400).json({ error: 'All fields are required' });
+  }
 
-    // Create user
-    const user = await User.create({
-        name,
-        email,
-        password
+  try {
+    const existingUser = await User.findOne({ email });
+    if (existingUser) return res.status(400).json({ error: 'User already exists' });
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const newUser = await User.create({
+      name,
+      email,
+      password: hashedPassword
     });
 
-    sendTokenResponse(user, 200, res);
-});
+    const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
 
-// @desc    Login user
-// @route   POST /api/v1/auth/login
-// @access  Public
-exports.login = asyncHandler(async (req, res, next) => {
-    const { email, password } = req.body;
+    res.status(201).json({
+      name: newUser.name,
+      email: newUser.email,
+      token
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'Registration failed' });
+  }
+};
 
-    // Validate email & password
-    if (!email || !password) {
-        return next(new ErrorResponse('Please provide an email and password', 400));
-    }
+exports.login = async (req, res) => {
+  const { email, password } = req.body;
+  if (!email || !password) {
+    return res.status(400).json({ error: 'Email and password are required' });
+  }
 
-    // Check for user
-    const user = await User.findOne({ email }).select('+password');
+  try {
+    const user = await User.findOne({ email });
+    if (!user) return res.status(400).json({ error: 'Invalid credentials' });
 
-    if (!user) {
-        return next(new ErrorResponse('Invalid credentials', 401));
-    }
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) return res.status(400).json({ error: 'Invalid credentials' });
 
-    // Check if password matches
-    const isMatch = await user.matchPassword(password);
-
-    if (!isMatch) {
-        return next(new ErrorResponse('Invalid credentials', 401));
-    }
-
-    sendTokenResponse(user, 200, res);
-});
-
-// Get token from model, create cookie and send response
-const sendTokenResponse = (user, statusCode, res) => {
-    // Create token
-    const token = user.getSignedJwtToken();
-
-    const options = {
-        expires: new Date(
-            Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
-        ),
-        httpOnly: true
-    };
-
-    if (process.env.NODE_ENV === 'production') {
-        options.secure = true;
-    }
-
-    res
-        .status(statusCode)
-        .cookie('token', token, options)
-        .json({
-            success: true,
-            token
-        });
+    res.json({
+      message: 'Login successful',
+      name: user.name,
+      email: user.email
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'Login failed' });
+  }
 };`}</code></pre>
                             </div>
 
                             <div className="property-card mt-4">
-                                <h3 className="h4">4. Auth Routes (routes/auth.js)</h3>
+                                <h3 className="h4">4. Routes (routes/authRoutes.js)</h3>
                                 <pre><code>{`const express = require('express');
-const {
-    register,
-    login
-} = require('../controllers/auth');
-
 const router = express.Router();
+const { register, login } = require('../controllers/authController');
 
 router.post('/register', register);
 router.post('/login', login);
@@ -1242,91 +1179,47 @@ module.exports = router;`}</code></pre>
                             </div>
 
                             <div className="property-card mt-4">
-                                <h3 className="h4">5. Protect Middleware (middleware/auth.js)</h3>
-                                <pre><code>{`const jwt = require('jsonwebtoken');
-const ErrorResponse = require('../utils/errorResponse');
-const User = require('../models/User');
-
-exports.protect = async (req, res, next) => {
-    let token;
-
-    if (
-        req.headers.authorization &&
-        req.headers.authorization.startsWith('Bearer')
-    ) {
-        token = req.headers.authorization.split(' ')[1];
-    } else if (req.cookies.token) {
-        token = req.cookies.token;
-    }
-
-    // Make sure token exists
-    if (!token) {
-        return next(new ErrorResponse('Not authorized to access this route', 401));
-    }
-
-    try {
-        // Verify token
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
-        req.user = await User.findById(decoded.id);
-
-        next();
-    } catch (err) {
-        return next(new ErrorResponse('Not authorized to access this route', 401));
-    }
-};`}</code></pre>
-                            </div>
-
-                            <div className="property-card mt-4">
-                                <h3 className="h4">6. Server Configuration (server.js)</h3>
+                                <h3 className="h4">5. Main App (index.js)</h3>
                                 <pre><code>{`const express = require('express');
+const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const cookieParser = require('cookie-parser');
-const connectDB = require('./config/db');
-const auth = require('./routes/auth');
+const authRoutes = require('./routes/authRoutes');
 
-// Load env vars
-dotenv.config({ path: './config/config.env' });
-
-// Connect to database
-connectDB();
-
+dotenv.config();
 const app = express();
-
-// Body parser
 app.use(express.json());
 
-// Cookie parser
-app.use(cookieParser());
+// DB Connection
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.log(err));
 
-// Mount routers
-app.use('/api/v1/auth', auth);
+// Routes
+app.use('/api/auth', authRoutes);
 
-const PORT = process.env.PORT || 5000;
-
-const server = app.listen(
-    PORT,
-    console.log('Server running in', process.env.NODE_ENV, 'mode on port', PORT)
-);
-
-// Handle unhandled promise rejections
-process.on('unhandledRejection', (err, promise) => {
-    console.log('Error:', err.message);
-    // Close server & exit process
-    server.close(() => process.exit(1));
+app.listen(process.env.PORT, () => {
+  console.log('Server running on port ' + process.env.PORT);
 });`}</code></pre>
                             </div>
 
                             <div className="property-card mt-4">
-                                <h3 className="h4">7. Environment Variables (config.env)</h3>
-                                <pre><code>{`NODE_ENV=development
-PORT=5000
-MONGO_URI=mongodb+srv://yourdbconnectionstring
-JWT_SECRET=yourjwtsecret
-JWT_EXPIRE=30d
-JWT_COOKIE_EXPIRE=30`}</code></pre>
+                                <h3 className="h4">6. Environment Variables (.env)</h3>
+                                <pre><code>{`PORT=5000
+MONGO_URI=mongodb://localhost:27017/myapp
+JWT_SECRET=myjwtsecret`}</code></pre>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">✅ Sample Responses</h3>
+                                <ul>
+                                    <li><strong>POST /api/auth/register</strong><br />
+                                        <code>{`{ "name": "Mugil", "email": "mugil@example.com", "token": "..." }`}</code></li>
+                                    <li><strong>POST /api/auth/login</strong><br />
+                                        <code>{`{ "message": "Login successful", "name": "Mugil", "email": "mugil@example.com" }`}</code></li>
+                                </ul>
                             </div>
                         </section>
+
 
                         <section id="mvc" className="mb-5">
                             <h2 className="h2 mb-3"><i className="bi bi-diagram-3"></i> MVC Structure in Express</h2>
@@ -1506,174 +1399,170 @@ app.post('/upload-multiple', upload.array('files', 5), (req, res) => {
     });
 });`}</code></pre>
                             </div>
+                        </section>
+
+                        <section id="crud" className="mb-5">
+                            <h2 className="h2 mb-3"><i className="bi bi-info-circle"></i> Student Management API (MERN Stack)</h2>
+                            <ul className="mb-3">
+                                <li><strong>Backend Stack:</strong> Express.js, MongoDB, Mongoose</li>
+                                <li><strong>Features:</strong> Create, Read, Update, Delete student details</li>
+                                <li><strong>DB:</strong> MongoDB Atlas or Local MongoDB via <code>.env</code></li>
+                                <li><strong>API Routes:</strong> RESTful CRUD endpoints</li>
+                            </ul>
+
+                            <div className="property-card">
+                                <h3 className="h4">📁 Folder Structure</h3>
+                                <pre><code>{`project-root/
+├── controllers/
+│   └── StudentController.js
+├── models/
+│   └── Student.js
+├── routes/
+│   └── studentRoutes.js
+├── .env
+├── index.js
+├── package.json
+└── README.md`}</code></pre>
+                            </div>
 
                             <div className="property-card mt-4">
-                                <h3 className="h4">File Validation</h3>
-                                <p>You can validate files by type, size, etc.:</p>
-                                <pre><code>{`const fileFilter = (req, file, cb) => {
-    // Accept images only
-    const filetypes = /jpeg|jpg|png|gif/;
-    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-    const mimetype = filetypes.test(file.mimetype);
-    
-    if (mimetype && extname) {
-        return cb(null, true);
-    } else {
-        cb('Error: Images Only!');
-    }
+                                <h3 className="h4">📄 models/Student.js</h3>
+                                <pre><code>{`const mongoose = require('mongoose');
+
+const studentSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  phone: { type: String, required: true, unique: true },
+  address: { type: String, required: true },
+  schoolName: { type: String, required: true },
+  age: { type: Number, required: true }
+});
+
+module.exports = mongoose.model('students', studentSchema);`}</code></pre>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">📄 controllers/StudentController.js</h3>
+                                <pre><code>{`const Students = require('../models/Student');
+
+// Create
+exports.createStudent = async (req, res) => {
+  const { name, email, phone, age, schoolName, address } = req.body;
+  if (!name || !email || !phone || !age || !schoolName || !address) {
+    return res.status(400).json({ error: 'Please provide all required details' });
+  }
+  try {
+    const student = await Students.create({ name, email, phone, age, schoolName, address });
+    res.status(201).json(student);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to create student' });
+  }
 };
 
-const upload = multer({
-    storage: storage,
-    fileFilter: fileFilter,
-    limits: {
-        fileSize: 1024 * 1024 * 5 // 5MB limit
-    }
-});`}</code></pre>
-                            </div>
-
-                            <div className="property-card mt-4">
-                                <h3 className="h4">Cloud Storage Upload (AWS S3 Example)</h3>
-                                <p>For production, you'll want to use cloud storage. Here's an example with AWS S3:</p>
-
-                                <p>Install required packages:</p>
-                                <pre><code>npm install aws-sdk multer-s3</code></pre>
-
-                                <p>S3 configuration:</p>
-                                <pre><code>{`const AWS = require('aws-sdk');
-const multerS3 = require('multer-s3');
-
-// Configure AWS
-AWS.config.update({
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    region: process.env.AWS_REGION
-});
-
-const s3 = new AWS.S3();
-
-// Set up S3 storage
-const s3Storage = multerS3({
-    s3: s3,
-    bucket: process.env.AWS_BUCKET_NAME,
-    acl: 'public-read',
-    metadata: function (req, file, cb) {
-        cb(null, { fieldName: file.fieldname });
-    },
-    key: function (req, file, cb) {
-        const fileName = Date.now().toString() + '-' + file.originalname;
-        cb(null, fileName);
-    }
-});
-
-const upload = multer({ storage: s3Storage });
-
-app.post('/upload-s3', upload.single('file'), (req, res) => {
-    res.json({
-        message: 'File uploaded to S3 successfully',
-        fileUrl: req.file.location
-    });
-});`}</code></pre>
-                            </div>
-
-                            <div className="property-card mt-4">
-                                <h3 className="h4">File Upload Best Practices</h3>
-                                <ul>
-                                    <li><strong>Validate file types:</strong> Only accept file types you expect to receive</li>
-                                    <li><strong>Limit file size:</strong> Prevent denial of service attacks with size limits</li>
-                                    <li><strong>Sanitize filenames:</strong> Remove special characters that could cause issues</li>
-                                    <li><strong>Use cloud storage:</strong> For production, use S3, Google Cloud Storage, etc.</li>
-                                    <li><strong>Virus scan:</strong> Consider scanning uploaded files for malware</li>
-                                    <li><strong>Secure uploads:</strong> Don't make upload directories executable</li>
-                                    <li><strong>Use CDN:</strong> Serve uploaded files through a CDN for better performance</li>
-                                </ul>
-                            </div>
-
-                            <div className="property-card mt-4">
-                                <h3 className="h4">Complete File Upload Controller Example</h3>
-                                <p>Here's a more complete example with error handling:</p>
-                                <pre><code>{`const fs = require('fs');
-const path = require('path');
-const multer = require('multer');
-
-// Ensure upload directory exists
-const uploadDir = 'uploads';
-if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir);
-}
-
-// Configure storage
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, uploadDir);
-    },
-    filename: (req, file, cb) => {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-        const ext = path.extname(file.originalname);
-        cb(null, file.fieldname + '-' + uniqueSuffix + ext);
-    }
-});
-
-// File filter
-const fileFilter = (req, file, cb) => {
-    const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-    if (allowedTypes.includes(file.mimetype)) {
-        cb(null, true);
-    } else {
-        cb(new Error('Invalid file type. Only JPEG, PNG and GIF are allowed.'));
-    }
+// Read
+exports.findStudent = async (req, res) => {
+  try {
+    const students = await Students.find();
+    res.json(students);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch students' });
+  }
 };
 
-// Initialize upload
-const upload = multer({
-    storage: storage,
-    fileFilter: fileFilter,
-    limits: {
-        fileSize: 5 * 1024 * 1024 // 5MB
+// Update
+exports.updateStudent = async (req, res) => {
+  const { id } = req.params;
+  const { name, email, phone, age, schoolName, address } = req.body;
+  try {
+    const updatedStudent = await Students.findByIdAndUpdate(
+      id,
+      { name, email, phone, age, schoolName, address },
+      { new: true }
+    );
+    if (!updatedStudent) {
+      return res.status(404).json({ error: 'Student not found' });
     }
-}).single('file');
+    res.json(updatedStudent);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to update student' });
+  }
+};
 
-// Upload controller
-exports.uploadFile = (req, res) => {
-    upload(req, res, (err) => {
-        if (err) {
-            if (err.code === 'LIMIT_FILE_SIZE') {
-                return res.status(400).json({ 
-                    success: false,
-                    message: 'File size too large. Max 5MB allowed.'
-                });
-            }
-            if (err.message) {
-                return res.status(400).json({ 
-                    success: false,
-                    message: err.message
-                });
-            }
-            return res.status(400).json({ 
-                success: false,
-                message: 'File upload failed.'
-            });
-        }
-        
-        if (!req.file) {
-            return res.status(400).json({ 
-                success: false,
-                message: 'No file selected.'
-            });
-        }
-        
-        res.status(200).json({
-            success: true,
-            message: 'File uploaded successfully',
-            file: {
-                name: req.file.filename,
-                path: "/ uploads / \${req.file.filename}",
-                                    size: req.file.size,
-                                    mimetype: req.file.mimetype
-            }
-        });
-    });
+// Delete
+exports.deleteStudent = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const deletedStudent = await Students.findByIdAndDelete(id);
+    if (!deletedStudent) {
+      return res.status(404).json({ error: 'Student not found' });
+    }
+    res.json({ message: 'Student deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to delete student' });
+  }
 };`}</code></pre>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">📄 routes/studentRoutes.js</h3>
+                                <pre><code>{`const express = require('express');
+const router = express.Router();
+const { createStudent, findStudent, updateStudent, deleteStudent } = require('../controllers/StudentController');
+
+router.post('/create', createStudent);
+router.get('/getdata', findStudent);
+router.put('/update/:id', updateStudent);
+router.delete('/delete/:id', deleteStudent);
+
+module.exports = router;`}</code></pre>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">📄 index.js (Main Entry)</h3>
+                                <pre><code>{`const express = require('express');
+const app = express();
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config();
+const studentRoutes = require('./routes/studentRoutes');
+
+// Middlewares
+app.use(cors());
+app.use(bodyParser.json());
+
+// DB Connection
+mongoose.connect(process.env.MONGO_URI)
+.then(() => console.log('Database connected'))
+.catch(err => console.log("Error connecting to the database " + err));
+
+// Routes
+app.get('/', (req, res) => {
+  res.send('Express app is running');
+});
+app.use('/api', studentRoutes);
+
+// Start Server
+app.listen(process.env.PORT, () => {
+  console.log("Server is listening on " + process.env.PORT);
+});`}</code></pre>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">📄 .env</h3>
+                                <pre><code>{`MONGO_URI=mongodb+srv://<your-connection-uri>
+PORT=5000`}</code></pre>
+                            </div>
+
+                            <div className="property-card mt-4">
+                                <h3 className="h4">📌 Sample API Endpoints</h3>
+                                <ul>
+                                    <li><strong>POST /api/create</strong> - Create new student</li>
+                                    <li><strong>GET /api/getdata</strong> - Get all students</li>
+                                    <li><strong>PUT /api/update/:id</strong> - Update student by ID</li>
+                                    <li><strong>DELETE /api/delete/:id</strong> - Delete student by ID</li>
+                                </ul>
                             </div>
                         </section>
 
