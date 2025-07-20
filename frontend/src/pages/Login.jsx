@@ -97,12 +97,6 @@ export default function Login() {
             ) : 'Login'}
           </button>
         </form>
-        <div className="text-center mt-3">
-          <span className="text-muted">Don't have an account? </span>
-          <button className="btn btn-link text-primary fw-semibold p-0" onClick={() => navigate('/trainer/signup')}>
-            Signup
-          </button>
-        </div>
       </div>
     </div>
   );
