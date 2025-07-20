@@ -1243,6 +1243,100 @@ spring.h2.console.path=/h2-console`}</code></pre>
         │       └── view.html
         └── application.properties`}</code></pre>
 
+                <h4 className="h5 mt-2">MvcApplication.java</h4>
+                <pre><code>{`package com.example.mvc;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MvcApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MvcApplication.class, args);
+    }
+}`}</code></pre>
+
+                <h4 className="h5 mt-2">application.properties</h4>
+                <pre><code>{`# Database Configuration
+spring.datasource.url=jdbc:mysql://localhost:3306/mvc_example
+spring.datasource.username=root
+spring.datasource.password=yourpassword
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# Hibernate Properties
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+
+# Thymeleaf Configuration
+spring.thymeleaf.cache=false
+spring.thymeleaf.prefix=classpath:/templates/
+spring.thymeleaf.suffix=.html
+spring.thymeleaf.mode=HTML
+spring.thymeleaf.encoding=UTF-8`}</code></pre>
+
+                <h4 className="h5 mt-2">MvcConfig.java</h4>
+                <pre><code>{`package com.example.mvc.config;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+public class MvcConfig implements WebMvcConfigurer {
+    
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("redirect:/products");
+        registry.addViewController("/login").setViewName("login");
+    }
+}`}</code></pre>
+
+                <h4 className="h5 mt-2">ProductRepository.java</h4>
+                <pre><code>{`package com.example.mvc.repository;
+
+import com.example.mvc.model.Product;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ProductRepository extends JpaRepository<Product, Long> {
+}`}</code></pre>
+
+                <h4 className="h5 mt-2">ProductService.java</h4>
+                <pre><code>{`package com.example.mvc.service;
+
+import com.example.mvc.model.Product;
+import com.example.mvc.repository.ProductRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class ProductService {
+    private final ProductRepository productRepository;
+
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
+    public List<Product> findAll() {
+        return productRepository.findAll();
+    }
+
+    public Product findById(Long id) {
+        return productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found"));
+    }
+
+    public Product save(Product product) {
+        return productRepository.save(product);
+    }
+
+    public void deleteById(Long id) {
+        productRepository.deleteById(id);
+    }
+}`}</code></pre>
+
                 <h4 className="h5 mt-2">Product.java (Model)</h4>
                 <pre><code>{`package com.example.mvc.model;
 
@@ -1263,7 +1357,24 @@ public class Product {
     @Column(length = 2000)
     private String description;
     
-    // Constructors, getters and setters
+    // Constructors
+    public Product() {}
+    
+    public Product(String name, Double price, String description) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+    }
+    
+    // Getters and Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public Double getPrice() { return price; }
+    public void setPrice(Double price) { this.price = price; }
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
 }`}</code></pre>
 
                 <h4 className="h5 mt-2">ProductController.java</h4>
@@ -1321,11 +1432,46 @@ public class ProductController {
     }
 }`}</code></pre>
 
+                <h4 className="h5 mt-2">form.html (Thymeleaf Template)</h4>
+                <pre><code>{`<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="\${product.id} ? 'Edit Product' : 'Create Product'">Product Form</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1 th:text="\${product.id} ? 'Edit Product' : 'Create Product'">Product Form</h1>
+    
+    <form th:action="@{/products}" th:object="\${product}" method="post">
+        <input type="hidden" th:field="*{id}">
+        
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" th:field="*{name}" required>
+        </div>
+        
+        <div>
+            <label for="price">Price:</label>
+            <input type="number" id="price" th:field="*{price}" step="0.01" min="0" required>
+        </div>
+        
+        <div>
+            <label for="description">Description:</label>
+            <textarea id="description" th:field="*{description}" rows="4"></textarea>
+        </div>
+        
+        <button type="submit">Save</button>
+        <a th:href="@{/products}">Cancel</a>
+    </form>
+</body>
+</html>`}</code></pre>
+
                 <h4 className="h5 mt-2">list.html (Thymeleaf Template)</h4>
                 <pre><code>{`<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Product List</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <h1>Products</h1>
@@ -1356,6 +1502,38 @@ public class ProductController {
             </tr>
         </tbody>
     </table>
+</body>
+</html>`}</code></pre>
+
+                <h4 className="h5 mt-2">view.html (Thymeleaf Template)</h4>
+                <pre><code>{`<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="\${product.name}">Product Details</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1 th:text="\${product.name}">Product Details</h1>
+    
+    <div>
+        <strong>ID:</strong>
+        <span th:text="\${product.id}"></span>
+    </div>
+    
+    <div>
+        <strong>Price:</strong>
+        <span th:text="\${'$' + #numbers.formatDecimal(product.price, 1, 2)}"></span>
+    </div>
+    
+    <div>
+        <strong>Description:</strong>
+        <p th:text="\${product.description}"></p>
+    </div>
+    
+    <div>
+        <a th:href="@{/products/edit/{id}(id=\${product.id})}">Edit</a> |
+        <a th:href="@{/products}">Back to List</a>
+    </div>
 </body>
 </html>`}</code></pre>
 
