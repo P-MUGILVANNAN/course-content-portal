@@ -80,6 +80,9 @@ function JavascriptNotes() {
               <a className="nav-link" href="#output"><i className="bi bi-terminal"></i> Display Output</a>
               <a className="nav-link" href="#datatypes"><i className="bi bi-list-check"></i> Data Types</a>
               <a className="nav-link" href="#variables"><i className="bi bi-box"></i> Variables</a>
+              <a className="nav-link" href="#hoisting"><i className="bi bi-arrow-up"></i> Hoisting</a>
+              <a className="nav-link" href="#scope"><i className="bi bi-bounding-box"></i> Scope</a>
+              <a className="nav-link" href="#coercion"><i className="bi bi-arrow-left-right"></i> Coercion</a>
               <a className="nav-link" href="#operators"><i className="bi bi-calculator"></i> Operators</a>
               <a className="nav-link" href="#conditionals"><i className="bi bi-diagram-2"></i> Conditionals</a>
               <a className="nav-link" href="#loops"><i className="bi bi-arrow-repeat"></i> Loops</a>
@@ -92,6 +95,7 @@ function JavascriptNotes() {
               <a className="nav-link" href="#callbacks"><i className="bi bi-arrow-return-right"></i> Callbacks</a>
               <a className="nav-link" href="#promises"><i className="bi bi-hourglass-split"></i> Promises</a>
               <a className="nav-link" href="#asyncawait"><i className="bi bi-hourglass-top"></i> Async/Await</a>
+              <a className="nav-link" href="#trycatch"><i className="bi bi-exclamation-triangle"></i> Try/Catch</a>
               <a className="nav-link" href="#es6"><i className="bi bi-stars"></i> ES6+ Features</a>
               <a className="nav-link" href="#dom"><i className="bi bi-file-earmark-code"></i> DOM</a>
               <a className="nav-link" href="#bom"><i className="bi bi-window"></i> BOM</a>
@@ -212,6 +216,145 @@ keyword varName = value;
 var a = 10; // Global scope
 let b = 20; // Local scope (block-scoped)
 const c = 30; // Constant (cannot be changed)`}</code></pre>
+              </div>
+            </section>
+
+            <section id="hoisting" className="mb-5">
+              <h2 className="h2 mb-3"><i className="bi bi-arrow-up"></i> Hoisting in JavaScript</h2>
+              <p>Hoisting is JavaScript's default behavior of moving declarations to the top of their containing scope.</p>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-1-circle"></i> Variable Hoisting</h3>
+                <pre className="mb-3"><code>{`console.log(x); // undefined (not ReferenceError)
+var x = 5;
+console.log(x); // 5
+
+// What actually happens:
+var x;
+console.log(x); // undefined
+x = 5;
+console.log(x); // 5`}</code></pre>
+                <div className="note">
+                  <p><strong>Note:</strong> Only declarations are hoisted, not initializations. <code>let</code> and <code>const</code> are hoisted but not initialized.</p>
+                </div>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-2-circle"></i> Function Hoisting</h3>
+                <pre className="mb-3"><code>{`// Function declarations are hoisted
+sayHello(); // "Hello!"
+
+function sayHello() {
+  console.log("Hello!");
+}
+
+// Function expressions are not hoisted
+sayHi(); // TypeError: sayHi is not a function
+var sayHi = function() {
+  console.log("Hi!");
+};`}</code></pre>
+              </div>
+            </section>
+
+            <section id="scope" className="mb-5">
+              <h2 className="h2 mb-3"><i className="bi bi-bounding-box"></i> Scope in JavaScript</h2>
+              <p>Scope determines the accessibility (visibility) of variables.</p>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-1-circle"></i> Global Scope</h3>
+                <pre className="mb-3"><code>{`var globalVar = "I'm global";
+
+function checkScope() {
+  console.log(globalVar); // Accessible
+}
+
+checkScope();
+console.log(globalVar); // Accessible`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-2-circle"></i> Function Scope</h3>
+                <pre className="mb-3"><code>{`function checkScope() {
+  var functionVar = "I'm function scoped";
+  console.log(functionVar); // Accessible
+}
+
+checkScope();
+console.log(functionVar); // ReferenceError`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-3-circle"></i> Block Scope (let/const)</h3>
+                <pre className="mb-3"><code>{`if (true) {
+  let blockVar = "I'm block scoped";
+  const constVar = "Me too";
+  console.log(blockVar); // Accessible
+  console.log(constVar); // Accessible
+}
+
+console.log(blockVar); // ReferenceError
+console.log(constVar); // ReferenceError`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-4-circle"></i> Lexical Scope</h3>
+                <pre className="mb-3"><code>{`function outer() {
+  let outerVar = "Outer";
+  
+  function inner() {
+    console.log(outerVar); // "Outer" - accessed from outer scope
+  }
+  
+  inner();
+}
+
+outer();`}</code></pre>
+              </div>
+            </section>
+
+            <section id="coercion" className="mb-5">
+              <h2 className="h2 mb-3"><i className="bi bi-arrow-left-right"></i> Type Coercion in JavaScript</h2>
+              <p>Type coercion is the automatic or implicit conversion of values from one data type to another.</p>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-1-circle"></i> Implicit Coercion</h3>
+                <pre className="mb-3"><code>{`// String coercion
+console.log(1 + "2"); // "12" (number to string)
+
+// Numeric coercion
+console.log("3" - "1"); // 2 (string to number)
+console.log("3" * "2"); // 6
+console.log("6" / "2"); // 3
+
+// Boolean coercion
+console.log(!"hello"); // false
+console.log(!!0); // false`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-2-circle"></i> Explicit Coercion</h3>
+                <pre className="mb-3"><code>{`// To String
+console.log(String(123)); // "123"
+console.log((123).toString()); // "123"
+
+// To Number
+console.log(Number("123")); // 123
+console.log(+"123"); // 123
+console.log(parseInt("123px")); // 123
+
+// To Boolean
+console.log(Boolean(1)); // true
+console.log(!!"hello"); // true`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-3-circle"></i> Truthy and Falsy Values</h3>
+                <pre className="mb-3"><code>{`// Falsy values:
+false, 0, "", null, undefined, NaN
+
+// Truthy values:
+Everything else, including:
+true, 1, "hello", [], {}, function(){}`}</code></pre>
               </div>
             </section>
 
@@ -1198,6 +1341,59 @@ fetchWithError().catch(error => console.error(error));`}</code></pre>
               </div>
             </section>
 
+            <section id="trycatch" className="mb-5">
+              <h2 className="h2 mb-3"><i className="bi bi-exclamation-triangle"></i> Error Handling: Try/Catch/Finally</h2>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-1-circle"></i> Basic Syntax</h3>
+                <pre className="mb-3"><code>{`try {
+  // Code that may throw an error
+  riskyOperation();
+} catch (error) {
+  // Handle the error
+  console.error("An error occurred:", error.message);
+} finally {
+  // Always executes
+  console.log("Cleanup code here");
+}`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-2-circle"></i> Throwing Custom Errors</h3>
+                <pre className="mb-3"><code>{`function validateAge(age) {
+  if (age < 0) {
+    throw new Error("Age cannot be negative");
+  }
+  if (age > 120) {
+    throw new RangeError("Age seems unrealistic");
+  }
+  return age;
+}
+
+try {
+  validateAge(150);
+} catch (error) {
+  if (error instanceof RangeError) {
+    console.log("Range error:", error.message);
+  } else {
+    console.log("Other error:", error.message);
+  }
+}`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-3-circle"></i> Error Types</h3>
+                <ul>
+                  <li><code>Error</code> - Generic error</li>
+                  <li><code>SyntaxError</code> - Parsing errors</li>
+                  <li><code>ReferenceError</code> - Undefined variables</li>
+                  <li><code>TypeError</code> - Wrong type used</li>
+                  <li><code>RangeError</code> - Value out of range</li>
+                  <li><code>URIError</code> - encodeURI/decodeURI errors</li>
+                </ul>
+              </div>
+            </section>
+
             <section id="es6" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-stars"></i> ES6+ Features</h2>
 
@@ -1295,54 +1491,267 @@ import multiply from './math.js';`}</code></pre>
             <section id="dom" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-file-earmark-code"></i> DOM (Document Object Model)</h2>
               <ul>
-                <li>DOM stands for Document Object Model.</li>
-                <li>It is a programming interface for HTML and XML documents.</li>
-                <li>It defines the logical structure of documents and the way a document is accessed and manipulated.</li>
+                <li><strong>DOM</strong> stands for Document Object Model - a tree-like representation of the HTML document</li>
+                <li>It serves as a programming interface for web documents, allowing JavaScript to access and manipulate page content</li>
+                <li>The DOM represents elements as objects with properties and methods that can be modified dynamically</li>
               </ul>
 
               <div className="property-card">
                 <h3 className="h4"><i className="bi bi-1-circle"></i> DOM Methods</h3>
-                <pre className="mb-3"><code>{`document.write("Content"); // Write to document
-document.getElementById("id").innerHTML = "Content";
-document.getElementsByClassName("class")[0].innerHTML = "Content";
-document.getElementsByTagName("h1")[0].innerHTML = "Content";
-document.querySelector("#id").style.color = "red";`}</code></pre>
+                <p>Core methods for selecting and manipulating DOM elements:</p>
+                <pre className="mb-3"><code>{`// 1. document.write() - Writes directly to the document
+document.write("<h1>Hello World</h1>");
+// Output: Adds "Hello World" as h1 to the page
+
+// 2. getElementById() - Selects element by ID
+document.getElementById("header").innerHTML = "New Title";
+// Output: Changes content of element with id="header"
+
+// 3. getElementsByClassName() - Selects elements by class
+document.getElementsByClassName("item")[0].style.color = "blue";
+// Output: First element with class="item" turns blue
+
+// 4. getElementsByTagName() - Selects elements by tag
+document.getElementsByTagName("p")[0].innerHTML = "First paragraph modified";
+// Output: Changes first <p> element's content
+
+// 5. querySelector() - CSS-style selector (returns first match)
+document.querySelector("#nav .active").style.fontWeight = "bold";
+// Output: Bold the first active element inside #nav`}</code></pre>
               </div>
 
               <div className="property-card">
                 <h3 className="h4"><i className="bi bi-2-circle"></i> DOM Events</h3>
-                <pre className="mb-3"><code>{`// Mouse Events
-<button onclick="alert('Clicked')">Click</button>
-<button onmouseover="alert('Hovered')">Hover</button>
-<button onmouseout="alert('Mouse Out')">Mouse Out</button>
-<button ondblclick="alert('Double clicked')">Double Click</button>
-<button oncontextmenu="alert('Right clicked')">Right Click</button>
+                <p>Events are actions that occur in the browser that can be detected and handled:</p>
+                <pre className="mb-3"><code>{`<!-- HTML -->
+<button id="myBtn">Click Me</button>
+<div id="output"></div>
 
-// Keyboard Events
-<input onkeyup="alert('Key Up')">
-<input onkeydown="alert('Key Down')">
-<input onkeypress="alert('Key pressed')">
+<script>
+    // Mouse Events
+  document.getElementById("myBtn").onclick = function() {
+    document.getElementById("output").innerHTML = "Button clicked!";
+    // Output: "Button clicked!" appears when button is clicked
+  };
+
+  // Keyboard Events
+  document.addEventListener("keydown", function(event) {
+    console.log("Key pressed: "+event.key);
+    // Output: Logs which key was pressed (e.g., "Key pressed: a")
+  });
 
 // Form Events
-<form onsubmit="alert('Submitted')" onreset="alert('Resetted')">
-  <input type="submit">
-  <input type="reset">
-</form>
+  document.querySelector("form").onsubmit = function(e) {
+    e.preventDefault();
+    alert("Form submitted!");
+    // Output: Shows alert when form is submitted
+  };
 
-// Window Events
-<body onload="alert('Page loaded')">`}</code></pre>
+  // Window Events
+  window.onload = function() {
+    console.log("Page fully loaded");
+    // Output: Logs message when page finishes loading
+  };
+</script>`}</code></pre>
               </div>
 
               <div className="property-card">
                 <h3 className="h4"><i className="bi bi-3-circle"></i> Event Listeners</h3>
-                <pre className="mb-3"><code>{`document.getElementById("btn").addEventListener("click", function() {
-  alert("Button clicked");
-});`}</code></pre>
+                <p>Modern way to handle events with more flexibility:</p>
+                <pre className="mb-3"><code>{`<button id="demoBtn">Demo</button>
+<p id="eventOutput"></p>
+
+<script>
+  const btn = document.getElementById("demoBtn");
+  
+  // Add click event listener
+  btn.addEventListener("click", function() {
+    document.getElementById("eventOutput").textContent = "Button clicked!";
+    // Output: Updates paragraph text on click
+  });
+
+  // Multiple listeners for same event
+  btn.addEventListener("click", function() {
+    console.log("Second handler executed");
+    // Output: Logs message to console on click
+  });
+
+  // Event object access
+  btn.addEventListener("click", function(event) {
+    console.log("Clicked at (\${event.clientX}, \${event.clientY})");
+    // Output: Logs click coordinates (e.g., "Clicked at (125, 342)")
+  });
+</script>`}</code></pre>
               </div>
+
               <div className="property-card">
                 <h3 className="h4"><i className="bi bi-4-circle"></i> Query Selector</h3>
-                <pre className="mb-3"><code>{`<h2 id="query">Query selector</h2>
-document.querySelector("#query").style.color="gold";`}</code></pre>
+                <p>Modern DOM selection methods using CSS-style selectors:</p>
+                <pre className="mb-3"><code>{`<div class="container">
+  <p class="text">First paragraph</p>
+  <p class="text special">Special paragraph</p>
+</div>
+
+<script>
+  // querySelector - returns first match
+  const firstPara = document.querySelector(".text");
+  firstPara.style.color = "red";
+  // Output: First paragraph turns red
+
+  // querySelectorAll - returns NodeList of all matches
+  const allParas = document.querySelectorAll(".text");
+  allParas.forEach(p => p.style.fontSize = "18px");
+  // Output: All paragraphs get 18px font size
+
+  // Complex selectors
+  const special = document.querySelector(".container .special");
+  special.innerHTML = "Modified special paragraph";
+  // Output: Only the paragraph with both classes changes
+</script>`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-5-circle"></i> DOM Traversal</h3>
+                <p>Navigating between elements in the DOM tree:</p>
+                <pre className="mb-3"><code>{`<div id="parent">
+  <!-- Comment node -->
+  <p class="child">First child</p>
+  <p class="child">Second child</p>
+  <div>
+    <span>Nested element</span>
+  </div>
+</div>
+
+<script>
+  const parent = document.getElementById("parent");
+  
+  // Child nodes (includes all node types)
+  console.log(parent.childNodes.length); 
+  // Output: 7 (includes text nodes and comments)
+
+  // Children (only element nodes)
+  console.log(parent.children.length); 
+  // Output: 3 (only the p and div elements)
+
+  // First/last child
+  console.log(parent.firstElementChild.textContent); 
+  // Output: "First child"
+  console.log(parent.lastElementChild.innerHTML); 
+  // Output: "<span>Nested element</span>"
+
+  // Next/previous sibling
+  const firstChild = document.querySelector(".child");
+  console.log(firstChild.nextElementSibling.textContent); 
+  // Output: "Second child"
+</script>`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-6-circle"></i> Creating and Removing Elements</h3>
+                <p>Dynamically adding and removing elements from the DOM:</p>
+                <pre className="mb-3"><code>{`<div id="container"></div>
+<button id="addBtn">Add Item</button>
+<button id="removeBtn">Remove Last</button>
+
+<script>
+  const container = document.getElementById("container");
+  let counter = 1;
+
+  // Create and append elements
+  document.getElementById("addBtn").addEventListener("click", () => {
+    const newDiv = document.createElement("div");
+    newDiv.className = "item";
+    newDiv.textContent = "Item "+counter++;
+    container.appendChild(newDiv);
+    // Output: Adds "Item 1", "Item 2", etc. to container
+  });
+
+  // Remove elements
+  document.getElementById("removeBtn").addEventListener("click", () => {
+    const lastChild = container.lastElementChild;
+    if (lastChild) {
+      lastChild.remove();
+      // Output: Removes the last added item
+    }
+  });
+
+  // Clone elements
+  const sampleItem = document.createElement("div");
+  sampleItem.className = "item";
+  sampleItem.textContent = "Sample";
+  
+  const clonedItem = sampleItem.cloneNode(true);
+  // Output: Creates an identical copy of sampleItem
+</script>`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-7-circle"></i> Working with Attributes</h3>
+                <p>Manipulating element attributes and custom data attributes:</p>
+                <pre className="mb-3"><code>{`<img id="logo" src="logo.png" class="active" data-info="company-logo">
+<div id="attribute-demo"></div>
+
+<script>
+  const logo = document.getElementById("logo");
+  const demo = document.getElementById("attribute-demo");
+
+  // Get attributes
+  demo.innerHTML = \`Source: \${logo.getAttribute("src")}\`;
+  // Output: "Source: logo.png"
+
+  // Set attributes
+  logo.setAttribute("alt", "Company Logo");
+  logo.setAttribute("title", "Our Logo");
+  // Output: Adds alt and title attributes to image
+
+  // Check attribute existence
+  console.log(logo.hasAttribute("class")); 
+  // Output: true
+
+  // Remove attribute
+  logo.removeAttribute("title");
+  // Output: Removes title attribute
+
+  // Data attributes
+  console.log(logo.dataset.info); 
+  // Output: "company-logo"
+  logo.dataset.loaded = "true";
+  // Output: Adds data-loaded="true" attribute
+</script>`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4"><i className="bi bi-8-circle"></i> Class Manipulation</h3>
+                <p>Dynamically managing CSS classes on elements:</p>
+                <pre className="mb-3"><code>{`<div id="box" class="base-style"></div>
+<button id="toggleBtn">Toggle Style</button>
+
+<script>
+  const box = document.getElementById("box");
+  const toggleBtn = document.getElementById("toggleBtn");
+
+  // Add class
+  box.classList.add("highlight");
+  // Output: Adds "highlight" class to the div
+
+  // Remove class
+  box.classList.remove("base-style");
+  // Output: Removes "base-style" class
+
+  // Toggle class
+  toggleBtn.addEventListener("click", () => {
+    box.classList.toggle("active");
+    // Output: Toggles "active" class on each click
+  });
+
+  // Check class
+  console.log(box.classList.contains("highlight")); 
+  // Output: true
+
+  // Replace class
+  box.classList.replace("highlight", "new-highlight");
+  // Output: Replaces "highlight" with "new-highlight"
+</script>`}</code></pre>
               </div>
             </section>
 
@@ -1411,7 +1820,7 @@ clearInterval(timer);`}</code></pre>
           <p>JavaScript Notes &copy; 2025 | Designed by Mugilvannan P</p>
         </div>
       </footer>
-    </div>
+    </div >
   );
 }
 
