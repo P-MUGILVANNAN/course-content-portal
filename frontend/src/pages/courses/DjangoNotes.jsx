@@ -76,6 +76,12 @@ function DjangoNotes() {
               <a className="nav-link" href="#file-upload"><i className="bi bi-upload"></i> File Upload</a>
               <a className="nav-link" href="#cookies-sessions"><i className="bi bi-cookie"></i> Cookies & Sessions</a>
               <a className="nav-link" href="#authentication"><i className="bi bi-shield-lock"></i> Authentication & Authorization</a>
+              <a className="nav-link" href="#drf-intro"><i className="bi bi-code-square"></i> Django REST Framework</a>
+              <a className="nav-link" href="#drf-setup"><i className="bi bi-gear"></i> DRF Setup & Installation</a>
+              <a className="nav-link" href="#drf-simple-api"><i className="bi bi-terminal"></i> Simple API with DRF</a>
+              <a className="nav-link" href="#django-react"><i className="bi bi-braces"></i> Django + React Integration</a>
+              <a className="nav-link" href="#separate-frontend"><i className="bi bi-diagram-2"></i> React Frontend Setup</a>
+              <a className="nav-link" href="#sample-project"><i className="bi bi-book"></i> Sample Project</a>
             </nav>
           </aside>
 
@@ -1030,7 +1036,7 @@ urlpatterns = [
 {% block content %}
 <div class="container-fluid mt-5">
     <div class="col-md-6 offset-md-3">
-        <form action="update/{{ data.id }}" method="POST" autocomplete="off">
+        <form action="" method="POST" autocomplete="off">
             {% csrf_token %}
             <h3 class="text-primary text-center"><i class="fa fa-edit"></i> Update</h3>
             <div class="form-group">
@@ -1416,6 +1422,445 @@ def profile(request):
 @permission_required('app.add_model', raise_exception=True)
 def restricted_view(request):
     return render(request, 'restricted.html')`}</code></pre>
+              </div>
+            </section>
+
+            <section id="drf-intro" className="mb-5">
+              <h2 className="h2 mb-3"><i className="bi bi-code-square"></i> Django REST Framework</h2>
+
+              <div className="property-card">
+                <h3 className="h4">What is DRF?</h3>
+                <ul>
+                  <li>Powerful and flexible toolkit for building Web APIs in Django</li>
+                  <li>Provides serialization, authentication, permissions, throttling, and more</li>
+                  <li>Works well with both ORM and non-ORM data sources</li>
+                  <li>Highly customizable while providing sensible defaults</li>
+                </ul>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4">Key Features</h3>
+                <ul>
+                  <li><strong>Serialization:</strong> Convert complex data types to native Python datatypes</li>
+                  <li><strong>Authentication:</strong> Built-in support for various authentication schemes</li>
+                  <li><strong>Permissions:</strong> Fine-grained control over who can access what</li>
+                  <li><strong>Throttling:</strong> Control the rate of requests clients can make</li>
+                  <li><strong>Browsable API:</strong> Human-friendly HTML output for your API</li>
+                  <li><strong>Versioning:</strong> API version management</li>
+                </ul>
+              </div>
+            </section>
+
+            <section id="drf-setup" className="mb-5">
+              <h2 className="h2 mb-3"><i className="bi bi-gear"></i> DRF Setup & Installation</h2>
+
+              <div className="property-card">
+                <h3 className="h4">Step 1: Install DRF</h3>
+                <pre className="mb-3"><code>pip install djangorestframework</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4">Step 2: Add to INSTALLED_APPS</h3>
+                <p>settings.py:</p>
+                <pre className="mb-3"><code>{`INSTALLED_APPS = [
+    ...
+    'rest_framework',
+]`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4">Step 3: Configure REST Framework Settings</h3>
+                <p>settings.py:</p>
+                <pre className="mb-3"><code>{`REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}`}</code></pre>
+              </div>
+            </section>
+
+            <section id="drf-simple-api" className="mb-5">
+              <h2 className="h2 mb-3"><i className="bi bi-terminal"></i> Creating a Simple API</h2>
+
+              <div className="property-card">
+                <h3 className="h4">1. Create Model</h3>
+                <p>models.py:</p>
+                <pre className="mb-3"><code>{`from django.db import models
+
+class Book(models.Model):
+    title = models.CharField(max_length=100)
+    author = models.CharField(max_length=100)
+    published_date = models.DateField()
+    isbn = models.CharField(max_length=13)
+    
+    def __str__(self):
+        return self.title`}</code></pre>
+                <p>Run migrations:</p>
+                <pre className="mb-3"><code>python manage.py makemigrations
+                  python manage.py migrate</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4">2. Create Serializer</h3>
+                <p>serializers.py:</p>
+                <pre className="mb-3"><code>{`from rest_framework import serializers
+from .models import Book
+
+class BookSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Book
+        fields = ['id', 'title', 'author', 'published_date', 'isbn']`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4">3. Create View</h3>
+                <p>views.py:</p>
+                <pre className="mb-3"><code>{`from rest_framework import generics
+from .models import Book
+from .serializers import BookSerializer
+
+class BookListCreate(generics.ListCreateAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
+
+class BookRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4">4. Configure URLs</h3>
+                <p>urls.py:</p>
+                <pre className="mb-3"><code>{`from django.urls import path
+from .views import BookListCreate, BookRetrieveUpdateDestroy
+
+urlpatterns = [
+    path('books/', BookListCreate.as_view(), name='book-list'),
+    path('books/<int:pk>/', BookRetrieveUpdateDestroy.as_view(), name='book-detail'),
+]`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4">5. Test the API</h3>
+                <p>Run server:</p>
+                <pre className="mb-3"><code>python manage.py runserver</code></pre>
+                <p>Access API at:</p>
+                <ul>
+                  <li><code>http://127.0.0.1:8000/books/</code> - List/Create books</li>
+                  <li><code>http://127.0.0.1:8000/books/1/</code> - Retrieve/Update/Delete specific book</li>
+                </ul>
+              </div>
+            </section>
+
+            <section id="django-react" className="mb-5">
+              <h2 className="h2 mb-3"><i className="bi bi-braces"></i> Django + React Integration</h2>
+
+              <div className="property-card">
+                <h3 className="h4">Approach 1: Separate Frontend and Backend</h3>
+                <ul>
+                  <li>Django serves as a pure API backend (using DRF)</li>
+                  <li>React runs as a separate frontend application</li>
+                  <li>Communicate via HTTP requests</li>
+                  <li>Best for complex frontends or when frontend and backend are developed by separate teams</li>
+                </ul>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4">Approach 2: Django Serves React</h3>
+                <ul>
+                  <li>Django serves both the API and React frontend</li>
+                  <li>React app is built and static files are served by Django</li>
+                  <li>Simpler deployment but less flexibility</li>
+                </ul>
+              </div>
+            </section>
+
+            <section id="separate-frontend" className="mb-5">
+              <h3 className="h3 mb-3"><i className="bi bi-diagram-2"></i> Separate Frontend Setup</h3>
+
+              <div className="property-card">
+                <h3 className="h4">1. Set Up Django Backend</h3>
+                <p>Create a Django project with DRF as shown in previous sections</p>
+                <p>Configure CORS (Cross-Origin Resource Sharing):</p>
+                <pre className="mb-3"><code>pip install django-cors-headers</code></pre>
+                <p>settings.py:</p>
+                <pre className="mb-3"><code>{`INSTALLED_APPS = [
+    ...
+    'corsheaders',
+]
+
+MIDDLEWARE = [
+    ...
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+]
+
+# Allow all origins (for development only)
+CORS_ALLOW_ALL_ORIGINS = True
+
+# Or specify allowed origins
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4">2. Create React Frontend</h3>
+                <p>Create a new React app:</p>
+                <pre className="mb-3"><code>npm create vite@latest
+                  cd frontend</code></pre>
+                <p>Install axios for API calls:</p>
+                <pre className="mb-3"><code>npm install axios</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4">3. Connect React to Django API</h3>
+                <p>Example React component (BookList.jsx):</p>
+                <pre className="mb-3"><code>{`import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+function BookList() {
+  const [books, setBooks] = useState([]);
+  
+  useEffect(() => {
+    const fetchBooks = async () => {
+      try {
+        const response = await axios.get('http://localhost:8000/api/books/');
+        setBooks(response.data);
+      } catch (error) {
+        console.error('Error fetching books:', error);
+      }
+    };
+    
+    fetchBooks();
+  }, []);
+
+  return (
+    <div>
+      <h2>Books</h2>
+      <ul>
+        {books.map(book => (
+          <li key={book.id}>
+            {book.title} by {book.author}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default BookList;`}</code></pre>
+              </div>
+            </section>
+
+            <section id="sample-project" className="mb-5">
+              <h2 className="h2 mb-3"><i className="bi bi-book"></i> Sample Project: Book Management</h2>
+
+              <div className="property-card">
+                <h3 className="h4">Backend (Django + DRF)</h3>
+                <p><strong>models.py:</strong></p>
+                <pre className="mb-3"><code>{`from django.db import models
+
+class Book(models.Model):
+    title = models.CharField(max_length=200)
+    author = models.CharField(max_length=100)
+    published_date = models.DateField()
+    isbn = models.CharField(max_length=13, unique=True)
+    page_count = models.IntegerField()
+    cover_url = models.URLField(blank=True)
+    language = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.title`}</code></pre>
+
+                <p><strong>serializers.py:</strong></p>
+                <pre className="mb-3"><code>{`from rest_framework import serializers
+from .models import Book
+
+class BookSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Book
+        fields = '__all__'`}</code></pre>
+
+                <p><strong>views.py:</strong></p>
+                <pre className="mb-3"><code>{`from rest_framework import generics, filters
+from .models import Book
+from .serializers import BookSerializer
+from django_filters.rest_framework import DjangoFilterBackend
+
+class BookListCreate(generics.ListCreateAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    filterset_fields = ['author', 'language']
+    search_fields = ['title', 'author']
+    ordering_fields = ['title', 'published_date']
+
+class BookRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer`}</code></pre>
+
+                <p><strong>urls.py:</strong></p>
+                <pre className="mb-3"><code>{`from django.urls import path
+from .views import BookListCreate, BookRetrieveUpdateDestroy
+
+urlpatterns = [
+    path('books/', BookListCreate.as_view(), name='book-list'),
+    path('books/<int:pk>/', BookRetrieveUpdateDestroy.as_view(), name='book-detail'),
+]`}</code></pre>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4">Frontend (React)</h3>
+                <p><strong>BookList.jsx:</strong></p>
+                <pre className="mb-3"><code>{`import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Table, Button, Modal, Form, Input, DatePicker, message } from 'antd';
+import 'antd/dist/antd.css';
+
+const BookList = () => {
+  const [books, setBooks] = useState([]);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [form] = Form.useForm();
+
+  useEffect(() => {
+    fetchBooks();
+  }, []);
+
+  const fetchBooks = async () => {
+    try {
+      const response = await axios.get('http://localhost:8000/api/books/');
+      setBooks(response.data);
+    } catch (error) {
+      message.error('Failed to fetch books');
+    }
+  };
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+    form.resetFields();
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const values = await form.validateFields();
+      await axios.post('http://localhost:8000/api/books/', values);
+      message.success('Book added successfully');
+      fetchBooks();
+      handleCancel();
+    } catch (error) {
+      message.error('Failed to add book');
+    }
+  };
+
+  const columns = [
+    {
+      title: 'Title',
+      dataIndex: 'title',
+      key: 'title',
+    },
+    {
+      title: 'Author',
+      dataIndex: 'author',
+      key: 'author',
+    },
+    {
+      title: 'Published Date',
+      dataIndex: 'published_date',
+      key: 'published_date',
+    },
+    {
+      title: 'ISBN',
+      dataIndex: 'isbn',
+      key: 'isbn',
+    },
+    {
+      title: 'Language',
+      dataIndex: 'language',
+      key: 'language',
+    },
+  ];
+
+  return (
+    <div style={{ padding: '20px' }}>
+      <div style={{ marginBottom: '20px' }}>
+        <Button type="primary" onClick={showModal}>
+          Add Book
+        </Button>
+      </div>
+
+      <Table dataSource={books} columns={columns} rowKey="id" />
+
+      <Modal
+        title="Add New Book"
+        visible={isModalVisible}
+        onOk={handleSubmit}
+        onCancel={handleCancel}
+      >
+        <Form form={form} layout="vertical">
+          <Form.Item
+            name="title"
+            label="Title"
+            rules={[{ required: true, message: 'Please input the title!' }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="author"
+            label="Author"
+            rules={[{ required: true, message: 'Please input the author!' }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="published_date"
+            label="Published Date"
+            rules={[{ required: true, message: 'Please select the date!' }]}
+          >
+            <DatePicker style={{ width: '100%' }} />
+          </Form.Item>
+          <Form.Item
+            name="isbn"
+            label="ISBN"
+            rules={[{ required: true, message: 'Please input the ISBN!' }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="page_count"
+            label="Page Count"
+            rules={[{ required: true, message: 'Please input the page count!' }]}
+          >
+            <Input type="number" />
+          </Form.Item>
+          <Form.Item name="cover_url" label="Cover URL">
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="language"
+            label="Language"
+            rules={[{ required: true, message: 'Please input the language!' }]}
+          >
+            <Input />
+          </Form.Item>
+        </Form>
+      </Modal>
+    </div>
+  );
+};
+
+export default BookList;`}</code></pre>
               </div>
             </section>
           </main>
