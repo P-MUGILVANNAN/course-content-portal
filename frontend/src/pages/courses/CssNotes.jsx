@@ -166,19 +166,6 @@ selector {
                   <li><code>type="text/css"</code> - optional in HTML5 as it's the default for stylesheets</li>
                 </ul>
               </div>
-
-              <div className="property-card">
-                <h3 className="h4"><i className="bi bi-arrow-right-circle"></i> @import Rule</h3>
-                <p><strong>Definition:</strong> Another method to include CSS, either in a CSS file or within a &lt;style&gt; tag</p>
-                <pre className="mb-3"><code>{`/* In your CSS file */
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import 'reset.css';
-
-body {
-  font-family: 'Roboto', sans-serif;
-}`}</code></pre>
-                <p><strong>Note:</strong> @import can impact performance as it requires an additional HTTP request</p>
-              </div>
             </section>
 
             <section id="syntax" className="mb-5">
@@ -813,17 +800,6 @@ h2 ~ p {
                 </div>
                 <div className="col-md-6">
                   <div className="property-card">
-                    <h4 className="h5"><i className="bi bi-border"></i> Border Image</h4>
-                    <p><strong>Definition:</strong> Uses an image as the element's border</p>
-                    <pre><code>{`.image-border {
-  border: 10px solid transparent;
-  border-image: url(border.png) 30 round;
-}`}</code></pre>
-                    <p><strong>Shorthand:</strong> <code>border-image: source slice width outset repeat;</code></p>
-                  </div>
-                </div>
-                <div className="col-md-6">
-                  <div className="property-card">
                     <h4 className="h5"><i className="bi bi-box-shadow"></i> Box Shadow</h4>
                     <p><strong>Definition:</strong> Adds shadow effects around an element's frame</p>
                     <p><strong>Syntax:</strong> <code>box-shadow: h-offset v-offset blur spread color inset;</code></p>
@@ -1077,27 +1053,6 @@ body {
 }`}</code></pre>
               </div>
 
-              <div className="property-card">
-                <h4 className="h5"><i className="bi bi-layout-three-columns"></i> Table Layout</h4>
-                <p><strong>Definition:</strong> Sets the algorithm used to lay out table cells, rows, and columns</p>
-                <p><strong>Values:</strong> <code>auto, fixed</code></p>
-                <pre><code>{`table {
-  table-layout: fixed;
-  width: 100%;
-}`}</code></pre>
-                <p><code>fixed</code> makes columns equal width based on first row, while <code>auto</code> adjusts to content</p>
-              </div>
-
-              <div className="property-card">
-                <h4 className="h5"><i className="bi bi-border"></i> Empty Cells</h4>
-                <p><strong>Definition:</strong> Controls whether borders and backgrounds are shown on empty cells</p>
-                <p><strong>Values:</strong> <code>show, hide</code></p>
-                <pre><code>{`table {
-  empty-cells: hide;
-}`}</code></pre>
-                <p>Only applies when <code>border-collapse: separate</code></p>
-              </div>
-
               <pre className="mb-3"><code>{`/* Complete table styling example */
 table {
   width: 80%;
@@ -1278,10 +1233,6 @@ list-style-image: url('https://www.w3schools.com/cssref/sqpurple.gif');`}</code>
                       <td><code>grid</code></td>
                       <td>Element becomes a grid container</td>
                     </tr>
-                    <tr>
-                      <td><code>table</code>, <code>table-row</code>, etc.</td>
-                      <td>Makes elements behave like table elements</td>
-                    </tr>
                   </tbody>
                 </table>
                 <pre><code>{`.block-example {
@@ -1373,13 +1324,6 @@ list-style-image: url('https://www.w3schools.com/cssref/sqpurple.gif');`}</code>
 }`}</code></pre>
                   </div>
                   <div className="col-md-6">
-                    <h5><i className="bi bi-distribute-vertical"></i> Align Content</h5>
-                    <p><code>align-content: stretch, flex-start, flex-end, center, space-between, space-around;</code></p>
-                    <pre><code>{`.container {
-  align-content: space-between;
-}`}</code></pre>
-                  </div>
-                  <div className="col-md-6">
                     <h5><i className="bi bi-layout-sidebar"></i> Gap</h5>
                     <p><code>gap, row-gap, column-gap: length values;</code></p>
                     <pre><code>{`.container {
@@ -1448,28 +1392,9 @@ list-style-image: url('https://www.w3schools.com/cssref/sqpurple.gif');`}</code>
 }`}</code></pre>
                   </div>
                   <div className="col-md-6">
-                    <h5><i className="bi bi-grid-fill"></i> Grid Template Areas</h5>
-                    <p><code>grid-template-areas: area names;</code></p>
-                    <pre><code>{`.container {
-  grid-template-areas:
-    "header header header"
-    "sidebar main main"
-    "footer footer footer";
-}`}</code></pre>
-                  </div>
-                  <div className="col-md-6">
-                    <h5><i className="bi bi-justify"></i> Justify/Align Items</h5>
-                    <p><code>justify-items: start, end, center, stretch;</code></p>
-                    <p><code>align-items: start, end, center, stretch;</code></p>
-                    <pre><code>{`.container {
-  justify-items: center;
-  align-items: start;
-}`}</code></pre>
-                  </div>
-                  <div className="col-md-6">
-                    <h5><i className="bi bi-distribute-vertical"></i> Justify/Align Content</h5>
+                    <h5><i className="bi bi-distribute-vertical"></i> Justify Content/Align Items</h5>
                     <p><code>justify-content: start, end, center, stretch, space-around, space-between, space-evenly;</code></p>
-                    <p><code>align-content: start, end, center, stretch, space-around, space-between, space-evenly;</code></p>
+                    <p><code>align-items: start, end, center, top;</code></p>
                     <pre><code>{`.container {
   justify-content: space-between;
 }`}</code></pre>
@@ -1675,20 +1600,6 @@ list-style-image: url('https://www.w3schools.com/cssref/sqpurple.gif');`}</code>
     padding: 30px;
   }
 }`}</code></pre>
-              </div>
-
-              <div className="property-card">
-                <h3 className="h4">Viewport Meta Tag</h3>
-                <p>For proper responsive behavior on mobile devices, include this in your HTML <code>&lt;head&gt;</code>:</p>
-                <pre><code>{`<meta name="viewport" content="width=device-width, initial-scale=1.0">`}</code></pre>
-                <p><strong>Options:</strong></p>
-                <ul>
-                  <li><code>width=device-width</code> - Sets width to device width</li>
-                  <li><code>initial-scale=1.0</code> - Sets initial zoom level</li>
-                  <li><code>minimum-scale=1.0</code> - Minimum zoom level</li>
-                  <li><code>maximum-scale=1.0</code> - Maximum zoom level</li>
-                  <li><code>user-scalable=no</code> - Prevents zooming (not recommended for accessibility)</li>
-                </ul>
               </div>
             </section>
 

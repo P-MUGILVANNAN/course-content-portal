@@ -103,9 +103,7 @@ function Html() {
               <a className="nav-link" href="#pre"><i className="bi bi-file-text"></i> Pre Tag</a>
               <a className="nav-link" href="#entities"><i className="bi bi-symbol"></i> HTML Entities</a>
               <a className="nav-link" href="#multimedia"><i className="bi bi-play-circle"></i> Multimedia</a>
-              <a className="nav-link" href="#meta-tags"><i className="bi bi-tags-fill"></i> Meta Tags</a>
               <a className="nav-link" href="#comments"><i className="bi bi-chat-left-text"></i> Comments</a>
-              <a className="nav-link" href="#seo"><i className="bi bi-search"></i> SEO Basics</a>
             </nav>
           </aside>
           <main className="col-lg-9">
@@ -559,6 +557,11 @@ elements.</p>`}</code></pre>
                       <td><abbr title="HyperText Markup Language">HTML</abbr></td>
                     </tr>
                     <tr>
+                      <td><code>&lt;center&gt;</code></td>
+                      <td>Center Alignment</td>
+                      <td style={{textAlign:'center'}}>center</td>
+                    </tr>
+                    <tr>
                       <td><code>&lt;cite&gt;</code></td>
                       <td>Title of creative work</td>
                       <td><cite>The Scream</cite> by Edvard Munch</td>
@@ -667,14 +670,6 @@ For 50 years, WWF has been protecting the future of nature.
                   </tbody>
                 </table>
               </div>
-
-              <h3 className="h4 mb-2"><i className="bi bi-file-earmark-arrow-up"></i> URL Encoding</h3>
-              <p>URLs can only contain certain characters. Others must be encoded:</p>
-              <ul>
-                <li>Space becomes <code>%20</code></li>
-                <li>Slash <code>/</code> becomes <code>%2F</code></li>
-                <li>Question mark <code>?</code> becomes <code>%3F</code></li>
-              </ul>
             </section>
 
             <section id="links" className="mb-5">
@@ -722,10 +717,6 @@ For 50 years, WWF has been protecting the future of nature.
                       <td><code>_top</code></td>
                       <td>Opens in the full body of the window</td>
                     </tr>
-                    <tr>
-                      <td><code>framename</code></td>
-                      <td>Opens in a named iframe</td>
-                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -764,15 +755,6 @@ For 50 years, WWF has been protecting the future of nature.
 <!-- Download link -->
 <a href="document.pdf" download>Download PDF</a>`}</code></pre>
               </div>
-
-              <h3 className="h4 mb-2"><i className="bi bi-palette"></i> Link States</h3>
-              <p>Links have different states that can be styled with CSS:</p>
-              <ul>
-                <li><code>a:link</code> - Normal, unvisited link</li>
-                <li><code>a:visited</code> - Visited link</li>
-                <li><code>a:hover</code> - Mouse over link</li>
-                <li><code>a:active</code> - Link being clicked</li>
-              </ul>
             </section>
 
             <section id="images" className="mb-5">
@@ -813,18 +795,6 @@ For 50 years, WWF has been protecting the future of nature.
                 <li><strong>SVG (.svg):</strong> Vector graphics</li>
                 <li><strong>WebP (.webp):</strong> Modern format with better compression</li>
               </ul>
-
-              <div className="example-box">
-                <div className="example-title">Image Map Example:</div>
-                <pre><code>{`<img src="workplace.jpg" alt="Workplace" usemap="#workmap">
-
-<map name="workmap">
-  <area shape="rect" coords="34,44,270,350" alt="Computer" href="computer.htm">
-  <area shape="rect" coords="290,172,333,250" alt="Phone" href="phone.htm">
-  <area shape="circle" coords="337,300,44" alt="Coffee" href="coffee.htm">
-</map>`}</code></pre>
-                <p>Image maps define clickable areas on an image.</p>
-              </div>
 
               <h3 className="h4 mb-2"><i className="bi bi-picture"></i> Figure and Figcaption</h3>
               <p>The <code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code> tags provide semantic structure for images with captions.</p>
@@ -882,40 +852,7 @@ For 50 years, WWF has been protecting the future of nature.
                 <li><code>&lt;td&gt;</code>: Table data cell</li>
                 <li><code>&lt;caption&gt;</code>: Table caption</li>
                 <li><code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code>: Semantic table sections</li>
-                <li><code>&lt;colgroup&gt;</code>, <code>&lt;col&gt;</code>: Column grouping</li>
               </ul>
-
-              <div className="example-box">
-                <div className="example-title">Advanced Table Example:</div>
-                <pre><code>{`<table>
-    <caption>Monthly Savings</caption>
-    <colgroup>
-        <col span="2" style="background-color: #f8f9fa">
-    </colgroup>
-    <thead>
-        <tr>
-            <th>Month</th>
-            <th>Savings</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>January</td>
-            <td>$100</td>
-        </tr>
-        <tr>
-            <td>February</td>
-            <td>$80</td>
-        </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td>Sum</td>
-            <td>$180</td>
-        </tr>
-    </tfoot>
-</table>`}</code></pre>
-              </div>
 
               <h3 className="h4 mb-2"><i className="bi bi-layout-three-columns"></i> Table Attributes</h3>
               <p>Note: Many table attributes are deprecated in HTML5. Use CSS instead.</p>
@@ -1120,10 +1057,6 @@ For 50 years, WWF has been protecting the future of nature.
                 <li><code>&lt;select&gt;</code>: Dropdown list</li>
                 <li><code>&lt;textarea&gt;</code>: Multi-line text input</li>
                 <li><code>&lt;button&gt;</code>: Clickable button</li>
-                <li><code>&lt;fieldset&gt;</code>: Groups related elements</li>
-                <li><code>&lt;legend&gt;</code>: Caption for fieldset</li>
-                <li><code>&lt;datalist&gt;</code>: Predefined options for input</li>
-                <li><code>&lt;output&gt;</code>: Result of calculation</li>
               </ul>
 
               <div className="example-box">
@@ -1274,29 +1207,6 @@ For 50 years, WWF has been protecting the future of nature.
                 <li><code>width</code>/<code>height</code>: Dimensions</li>
                 <li><code>title</code>: Description for accessibility</li>
                 <li><code>name</code>: Target for links/forms</li>
-                <li><code>sandbox</code>: Security restrictions</li>
-                <li><code>allowfullscreen</code>: Enable fullscreen mode</li>
-                <li><code>loading</code>: Lazy loading</li>
-              </ul>
-
-              <div className="example-box">
-                <div className="example-title">Responsive Iframe:</div>
-                <pre><code>{`<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" 
-            allowfullscreen title="YouTube Video">
-    </iframe>
-</div>`}</code></pre>
-                <p>This creates a responsive iframe that maintains a 16:9 aspect ratio.</p>
-              </div>
-
-              <h3 className="h4 mb-2"><i className="bi bi-shield-lock"></i> Iframe Security</h3>
-              <p>Important security considerations:</p>
-              <ul>
-                <li>Only embed content from trusted sources</li>
-                <li>Use <code>sandbox</code> attribute to restrict capabilities</li>
-                <li>Consider using <code>X-Frame-Options</code> header to prevent clickjacking</li>
-                <li>Be cautious with iframes that contain forms or scripts</li>
               </ul>
             </section>
 
@@ -1425,35 +1335,6 @@ document.querySelectorAll(".intro");`}</code></pre>
 like <a href="#">links</a> and <strong>formatting</strong>.</p>`}</code></pre>
                 <p>This contains <span style={{ background: 'pink' }}>inline</span> elements like <a href="#">links</a> and <strong>formatting</strong>.</p>
               </div>
-
-              <h3 className="h4 mb-2"><i className="bi bi-arrows-angle-contract"></i> Inline-Block Elements</h3>
-              <p>CSS can change display behavior with the <code>display</code> property:</p>
-              <ul>
-                <li><code>display: block</code></li>
-                <li><code>display: inline</code></li>
-                <li><code>display: inline-block</code> (hybrid behavior)</li>
-                <li><code>display: none</code> (hides element)</li>
-              </ul>
-
-              <div className="example-box">
-                <div className="example-title">Display Property Example:</div>
-                <pre><code>{`<style>
-    .inline-block {
-        display: inline-block;
-        width: 100px;
-        height: 100px;
-        background: lightblue;
-        margin: 10px;
-    }
-</style>
-
-<div class="inline-block">Box 1</div>
-<div class="inline-block">Box 2</div>
-<div class="inline-block">Box 3</div>`}</code></pre>
-                <div style={{ display: 'inline-block', width: '100px', height: '100px', background: 'lightblue', margin: '10px' }}>Box 1</div>
-                <div style={{ display: 'inline-block', width: '100px', height: '100px', background: 'lightblue', margin: '10px' }}>Box 2</div>
-                <div style={{ display: 'inline-block', width: '100px', height: '100px', background: 'lightblue', margin: '10px' }}>Box 3</div>
-              </div>
             </section>
 
             <section id="semantic" className="mb-5">
@@ -1547,7 +1428,6 @@ like <a href="#">links</a> and <strong>formatting</strong>.</p>`}</code></pre>
         <p>&copy; 2023 Company Name</p>
     </footer>
 </body>`}</code></pre>
-                <img src="https://www.w3schools.com/html/img_sem_elements.gif" alt="Semantic layout structure" className="img-example" />
               </div>
 
               <h3 className="h4 mb-2"><i className="bi bi-layout-text-window"></i> Non-Semantic Elements</h3>
@@ -1608,87 +1488,6 @@ like <a href="#">links</a> and <strong>formatting</strong>.</p>`}</code></pre>
 </html>`}</code></pre>
                 <img src="https://www.w3schools.com/html/img_sem_elements.gif" alt="Webpage layout structure" className="img-example" />
               </div>
-
-              <h3 className="h4 mb-2"><i className="bi bi-grid"></i> Layout Techniques</h3>
-              <p>Common approaches to creating layouts:</p>
-              <ul>
-                <li><strong>CSS Float:</strong> Traditional method (now less common)</li>
-                <li><strong>CSS Flexbox:</strong> For one-dimensional layouts</li>
-                <li><strong>CSS Grid:</strong> For two-dimensional layouts</li>
-                <li><strong>CSS Frameworks:</strong> Bootstrap, Foundation, etc.</li>
-              </ul>
-
-              <div className="example-box">
-                <div className="example-title">Flexbox Layout Example:</div>
-                <pre><code>{`<style>
-    .container {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .main {
-        flex: 70%;
-    }
-    .sidebar {
-        flex: 30%;
-    }
-</style>
-
-<div class="container">
-    <main class="main">Main Content</main>
-    <aside class="sidebar">Sidebar</aside>
-</div>`}</code></pre>
-              </div>
-
-              <div className="example-box">
-                <div className="example-title">Grid Layout Example:</div>
-                <pre><code>{`<style>
-    .container {
-        display: grid;
-        grid-template-columns: 30% 70%;
-    }
-</style>
-
-<div class="container">
-    <aside>Sidebar</aside>
-    <main>Main Content</main>
-</div>`}</code></pre>
-              </div>
-
-              <h3 className="h4 mb-2"><i className="bi bi-phone"></i> Responsive Design</h3>
-              <p>Key techniques for responsive layouts:</p>
-              <ul>
-                <li>Viewport meta tag</li>
-                <li>Media queries</li>
-                <li>Fluid grids</li>
-                <li>Flexible images</li>
-                <li>Mobile-first approach</li>
-              </ul>
-
-              <div className="example-box">
-                <div className="example-title">Responsive Example:</div>
-                <pre><code>{`<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-    /* Mobile first */
-    .column {
-        width: 100%;
-    }
-    
-    /* Tablet */
-    @media (min-width: 600px) {
-        .column {
-            width: 50%;
-        }
-    }
-    
-    /* Desktop */
-    @media (min-width: 900px) {
-        .column {
-            width: 33.33%;
-        }
-    }
-</style>`}</code></pre>
-              </div>
             </section>
 
             <section id="void-elements" className="mb-5">
@@ -1728,38 +1527,6 @@ like <a href="#">links</a> and <strong>formatting</strong>.</p>`}</code></pre>
                     <tr>
                       <td><code>&lt;link&gt;</code></td>
                       <td>External resource link</td>
-                    </tr>
-                    <tr>
-                      <td><code>&lt;col&gt;</code></td>
-                      <td>Table column</td>
-                    </tr>
-                    <tr>
-                      <td><code>&lt;area&gt;</code></td>
-                      <td>Image map area</td>
-                    </tr>
-                    <tr>
-                      <td><code>&lt;base&gt;</code></td>
-                      <td>Base URL</td>
-                    </tr>
-                    <tr>
-                      <td><code>&lt;embed&gt;</code></td>
-                      <td>External content</td>
-                    </tr>
-                    <tr>
-                      <td><code>&lt;param&gt;</code></td>
-                      <td>Object parameter</td>
-                    </tr>
-                    <tr>
-                      <td><code>&lt;source&gt;</code></td>
-                      <td>Media source</td>
-                    </tr>
-                    <tr>
-                      <td><code>&lt;track&gt;</code></td>
-                      <td>Text track</td>
-                    </tr>
-                    <tr>
-                      <td><code>&lt;wbr&gt;</code></td>
-                      <td>Word break opportunity</td>
                     </tr>
                   </tbody>
                 </table>
@@ -1818,19 +1585,6 @@ like <a href="#">links</a> and <strong>formatting</strong>.</p>`}</code></pre>
                 </table>
               </div>
 
-              <h3 className="h4 mb-2"><i className="bi bi-link"></i> Citation Attributes</h3>
-              <p>The <code>cite</code> attribute can specify the source URL of a quotation.</p>
-
-              <div className="example-box">
-                <div className="example-title">Blockquote with Citation:</div>
-                <pre><code>{`<blockquote cite="https://www.huxley.net/bnw/four.html">
-    <p>Words can be like X-rays, if you use them properly...</p>
-</blockquote>`}</code></pre>
-                <blockquote cite="https://www.huxley.net/bnw/four.html">
-                  <p>Words can be like X-rays, if you use them properly...</p>
-                </blockquote>
-              </div>
-
               <h3 className="h4 mb-2"><i className="bi bi-quote"></i> Quotation Marks</h3>
               <p>The browser automatically adds quotation marks to <code>&lt;q&gt;</code> elements.</p>
               <pre className="mb-3"><code>{`<p>He said <q>Hello</q> and left.</p>`}</code></pre>
@@ -1872,25 +1626,6 @@ like <a href="#">links</a> and <strong>formatting</strong>.</p>`}</code></pre>
 
 <!-- Vertical scroll -->
 <marquee direction="up" height="50">Upward scroll</marquee>`}</code></pre>
-              </div>
-
-              <h3 className="h4 mb-2"><i className="bi bi-exclamation-triangle"></i> Deprecation Note</h3>
-              <p>The <code>&lt;marquee&gt;</code> element is obsolete and should be avoided. Use CSS animations or JavaScript instead.</p>
-
-              <div className="example-box">
-                <div className="example-title">Modern Alternative (CSS):</div>
-                <pre><code>{`<style>
-    .scrolling-text {
-        white-space: nowrap;
-        animation: scroll 10s linear infinite;
-    }
-    @keyframes scroll {
-        0% { transform: translateX(100%); }
-        100% { transform: translateX(-100%); }
-    }
-</style>
-
-<div class="scrolling-text">This text scrolls like marquee but with CSS</div>`}</code></pre>
               </div>
             </section>
 
@@ -1937,13 +1672,6 @@ function hello() {
 }`}
                 </code></pre>
               </div>
-
-              <h3 className="h4 mb-2"><i className="bi bi-fonts"></i> Monospace Font</h3>
-              <p>Browsers typically display <code>&lt;pre&gt;</code> content in a monospace font by default.</p>
-
-              <h3 className="h4 mb-2"><i className="bi bi-arrows-angle-expand"></i> Width Considerations</h3>
-              <p>Preformatted text doesn't wrap by default, which can cause horizontal scrolling.</p>
-              <pre className="mb-3"><code>{`<pre style="white-space: pre-wrap;">...</pre>`}</code></pre>
             </section>
 
             <section id="entities" className="mb-5">
@@ -2081,8 +1809,6 @@ function hello() {
                 <li><code>autoplay</code>: Start playing automatically</li>
                 <li><code>loop</code>: Loop the video</li>
                 <li><code>muted</code>: Start muted</li>
-                <li><code>poster</code>: Preview image</li>
-                <li><code>preload</code>: How to load the video</li>
               </ul>
 
               <h3 className="h4 mb-2"><i className="bi bi-music-note-beamed"></i> Audio Element</h3>
@@ -2107,7 +1833,6 @@ function hello() {
                 <li><code>autoplay</code>: Start playing automatically</li>
                 <li><code>loop</code>: Loop the audio</li>
                 <li><code>muted</code>: Start muted</li>
-                <li><code>preload</code>: How to load the audio</li>
               </ul>
 
               <h3 className="h4 mb-2"><i className="bi bi-file-earmark-play"></i> Source Element</h3>
@@ -2182,43 +1907,6 @@ function hello() {
               </div>
             </section>
 
-            <section id="meta-tags" className="mb-5">
-              <h2 className="h2 mb-3"><i className="bi bi-tags-fill"></i> Meta Tags</h2>
-              <p className="mb-3">Meta tags provide metadata about the HTML document.</p>
-
-              <div className="example-box">
-                <div className="example-title">Common Meta Tags:</div>
-                <pre><code>{`<!-- Character encoding -->
-<meta charset="UTF-8">
-
-<!-- Viewport for responsive design -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Page description -->
-<meta name="description" content="Free web tutorials">
-
-<!-- Keywords for SEO -->
-<meta name="keywords" content="HTML, CSS, JavaScript">
-
-<!-- Author -->
-<meta name="author" content="John Doe">
-
-<!-- Refresh page every 30 seconds -->
-<meta http-equiv="refresh" content="30">
-
-<!-- Prevent indexing -->
-<meta name="robots" content="noindex, nofollow">`}</code></pre>
-              </div>
-
-              <h3 className="h4 mb-2"><i className="bi bi-globe"></i> Open Graph Meta Tags</h3>
-              <p>For social media sharing:</p>
-              <pre className="mb-3"><code>{`<meta property="og:title" content="Page Title">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://example.com/page">
-<meta property="og:image" content="https://example.com/image.jpg">
-<meta property="og:description" content="Page description">`}</code></pre>
-            </section>
-
             <section id="comments" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-chat-left-text"></i> HTML Comments</h2>
               <p className="mb-3">Comments are ignored by browsers and useful for documentation.</p>
@@ -2245,26 +1933,6 @@ function hello() {
                 <li>Remove commented-out code before publishing</li>
                 <li>Avoid excessive commenting of obvious code</li>
               </ul>
-            </section>
-
-            <section id="seo" className="mb-5">
-              <h2 className="h2 mb-3"><i className="bi bi-search"></i> HTML for SEO</h2>
-              <p className="mb-3">Proper HTML structure helps search engines understand your content.</p>
-
-              <div className="example-box">
-                <div className="example-title">SEO Best Practices:</div>
-                <ul>
-                  <li>Use semantic HTML5 elements</li>
-                  <li>Include a descriptive <code>&lt;title&gt;</code></li>
-                  <li>Use meaningful heading hierarchy</li>
-                  <li>Provide alt text for images</li>
-                  <li>Use descriptive URLs</li>
-                  <li>Include meta descriptions</li>
-                  <li>Implement structured data (Schema.org)</li>
-                  <li>Ensure mobile-friendliness</li>
-                  <li>Optimize page speed</li>
-                </ul>
-              </div>
             </section>
           </main>
         </div>

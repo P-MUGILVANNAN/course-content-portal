@@ -80,7 +80,6 @@ function JavascriptNotes() {
               <a className="nav-link" href="#output"><i className="bi bi-terminal"></i> Display Output</a>
               <a className="nav-link" href="#datatypes"><i className="bi bi-list-check"></i> Data Types</a>
               <a className="nav-link" href="#variables"><i className="bi bi-box"></i> Variables</a>
-              <a className="nav-link" href="#hoisting"><i className="bi bi-arrow-up"></i> Hoisting</a>
               <a className="nav-link" href="#scope"><i className="bi bi-bounding-box"></i> Scope</a>
               <a className="nav-link" href="#coercion"><i className="bi bi-arrow-left-right"></i> Coercion</a>
               <a className="nav-link" href="#operators"><i className="bi bi-calculator"></i> Operators</a>
@@ -219,43 +218,6 @@ const c = 30; // Constant (cannot be changed)`}</code></pre>
               </div>
             </section>
 
-            <section id="hoisting" className="mb-5">
-              <h2 className="h2 mb-3"><i className="bi bi-arrow-up"></i> Hoisting in JavaScript</h2>
-              <p>Hoisting is JavaScript's default behavior of moving declarations to the top of their containing scope.</p>
-
-              <div className="property-card">
-                <h3 className="h4"><i className="bi bi-1-circle"></i> Variable Hoisting</h3>
-                <pre className="mb-3"><code>{`console.log(x); // undefined (not ReferenceError)
-var x = 5;
-console.log(x); // 5
-
-// What actually happens:
-var x;
-console.log(x); // undefined
-x = 5;
-console.log(x); // 5`}</code></pre>
-                <div className="note">
-                  <p><strong>Note:</strong> Only declarations are hoisted, not initializations. <code>let</code> and <code>const</code> are hoisted but not initialized.</p>
-                </div>
-              </div>
-
-              <div className="property-card">
-                <h3 className="h4"><i className="bi bi-2-circle"></i> Function Hoisting</h3>
-                <pre className="mb-3"><code>{`// Function declarations are hoisted
-sayHello(); // "Hello!"
-
-function sayHello() {
-  console.log("Hello!");
-}
-
-// Function expressions are not hoisted
-sayHi(); // TypeError: sayHi is not a function
-var sayHi = function() {
-  console.log("Hi!");
-};`}</code></pre>
-              </div>
-            </section>
-
             <section id="scope" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-bounding-box"></i> Scope in JavaScript</h2>
               <p>Scope determines the accessibility (visibility) of variables.</p>
@@ -345,16 +307,6 @@ console.log(parseInt("123px")); // 123
 // To Boolean
 console.log(Boolean(1)); // true
 console.log(!!"hello"); // true`}</code></pre>
-              </div>
-
-              <div className="property-card">
-                <h3 className="h4"><i className="bi bi-3-circle"></i> Truthy and Falsy Values</h3>
-                <pre className="mb-3"><code>{`// Falsy values:
-false, 0, "", null, undefined, NaN
-
-// Truthy values:
-Everything else, including:
-true, 1, "hello", [], {}, function(){}`}</code></pre>
               </div>
             </section>
 
