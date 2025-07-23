@@ -962,7 +962,7 @@ Output : [50, 40, 30, 20, 10]`}</code></pre>
                 <div className="property-card">
                   <ul>
                     <li>It is used to store multiple items in a single variable.</li>
-                    <li>Tuples are created using square brackets ().</li>
+                    <li>Tuples are created using round brackets ().</li>
                     <li>It is one of the built-in datatypes (list, tuple, dictionary, set).</li>
                     <li>It is an immutable datatype (unchangeable).</li>
                     <li>It is order and allows duplicate values.</li>
@@ -1006,7 +1006,7 @@ Output: (10,20,30,40)
               </section>
 
               <section className="mb-5" id="dictionary">
-                <h2 className="mb-3">Dictionary</h2>
+                <h2 className="mb-3"><i className="bi bi-collection me-2"></i>Dictionary</h2>
                 <div className="property-card">
                   <ul>
                     <li>It is used to store multiple items in a single variable as key-value pairs..</li>
@@ -1125,7 +1125,7 @@ Output: dict_keys(['name','age'])`}</code></pre>
               </section>
 
               <section className="mb-5" id="set">
-                <h2 className="mb-3">Set</h2>
+                <h2 className="mb-3"><i className="bi bi-collection me-2"></i>Set</h2>
                 <div className="property-card">
                   <ul>
                     <li>It is used to store multiple items in a single variable.</li>
@@ -1857,7 +1857,7 @@ z.execute("CREATE DATABASE demo")`}</code></pre>
 
       <footer className="bg-dark text-white py-4">
         <div className="container text-center">
-          <p>Python Notes &copy; 2025 | Comprehensive Python Programming Guide</p>
+          <p>Python Notes &copy; 2025 | Created by Mugilvannan P.</p>
         </div>
       </footer>
     </div>
