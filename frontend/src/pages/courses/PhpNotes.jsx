@@ -78,8 +78,8 @@ function PhpNotes() {
             <h2 className="h4 mb-3"><i className="bi bi-link-45deg"></i> Quick Links</h2>
             <nav className="nav flex-column">
               <a className="nav-link" href="#introduction"><i className="bi bi-info-circle"></i> Introduction to PHP</a>
-              <a className="nav-link" href="#basics"><i className="bi bi-code-square"></i> Basic Syntax</a>
               <a className="nav-link" href="#environment"><i className="bi bi-gear"></i> Environmental Setup</a>
+              <a className="nav-link" href="#basics"><i className="bi bi-code-square"></i> Basic Syntax</a>
               <a className="nav-link" href="#variables"><i className="bi bi-tag"></i> Variables</a>
               <a className="nav-link" href="#operators"><i className="bi bi-calculator"></i> Operators</a>
               <a className="nav-link" href="#conditionals"><i className="bi bi-diagram-2"></i> Conditionals</a>
@@ -203,6 +203,49 @@ function PhpNotes() {
               </div>
             </section>
 
+            <section id="environment" className="mb-5">
+              <h2 className="h2 mb-3"><i className="bi bi-gear"></i> PHP Environment Setup</h2>
+
+              <div className="property-card">
+                <h3 className="h4">Option 1: Installing PHP using XAMPP (Recommended for Beginners)</h3>
+                <ol>
+                  <li>Go to <a href="https://www.apachefriends.org/index.html" target="_blank" rel="noopener noreferrer">apachefriends.org</a></li>
+                  <li>Download XAMPP for your operating system (Windows/Linux/Mac).</li>
+                  <li>Run the installer and follow the setup instructions.</li>
+                  <li>After installation, open the <strong>XAMPP Control Panel</strong>.</li>
+                  <li>Start the <strong>Apache</strong> server.</li>
+                  <li>Place your PHP files inside the <code>htdocs</code> folder (e.g., <code>C:/xampp/htdocs/</code>).</li>
+                  <li>Open your browser and go to <code>http://localhost/filename.php</code> to run your code.</li>
+                </ol>
+                <p><strong>Example:</strong> Save a file as <code>hello.php</code> and add the following code:</p>
+                <pre><code>{`<?php
+  echo "Hello, world!";
+?>`}</code></pre>
+                <p>Then visit: <code>http://localhost/hello.php</code></p>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4">Option 2: Installing PHP Manually via PHP.net</h3>
+                <ol>
+                  <li>Visit <a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer">php.net/downloads</a></li>
+                  <li>Download the latest <strong>Thread Safe ZIP</strong> file for Windows.</li>
+                  <li>Extract the contents to a folder (e.g., <code>C:/php/</code>).</li>
+                  <li>Add the path (e.g., <code>C:/php/</code>) to your system's <strong>Environment Variables</strong> → <code>PATH</code>.</li>
+                  <li>Open Command Prompt and type <code>php -v</code> to verify the installation.</li>
+                  <li>You can now run PHP scripts using the terminal with <code>php filename.php</code>.</li>
+                </ol>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4">Tips</h3>
+                <ul>
+                  <li>Use <strong>VS Code</strong> or <strong>Sublime Text</strong> for editing PHP files.</li>
+                  <li>Install the PHP extension in VS Code for syntax highlighting and IntelliSense.</li>
+                  <li>Always save your files with a <code>.php</code> extension.</li>
+                </ul>
+              </div>
+            </section>
+
             <section id="basics" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-code-square"></i> Basic Syntax in PHP</h2>
 
@@ -262,50 +305,6 @@ multi-line comment
                 </table>
               </div>
             </section>
-
-            <section id="environment" className="mb-5">
-              <h2 className="h2 mb-3"><i className="bi bi-gear"></i> PHP Environment Setup</h2>
-
-              <div className="property-card">
-                <h3 className="h4">Option 1: Installing PHP using XAMPP (Recommended for Beginners)</h3>
-                <ol>
-                  <li>Go to <a href="https://www.apachefriends.org/index.html" target="_blank" rel="noopener noreferrer">apachefriends.org</a></li>
-                  <li>Download XAMPP for your operating system (Windows/Linux/Mac).</li>
-                  <li>Run the installer and follow the setup instructions.</li>
-                  <li>After installation, open the <strong>XAMPP Control Panel</strong>.</li>
-                  <li>Start the <strong>Apache</strong> server.</li>
-                  <li>Place your PHP files inside the <code>htdocs</code> folder (e.g., <code>C:/xampp/htdocs/</code>).</li>
-                  <li>Open your browser and go to <code>http://localhost/filename.php</code> to run your code.</li>
-                </ol>
-                <p><strong>Example:</strong> Save a file as <code>hello.php</code> and add the following code:</p>
-                <pre><code>{`<?php
-  echo "Hello, world!";
-?>`}</code></pre>
-                <p>Then visit: <code>http://localhost/hello.php</code></p>
-              </div>
-
-              <div className="property-card">
-                <h3 className="h4">Option 2: Installing PHP Manually via PHP.net</h3>
-                <ol>
-                  <li>Visit <a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer">php.net/downloads</a></li>
-                  <li>Download the latest <strong>Thread Safe ZIP</strong> file for Windows.</li>
-                  <li>Extract the contents to a folder (e.g., <code>C:/php/</code>).</li>
-                  <li>Add the path (e.g., <code>C:/php/</code>) to your system's <strong>Environment Variables</strong> → <code>PATH</code>.</li>
-                  <li>Open Command Prompt and type <code>php -v</code> to verify the installation.</li>
-                  <li>You can now run PHP scripts using the terminal with <code>php filename.php</code>.</li>
-                </ol>
-              </div>
-
-              <div className="property-card">
-                <h3 className="h4">Tips</h3>
-                <ul>
-                  <li>Use <strong>VS Code</strong> or <strong>Sublime Text</strong> for editing PHP files.</li>
-                  <li>Install the PHP extension in VS Code for syntax highlighting and IntelliSense.</li>
-                  <li>Always save your files with a <code>.php</code> extension.</li>
-                </ul>
-              </div>
-            </section>
-
 
             <section id="variables" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-tag"></i> Variables in PHP</h2>
