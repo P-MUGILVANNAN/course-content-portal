@@ -79,6 +79,7 @@ function PhpNotes() {
             <nav className="nav flex-column">
               <a className="nav-link" href="#introduction"><i className="bi bi-info-circle"></i> Introduction to PHP</a>
               <a className="nav-link" href="#basics"><i className="bi bi-code-square"></i> Basic Syntax</a>
+              <a className="nav-link" href="#environment"><i className="bi bi-gear"></i> Environmental Setup</a>
               <a className="nav-link" href="#variables"><i className="bi bi-tag"></i> Variables</a>
               <a className="nav-link" href="#operators"><i className="bi bi-calculator"></i> Operators</a>
               <a className="nav-link" href="#conditionals"><i className="bi bi-diagram-2"></i> Conditionals</a>
@@ -102,7 +103,7 @@ function PhpNotes() {
           <main className="col-lg-9">
             <section id="introduction" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-info-circle"></i> Introduction to PHP</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">What is PHP?</h3>
                 <ul>
@@ -204,7 +205,7 @@ function PhpNotes() {
 
             <section id="basics" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-code-square"></i> Basic Syntax in PHP</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">PHP Tags</h3>
                 <p>PHP code is written inside special tags:</p>
@@ -262,9 +263,53 @@ multi-line comment
               </div>
             </section>
 
+            <section id="environment" className="mb-5">
+              <h2 className="h2 mb-3"><i className="bi bi-gear"></i> PHP Environment Setup</h2>
+
+              <div className="property-card">
+                <h3 className="h4">Option 1: Installing PHP using XAMPP (Recommended for Beginners)</h3>
+                <ol>
+                  <li>Go to <a href="https://www.apachefriends.org/index.html" target="_blank" rel="noopener noreferrer">apachefriends.org</a></li>
+                  <li>Download XAMPP for your operating system (Windows/Linux/Mac).</li>
+                  <li>Run the installer and follow the setup instructions.</li>
+                  <li>After installation, open the <strong>XAMPP Control Panel</strong>.</li>
+                  <li>Start the <strong>Apache</strong> server.</li>
+                  <li>Place your PHP files inside the <code>htdocs</code> folder (e.g., <code>C:/xampp/htdocs/</code>).</li>
+                  <li>Open your browser and go to <code>http://localhost/filename.php</code> to run your code.</li>
+                </ol>
+                <p><strong>Example:</strong> Save a file as <code>hello.php</code> and add the following code:</p>
+                <pre><code>{`<?php
+  echo "Hello, world!";
+?>`}</code></pre>
+                <p>Then visit: <code>http://localhost/hello.php</code></p>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4">Option 2: Installing PHP Manually via PHP.net</h3>
+                <ol>
+                  <li>Visit <a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer">php.net/downloads</a></li>
+                  <li>Download the latest <strong>Thread Safe ZIP</strong> file for Windows.</li>
+                  <li>Extract the contents to a folder (e.g., <code>C:/php/</code>).</li>
+                  <li>Add the path (e.g., <code>C:/php/</code>) to your system's <strong>Environment Variables</strong> → <code>PATH</code>.</li>
+                  <li>Open Command Prompt and type <code>php -v</code> to verify the installation.</li>
+                  <li>You can now run PHP scripts using the terminal with <code>php filename.php</code>.</li>
+                </ol>
+              </div>
+
+              <div className="property-card">
+                <h3 className="h4">Tips</h3>
+                <ul>
+                  <li>Use <strong>VS Code</strong> or <strong>Sublime Text</strong> for editing PHP files.</li>
+                  <li>Install the PHP extension in VS Code for syntax highlighting and IntelliSense.</li>
+                  <li>Always save your files with a <code>.php</code> extension.</li>
+                </ul>
+              </div>
+            </section>
+
+
             <section id="variables" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-tag"></i> Variables in PHP</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">Variable Basics</h3>
                 <ul>
@@ -304,7 +349,7 @@ multi-line comment
 
             <section id="operators" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-calculator"></i> PHP Operators</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">A. Arithmetic Operators</h3>
                 <table className="table table-bordered">
@@ -613,7 +658,7 @@ multi-line comment
 
             <section id="conditionals" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-diagram-2"></i> Conditional Statements in PHP</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">1. if Statement</h3>
                 <p><strong>Syntax:</strong></p>
@@ -735,7 +780,7 @@ multi-line comment
 
             <section id="loops" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-arrow-repeat"></i> Loops in PHP</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">1. while Loop</h3>
                 <p><strong>Syntax:</strong></p>
@@ -752,10 +797,10 @@ multi-line comment
 ?>`}</code></pre>
                 <p><strong>Output:</strong></p>
                 <pre>Number: 1
-Number: 2
-Number: 3
-Number: 4
-Number: 5</pre>
+                  Number: 2
+                  Number: 3
+                  Number: 4
+                  Number: 5</pre>
               </div>
 
               <div className="property-card">
@@ -775,8 +820,8 @@ Number: 5</pre>
 ?>`}</code></pre>
                 <p><strong>Output:</strong></p>
                 <pre>Value: 1
-Value: 2
-Value: 3</pre>
+                  Value: 2
+                  Value: 3</pre>
               </div>
 
               <div className="property-card">
@@ -794,10 +839,10 @@ Value: 3</pre>
 ?>`}</code></pre>
                 <p><strong>Output:</strong></p>
                 <pre>Count: 1
-Count: 2
-Count: 3
-Count: 4
-Count: 5</pre>
+                  Count: 2
+                  Count: 3
+                  Count: 4
+                  Count: 5</pre>
               </div>
 
               <div className="property-card">
@@ -816,8 +861,8 @@ Count: 5</pre>
 ?>`}</code></pre>
                 <p><strong>Output:</strong></p>
                 <pre>Apple
-Banana
-Mango</pre>
+                  Banana
+                  Mango</pre>
               </div>
 
               <div className="property-card">
@@ -838,7 +883,7 @@ Mango</pre>
 
             <section id="functions" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-box-arrow-in-right"></i> Functions in PHP</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">1. Creating a Function</h3>
                 <p><strong>Syntax:</strong></p>
@@ -902,7 +947,7 @@ Mango</pre>
 ?>`}</code></pre>
                 <p><strong>Output:</strong></p>
                 <pre>Hello, Mugil!
-Hello, Guest!</pre>
+                  Hello, Guest!</pre>
               </div>
 
               <div className="property-card">
@@ -943,7 +988,7 @@ Hello, Guest!</pre>
 
             <section id="arrays" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-collection"></i> Arrays in PHP</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">1. Indexed Arrays</h3>
                 <p>Stores elements with numeric keys (0,1,2...)</p>
@@ -1039,16 +1084,16 @@ echo $students[1][2]; // Output: Fail`}</code></pre>
 ?>`}</code></pre>
                 <p><strong>Output:</strong></p>
                 <pre>Array (
-  {`[0] => Red`}
-  {`[1] => Green`}
-  {`[2] => Blue`}
-)</pre>
+                  {`[0] => Red`}
+                  {`[1] => Green`}
+                  {`[2] => Blue`}
+                  )</pre>
               </div>
             </section>
 
             <section id="strings" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-text-left"></i> Strings in PHP</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">String Basics</h3>
                 <p>String is a collection of characters stored within quotes.</p>
@@ -1080,12 +1125,12 @@ echo $students[1][2]; // Output: Fail`}</code></pre>
                     <tr>
                       <td>strtoupper() / strtolower()</td>
                       <td>Convert case</td>
-                      <td>strtoupper("hello") → "HELLO"<br/>strtolower("HELLO") → "hello"</td>
+                      <td>strtoupper("hello") → "HELLO"<br />strtolower("HELLO") → "hello"</td>
                     </tr>
                     <tr>
                       <td>ucfirst() / ucwords()</td>
                       <td>Capitalize</td>
-                      <td>ucfirst("php language") → "Php language"<br/>ucwords("php full stack") → "Php Full Stack"</td>
+                      <td>ucfirst("php language") → "Php language"<br />ucwords("php full stack") → "Php Full Stack"</td>
                     </tr>
                     <tr>
                       <td>strrev()</td>
@@ -1129,10 +1174,10 @@ echo $students[1][2]; // Output: Fail`}</code></pre>
 
             <section id="superglobals" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-globe"></i> Superglobals in PHP</h2>
-              
+
               <div className="property-card">
                 <p>Superglobals are built-in predefined variables in PHP that are always accessible, regardless of scope. These are used to handle form data, server info, session, cookies, etc.</p>
-                
+
                 <h3 className="h4">1. $_GET</h3>
                 <p>Used to collect data sent via URL (query string) using method="get".</p>
                 <p><strong>Example:</strong></p>
@@ -1225,7 +1270,7 @@ echo $_COOKIE["username"];`}</code></pre>
 
             <section id="forms" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-input-cursor-text"></i> Form Handling in PHP</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">Step-by-Step Process</h3>
                 <ol>
@@ -1254,7 +1299,7 @@ echo $_COOKIE["username"];`}</code></pre>
 ?>`}</code></pre>
                 <p><strong>Output:</strong></p>
                 <pre>Name: Mugil
-Email: mugil@example.com</pre>
+                  Email: mugil@example.com</pre>
               </div>
 
               <div className="property-card">
@@ -1330,10 +1375,10 @@ Email: mugil@example.com</pre>
 
             <section id="files" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-file-earmark"></i> File Handling in PHP</h2>
-              
+
               <div className="property-card">
                 <p>File handling is used to create, read, write, append, and delete files using PHP.</p>
-                
+
                 <h3 className="h4">1. Opening a File</h3>
                 <p>Use <code>fopen()</code> function.</p>
                 <pre><code>{`$file = fopen("data.txt", "r"); // 'r' means read mode`}</code></pre>
@@ -1448,10 +1493,10 @@ Email: mugil@example.com</pre>
 
             <section id="sessions" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-person-check"></i> Sessions and Cookies in PHP</h2>
-              
+
               <div className="property-card">
                 <p>These are used to store user information across multiple pages (like login status, shopping cart, etc.).</p>
-                
+
                 <h3 className="h4">1. PHP Sessions</h3>
                 <p>Sessions store temporary data on the server for each user.</p>
                 <p><strong>How to Start a Session:</strong></p>
@@ -1495,7 +1540,7 @@ echo $_COOKIE["lang"]; // Output: PHP`}</code></pre>
 
             <section id="mysql" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-database"></i> PHP with MySQL</h2>
-              
+
               <div className="property-card">
                 <p>PHP can connect to MySQL databases using two main ways:</p>
                 <ol>
@@ -1571,7 +1616,7 @@ $stmt->execute(["Mugil", "mugil@example.com"]);`}</code></pre>
 
             <section id="oop" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-boxes"></i> Object-Oriented PHP</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">What is OOP in PHP?</h3>
                 <p>Object-Oriented Programming (OOP) is a style of programming that uses objects and classes to organize code.</p>
@@ -2007,7 +2052,7 @@ echo $p->getName(); // Output: Mugil`}</code></pre>
 
             <section id="json" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-filetype-json"></i> PHP and JSON</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">What is JSON?</h3>
                 <ul>
@@ -2057,10 +2102,10 @@ echo $p->getName(); // Output: Mugil`}</code></pre>
 
             <section id="security" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-shield-lock"></i> Security in PHP</h2>
-              
+
               <div className="property-card">
                 <p>PHP web applications are often targeted for hacks like SQL Injection, XSS, etc. Let's learn how to protect your PHP apps.</p>
-                
+
                 <h3 className="h4">1. SQL Injection</h3>
                 <p>SQL Injection occurs when malicious input is inserted into SQL queries.</p>
                 <p><strong>Vulnerable Code:</strong></p>
@@ -2112,7 +2157,7 @@ if (password_verify("mypassword", $hashed)) {
 
             <section id="frameworks" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-stack"></i> PHP Frameworks Overview</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">What is a PHP Framework?</h3>
                 <p>A PHP framework is a set of pre-built tools, libraries, and best practices that make it easier to build structured, secure, and scalable web applications.</p>
@@ -2300,10 +2345,10 @@ if (password_verify("mypassword", $hashed)) {
 
             <section id="projects" className="mb-5">
               <h2 className="h2 mb-3"><i className="bi bi-kanban"></i> Mini Project Ideas in PHP</h2>
-              
+
               <div className="property-card">
                 <p>Here are some beginner to intermediate-level real-time mini projects you can build using Core PHP + MySQL. These projects will boost your portfolio and help in interviews too.</p>
-                
+
                 <h3 className="h4">1. Contact Form</h3>
                 <p><strong>Features:</strong></p>
                 <ul>
@@ -2403,7 +2448,7 @@ if (password_verify("mypassword", $hashed)) {
 
             <section className="mb-5">
               <h2 className="h2 mb-3">Project Title: Student Management System (Core PHP + MySQL)</h2>
-              
+
               <div className="property-card">
                 <h3 className="h4">Step 1: Project Features</h3>
                 <ul>
@@ -2418,15 +2463,15 @@ if (password_verify("mypassword", $hashed)) {
               <div className="property-card">
                 <h3 className="h4">Step 2: Folder Structure</h3>
                 <pre>student-management/
-  |
-  |-- config/
-  |   |-- db.php
-  |-- add.php
-  |-- edit.php
-  |-- delete.php
-  |-- index.php
-  |-- search.php
-  |-- style.css (optional)</pre>
+                  |
+                  |-- config/
+                  |   |-- db.php
+                  |-- add.php
+                  |-- edit.php
+                  |-- delete.php
+                  |-- index.php
+                  |-- search.php
+                  |-- style.css (optional)</pre>
               </div>
 
               <div className="property-card">
