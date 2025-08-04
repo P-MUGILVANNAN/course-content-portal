@@ -779,7 +779,7 @@ using namespace std;
 
 int main() {
     for(int i = 0; i < 5; i++) {
-        cout << i << "\n";
+        cout << i << "endl";
     }
     return 0;
 }`}</code></pre>
@@ -800,7 +800,7 @@ using namespace std;
 int main() {
     int i = 1;
     while(i <= 5) {
-        cout << i << "\n";
+        cout << i << "endl";
         i++;
     }
     return 0;
@@ -822,7 +822,7 @@ using namespace std;
 int main() {
     int i = 1;
     do {
-        cout << i << "\n";
+        cout << i << "endl";
         i++;
     } while(i <= 5);
     return 0;
@@ -838,7 +838,7 @@ using namespace std;
 
 int main() {
     for(int i = 1; i <= 5; i++) {
-        cout << i << "\n";
+        cout << i << "endl";
         if(i == 3) {
             break; // Exit loop when i is 3
         }
@@ -856,7 +856,7 @@ int main() {
         if(i == 3) {
             continue; // Skip when i is 3
         }
-        cout << i << "\n";
+        cout << i << "endl";
     }
     return 0;
 }`}</code></pre>
@@ -946,10 +946,10 @@ int main() {
 using namespace std;
 
 int main() {
-    cout << sqrt(64) << "\n"; // Square root
-    cout << ceil(4.137) << "\n"; // Round up
-    cout << floor(4.768) << "\n"; // Round down
-    cout << pow(2, 3) << "\n"; // Power (2^3)
+    cout << sqrt(64) << "endl"; // Square root
+    cout << ceil(4.137) << "endl"; // Round up
+    cout << floor(4.768) << "endl"; // Round down
+    cout << pow(2, 3) << "endl"; // Power (2^3)
     return 0;
 }`}</code></pre>
               </div>
@@ -1055,7 +1055,7 @@ int main() {
             arr3[i][j] = arr1[i][j] + arr2[i][j];
             cout << arr3[i][j] << " ";
         }
-        cout << "\n";
+        cout << "endl";
     }
     return 0;
 }`}</code></pre>
@@ -1149,8 +1149,8 @@ class Student {
 
 int main() {
     Student obj; // Creating object
-    cout << obj.id << "\n"; // Accessing property
-    cout << obj.name << "\n"; // Accessing property
+    cout << obj.id << "endl"; // Accessing property
+    cout << obj.name << "endl"; // Accessing property
     obj.greeting(); // Calling method
     return 0;
 }`}</code></pre>
@@ -1182,7 +1182,7 @@ class Operator {
         Operator() { // Default constructor
             int a = 10;
             int b = 100;
-            cout << (a + b) << "\n";
+            cout << (a + b) << "endl";
             cout << "Constructor is called";
         }
 };
@@ -1199,7 +1199,7 @@ using namespace std;
 class Operator {
     public:
         Operator(int a, int b) { // Parameterized constructor
-            cout << (a + b) << "\n";
+            cout << (a + b) << "endl";
             cout << "Parameterized Constructor is called";
         }
 };
@@ -1414,10 +1414,10 @@ using namespace std;
 class Overload {
     public:
         void add(int a, int b) {
-            cout << (a + b) << "\n";
+            cout << (a + b) << "endl";
         }
         void add(int a, int b, int c) {
-            cout << (a + b + c) << "\n";
+            cout << (a + b + c) << "endl";
         }
 };
 
@@ -1450,7 +1450,7 @@ int main() {
     Java obj1;
     CPP obj2;
     obj1.level(); // Output: Hard
-    cout << "\n";
+    cout << "endl";
     obj2.level(); // Output: Easy
     return 0;
 }`}</code></pre>
@@ -1570,9 +1570,9 @@ int main() {
     s1.name = "Dhoni";
     s1.fees = 15000.00;
     
-    cout << s1.id << "\n";
-    cout << s1.name << "\n";
-    cout << s1.fees << "\n";
+    cout << s1.id << "endl";
+    cout << s1.name << "endl";
+    cout << s1.fees << "endl";
     return 0;
 }`}</code></pre>
               </div>
@@ -1672,18 +1672,6 @@ int main() {
 }`}</code></pre>
               </div>
 
-              {/* Multiple Catch Blocks */}
-              <div className="property-card mt-4">
-                <h3 className="h4">4. Multiple Catch Blocks</h3>
-                <pre><code>{`try {
-  throw 3.14;
-} catch (int e) {
-  cout << "Integer exception";
-} catch (double e) {
-  cout << "Double exception";
-}`}</code></pre>
-              </div>
-
               {/* Catch-All Block */}
               <div className="property-card mt-4">
                 <h3 className="h4">5. Catch-All Block</h3>
@@ -1692,29 +1680,6 @@ int main() {
   throw "Error!";
 } catch (...) {
   cout << "Caught some exception";
-}`}</code></pre>
-              </div>
-
-              {/* Custom Exception */}
-              <div className="property-card mt-4">
-                <h3 className="h4">6. Custom Exception</h3>
-                <pre><code>{`#include <iostream>
-#include <exception>
-using namespace std;
-
-class MyException : public exception {
-public:
-  const char* what() const noexcept override {
-    return "Custom Exception Occurred";
-  }
-};
-
-int main() {
-  try {
-    throw MyException();
-  } catch (const MyException& e) {
-    cout << e.what();
-  }
 }`}</code></pre>
               </div>
             </section>
@@ -1744,7 +1709,7 @@ using namespace std;
 int main() {
     ofstream file("demo.txt"); // Create/open file
     file << "My name is Dhoni";
-    file << "\n" << "My age is 43";
+    file << "endl" << "My age is 43";
     file.close(); // Close file
     return 0;
 }`}</code></pre>
@@ -1762,7 +1727,7 @@ int main() {
     ifstream rfile("demo.txt"); // Open file for reading
     
     while(getline(rfile, text)) { // Read line by line
-        cout << text << "\n";
+        cout << text << "endl";
     }
     
     rfile.close(); // Close file
@@ -1857,61 +1822,6 @@ int main() {
     });
     t.join();
 }`}</code></pre>
-              </div>
-
-              {/* Mutex */}
-              <div className="property-card mt-4">
-                <h3 className="h4">5. Mutex</h3>
-                <p><strong>Definition:</strong> Used to prevent race conditions by locking shared resources.</p>
-                <pre><code>{`#include <mutex>
-mutex m;
-
-void critical_section() {
-    m.lock();
-    // do work
-    m.unlock();
-}`}</code></pre>
-
-                <h4 className="h5 mt-3">With lock_guard:</h4>
-                <pre><code>{`void safe_print(int id) {
-    lock_guard<mutex> lg(m);
-    cout << "Thread " << id << endl;
-}`}</code></pre>
-              </div>
-
-              {/* Condition Variable */}
-              <div className="property-card mt-4">
-                <h3 className="h4">6. Condition Variable</h3>
-                <p>Used for thread synchronization.</p>
-                <pre><code>{`#include <condition_variable>
-mutex mtx;
-condition_variable cv;
-bool ready = false;
-
-void run() {
-    unique_lock<mutex> lck(mtx);
-    cv.wait(lck, [] { return ready; });
-    cout << "Thread resumed\n";
-}
-
-int main() {
-    thread t(run);
-    this_thread::sleep_for(chrono::seconds(1));
-    {
-        lock_guard<mutex> lck(mtx);
-        ready = true;
-    }
-    cv.notify_one();
-    t.join();
-}`}</code></pre>
-              </div>
-
-              {/* Hardware Concurrency */}
-              <div className="property-card mt-4">
-                <h3 className="h4">7. Hardware Concurrency</h3>
-                <p>Gives number of threads supported by system:</p>
-                <pre><code>{`unsigned int n = thread::hardware_concurrency();
-cout << "Cores: " << n;`}</code></pre>
               </div>
             </section>
 
@@ -2016,7 +1926,7 @@ int main() {
     
     return 0;
 }`}</code></pre>
-                <p><strong>Output:</strong> <code>Size: 4\nElements: 1 5 2 3</code></p>
+                <p><strong>Output:</strong> <code>Size: 4endlElements: 1 5 2 3</code></p>
               </div>
 
               {/* Pair */}
@@ -2079,7 +1989,7 @@ int main() {
     
     return 0;
 }`}</code></pre>
-                <p><strong>Output:</strong> <code>1 Mugil\n2 Two\nUnpacked: 1 Mugil</code></p>
+                <p><strong>Output:</strong> <code>1 Mugilendl2 TwoendlUnpacked: 1 Mugil</code></p>
               </div>
 
               {/* Set */}
@@ -2164,11 +2074,11 @@ int main() {
     for (int i : s) cout << i << " ";
     
     if (s.find(3) != s.end())
-        cout << "\n3 found in set";
+        cout << "endl3 found in set";
     
     return 0;
 }`}</code></pre>
-                <p><strong>Output:</strong> <code>Size: 3\nElements: 3 4 5\n3 found in set</code></p>
+                <p><strong>Output:</strong> <code>Size: 3endlElements: 3 4 5endl3 found in set</code></p>
               </div>
 
               {/* Map */}
@@ -2264,7 +2174,7 @@ int main() {
     m.erase(1);
     return 0;
 }`}</code></pre>
-                <p><strong>Output:</strong> <code>{`Size: 3\n1 -> One\n2 -> Two\n3 -> Three\nKey 2 found`}</code></p>
+                <p><strong>Output:</strong> <code>{`Size: 3endl1 -> Oneendl2 -> Twoendl3 -> ThreeendlKey 2 found`}</code></p>
               </div>
 
               {/* Unordered Map/Set */}
@@ -2350,10 +2260,10 @@ int main() {
     um["a"] = 10;
     um["b"] = 20;
     
-    cout << "\nMap values: " << um["a"] << " " << um["b"];
+    cout << "endlMap values: " << um["a"] << " " << um["b"];
     return 0;
 }`}</code></pre>
-                <p><strong>Output:</strong> <code>Elements: 7 3 5\nMap values: 10 20</code></p>
+                <p><strong>Output:</strong> <code>Elements: 7 3 5endlMap values: 10 20</code></p>
               </div>
 
               {/* Stack */}
@@ -2423,7 +2333,7 @@ int main() {
     
     return 0;
 }`}</code></pre>
-                <p><strong>Output:</strong> <code>Top: 3\nSize: 3\nElements: 3 2 1</code></p>
+                <p><strong>Output:</strong> <code>Top: 3endlSize: 3endlElements: 3 2 1</code></p>
               </div>
 
               {/* Queue */}
@@ -2499,7 +2409,7 @@ int main() {
     
     return 0;
 }`}</code></pre>
-                <p><strong>Output:</strong> <code>Front: 10\nBack: 30\nSize: 3\nElements: 10 20 30</code></p>
+                <p><strong>Output:</strong> <code>Front: 10endlBack: 30endlSize: 3endlElements: 10 20 30</code></p>
               </div>
 
               {/* Priority Queue */}
@@ -2570,7 +2480,7 @@ int main() {
     
     return 0;
 }`}</code></pre>
-                <p><strong>Output:</strong> <code>Max heap top: 5\nMin heap top: 1</code></p>
+                <p><strong>Output:</strong> <code>Max heap top: 5endlMin heap top: 1</code></p>
               </div>
 
               {/* Deque */}
@@ -2659,7 +2569,7 @@ int main() {
     
     return 0;
 }`}</code></pre>
-                <p><strong>Output:</strong> <code>Front: 2\nBack: 3\nAfter pop_front: 1</code></p>
+                <p><strong>Output:</strong> <code>Front: 2endlBack: 3endlAfter pop_front: 1</code></p>
               </div>
 
               {/* Algorithms Header */}
@@ -2761,13 +2671,13 @@ int main() {
     cout << "Sorted reversed: ";
     for (int i : v) cout << i << " ";
     
-    cout << "\nCount of 2: " << count(v.begin(), v.end(), 2);
-    cout << "\nMax: " << *max_element(v.begin(), v.end());
-    cout << "\nSum: " << accumulate(v.begin(), v.end(), 0);
+    cout << "endlCount of 2: " << count(v.begin(), v.end(), 2);
+    cout << "endlMax: " << *max_element(v.begin(), v.end());
+    cout << "endlSum: " << accumulate(v.begin(), v.end(), 0);
     
     return 0;
 }`}</code></pre>
-                <p><strong>Output:</strong> <code>Sorted reversed: 5 4 3 2 2 1\nCount of 2: 2\nMax: 5\nSum: 17</code></p>
+                <p><strong>Output:</strong> <code>Sorted reversed: 5 4 3 2 2 1endlCount of 2: 2endlMax: 5endlSum: 17</code></p>
               </div>
 
               {/* Iterators */}
@@ -2825,18 +2735,18 @@ int main() {
         cout << *it << " ";
     
     // Reverse iteration
-    cout << "\nReverse: ";
+    cout << "endlReverse: ";
     for (vector<int>::reverse_iterator it = v.rbegin(); it != v.rend(); ++it)
         cout << *it << " ";
     
     // Auto keyword
-    cout << "\nAuto: ";
+    cout << "endlAuto: ";
     for (auto it = v.begin(); it != v.end(); ++it)
         cout << *it << " ";
     
     return 0;
 }`}</code></pre>
-                <p><strong>Output:</strong> <code>Forward: 10 20 30\nReverse: 30 20 10\nAuto: 10 20 30</code></p>
+                <p><strong>Output:</strong> <code>Forward: 10 20 30endlReverse: 30 20 10endlAuto: 10 20 30</code></p>
               </div>
 
               {/* Lambda Functions */}
@@ -2908,11 +2818,11 @@ int main() {
     for_each(v.begin(), v.end(), [&sum](int x) {
         sum += x;
     });
-    cout << "\nSum: " << sum;
+    cout << "endlSum: " << sum;
     
     return 0;
 }`}</code></pre>
-                <p><strong>Output:</strong> <code>Count: 2\nSorted: 5 4 3 2 1\nSum: 15</code></p>
+                <p><strong>Output:</strong> <code>Count: 2endlSorted: 5 4 3 2 1endlSum: 15</code></p>
               </div>
 
               {/* Custom Sorting */}
@@ -2947,7 +2857,7 @@ int main() {
     vector<pair<int, int>> pairs = {{1, 2}, {3, 1}, {1, 1}, {3, 2}};
     sort(pairs.begin(), pairs.end(), pairCompare);
     
-    cout << "\nPairs sorted: ";
+    cout << "endlPairs sorted: ";
     for (auto p : pairs)
         cout << "(" << p.first << "," << p.second << ") ";
     
@@ -2958,7 +2868,7 @@ int main() {
     
     return 0;
 }`}</code></pre>
-                <p><strong>Output:</strong> <code>Descending: 9 5 2 1\nPairs sorted: (3,1) (3,2) (1,1) (1,2)</code></p>
+                <p><strong>Output:</strong> <code>Descending: 9 5 2 1endlPairs sorted: (3,1) (3,2) (1,1) (1,2)</code></p>
               </div>
 
               {/* STL Container Summary */}

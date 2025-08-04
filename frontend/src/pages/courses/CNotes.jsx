@@ -517,17 +517,17 @@ int main() {
 
 int main() {
     int a = 10, b = 3;
-    printf("Addition: %d\n", a + b);
-    printf("Subtraction: %d\n", a - b);
-    printf("Multiplication: %d\n", a * b);
-    printf("Division: %d\n", a / b);
-    printf("Modulus: %d\n", a % b);
+    printf("Addition: %d", a + b);
+    printf("Subtraction: %d", a - b);
+    printf("Multiplication: %d", a * b);
+    printf("Division: %d", a / b);
+    printf("Modulus: %d", a % b);
     
     a++; // Post-increment
-    printf("After increment: %d\n", a);
+    printf("After increment: %d", a);
     
     --b; // Pre-decrement
-    printf("After decrement: %d\n", b);
+    printf("After decrement: %d", b);
     return 0;
 }`}</code></pre>
               </div>
@@ -587,10 +587,10 @@ int main() {
 int main() {
     int a = 10;
     a += 5; // a = a + 5
-    printf("After +=: %d\n", a);
+    printf("After +=: %d", a);
     
     a *= 2; // a = a * 2
-    printf("After *=: %d\n", a);
+    printf("After *=: %d", a);
     return 0;
 }`}</code></pre>
               </div>
@@ -642,10 +642,10 @@ int main() {
 
 int main() {
     int a = 10, b = 20;
-    printf("Equal to: %d\n", a == b);
-    printf("Not equal to: %d\n", a != b);
-    printf("Greater than: %d\n", a > b);
-    printf("Less than: %d\n", a < b);
+    printf("Equal to: %d", a == b);
+    printf("Not equal to: %d", a != b);
+    printf("Greater than: %d", a > b);
+    printf("Less than: %d", a < b);
     return 0;
 }`}</code></pre>
               </div>
@@ -682,9 +682,9 @@ int main() {
 
 int main() {
     int a = 10, b = 20;
-    printf("Logical AND: %d\n", (a == 10) && (b > 10));
-    printf("Logical OR: %d\n", (a == 20) || (b > 10));
-    printf("Logical NOT: %d\n", !(a == 20));
+    printf("Logical AND: %d", (a == 10) && (b > 10));
+    printf("Logical OR: %d", (a == 20) || (b > 10));
+    printf("Logical NOT: %d", !(a == 20));
     return 0;
 }`}</code></pre>
               </div>
@@ -737,12 +737,12 @@ int main() {
 int main() {
     unsigned char a = 5, b = 3; // 0101 and 0011 in binary
     
-    printf("Bitwise AND: %d\n", a & b);  // 0001 → 1
-    printf("Bitwise OR: %d\n", a | b);   // 0111 → 7
-    printf("Bitwise XOR: %d\n", a ^ b);  // 0110 → 6
-    printf("Bitwise NOT: %d\n", ~a);     // 11111010 → 250 (unsigned char)
-    printf("Left shift: %d\n", a << 1);  // 1010 → 10
-    printf("Right shift: %d\n", a >> 1); // 0010 → 2
+    printf("Bitwise AND: %d", a & b);  // 0001 → 1
+    printf("Bitwise OR: %d", a | b);   // 0111 → 7
+    printf("Bitwise XOR: %d", a ^ b);  // 0110 → 6
+    printf("Bitwise NOT: %d", ~a);     // 11111010 → 250 (unsigned char)
+    printf("Left shift: %d", a << 1);  // 1010 → 10
+    printf("Right shift: %d", a >> 1); // 0010 → 2
     return 0;
 }`}</code></pre>
               </div>
@@ -774,7 +774,7 @@ int main() {
 int main() {
     int marks = 40;
     if (marks >= 35) {
-        printf("Passed\n");
+        printf("Passed");
     }
     return 0;
 }`}</code></pre>
@@ -792,9 +792,9 @@ int main() {
 int main() {
     int marks = 20;
     if (marks >= 35) {
-        printf("Passed\n");
+        printf("Passed");
     } else {
-        printf("Failed\n");
+        printf("Failed");
     }
     return 0;
 }`}</code></pre>
@@ -816,17 +816,17 @@ int main() {
 int main() {
     int marks = 85;
     if (marks > 90) {
-        printf("O Grade\n");
+        printf("O Grade");
     } else if (marks > 80) {
-        printf("A+ Grade\n");
+        printf("A+ Grade");
     } else if (marks > 70) {
-        printf("A Grade\n");
+        printf("A Grade");
     } else if (marks > 60) {
-        printf("B+ Grade\n");
+        printf("B+ Grade");
     } else if (marks > 50) {
-        printf("B Grade\n");
+        printf("B Grade");
     } else {
-        printf("Fail\n");
+        printf("Fail");
     }
     return 0;
 }`}</code></pre>
@@ -845,12 +845,12 @@ int main() {
     int marks = 97;
     if (marks > 90) {
         if (marks > 95) {
-            printf("O Grade\n");
+            printf("O Grade");
         } else {
-            printf("A+ Grade\n");
+            printf("A+ Grade");
         }
     } else {
-        printf("Other grades\n");
+        printf("Other grades");
     }
     return 0;
 }`}</code></pre>
@@ -875,16 +875,16 @@ int main() {
     int choice = 2;
     switch (choice) {
         case 1:
-            printf("Fan switch\n");
+            printf("Fan switch");
             break;
         case 2:
-            printf("AC switch\n");
+            printf("AC switch");
             break;
         case 3:
-            printf("Light switch\n");
+            printf("Light switch");
             break;
         default:
-            printf("Invalid switch\n");
+            printf("Invalid switch");
     }
     return 0;
 }`}</code></pre>
@@ -912,7 +912,7 @@ int main() {
 
 int main() {
     for (int i = 0; i < 5; i++) {
-        printf("%d\n", i);
+        printf("%d", i);
     }
     return 0;
 }`}</code></pre>
@@ -930,7 +930,7 @@ while (condition) {
 int main() {
     int i = 0;
     while (i < 5) {
-        printf("%d\n", i);
+        printf("%d", i);
         i++;
     }
     return 0;
@@ -949,7 +949,7 @@ do {
 int main() {
     int i = 0;
     do {
-        printf("%d\n", i);
+        printf("%d", i);
         i++;
     } while (i < 5);
     return 0;
@@ -968,7 +968,7 @@ int main() {
         if (i == 3) {
             break; // Exit the loop when i is 3
         }
-        printf("%d\n", i);
+        printf("%d", i);
     }
     return 0;
 }`}</code></pre>
@@ -982,7 +982,7 @@ int main() {
         if (i == 3) {
             continue; // Skip iteration when i is 3
         }
-        printf("%d\n", i);
+        printf("%d", i);
     }
     return 0;
 }`}</code></pre>
@@ -1024,12 +1024,12 @@ int main() {
     int numbers[] = {10, 20, 30, 40, 50};
     
     // Accessing elements
-    printf("First element: %d\n", numbers[0]);
-    printf("Third element: %d\n", numbers[2]);
+    printf("First element: %d", numbers[0]);
+    printf("Third element: %d", numbers[2]);
     
     // Modifying elements
     numbers[1] = 25;
-    printf("Modified second element: %d\n", numbers[1]);
+    printf("Modified second element: %d", numbers[1]);
     
     return 0;
 }`}</code></pre>
@@ -1058,7 +1058,7 @@ int main() {
         sum += arr[i];
     }
     
-    printf("Sum of array elements: %d\n", sum);
+    printf("Sum of array elements: %d", sum);
     return 0;
 }`}</code></pre>
               </div>
@@ -1091,12 +1091,12 @@ int main() {
     }
     
     // Display result
-    printf("Resultant Matrix:\n");
+    printf("Resultant Matrix:");
     for (int i = 0; i < 2; i++) {
         for (int j = 0; j < 2; j++) {
             printf("%d ", result[i][j]);
         }
-        printf("\n");
+        printf("");
     }
     
     return 0;
@@ -1137,12 +1137,12 @@ int main() {
     
     printf("Enter your name: ");
     scanf("%s", name); // Reads until whitespace
-    printf("Hello, %s!\n", name);
+    printf("Hello, %s!", name);
     
     // To read with spaces
     printf("Enter your full name: ");
-    scanf(" %[^\n]", name); // Reads until newline
-    printf("Hello, %s!\n", name);
+    scanf(" %[^]", name); // Reads until newline
+    printf("Hello, %s!", name);
     
     return 0;
 }`}</code></pre>
@@ -1157,7 +1157,7 @@ int main() {
 
 int main() {
     char str[] = "Hello";
-    printf("Length: %zu\n", strlen(str)); // 5
+    printf("Length: %zu", strlen(str)); // 5
     return 0;
 }`}</code></pre>
                 
@@ -1170,7 +1170,7 @@ int main() {
     char dest[20];
     
     strcpy(dest, src);
-    printf("Copied string: %s\n", dest);
+    printf("Copied string: %s", dest);
     return 0;
 }`}</code></pre>
                 
@@ -1183,7 +1183,7 @@ int main() {
     char str2[] = " World";
     
     strcat(str1, str2);
-    printf("Concatenated string: %s\n", str1);
+    printf("Concatenated string: %s", str1);
     return 0;
 }`}</code></pre>
                 
@@ -1196,8 +1196,8 @@ int main() {
     char str2[] = "hello";
     char str3[] = "world";
     
-    printf("Comparison 1: %d\n", strcmp(str1, str2)); // 0 (equal)
-    printf("Comparison 2: %d\n", strcmp(str1, str3)); // negative (str1 < str3)
+    printf("Comparison 1: %d", strcmp(str1, str2)); // 0 (equal)
+    printf("Comparison 2: %d", strcmp(str1, str3)); // negative (str1 < str3)
     return 0;
 }`}</code></pre>
               </div>
@@ -1225,9 +1225,9 @@ int main() {
     
     ptr = &var; // Assign address of var to pointer
     
-    printf("Address of var: %p\n", &var);
-    printf("Value stored in ptr: %p\n", ptr);
-    printf("Value pointed by ptr: %d\n", *ptr);
+    printf("Address of var: %p", &var);
+    printf("Value stored in ptr: %p", ptr);
+    printf("Value pointed by ptr: %d", *ptr);
     
     return 0;
 }`}</code></pre>
@@ -1241,11 +1241,11 @@ int main() {
     int arr[] = {10, 20, 30, 40, 50};
     int *ptr = arr; // Points to first element
     
-    printf("Element at ptr: %d\n", *ptr);
+    printf("Element at ptr: %d", *ptr);
     ptr++; // Move to next element
-    printf("Element after increment: %d\n", *ptr);
+    printf("Element after increment: %d", *ptr);
     ptr--; // Move back
-    printf("Element after decrement: %d\n", *ptr);
+    printf("Element after decrement: %d", *ptr);
     
     return 0;
 }`}</code></pre>
@@ -1260,7 +1260,7 @@ int main() {
     int *ptr = arr;
     
     for (int i = 0; i < 5; i++) {
-        printf("Element %d: %d\n", i, *(ptr + i));
+        printf("Element %d: %d", i, *(ptr + i));
     }
     
     return 0;
@@ -1276,9 +1276,9 @@ int main() {
     int *ptr = &var;
     int **dptr = &ptr; // Pointer to pointer
     
-    printf("Value of var: %d\n", var);
-    printf("Value using ptr: %d\n", *ptr);
-    printf("Value using dptr: %d\n", **dptr);
+    printf("Value of var: %d", var);
+    printf("Value using ptr: %d", *ptr);
+    printf("Value using dptr: %d", **dptr);
     
     return 0;
 }`}</code></pre>
@@ -1319,79 +1319,9 @@ int main() {
     s1.marks = 85.5;
     
     // Accessing values
-    printf("Roll No: %d\n", s1.roll_no);
-    printf("Name: %s\n", s1.name);
-    printf("Marks: %.2f\n", s1.marks);
-    
-    return 0;
-}`}</code></pre>
-              </div>
-              
-              <div className="property-card">
-                <h3 className="h4">Array of Structures</h3>
-                <pre><code>{`#include <stdio.h>
-
-struct Book {
-    char title[100];
-    char author[50];
-    int pages;
-};
-
-int main() {
-    struct Book library[3];
-    
-    // Input book details
-    for (int i = 0; i < 3; i++) {
-        printf("Enter title, author, and pages for book %d: ", i+1);
-        scanf("%s %s %d", library[i].title, library[i].author, &library[i].pages);
-    }
-    
-    // Display book details
-    printf("\nLibrary Catalog:\n");
-    for (int i = 0; i < 3; i++) {
-        printf("Book %d: %s by %s, %d pages\n", 
-               i+1, library[i].title, library[i].author, library[i].pages);
-    }
-    
-    return 0;
-}`}</code></pre>
-              </div>
-              
-              <div className="property-card">
-                <h3 className="h4">Structures with Pointers</h3>
-                <pre><code>{`#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-struct Employee {
-    int id;
-    char name[50];
-    float salary;
-};
-
-int main() {
-    struct Employee *emp;
-    
-    // Allocate memory
-    emp = (struct Employee*) malloc(sizeof(struct Employee));
-    
-    if (emp == NULL) {
-        printf("Memory allocation failed\n");
-        return 1;
-    }
-    
-    // Assign values
-    emp->id = 1001;
-    strcpy(emp->name, "Alice Smith");
-    emp->salary = 50000.0;
-    
-    // Display values
-    printf("Employee ID: %d\n", emp->id);
-    printf("Employee Name: %s\n", emp->name);
-    printf("Employee Salary: %.2f\n", emp->salary);
-    
-    // Free memory
-    free(emp);
+    printf("Roll No: %d", s1.roll_no);
+    printf("Name: %s", s1.name);
+    printf("Marks: %.2f", s1.marks);
     
     return 0;
 }`}</code></pre>
@@ -1407,10 +1337,10 @@ enum Weekday {Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday};
 int main() {
     enum Weekday today = Wednesday;
     
-    printf("Today is day number %d\n", today);
+    printf("Today is day number %d", today);
     
     if (today == Wednesday) {
-        printf("It's Wednesday!\n");
+        printf("It's Wednesday!");
     }
     
     return 0;
@@ -1477,15 +1407,15 @@ int main() {
     file = fopen("example.txt", "w");
     
     if (file == NULL) {
-        printf("Error opening file!\n");
+        printf("Error opening file!");
         return 1;
     }
     
-    fprintf(file, "Hello, File Handling in C!\n");
-    fprintf(file, "This is a second line.\n");
+    fprintf(file, "Hello, File Handling in C!");
+    fprintf(file, "This is a second line.");
     
     fclose(file);
-    printf("File written successfully.\n");
+    printf("File written successfully.");
     return 0;
 }`}</code></pre>
               </div>
@@ -1501,11 +1431,11 @@ int main() {
     file = fopen("example.txt", "r");
     
     if (file == NULL) {
-        printf("Error opening file!\n");
+        printf("Error opening file!");
         return 1;
     }
     
-    printf("File contents:\n");
+    printf("File contents:");
     while (fgets(buffer, 255, file) != NULL) {
         printf("%s", buffer);
     }
@@ -1524,14 +1454,14 @@ int main() {
     file = fopen("example.txt", "a");
     
     if (file == NULL) {
-        printf("Error opening file!\n");
+        printf("Error opening file!");
         return 1;
     }
     
-    fprintf(file, "This line is appended.\n");
+    fprintf(file, "This line is appended.");
     
     fclose(file);
-    printf("File appended successfully.\n");
+    printf("File appended successfully.");
     return 0;
 }`}</code></pre>
               </div>
