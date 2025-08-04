@@ -92,7 +92,6 @@ import GitSyllabus from './pages/syllabuses/GitSyllabus';
 import ScrollToTop from './components/ScrollToTop';
 import AllUsers from './pages/AllUsers';
 import AspNetCoreNotes from './pages/courses/AspNetCoreNotes';
-import FloatingButtons from './components/FloatingButtons';
 
 function Layout() {
   return (
@@ -192,7 +191,7 @@ function Layout() {
 
         </Routes>
       </div>
-      <FloatingButtons />
+
       {/* Footer */}
       <Footer />
     </div>
