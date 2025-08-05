@@ -92,6 +92,14 @@ import GitSyllabus from './pages/syllabuses/GitSyllabus';
 import ScrollToTop from './components/ScrollToTop';
 import AllUsers from './pages/AllUsers';
 import AspNetCoreNotes from './pages/courses/AspNetCoreNotes';
+import AllPrograms from './pages/AllPrograms';
+import JavaPrograms from './pages/programs/JavaPrograms';
+import PythonPrograms from './pages/programs/PythonPrograms';
+import CPrograms from './pages/programs/CPrograms';
+import CppPrograms from './pages/programs/CppPrograms';
+import PhpPrograms from './pages/programs/PhpPrograms';
+import CsharpPrograms from './pages/programs/CsharpPrograms';
+import JavascriptPrograms from './pages/programs/JavascriptPrograms';
 
 function Layout() {
   return (
@@ -188,6 +196,14 @@ function Layout() {
           <Route path='/flutter-syllabus' element={<FlutterSyllabus />} />
           <Route path='/reactnative-syllabus' element={<ReactNativeSyllabus />} />
           <Route path='/github-syllabus' element={<GitSyllabus />} />
+          <Route path="/all-programs" element={<AllPrograms />} />
+          <Route path='/programs/java' element={<JavaPrograms />} />
+          <Route path='/programs/python' element={<PythonPrograms />} />
+          <Route path='/programs/c' element={<CPrograms />} />
+          <Route path='/programs/c++' element={<CppPrograms />} />
+          <Route path='/programs/php' element={<PhpPrograms />} />
+          <Route path='/programs/csharp' element={<CsharpPrograms />} />
+          <Route path='/programs/javascript' element={<JavascriptPrograms />} />
 
         </Routes>
       </div>
