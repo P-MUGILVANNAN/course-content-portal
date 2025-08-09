@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const ScrollToTopArrow = () => {
   const [showArrow, setShowArrow] = useState(false);
