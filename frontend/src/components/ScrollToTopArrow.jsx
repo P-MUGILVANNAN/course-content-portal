@@ -1,23 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const ScrollToTopArrow = () => {
   const [showArrow, setShowArrow] = useState(false);
 
-  // Show/hide arrow based on scroll position
   useEffect(() => {
     const handleScroll = () => {
-      if (window.pageYOffset > 300) {
-        setShowArrow(true);
-      } else {
-        setShowArrow(false);
-      }
+      setShowArrow(window.pageYOffset > 300);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Scroll to top function
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -26,40 +21,63 @@ const ScrollToTopArrow = () => {
   };
 
   return (
-    <div 
-      className={`position-fixed bottom-0 end-0 p-3 ${showArrow ? 'd-block' : 'd-none'}`}
-      style={{ zIndex: 1000, cursor: 'pointer' }}
-    >
+    <>
+      <style>
+        {`
+          .scroll-to-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #0d6efd;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: ${showArrow ? '1' : '0'};
+            visibility: ${showArrow ? 'visible' : 'hidden'};
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+          }
+          
+          .scroll-to-top-btn:hover {
+            background: #0b5ed7;
+          }
+          
+          .bounce-animation {
+            animation: bounce 1s infinite;
+          }
+          
+          @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+          }
+          
+          /* Mobile responsiveness */
+          @media (max-width: 576px) {
+            .scroll-to-top-btn {
+              width: 45px;
+              height: 45px;
+              bottom: 15px;
+              right: 15px;
+            }
+          }
+        `}
+      </style>
+
       <div 
-        className="bg-primary text-white rounded-circle p-2 d-flex align-items-center justify-content-center"
-        style={{ width: '50px', height: '50px' }}
+        className="scroll-to-top-btn"
         onClick={scrollToTop}
+        aria-label="Scroll to top"
       >
-        <i className="bi bi-arrow-up fs-4 animate-bounce"></i>
+        <i className="bi bi-arrow-up bounce-animation fs-5"></i>
       </div>
-    </div>
+    </>
   );
 };
 
 export default ScrollToTopArrow;
-
-// Add this CSS in your global stylesheet or as a style tag
-const styles = `
-  .animate-bounce {
-    animation: bounce 1s infinite;
-  }
-  
-  @keyframes bounce {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-5px);
-    }
-  }
-`;
-
-// Inject the styles
-const styleTag = document.createElement('style');
-styleTag.innerHTML = styles;
-document.head.appendChild(styleTag);
