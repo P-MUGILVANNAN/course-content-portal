@@ -100,6 +100,7 @@ import CppPrograms from './pages/programs/CppPrograms';
 import PhpPrograms from './pages/programs/PhpPrograms';
 import CsharpPrograms from './pages/programs/CsharpPrograms';
 import JavascriptPrograms from './pages/programs/JavascriptPrograms';
+import ScrollToTopArrow from './components/ScrollToTopArrow';
 
 function Layout() {
   return (
@@ -207,7 +208,7 @@ function Layout() {
 
         </Routes>
       </div>
-
+      <ScrollToTopArrow />
       {/* Footer */}
       <Footer />
     </div>
