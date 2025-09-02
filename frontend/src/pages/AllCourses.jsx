@@ -60,6 +60,13 @@ function AllCourses() {
             category: "Web Development"
         },
         {
+            title: "Next JS",
+            description: "Build modern web applications",
+            icon: "filetype-jsx",
+            templateLink: "/trainer/nextjs-course",
+            category: "Web Development"
+        },
+        {
             title: "Angular",
             description: "Build modern web applications",
             icon: "box-seam",

@@ -101,6 +101,7 @@ import PhpPrograms from './pages/programs/PhpPrograms';
 import CsharpPrograms from './pages/programs/CsharpPrograms';
 import JavascriptPrograms from './pages/programs/JavascriptPrograms';
 import ScrollToTopArrow from './components/ScrollToTopArrow';
+import NextJsNotes from './pages/courses/NextJsNotes';
 
 function Layout() {
   return (
@@ -121,6 +122,7 @@ function Layout() {
           <Route path='/bs-course' element={<BootstrapNotes />} />
           <Route path='/tailwind-course' element={<TailwindCssNotes />} />
           <Route path='/react-course' element={<ReactNotes />} />
+          <Route path='/nextjs-course' element={<NextJsNotes />} />
           <Route path='/node-course' element={<NodeJsNotes />} />
           <Route path='/python-course' element={<PythonNotes />} />
           <Route path='/java-course' element={<JavaNotes />} />
